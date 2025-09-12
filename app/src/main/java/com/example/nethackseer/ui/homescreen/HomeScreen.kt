@@ -2,6 +2,7 @@ package com.example.nethackseer.ui.homescreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,11 +28,16 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.foundation.text.input.rememberTextFieldState
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.style.TextAlign
 import com.example.nethackseer.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,14 +56,14 @@ fun HomeScreen(
     val buttonModifier = Modifier.padding(8.dp)
 
     var expanded by rememberSaveable { mutableStateOf(false) }
-    var text by remember { mutableStateOf("") } // State to hold the search query
-    var active by remember { mutableStateOf(false) } // State
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            CenterAlignedTopAppBar(
                 title = {
-                    Text(text = "NetHack Seer Home")
+                    Text(text = "Hello, welcome to NetHackSeer!",
+                        color = White,
+                        style = Typography.titleLarge)
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = DarkRed)
             )
@@ -131,6 +137,30 @@ fun HomeScreen(
                 ) {
                     Text(text = "Properties")
                 }
+            }
+            Card (
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                colors = CardDefaults.cardColors(LightRed)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Today's Page",
+                        color = Black,
+                        style = Typography.titleLarge,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.align(Alignment.TopCenter)
+                    )
+                }
+                Text("yo, NetHack is awesome lol",
+                    color = Black,
+                    style = Typography.bodyLarge,
+                    modifier = Modifier.padding(8.dp))
             }
         }
     }
