@@ -23,40 +23,54 @@ import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.ui.theme.Black
 import com.example.nethackseer.ui.theme.DarkRed
+import com.example.nethackseer.ui.theme.LightGray
 import com.example.nethackseer.ui.theme.LightRed
 import com.example.nethackseer.ui.theme.NetHackSeerTheme
 import com.example.nethackseer.ui.theme.Red
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.theme.White
 
+// functions to put repetitive buttons in the HomeScreen
+@Composable
+private fun ActionButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Button(
+        onClick = onClick,
+        shape = RoundedCornerShape(16.dp),
+        colors = ButtonDefaults.buttonColors(containerColor = Red),
+        modifier = modifier.padding(8.dp)
+    ) {
+        Text(text = text)
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    homeViewModel: HomeViewModel = viewModel(),
     textFieldState: TextFieldState,
     onSearch: (String) -> Unit,
-//    onItemsClicked: () -> Unit,
-//    onMonstersClicked: () -> Unit,
-//    onSettingsClicked: () -> Unit,
-//    onAboutClicked: () -> Unit
+    onNavigateToDetail: (String) -> Unit,
+    homeViewModel: HomeViewModel = viewModel()
 ) {
-    val buttonShape = RoundedCornerShape(16.dp)
-    val buttonColors = ButtonDefaults.buttonColors(Red)
-    val buttonModifier = Modifier.padding(8.dp)
 
+    val pageOfTheDay by homeViewModel.pageOfTheDay.collectAsState()
+    // search bar stuff, mutableStateOf is used to track changes to the state
     var expanded by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
@@ -75,9 +89,11 @@ fun HomeScreen(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .background(Color(0xFFE0E0E0)), // Light gray background
+                .background(LightGray),
             verticalArrangement = Arrangement.Top
         ) {
+            /* TODO: implement search bar for later use of searching up stuff (very obvious)
+            *   currently justs opens and closes, but it works for now*/
             SearchBar(
                 modifier = Modifier.fillMaxWidth(),
                 inputField = {
@@ -97,48 +113,33 @@ fun HomeScreen(
                 onExpandedChange = { expanded = it },
             ) {}
             Row (Modifier.fillMaxWidth()){
-                Button(
-                    onClick = { /*TODO*/ },
-                    shape = buttonShape,
-                    colors = buttonColors,
-                    modifier = buttonModifier.weight(1f)
-                ) {
-                    Text(text = "Items")
-                }
-                Button(
-                    onClick = { /*TODO*/ },
-                    shape = buttonShape,
-                    colors = buttonColors,
-                    modifier = buttonModifier.weight(1f)
-                ) {
-                    Text(text = "Monsters")
-                }
+                ActionButton("Items",
+                    onClick = {onNavigateToDetail("ring of conflict")},
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f))
+                ActionButton("Monsters",
+                    onClick = {onNavigateToDetail("lichen")},
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f))
             }
-            Button(
-                onClick = { /*TODO*/ },
-                shape = buttonShape,
-                colors = buttonColors,
-                modifier = buttonModifier.fillMaxWidth()
-            ) {
-                Text(text = "Dungeon Features")
-            }
+            ActionButton("Dungeon Features",
+                onClick = { /*TODO*/},
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth())
             Row {
-                Button(
+                ActionButton("Roles",
                     onClick = { /*TODO*/ },
-                    shape = buttonShape,
-                    colors = buttonColors,
-                    modifier = buttonModifier.weight(1f)
-                ) {
-                    Text(text = "Roles")
-                }
-                Button(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f))
+                ActionButton("Properties",
                     onClick = { /*TODO*/ },
-                    shape = buttonShape,
-                    colors = buttonColors,
-                    modifier = buttonModifier.weight(1f)
-                ) {
-                    Text(text = "Properties")
-                }
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f))
             }
             Card (
                 modifier = Modifier
@@ -172,6 +173,8 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     NetHackSeerTheme {
-        HomeScreen(textFieldState = rememberTextFieldState(), onSearch = {})
+        HomeScreen(textFieldState = rememberTextFieldState(),
+            onSearch = {},
+            onNavigateToDetail = {})
     }
 }
