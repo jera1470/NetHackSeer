@@ -145,25 +145,44 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),
-                colors = CardDefaults.cardColors(LightRed)
+                colors = CardDefaults.cardColors(containerColor = LightRed)
             ) {
-                Box(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                ) {
-                    Text(
-                        text = "Today's Page",
-                        color = Black,
-                        style = Typography.titleLarge,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.align(Alignment.TopCenter)
-                    )
+                if (pageOfTheDay != null) {
+                    val page = pageOfTheDay!! // nifty !!, it just ensures it's not null
+                    Column(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .fillMaxWidth()
+                    ) {
+                        Text(
+                            text = page.type,
+                            color = Black,
+                            style = Typography.titleLarge,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                        Text(
+                            text = page.name,
+                            color = Black,
+                            style = Typography.headlineSmall,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
+                        Text(
+                            text = page.summary,
+                            color = Black,
+                            style = Typography.bodyLarge,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
+                    }
+                } else {
+                    // placeholder for when the page is null
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(text = "oops.")
+                    }
                 }
-                Text("yo, NetHack is awesome lol",
-                    color = Black,
-                    style = Typography.bodyLarge,
-                    modifier = Modifier.padding(8.dp))
             }
         }
     }
