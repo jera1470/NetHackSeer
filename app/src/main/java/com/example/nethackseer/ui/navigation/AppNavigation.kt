@@ -10,15 +10,30 @@ import com.example.nethackseer.ui.homescreen.HomeScreen
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
+
+    // NavHost is the container for all screens here, so tread carefully
+    // what startDestination does is that it's the first screen you see
     NavHost(navController = navController, startDestination = "home") {
-        composable("home"){
+        // home screen route
+        composable("home") {
+
+            // the state for the search bar is created and owned here
+            val textFieldState = rememberTextFieldState()
+
             HomeScreen(
-                textFieldState = rememberTextFieldState(),
-                onSearch = { /*TODO*/ }
-//                onItemsClicked = { navController.navigate("items") },
-//                onMonstersClicked = { navController.navigate("monsters") },
-//                onSettingsClicked = { navController.navigate("settings") },
-//                onAboutClicked = { navController.navigate("about") }
+                textFieldState = textFieldState,
+
+                // searches for the entity and navigates to the detail screen
+                onSearch = { query ->
+                    if (query.isNotBlank()) {
+                        navController.navigate("detail/$query")
+                    }
+                },
+
+                // navigates to the detail screen when a button is pressed
+                onNavigateToDetail = { entityId ->
+                    navController.navigate("detail/$entityId")
+                }
             )
         }
     }
