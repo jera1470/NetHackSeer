@@ -65,6 +65,7 @@ private fun ActionButton(
 fun HomeScreen(
     textFieldState: TextFieldState,
     onSearch: (String) -> Unit,
+    onNavigateToType: (String) -> Unit,
     onNavigateToDetail: (String) -> Unit,
     homeViewModel: HomeViewModel = viewModel()
 ) {
@@ -114,12 +115,12 @@ fun HomeScreen(
             ) {}
             Row (Modifier.fillMaxWidth()){
                 ActionButton("Items",
-                    onClick = {onNavigateToDetail("ring of conflict")},
+                    onClick = {onNavigateToType("item")},
                     modifier = Modifier
                         .padding(8.dp)
                         .weight(1f))
                 ActionButton("Monsters",
-                    onClick = {onNavigateToDetail("lichen")},
+                    onClick = {onNavigateToType("monster")},
                     modifier = Modifier
                         .padding(8.dp)
                         .weight(1f))
@@ -200,6 +201,7 @@ fun HomeScreenPreview() {
     NetHackSeerTheme {
         HomeScreen(textFieldState = rememberTextFieldState(),
             onSearch = {},
-            onNavigateToDetail = {})
+            onNavigateToDetail = {},
+            onNavigateToType = {})
     }
 }
