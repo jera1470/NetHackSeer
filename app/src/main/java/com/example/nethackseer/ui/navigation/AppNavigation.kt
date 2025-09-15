@@ -2,9 +2,12 @@ package com.example.nethackseer.ui.navigation
 
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.nethackseer.ui.detail.DetailScreen
 import com.example.nethackseer.ui.homescreen.HomeScreen
 
 @Composable
@@ -34,6 +37,17 @@ fun AppNavigation() {
                 onNavigateToDetail = { entityId ->
                     navController.navigate("detail/$entityId")
                 }
+            )
+        }
+
+        // detail screen route
+        composable(
+            route = "detail/{entityId}", // expects an argument to make for this screen
+            arguments = listOf(navArgument("entityId") { type = NavType.StringType })
+        ) {
+            // when navigating to the detail screen, this lambda is called
+            DetailScreen(
+                onBack = { navController.popBackStack() } // important for going back
             )
         }
     }
