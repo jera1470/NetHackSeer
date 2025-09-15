@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.nethackseer.ui.detail.DetailScreen
 import com.example.nethackseer.ui.homescreen.HomeScreen
+import com.example.nethackseer.ui.typelist.Typelist
 
 @Composable
 fun AppNavigation() {
@@ -18,7 +19,9 @@ fun AppNavigation() {
     // what startDestination does is that it's the first screen you see
     NavHost(navController = navController, startDestination = "home") {
         // home screen route
-        composable("home") {
+        composable(
+            route = "home"
+        ) {
 
             // the state for the search bar is created and owned here
             val textFieldState = rememberTextFieldState()
@@ -33,9 +36,14 @@ fun AppNavigation() {
                     }
                 },
 
-                // navigates to the detail screen when a button is pressed
+                // navigates to the typelist screen when a button is pressed
                 onNavigateToDetail = { entityId ->
-                    navController.navigate("detail/$entityId")
+                    navController.navigate("type/$entityId")
+                },
+
+                // navigates to the detail screen when a button is pressed
+                onNavigateToType = { typeId ->
+                    navController.navigate("type/$typeId")
                 }
             )
         }
@@ -48,6 +56,20 @@ fun AppNavigation() {
             // when navigating to the detail screen, this lambda is called
             DetailScreen(
                 onBack = { navController.popBackStack() } // important for going back
+            )
+        }
+
+        // typelist screen route
+        composable(
+            route = "type/{typeId}",
+            arguments = listOf(navArgument("typeId") { type = NavType.StringType })
+        ){
+            Typelist(
+                onBack = { navController.popBackStack() }, // again, for going back
+
+                onNavigateToDetail = { entityId ->
+                    navController.navigate("detail/$entityId")
+                }
             )
         }
     }
