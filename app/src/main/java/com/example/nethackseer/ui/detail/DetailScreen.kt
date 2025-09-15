@@ -70,8 +70,11 @@ fun DetailScreen(
             // display if found
             is EntityUiState.Success -> {
                 // should know that viewmodel looked it up and got the data, but forget sometimes
-                Column(modifier = Modifier.padding(paddingValues).padding(16.dp)) {
-                    Text(text = state.name, style = Typography.headlineMedium)
+                Column(modifier = Modifier
+                        .padding(paddingValues)
+                        .padding(16.dp)) {
+                    Text(text = state.name,
+                        style = Typography.headlineMedium)
                     Text(
                         text = "Type: ${state.type}",
                         style = Typography.titleMedium,
