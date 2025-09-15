@@ -145,7 +145,13 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),
-                colors = CardDefaults.cardColors(containerColor = LightRed)
+                colors = CardDefaults.cardColors(containerColor = LightRed),
+                // lambda here to navigate to the detail screen when card is pressed
+                onClick = {
+                    pageOfTheDay?.let { page ->
+                        onNavigateToDetail(page.id)
+                    }
+                }
             ) {
                 if (pageOfTheDay != null) {
                     val page = pageOfTheDay!! // nifty !!, it just ensures it's not null
