@@ -21,6 +21,7 @@ import com.example.nethackseer.ui.theme.White
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
+    onBack: () -> Unit,
     detailViewModel: DetailViewModel = viewModel()
 ) {
     // important as hell, gotta remember to collect the state before using it
@@ -30,6 +31,16 @@ fun DetailScreen(
         topBar = {
             TopAppBar(
                 title = { Text("Details", color = White) },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            // arrow to go back ye
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = White
+                        )
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = DarkRed)
             )
         }
