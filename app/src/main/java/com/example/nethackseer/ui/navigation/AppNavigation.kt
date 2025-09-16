@@ -14,9 +14,8 @@ import com.example.nethackseer.ui.typelist.Typelist
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-
     // NavHost is the container for all screens here, so tread carefully
-    // what startDestination does is that it's the first screen you see
+    // startDestination is the first screen you see
     NavHost(navController = navController, startDestination = "home") {
         // home screen route
         composable(
@@ -38,7 +37,7 @@ fun AppNavigation() {
 
                 // navigates to the typelist screen when a button is pressed
                 onNavigateToDetail = { entityId ->
-                    navController.navigate("type/$entityId")
+                    navController.navigate("detail/$entityId")
                 },
 
                 // navigates to the detail screen when a button is pressed
