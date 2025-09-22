@@ -12,13 +12,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.ui.theme.DarkRed
+import com.example.nethackseer.ui.theme.NetHackSeerTheme
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.theme.White
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
     onBack: () -> Unit,
@@ -26,7 +27,15 @@ fun DetailScreen(
 ) {
     // important as hell, gotta remember to collect the state before using it
     val uiState by detailViewModel.uiState.collectAsState()
+    DetailScreenContent(uiState = uiState, onBack = onBack)
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DetailScreenContent(
+    uiState: EntityUiState,
+    onBack: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -89,5 +98,20 @@ fun DetailScreen(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DetailScreenPreview() {
+    NetHackSeerTheme {
+        DetailScreenContent(
+            uiState = EntityUiState.Success(
+                name = "magic lamp",
+                type = "Item",
+                description = "A rare item that contains a djinni for the chance to get a wish!"
+            ),
+            onBack = {}
+        )
     }
 }
