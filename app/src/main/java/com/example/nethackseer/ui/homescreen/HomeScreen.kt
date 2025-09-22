@@ -34,14 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.nethackseer.ui.theme.Black
-import com.example.nethackseer.ui.theme.DarkRed
-import com.example.nethackseer.ui.theme.LightGray
-import com.example.nethackseer.ui.theme.LightRed
-import com.example.nethackseer.ui.theme.NetHackSeerTheme
-import com.example.nethackseer.ui.theme.Red
-import com.example.nethackseer.ui.theme.Typography
-import com.example.nethackseer.ui.theme.White
+import com.example.nethackseer.ui.theme.*
 
 // functions to put repetitive buttons in the HomeScreen
 @Composable
