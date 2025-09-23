@@ -8,10 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.nethackseer.data.NetHackRepository
-import com.example.nethackseer.data.local.entity.NetHackEntity
 import com.example.nethackseer.ui.homescreen.HomeViewModel
 import com.example.nethackseer.ui.homescreen.HomeViewModelFactory
 import com.example.nethackseer.ui.navigation.AppNavigation
@@ -19,11 +16,11 @@ import com.example.nethackseer.ui.theme.NetHackSeerTheme
 
 /**
  * Called when the activity is first created.
- *
- * @param savedInstanceState If the activity is being re-initialized after
- * previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
  */
 class MainActivity : ComponentActivity() {
+    // If the activity is being re-initialized after
+    // previously being shut down then this Bundle contains
+    // the data it most recently supplied in onSaveInstanceState(Bundle).
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
