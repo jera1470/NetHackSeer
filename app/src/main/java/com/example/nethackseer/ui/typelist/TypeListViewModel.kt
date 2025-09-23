@@ -16,7 +16,7 @@ sealed class TypeUiState {
     data class Error(val message: String) : TypeUiState()
 }
 
-class TypelistViewModel(savedStateHandle: SavedStateHandle) : ViewModel(){
+class TypeListViewModel(savedStateHandle: SavedStateHandle) : ViewModel(){
     private val typeId: String = savedStateHandle.get<String>("typeId") ?: "Unknown"
     private val _uiState = MutableStateFlow<TypeUiState>(TypeUiState.Loading)
     val uiState: StateFlow<TypeUiState> = _uiState

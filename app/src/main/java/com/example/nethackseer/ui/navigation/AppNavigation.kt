@@ -9,8 +9,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.nethackseer.ui.detail.DetailScreen
 import com.example.nethackseer.ui.homescreen.HomeScreen
-import com.example.nethackseer.ui.typelist.Typelist
+import com.example.nethackseer.ui.typelist.TypeList
 
+/**
+ * Function that handles all the places the screen will show to the user.
+ * Through here, there is a NavHost that handles all the routes a composable will go through.
+ */
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
@@ -63,7 +67,7 @@ fun AppNavigation() {
             route = "type/{typeId}",
             arguments = listOf(navArgument("typeId") { type = NavType.StringType })
         ){
-            Typelist(
+            TypeList(
                 onBack = { navController.popBackStack() }, // again, for going back
 
                 onNavigateToDetail = { entityId ->

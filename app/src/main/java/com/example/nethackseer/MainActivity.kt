@@ -12,7 +12,12 @@ import androidx.compose.ui.Modifier
 import com.example.nethackseer.ui.navigation.AppNavigation
 import com.example.nethackseer.ui.theme.NetHackSeerTheme
 
-
+/**
+ * Called when the activity is first created.
+ *
+ * @param savedInstanceState If the activity is being re-initialized after
+ * previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +35,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * A function that serves as a placeholder for the content of the app.
+ */
 @Composable
 fun PlaceHolderContent(){
     Surface(

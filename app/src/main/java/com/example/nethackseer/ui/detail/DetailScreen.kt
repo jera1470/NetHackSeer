@@ -18,6 +18,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.ui.theme.NetHackSeerTheme
 import com.example.nethackseer.ui.theme.*
 
+/**
+ * The DetailScreen UI layout for the detail screen of the app.
+ *
+ * @param onBack A lambda to be executed when the back button is clicked.
+ * @param detailViewModel A view model for the detail screen.
+ */
 @Composable
 fun DetailScreen(
     onBack: () -> Unit,
@@ -28,6 +34,12 @@ fun DetailScreen(
     DetailScreenContent(uiState = uiState, onBack = onBack)
 }
 
+/**
+ * The content shown for the detail screen. Needed specifically for the EntityUiState.
+ *
+ * @param EntityUiState the current state of the UI
+ * @param onBack A lambda to be executed when the back button is clicked.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreenContent(

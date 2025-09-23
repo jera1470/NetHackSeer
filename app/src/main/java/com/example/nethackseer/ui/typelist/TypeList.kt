@@ -26,15 +26,23 @@ import com.example.nethackseer.ui.theme.DarkRed
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.theme.White
 
+/**
+ * A TypeList UI layout for listing entities in a list.
+ * This is used when showing a different route for showing all possible entities when given a query,
+ *
+ * @param onBack A lambda to be executed when the back button is clicked.
+ * @param onNavigateToDetail A lambda to be executed when an entity is clicked.
+ * @param typeListViewModel A view model for the typelist screen.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Typelist(
+fun TypeList(
     onBack: () -> Unit,
     onNavigateToDetail: (String) -> Unit,
-    typelistViewModel: TypelistViewModel = viewModel()
+    typeListViewModel: TypeListViewModel = viewModel()
 ){
 
-    val uiState by typelistViewModel.uiState.collectAsState()
+    val uiState by typeListViewModel.uiState.collectAsState()
 
     // this is the UI to list all element of a certain type (or all types)
     Scaffold(

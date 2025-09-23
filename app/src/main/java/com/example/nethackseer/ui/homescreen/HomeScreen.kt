@@ -36,7 +36,14 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.ui.theme.*
 
-// functions to put repetitive buttons in the HomeScreen
+
+/**
+ * Layout for a button shown multiple times.
+ *
+ * @param text A string to be displayed.
+ * @param onClick A lambda to be executed when the button is clicked.
+ * @param modifier Modifier to be applied to the button.
+ */
 @Composable
 private fun ActionButton(
     text: String,
@@ -53,6 +60,16 @@ private fun ActionButton(
     }
 }
 
+/**
+ * The HomeScreen UI layout for the home screen of the app.
+ *
+ * @param textFieldState An editable text field
+ * @param onSearch A lambda to be executed when the search button is clicked.
+ * @param onNavigateToDetail A lambda to be executed when the detail button is clicked.
+ * This is only used for the page of the day currently.
+ * @param onNavigateToType A lambda to be executed when the type button is clicked.
+ * @param homeViewModel A view model for the home screen.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -188,6 +205,7 @@ fun HomeScreen(
     }
 }
 
+// Shows a preview of the home screen.
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
