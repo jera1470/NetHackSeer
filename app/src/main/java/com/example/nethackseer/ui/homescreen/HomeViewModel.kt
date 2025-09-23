@@ -1,57 +1,49 @@
 package com.example.nethackseer.ui.homescreen
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.data.local.entity.NetHackEntity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
-data class FeaturedPage(
-    val id: String,
-    val name: String,
-    val summary: String,
-    val type: String //"Monster", "Item" as examples, for later use as well for filtering
-)
+/**
+ * View model for the home screen.
+ *
+ * @property repository The repository for the home screen.
+ */
+class HomeViewModel (repository: NetHackRepository) : ViewModel() {
 
-class HomeViewModel : ViewModel() {
-    // again, hardcoded for now, later will be fetched from a local database
-    private val allFeaturedPages = listOf(
-        FeaturedPage(
-            id = "lichen",
-            name = "lichen",
-            summary = "A type of slow-moving, plant-like fungus. " +
-                    "It is weak and can be killed easily. Its only attack is to stick on you.",
-            type = "Monster of the Day"
-        ),
-        FeaturedPage(
-            id = "ring of conflict",
-            name = "ring of conflict",
-            summary = "A powerful magical ring that causes monsters to fight each other.",
-            type = "Item of the Day"
-        ),
-        FeaturedPage(
-            id = "goblin",
-            name = "goblin",
-            summary = "A small and weak humanoid monster, often found " +
-                    "in the early levels of the dungeon.",
-            type = "Monster of the Day"
-        ),
-        FeaturedPage(
-            id = "magic lamp",
-            name = "magic lamp",
-            summary = "A rare item that contains a djinni for the chance to get a wish!",
-            type = "Item of the Day"
-        )
-    )
-
-    // gotta love stateflow, makes my life easier
-    // stateflow is used to store the current state of the UI in this case
-    private val _pageOfTheDay = MutableStateFlow<FeaturedPage?>(null)
-    val pageOfTheDay: StateFlow<FeaturedPage?> = _pageOfTheDay
+    // This StateFlow will hold the current state of the UI in this case
+    private val _pageOfTheDay = MutableStateFlow<NetHackEntity?>(null)
+    val pageOfTheDay: StateFlow<NetHackEntity?> = _pageOfTheDay.asStateFlow()
 
     init {
-        pickRandomPage()
+        // Coroutine for the viewModelScope. Automatically cancelled when ViewModel is cleared
+        viewModelScope.launch {
+            // Get the Flow of entities, will execute again when data changes.
+            repository.allEntities.collect { entities ->
+                if (entities.isNotEmpty()) {
+                    _pageOfTheDay.value = entities.random()
+                }
+            }
+        }
     }
+}
 
-    private fun pickRandomPage() {
-        _pageOfTheDay.value = allFeaturedPages.random()
+/**
+ * Factory for creating HomeViewModel with a constructor that takes a NetHackRepository.
+ */
+class HomeViewModelFactory(private val repository: NetHackRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+            // Suppressing this since we know this must be a HomeViewModel from isAssignableFrom()
+            @Suppress("UNCHECKED_CAST")
+            return HomeViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

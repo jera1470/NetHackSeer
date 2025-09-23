@@ -185,7 +185,7 @@ fun HomeScreen(
                             modifier = Modifier.padding(top = 8.dp)
                         )
                         Text(
-                            text = page.summary,
+                            text = page.description,
                             color = Black,
                             style = Typography.bodyLarge,
                             modifier = Modifier.padding(top = 8.dp)
