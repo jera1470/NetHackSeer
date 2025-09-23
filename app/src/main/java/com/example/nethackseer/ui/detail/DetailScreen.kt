@@ -15,10 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.nethackseer.ui.theme.DarkRed
 import com.example.nethackseer.ui.theme.NetHackSeerTheme
-import com.example.nethackseer.ui.theme.Typography
-import com.example.nethackseer.ui.theme.White
+import com.example.nethackseer.ui.theme.*
 
 @Composable
 fun DetailScreen(
