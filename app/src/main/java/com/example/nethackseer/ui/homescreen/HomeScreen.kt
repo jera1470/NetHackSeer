@@ -77,7 +77,7 @@ fun HomeScreen(
     onSearch: (String) -> Unit,
     onNavigateToType: (String) -> Unit,
     onNavigateToDetail: (String) -> Unit,
-    homeViewModel: HomeViewModel = viewModel()
+    homeViewModel: HomeViewModel
 ) {
 
     val pageOfTheDay by homeViewModel.pageOfTheDay.collectAsState()
@@ -164,40 +164,37 @@ fun HomeScreen(
                     }
                 }
             ) {
-                if (pageOfTheDay != null) {
-                    val page = pageOfTheDay!! // nifty !!, it just ensures it's not null
+                pageOfTheDay?.let { page ->
                     Column(
                         modifier = Modifier
                             .padding(16.dp)
                             .fillMaxWidth()
-                    ) {
+                    ){
                         Text(
-                            text = page.type,
+                            text = page.type.replaceFirstChar{ it.titlecase() } + " of the day",
                             color = Black,
                             style = Typography.titleLarge,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                            modifier = Modifier.padding(0.dp)
+                                .align(Alignment.CenterHorizontally)
                         )
                         Text(
                             text = page.name,
                             color = Black,
-                            style = Typography.headlineSmall,
-                            modifier = Modifier.padding(top = 8.dp)
+                            style = Typography.headlineMedium
                         )
                         Text(
                             text = page.description,
                             color = Black,
-                            style = Typography.bodyLarge,
-                            modifier = Modifier.padding(top = 8.dp)
+                            style = Typography.bodyLarge
                         )
                     }
-                } else {
-                    // placeholder for when the page is null
-                    Box(
+                } ?: run {
+                    Box (
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "oops.")
+                       Text(text = "oops.")
                     }
                 }
             }
@@ -213,6 +210,7 @@ fun HomeScreenPreview() {
         HomeScreen(textFieldState = rememberTextFieldState(),
             onSearch = {},
             onNavigateToDetail = {},
-            onNavigateToType = {})
+            onNavigateToType = {},
+            homeViewModel = viewModel())
     }
 }

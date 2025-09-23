@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.nethackseer.ui.detail.DetailScreen
 import com.example.nethackseer.ui.homescreen.HomeScreen
+import com.example.nethackseer.ui.homescreen.HomeViewModel
 import com.example.nethackseer.ui.typelist.TypeList
 
 /**
@@ -16,7 +17,7 @@ import com.example.nethackseer.ui.typelist.TypeList
  * Through here, there is a NavHost that handles all the routes a composable will go through.
  */
 @Composable
-fun AppNavigation() {
+fun AppNavigation(homeViewModel: HomeViewModel) {
     val navController = rememberNavController()
     // NavHost is the container for all screens here, so tread carefully
     // startDestination is the first screen you see
@@ -30,6 +31,8 @@ fun AppNavigation() {
             val textFieldState = rememberTextFieldState()
 
             HomeScreen(
+                homeViewModel = homeViewModel,
+
                 textFieldState = textFieldState,
 
                 // searches for the entity and navigates to the detail screen
