@@ -1,4 +1,4 @@
-package com.example.nethackseer
+package com.example.nethackseer.data.local
 
 import android.content.Context
 import androidx.room.Database
@@ -36,7 +36,7 @@ abstract class NetHackDatabase : RoomDatabase() {
 
     private class NetHackDatabaseCallback(
         private val context: Context
-    ) : RoomDatabase.Callback() {
+    ) : Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             INSTANCE?.let { database ->
