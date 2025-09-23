@@ -1,4 +1,4 @@
-package com.example.nethackseer.data.local.repository
+package com.example.nethackseer.data
 
 import com.example.nethackseer.data.local.dao.NetHackDao
 import com.example.nethackseer.data.local.entity.NetHackEntity
