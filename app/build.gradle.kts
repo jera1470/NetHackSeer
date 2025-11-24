@@ -41,8 +41,8 @@ android {
 }
 
 dependencies {
-    val lifecycle_version = "2.9.3"
-    val nav_version = "2.9.3"
+    val lifecycle_version = "2.10.0"
+    val nav_version = "2.9.6"
     val room_version = "2.8.4"
     val gson = "2.13.2"
 
