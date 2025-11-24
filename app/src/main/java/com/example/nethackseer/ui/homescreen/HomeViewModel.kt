@@ -25,9 +25,9 @@ class HomeViewModel (repository: NetHackRepository) : ViewModel() {
         // Coroutine for the viewModelScope. Automatically cancelled when ViewModel is cleared
         viewModelScope.launch {
             // Get the Flow of entities, will execute again when data changes.
-            repository.allEntities.collect { entities ->
-                if (entities.isNotEmpty()) {
-                    _pageOfTheDay.value = entities.random()
+            repository.allMonsters.collect { monsters ->
+                if (monsters.isNotEmpty()) {
+                    _pageOfTheDay.value = monsters.random()
                 }
             }
         }
