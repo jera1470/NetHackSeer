@@ -43,7 +43,7 @@ android {
 dependencies {
     val lifecycle_version = "2.9.3"
     val nav_version = "2.9.3"
-    val room_version = "2.8.0"
+    val room_version = "2.8.4"
     val gson = "2.13.2"
 
     // ViewModel

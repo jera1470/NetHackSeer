@@ -17391,7 +17391,11 @@
     "name": "Wizard of Yendor",
     "symbol": "S_HUMAN",
     "level_details": {
-      "raw": "LVL(30, 12, -8, 100, A_NONE)"
+      "level": 30,
+      "move_rate": 12,
+      "ac": -8,
+      "mr": 100,
+      "alignment": -100
     },
     "geno_flags": "(G_NOGEN | G_UNIQ)",
     "attacks": [

@@ -160,7 +160,7 @@ fun HomeScreen(
                 // lambda here to navigate to the detail screen when card is pressed
                 onClick = {
                     pageOfTheDay?.let { page ->
-                        onNavigateToDetail(page.id)
+                        onNavigateToDetail(page.name)
                     }
                 }
             ) {
@@ -171,7 +171,7 @@ fun HomeScreen(
                             .fillMaxWidth()
                     ){
                         Text(
-                            text = page.type.replaceFirstChar{ it.titlecase() } + " of the day",
+                            text = "Monster of the day",
                             color = Black,
                             style = Typography.titleLarge,
                             textAlign = TextAlign.Center,
@@ -184,7 +184,7 @@ fun HomeScreen(
                             style = Typography.headlineMedium
                         )
                         Text(
-                            text = page.description,
+                            text = "Nice",
                             color = Black,
                             style = Typography.bodyLarge
                         )
