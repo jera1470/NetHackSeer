@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.IOException
 
-@Database(entities = [MonsterEntity::class], version = 1)
+@Database(entities = [MonsterEntity::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
@@ -30,6 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "nethack_database"
                 )
+                    .fallbackToDestructiveMigration(false)
                     .addCallback(NetHackDatabaseCallback(context, scope))
                     .build()
                 INSTANCE = instance
@@ -42,8 +43,8 @@ abstract class AppDatabase : RoomDatabase() {
         private val context: Context,
         private val scope: CoroutineScope
     ) : Callback() {
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
+        override fun onOpen(db: SupportSQLiteDatabase) {
+            super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
                     val dao = database.monsterDao()
@@ -125,6 +126,7 @@ abstract class AppDatabase : RoomDatabase() {
                 )
 
                 monsterList.add(monsterEntity)
+                print(monsterEntity.name)
             }
             dao.insertAll(monsterList)
         }
