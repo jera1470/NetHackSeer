@@ -1,11 +1,11 @@
 package com.example.nethackseer.data
 
 import com.example.nethackseer.data.local.dao.NetHackDao
-import com.example.nethackseer.data.local.entity.NetHackEntity
+import com.example.nethackseer.data.local.entity.MonsterEntity
 import kotlinx.coroutines.flow.Flow
 
 class NetHackRepository(private val netHackDao: NetHackDao) {
     // Expose all entities in a stream from local database.
     // ViewModel collects the Flow.
-    val allEntities : Flow<List<NetHackEntity>> = netHackDao.getAll()
+    val allEntities : Flow<List<MonsterEntity>> = netHackDao.getAll()
 }
