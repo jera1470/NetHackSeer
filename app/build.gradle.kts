@@ -44,6 +44,7 @@ dependencies {
     val lifecycle_version = "2.9.3"
     val nav_version = "2.9.3"
     val room_version = "2.8.0"
+    val gson = "2.13.2"
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
@@ -61,6 +62,8 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:${nav_version}")
     // Room
     implementation("androidx.room:room-runtime:${room_version}")
+    // TypeConverter
+    implementation("com.google.code.gson:gson:${gson}")
     // Kotlin Symbol Processing (KSP)
     ksp("androidx.room:room-compiler:${room_version}")
 

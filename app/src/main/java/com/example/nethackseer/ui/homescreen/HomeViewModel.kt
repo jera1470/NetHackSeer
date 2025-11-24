@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.nethackseer.data.NetHackRepository
-import com.example.nethackseer.data.local.entity.NetHackEntity
+import com.example.nethackseer.data.local.entity.MonsterEntity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,8 +18,8 @@ import kotlinx.coroutines.launch
 class HomeViewModel (repository: NetHackRepository) : ViewModel() {
 
     // This StateFlow will hold the current state of the UI in this case
-    private val _pageOfTheDay = MutableStateFlow<NetHackEntity?>(null)
-    val pageOfTheDay: StateFlow<NetHackEntity?> = _pageOfTheDay.asStateFlow()
+    private val _pageOfTheDay = MutableStateFlow<MonsterEntity?>(null)
+    val pageOfTheDay: StateFlow<MonsterEntity?> = _pageOfTheDay.asStateFlow()
 
     init {
         // Coroutine for the viewModelScope. Automatically cancelled when ViewModel is cleared
