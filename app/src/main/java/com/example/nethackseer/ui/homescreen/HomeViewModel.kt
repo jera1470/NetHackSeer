@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -24,11 +25,10 @@ class HomeViewModel (repository: NetHackRepository) : ViewModel() {
     init {
         // Coroutine for the viewModelScope. Automatically cancelled when ViewModel is cleared
         viewModelScope.launch {
-            // Get the Flow of entities, will execute again when data changes.
-            repository.allMonsters.collect { monsters ->
-                if (monsters.isNotEmpty()) {
-                    _pageOfTheDay.value = monsters.random()
-                }
+            // Take the first instance from the Flow, which will be the full list
+            val monsters = repository.allMonsters.first()
+            if (monsters.isNotEmpty()) {
+                _pageOfTheDay.value = monsters.random()
             }
         }
     }
