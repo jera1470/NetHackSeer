@@ -32,40 +32,41 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
     buildFeatures {
         compose = true
     }
 }
 
+kotlin {
+    jvmToolchain(11)
+}
+
 dependencies {
-    val lifecycle_version = "2.10.0"
-    val nav_version = "2.9.6"
-    val room_version = "2.8.4"
+    val lifecyclever = "2.10.0"
+    val navVer = "2.9.6"
+    val roomVer = "2.8.4"
     val gson = "2.13.2"
 
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecyclever")
     // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecyclever")
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecyclever")
     // Lifecycles only (without ViewModel or LiveData)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecyclever")
     // Lifecycle utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecyclever")
     // Saved state module for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecyclever")
     // ViewModel integration with Navigation3
-    implementation("androidx.navigation:navigation-compose:${nav_version}")
+    implementation("androidx.navigation:navigation-compose:${navVer}")
     // Room
-    implementation("androidx.room:room-runtime:${room_version}")
+    implementation("androidx.room:room-runtime:${roomVer}")
     // TypeConverter
     implementation("com.google.code.gson:gson:${gson}")
     // Kotlin Symbol Processing (KSP)
-    ksp("androidx.room:room-compiler:${room_version}")
+    ksp("androidx.room:room-compiler:${roomVer}")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
