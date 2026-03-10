@@ -3,8 +3,10 @@ package com.example.nethackseer.ui.typelist
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
@@ -20,8 +22,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.nethackseer.NetHackSeerApplication
 import com.example.nethackseer.ui.theme.DarkRed
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.theme.White
@@ -39,7 +44,11 @@ import com.example.nethackseer.ui.theme.White
 fun TypeList(
     onBack: () -> Unit,
     onNavigateToDetail: (String) -> Unit,
-    typeListViewModel: TypeListViewModel = viewModel()
+    typeListViewModel: TypeListViewModel = viewModel(
+        factory = TypeListViewModel.Factory(
+            (LocalContext.current.applicationContext as NetHackSeerApplication).repository
+        )
+    ),
 ){
 
     val uiState by typeListViewModel.uiState.collectAsState()
@@ -74,7 +83,9 @@ fun TypeList(
             // error message when not found
             is TypeUiState.Error -> {
                 Column(
-                    modifier = Modifier.fillMaxSize().padding(16.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -83,18 +94,25 @@ fun TypeList(
             }
 
             is TypeUiState.Success -> {
-                LazyColumn (modifier = Modifier
+                LazyColumn(
+                    modifier = Modifier
                         .padding(paddingValues)
-                        .padding(16.dp)
-                        .fillMaxSize()) {
+                        .fillMaxSize()
+                ) {
                     items(state.listObj.size) { index ->
-                        Button(onClick = { onNavigateToDetail(state.listObj[index]) }) {
-                            Text(text = state.listObj[index])
+                        val name = state.listObj[index]
+                        Button(
+                            onClick = { onNavigateToDetail(name) },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 4.dp),
+                            shape = RoundedCornerShape(8.dp)
+                        ) {
+                            Text(text = name, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Start)
                         }
                     }
                 }
             }
         }
-
     }
 }

@@ -12,11 +12,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.nethackseer.NetHackSeerApplication
 import com.example.nethackseer.ui.theme.NetHackSeerTheme
 import com.example.nethackseer.ui.theme.*
+import com.example.nethackseer.ui.typelist.TypeListViewModel
 
 /**
  * The DetailScreen UI layout for the detail screen of the app.
@@ -27,7 +30,11 @@ import com.example.nethackseer.ui.theme.*
 @Composable
 fun DetailScreen(
     onBack: () -> Unit,
-    detailViewModel: DetailViewModel = viewModel()
+    detailViewModel: DetailViewModel = viewModel(
+        factory = DetailViewModel.Factory(
+            (LocalContext.current.applicationContext as NetHackSeerApplication).repository
+        )
+    )
 ) {
     // important as hell, gotta remember to collect the state before using it
     val uiState by detailViewModel.uiState.collectAsState()
@@ -92,7 +99,7 @@ fun DetailScreenContent(
                 Column(modifier = Modifier
                         .padding(paddingValues)
                         .padding(16.dp)) {
-                    Text(text = state.name,
+                    Text(text = state.MonsterEntity.name,
                         style = Typography.headlineMedium)
                     Text(
                         text = "Type: ${state.type}",
@@ -101,27 +108,11 @@ fun DetailScreenContent(
                         modifier = Modifier.padding(top = 4.dp)
                     )
                     Text(
-                        text = state.description,
-                        style = Typography.bodyLarge,
-                        modifier = Modifier.padding(top = 8.dp)
+                        text = "Level: ${state.MonsterEntity.level}",
+                        style = Typography.titleMedium
                     )
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DetailScreenPreview() {
-    NetHackSeerTheme {
-        DetailScreenContent(
-            uiState = EntityUiState.Success(
-                name = "magic lamp",
-                type = "Item",
-                description = "A rare item that contains a djinni for the chance to get a wish!"
-            ),
-            onBack = {}
-        )
     }
 }
