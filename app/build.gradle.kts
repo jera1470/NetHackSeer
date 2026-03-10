@@ -43,7 +43,7 @@ kotlin {
 
 dependencies {
     val lifecyclever = "2.10.0"
-    val navVer = "2.9.6"
+    val navVer = "2.9.7"
     val roomVer = "2.8.4"
     val gson = "2.13.2"
 
@@ -76,6 +76,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.material.icons.core)
+    implementation(libs.androidx.material.icons.extended)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

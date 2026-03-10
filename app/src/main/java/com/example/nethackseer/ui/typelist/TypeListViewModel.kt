@@ -7,11 +7,9 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
-import com.example.nethackseer.data.local.dao.MonsterDao
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlin.collections.List
 
 sealed class TypeUiState {
     object Loading : TypeUiState()

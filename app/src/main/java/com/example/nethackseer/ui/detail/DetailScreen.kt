@@ -13,13 +13,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.NetHackSeerApplication
-import com.example.nethackseer.ui.theme.NetHackSeerTheme
 import com.example.nethackseer.ui.theme.*
-import com.example.nethackseer.ui.typelist.TypeListViewModel
 
 /**
  * The DetailScreen UI layout for the detail screen of the app.
@@ -72,14 +69,14 @@ fun DetailScreenContent(
         }
     ) { paddingValues ->
         // this when block checks the current state and displays the correct UI
-        when (val state = uiState) {
+        when (uiState) {
             is EntityUiState.Loading -> {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // spinner, loading y'know
+                    // loading spinner
                     CircularProgressIndicator()
                 }
             }
@@ -90,7 +87,7 @@ fun DetailScreenContent(
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(text = state.message, style = Typography.bodyLarge)
+                    Text(text = uiState.message, style = Typography.bodyLarge)
                 }
             }
             // display if found
@@ -99,16 +96,16 @@ fun DetailScreenContent(
                 Column(modifier = Modifier
                         .padding(paddingValues)
                         .padding(16.dp)) {
-                    Text(text = state.MonsterEntity.name,
+                    Text(text = uiState.monsterEntity.name,
                         style = Typography.headlineMedium)
                     Text(
-                        text = "Type: ${state.type}",
+                        text = "Type: ${uiState.type}",
                         style = Typography.titleMedium,
                         color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.padding(top = 4.dp)
                     )
                     Text(
-                        text = "Level: ${state.MonsterEntity.level}",
+                        text = "Level: ${uiState.monsterEntity.level}",
                         style = Typography.titleMedium
                     )
                 }

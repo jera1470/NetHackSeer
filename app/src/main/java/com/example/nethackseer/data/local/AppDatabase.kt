@@ -79,9 +79,9 @@ abstract class AppDatabase : RoomDatabase() {
                         if (type != "NO_ATTK"){
                             Attack(
                                 type = type,
-                                damage_type = attackObject.getString("damage_type"),
-                                dice_count = attackObject.getInt("dice_count"),
-                                dice_sides = attackObject.getInt("dice_sides")
+                                damageType = attackObject.getString("damage_type"),
+                                diceCount = attackObject.getInt("dice_count"),
+                                diceSides = attackObject.getInt("dice_sides")
                             )
                         }
                         else {
@@ -101,11 +101,11 @@ abstract class AppDatabase : RoomDatabase() {
                     name = name, // primary key for the repo
                     symbol = jsonObject.getString("symbol"),
                     level = levelDetails.getInt("level"),
-                    move_rate = levelDetails.getInt("move_rate"),
+                    moveRate = levelDetails.getInt("move_rate"),
                     ac = levelDetails.getInt("ac"),
                     mr = levelDetails.getInt("mr"),
                     alignment = levelDetails.getInt("alignment"),
-                    geno_flags = jsonObject.getString("geno_flags"),
+                    genoFlags = jsonObject.getString("geno_flags"),
                     attack1 = attacks[0],
                     attack2 = attacks[1],
                     attack3 = attacks[2],
@@ -113,14 +113,14 @@ abstract class AppDatabase : RoomDatabase() {
                     attack5 = attacks[4],
                     attack6 = attacks[5],
                     weight = sizeDetails.getInt("weight"),
-                    nutritional_value = sizeDetails.getInt("nutritional_value"),
+                    nutritionValue = sizeDetails.getInt("nutritional_value"),
                     sound = sizeDetails.getString("sound"),
                     size = sizeDetails.getString("size"),
                     resistances = jsonObject.getString("resistances"),
-                    resistances_conferred = jsonObject.getString("resistances_conferred"),
-                    m1_flags = jsonObject.getString("m1_flags"),
-                    m2_flags = jsonObject.getString("m2_flags"),
-                    m3_flags = jsonObject.getString("m3_flags"),
+                    resistancesConferred = jsonObject.getString("resistances_conferred"),
+                    m1Flags = jsonObject.getString("m1_flags"),
+                    m2Flags = jsonObject.getString("m2_flags"),
+                    m3Flags = jsonObject.getString("m3_flags"),
                     difficulty = jsonObject.getInt("difficulty"),
                     color = jsonObject.getString("color"),
                 )

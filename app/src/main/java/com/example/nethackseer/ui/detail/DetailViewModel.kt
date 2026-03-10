@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.entity.MonsterEntity
-import com.example.nethackseer.ui.typelist.TypeListViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +18,7 @@ import kotlinx.coroutines.flow.stateIn
 // i love inheritance...
 sealed class EntityUiState {
     object Loading : EntityUiState()
-    data class Success(val MonsterEntity: MonsterEntity, val type: String) : EntityUiState()
+    data class Success(val monsterEntity: MonsterEntity, val type: String) : EntityUiState()
     data class Error(val message: String) : EntityUiState()
 }
 
@@ -49,7 +48,7 @@ class DetailViewModel(
             )
     }
 
-    // factory for creating the viewmodel with repository
+    // Factory for creating the viewmodel with repository
     companion object {
         fun Factory(repository: NetHackRepository) : ViewModelProvider.Factory =
             object : ViewModelProvider.Factory {

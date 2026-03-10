@@ -23,7 +23,7 @@ class HomeViewModel (repository: NetHackRepository) : ViewModel() {
     val pageOfTheDay: StateFlow<MonsterEntity?> = _pageOfTheDay.asStateFlow()
 
     init {
-        // Coroutine for the viewModelScope. Automatically cancelled when ViewModel is cleared
+        // Coroutine for the viewModelScope. Automatically canceled when ViewModel is cleared
         viewModelScope.launch {
             // Take the first instance from the Flow, which will be the full list
             val monsters = repository.allMonsters.first()
