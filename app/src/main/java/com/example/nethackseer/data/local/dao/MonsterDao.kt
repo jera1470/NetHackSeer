@@ -42,4 +42,10 @@ interface MonsterDao {
     @Query("SELECT * FROM monsters WHERE name LIKE :query ORDER BY name ASC")
     fun search(query: String): Flow<List<MonsterEntity>>
 
+    /**
+     * Selects and returns the MonsterEntity object with the given name.
+     * If no entity is found, returns null.
+     */
+    @Query("SELECT * FROM monsters WHERE name = :name LIMIT 1")
+    fun getMonsterByName(name: String): Flow<MonsterEntity?>
 }

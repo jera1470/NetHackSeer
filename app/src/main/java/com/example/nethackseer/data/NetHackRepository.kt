@@ -15,4 +15,9 @@ class NetHackRepository(private val monsterDao: MonsterDao) {
     fun searchMonsters(query: String): Flow<List<MonsterEntity>> =
         monsterDao.search(query)
 
+    /**
+     * Get a monster by name.
+     */
+    fun getMonsterByName(name: String): Flow<MonsterEntity?> = monsterDao.getMonsterByName(name)
+
 }

@@ -2,69 +2,63 @@ package com.example.nethackseer.ui.detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.CreationExtras
+import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.data.local.entity.MonsterEntity
+import com.example.nethackseer.ui.typelist.TypeListViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 // handles all Success, Error, and Loading states, must be sealed
 // i love inheritance...
 sealed class EntityUiState {
     object Loading : EntityUiState()
-    data class Success(val name: String, val description: String, val type: String) : EntityUiState()
+    data class Success(val MonsterEntity: MonsterEntity, val type: String) : EntityUiState()
     data class Error(val message: String) : EntityUiState()
 }
 
-class DetailViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    // amazing thing i found where ?: checks if left side is null and sets it to right side
-    // otherwise it just uses the left side value
-    // savedStateHandle is used to get the entityId from the navigation arguments
+class DetailViewModel(
+    savedStateHandle: SavedStateHandle,
+    private val repository: NetHackRepository, // Inject this
+) : ViewModel() {
+
     private val entityId: String = savedStateHandle.get<String>("entityId") ?: "Unknown"
 
-    // this just sets the initial state to loading
-    private val _uiState = MutableStateFlow<EntityUiState>(EntityUiState.Loading)
-    val uiState: StateFlow<EntityUiState> = _uiState
-
-    init {
-        fetchEntityData()
-    }
-
-    private fun fetchEntityData() {
-        viewModelScope.launch {
-            // hardcoded stuff for now, later will be fetched from a local database
-            when (entityId.lowercase()) {
-                "lichen" -> {
-                    _uiState.value = EntityUiState.Success(
-                        name = "lichen",
-                        description = "A type of slow-moving, plant-like fungus. It is weak and can be killed easily. Its only attack is to stick on you.",
-                        type = "Monster"
-                    )
-                }
-                "ring of conflict" -> {
-                    _uiState.value = EntityUiState.Success(
-                        name = "ring of conflict",
-                        description = "A powerful magical ring. While worn, it causes all monsters in sight to fight each other instead of attacking you.",
-                        type = "Item"
-                    )
-                }
-                "goblin" -> {
-                    _uiState.value = EntityUiState.Success(
-                        name = "goblin",
-                        description = "A small and weak humanoid monster, often found in the early levels of the dungeon.",
-                        type = "Monster"
-                    )
-                }
-                "magic lamp" -> {
-                    _uiState.value = EntityUiState.Success(
-                        name = "magic lamp",
-                        description = "A rare item that contains a djinni for the chance to get a wish! Should bless it for a increased 80% chance to get a wish.",
-                        type = "Item"
-                    )
-                }
-                else -> {
-                    _uiState.value = EntityUiState.Error("Data for '$entityId' could not be found.")
+    // Transform the database flow into UI State
+    val uiState: StateFlow<EntityUiState> = if (entityId == "Unknown") {
+        MutableStateFlow(EntityUiState.Error("Entity ID missing"))
+    } else {
+        repository.getMonsterByName(entityId)
+            .map { monster ->
+                if (monster != null) {
+                    EntityUiState.Success(monster, "Monster")
+                } else {
+                    EntityUiState.Error("Monster '$entityId' not found")
                 }
             }
-        }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = EntityUiState.Loading
+            )
+    }
+
+    // factory for creating the viewmodel with repository
+    companion object {
+        fun Factory(repository: NetHackRepository) : ViewModelProvider.Factory =
+            object : ViewModelProvider.Factory {
+                @Suppress("UNCHECKED_CAST")
+                override fun <T : ViewModel> create(modelClass : Class<T>,
+                                                    extras: CreationExtras): T {
+                    val savedStateHandle = extras.createSavedStateHandle()
+                    return DetailViewModel(savedStateHandle, repository) as T
+                }
+            }
     }
 }

@@ -2,7 +2,12 @@ package com.example.nethackseer.ui.typelist
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.CreationExtras
+import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.data.local.dao.MonsterDao
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -16,7 +21,10 @@ sealed class TypeUiState {
     data class Error(val message: String) : TypeUiState()
 }
 
-class TypeListViewModel(savedStateHandle: SavedStateHandle) : ViewModel(){
+class TypeListViewModel(
+    savedStateHandle: SavedStateHandle,
+    private val repository: NetHackRepository
+) : ViewModel(){
     private val typeId: String = savedStateHandle.get<String>("typeId") ?: "Unknown"
     private val _uiState = MutableStateFlow<TypeUiState>(TypeUiState.Loading)
     val uiState: StateFlow<TypeUiState> = _uiState
@@ -28,25 +36,32 @@ class TypeListViewModel(savedStateHandle: SavedStateHandle) : ViewModel(){
     private fun fetchTypeData(){
         viewModelScope.launch {
             when (typeId.lowercase()) {
-                /* TODO: fix the list problem, as it currently just gets the second
-                *   item (magic lamp) twice, instead of it being {ring of conflict, magic lamp} */
-                "item" -> {
-                    _uiState.value = TypeUiState.Success(
-                        listObj = List(2) {"ring of conflict"; "magic lamp"},
-                        type = "Item"
-                    )
-                }
                 "monster" -> {
-                    _uiState.value = TypeUiState.Success(
-                        listObj = List(2) {"goblin"; "lichen"},
-                        type = "Monster"
-                    )
+                    repository.allMonsters.collect { monsters ->
+                        _uiState.value = TypeUiState.Success(
+                            listObj = monsters.map { it.name },
+                            type = typeId
+                        )
+                    }
                 }
                 else -> {
-                    _uiState.value = TypeUiState.Error("$typeId not found.")
+                    _uiState.value = TypeUiState.Error("not done with this yet")
                 }
             }
         }
+    }
+
+    // factory for creating the viewmodel with repository
+    companion object {
+        fun Factory(repository: NetHackRepository) : ViewModelProvider.Factory =
+            object : ViewModelProvider.Factory {
+                @Suppress("UNCHECKED_CAST")
+                override fun <T : ViewModel> create(modelClass : Class<T>,
+                                                    extras: CreationExtras): T {
+                    val savedStateHandle = extras.createSavedStateHandle()
+                    return TypeListViewModel(savedStateHandle, repository) as T
+                }
+            }
     }
 }
 

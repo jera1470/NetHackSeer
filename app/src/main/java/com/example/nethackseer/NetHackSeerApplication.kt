@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 class NetHackSeerApplication : Application() {
-    // need this for in case coroutines fail, to make others not be cancelled
+    // need this for in case coroutines fail, to make others not be canceled
     private val applicationScope = CoroutineScope(SupervisorJob())
 
     // 'by lazy' means that the database and repository are only created when first needed
