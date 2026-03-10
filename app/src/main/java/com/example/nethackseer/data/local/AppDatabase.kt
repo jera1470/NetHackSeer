@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.IOException
 
-@Database(entities = [MonsterEntity::class], version = 2)
+@Database(entities = [MonsterEntity::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
@@ -30,7 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "nethack_database"
                 )
-                    .fallbackToDestructiveMigration(false)
+                    .fallbackToDestructiveMigration(true)
                     .addCallback(NetHackDatabaseCallback(context, scope))
                     .build()
                 INSTANCE = instance
@@ -132,4 +132,3 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 }
-
