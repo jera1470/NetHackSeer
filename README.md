@@ -19,6 +19,3 @@ Here are some ideas planned for the future:
 - **Interactive Pages**: create more dynamic pages, to make it more fancy in the user's way.
 - **Search Filtering**: Filter out stuff within the list of options from the main screen.
 - and hopefully more.
-
-This is a fully native Android app, so currently it is only going to be for Android.
-Later on I might start doing it for iOS.
