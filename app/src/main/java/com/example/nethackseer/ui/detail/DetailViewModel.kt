@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 // handles all Success, Error, and Loading states, must be sealed
-// i love inheritance...
 sealed class EntityUiState {
     object Loading : EntityUiState()
     data class Success(val monsterEntity: MonsterEntity, val type: String) : EntityUiState()
