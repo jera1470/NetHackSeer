@@ -93,21 +93,27 @@ fun DetailScreenContent(
             // display if found
             is EntityUiState.Success -> {
                 // should know that viewmodel looked it up and got the data, but forget sometimes
-                Column(modifier = Modifier
-                        .padding(paddingValues)
-                        .padding(16.dp)) {
-                    Text(text = uiState.monsterEntity.name,
-                        style = Typography.headlineMedium)
-                    Text(
-                        text = "Type: ${uiState.type}",
-                        style = Typography.titleMedium,
-                        color = MaterialTheme.colorScheme.secondary,
-                        modifier = Modifier.padding(top = 4.dp)
-                    )
-                    Text(
-                        text = "Level: ${uiState.monsterEntity.level}",
-                        style = Typography.titleMedium
-                    )
+                if (uiState.type.lowercase() == "monster") { // checking for later types
+                    Column(
+                        modifier = Modifier
+                            .padding(paddingValues)
+                            .padding(16.dp)
+                    ) {
+                        Text(
+                            text = uiState.monsterEntity.name,
+                            style = Typography.headlineMedium
+                        )
+                        Text(
+                            text = "Type: ${uiState.type}",
+                            style = Typography.titleMedium,
+                            color = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
+                        Text(
+                            text = "Level: ${uiState.monsterEntity.level}",
+                            style = Typography.titleMedium
+                        )
+                    }
                 }
             }
         }
