@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
    to the app
  */
 @Entity(tableName = "items")
-data class `ItemEntity.kt`(
+data class ItemEntity(
     @PrimaryKey
     // both name and description have a macro OBJ() technically
     val name: String, val description: String? = null,
