@@ -12,5 +12,7 @@ class NetHackSeerApplication : Application() {
 
     // 'by lazy' means that the database and repository are only created when first needed
     val database by lazy { AppDatabase.getDatabase(this, applicationScope) }
-    val repository by lazy { NetHackRepository(database.monsterDao()) }
+    val repository by lazy { NetHackRepository(
+        database.monsterDao(),
+        database.itemDao())}
 }

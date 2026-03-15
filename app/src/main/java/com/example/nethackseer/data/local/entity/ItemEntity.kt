@@ -13,8 +13,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "items")
 data class ItemEntity(
     @PrimaryKey
-    // both name and description have a macro OBJ() technically
-    val name: String, val description: String? = null,
+    // both name and descri ption have a macro OBJ() technically
+    val name: String,
+    val description: String? = null,
 
     // BITS() macro, relevant bits only
     val merge: Boolean, // can multiple items of the object stack?
@@ -23,29 +24,29 @@ data class ItemEntity(
     val unique: Boolean,
     val notWish: Boolean,
     val tough: Boolean, // is it immune to destruction?\
-    /*
-        this one is actually well put. the devs saved memory by
-        putting this bit as the damage type (pierce, slash, whack)
-        AND also the direction type (no dir, immediate, ray)
-     */
-    val dirOrType: Int, val subCategory: String, // skills of weapons, spellbooks, etc.
+    val dirOrType: Int, // clever use of a bit, saving either damage or direction type
+    val subCategory: String, // skills of weapons, spellbooks, etc.
     val material: String,
 
     val property: String, // extrinsic given by object (or more)
     val symbol: String, // e.g. WEAPON_CLASS for ')' for weapons
-    val probability: Int, // out of 1000
-    val delay: Int, // turns to put on or off objects
-    val weight: Int, val value: Int, val smallDamage: Int, // 1d(smallDamage)
+    val probability: Int, // out of 1000 (e.g., 175/1000 is its 17.5% relative probability)
+    val delay: Int, // turns to put on or off objects, seen with armor
+    val weight: Int,
+    val value: Int,
+    // for the next two fields, any damage bonuses are located in weapon.c for specific weapons
+    val smallDamage: Int, // 1d(smallDamage)
     val largeDamage: Int, // 1d(largeDamage)
 
-    // part of oc1 (armor)
-    val ac: Int? = null,
-    // part of oc1 (weapon)
-    val hitBonus: Int? = null,
-    // part of oc2 (armor)
-    val magicCancellation: Int? = null, // MC1, 2, or 3
-    // part of oc2 (spellbook)
-    val spellLevel: Int? = null, // up to level 7 spellbooks exist
+    // 1st use of oc1 (armor)
+    val ac: Int,
+    // 2nd use of oc1 (weapon)
+    val hitBonus: Int,
+    // 1st use of oc2 (armor)
+    val magicCancellation: Int, // MC1, 2, or 3
+    // 2nd use of oc2 (spellbooks)
+    val spellLevel: Int, // up to level 7 spellbooks exist
 
-    val nutrition: Int, val color: String
+    val nutrition: Int,
+    val color: String
 )

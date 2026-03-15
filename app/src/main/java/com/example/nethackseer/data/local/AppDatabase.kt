@@ -7,17 +7,20 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.nethackseer.data.local.dao.MonsterDao
+import com.example.nethackseer.data.local.dao.ItemDao
 import com.example.nethackseer.data.local.entity.Attack
+import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.IOException
 
-@Database(entities = [MonsterEntity::class], version = 3)
+@Database(entities = [MonsterEntity::class, ItemEntity::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
+    abstract fun itemDao(): ItemDao
 
     companion object {
         @Volatile
@@ -47,8 +50,10 @@ abstract class AppDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    val dao = database.monsterDao()
-                    prePopulateMonsters(context, dao)
+                    val monsterDao = database.monsterDao()
+                    prePopulateMonsters(context, monsterDao)
+                    val itemDao = database.itemDao()
+                    prePopulateItem(context, itemDao)
                 }
             }
         }
@@ -128,6 +133,55 @@ abstract class AppDatabase : RoomDatabase() {
                 print(monsterEntity.name)
             }
             dao.insertAll(monsterList)
+        }
+
+        private suspend fun prePopulateItem(context: Context, dao: ItemDao){
+            val jsonString: String
+            try {
+                jsonString = context.assets.open("nethack_data/objects.json").bufferedReader()
+                    .use { it.readText() }
+            } catch (ioException: IOException) {
+                ioException.printStackTrace()
+                return
+            }
+
+            val jsonArray = JSONArray(jsonString)
+            val itemList = mutableListOf<ItemEntity>()
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+
+                val itemEntity = ItemEntity(
+                    name = jsonObject.getString("name"),
+                    description = jsonObject.getString("description"),
+                    merge = jsonObject.getBoolean("merge"),
+                    magicItem = jsonObject.getBoolean("magicItem"),
+                    charge = jsonObject.getBoolean("charge"),
+                    unique = jsonObject.getBoolean("unique"),
+                    notWish = jsonObject.getBoolean("notWish"),
+                    tough = jsonObject.getBoolean("tough"),
+                    dirOrType = jsonObject.getInt("dirOrType"),
+                    subCategory = jsonObject.getString("subCategory"),
+                    material = jsonObject.getString("material"),
+                    property = jsonObject.getString("property"),
+                    symbol = jsonObject.getString("symbol"),
+                    probability = jsonObject.getInt("probability"),
+                    delay = jsonObject.getInt("delay"),
+                    weight = jsonObject.getInt("weight"),
+                    value = jsonObject.getInt("value"),
+                    smallDamage = jsonObject.getInt("smallDamage"),
+                    largeDamage = jsonObject.getInt("largeDamage"),
+                    ac = jsonObject.getInt("ac"),
+                    hitBonus = jsonObject.getInt("hitBonus"),
+                    magicCancellation = jsonObject.getInt("magicCancellation"),
+                    spellLevel = jsonObject.getInt("spellLevel"),
+                    nutrition = jsonObject.getInt("nutrition"),
+                    color = jsonObject.getString("color")
+                )
+
+                itemList.add(itemEntity)
+                print(itemEntity.name)
+            }
+            dao.insertAll(itemList)
         }
     }
 }

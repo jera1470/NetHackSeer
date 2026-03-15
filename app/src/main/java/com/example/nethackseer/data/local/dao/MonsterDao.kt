@@ -45,6 +45,8 @@ interface MonsterDao {
     /**
      * Selects and returns the MonsterEntity object with the given name.
      * If no entity is found, returns null.
+     *
+     * @param name the name of the MonsterEntity object to select
      */
     @Query("SELECT * FROM monsters WHERE name = :name LIMIT 1")
     fun getMonsterByName(name: String): Flow<MonsterEntity?>
