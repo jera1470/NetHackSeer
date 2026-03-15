@@ -53,10 +53,11 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        private suspend fun prePopulateMonsters(context: Context, dao: MonsterDao){
+        private suspend fun prePopulateMonsters(context: Context, dao: MonsterDao) {
             val jsonString: String
             try {
-                jsonString = context.assets.open("nethack_data/monsters.json").bufferedReader().use{it.readText()}
+                jsonString = context.assets.open("nethack_data/monsters.json").bufferedReader()
+                    .use { it.readText() }
             } catch (ioException: IOException) {
                 ioException.printStackTrace()
                 return
@@ -76,19 +77,17 @@ abstract class AppDatabase : RoomDatabase() {
                     if (index < attacksJSON.length()) {
                         val attackObject = attacksJSON.getJSONObject(index)
                         val type = attackObject.getString("type")
-                        if (type != "NO_ATTK"){
+                        if (type != "NO_ATTK") {
                             Attack(
                                 type = type,
                                 damageType = attackObject.getString("damage_type"),
                                 diceCount = attackObject.getInt("dice_count"),
                                 diceSides = attackObject.getInt("dice_sides")
                             )
-                        }
-                        else {
+                        } else {
                             noAttack
                         }
-                    }
-                    else {
+                    } else {
                         noAttack // only two monsters have no attacks, so this applies to them
                     }
                 }

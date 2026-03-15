@@ -88,9 +88,11 @@ fun HomeScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = "Hello, welcome to NetHackSeer!",
+                    Text(
+                        text = "Hello, welcome to NetHackSeer!",
                         color = White,
-                        style = Typography.titleLarge)
+                        style = Typography.titleLarge
+                    )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = DarkRed)
             )
@@ -110,7 +112,7 @@ fun HomeScreen(
                 inputField = {
                     SearchBarDefaults.InputField(
                         query = textFieldState.text.toString(),
-                        onQueryChange = { textFieldState.edit { replace(0, length, it) }},
+                        onQueryChange = { textFieldState.edit { replace(0, length, it) } },
                         onSearch = {
                             onSearch(textFieldState.text.toString())
                             expanded = false
@@ -123,36 +125,46 @@ fun HomeScreen(
                 expanded = expanded,
                 onExpandedChange = { expanded = it },
             ) {}
-            Row (Modifier.fillMaxWidth()){
-                ActionButton("Items",
-                    onClick = {onNavigateToType("item")},
+            Row(Modifier.fillMaxWidth()) {
+                ActionButton(
+                    "Items",
+                    onClick = { onNavigateToType("item") },
                     modifier = Modifier
                         .padding(8.dp)
-                        .weight(1f))
-                ActionButton("Monsters",
-                    onClick = {onNavigateToType("monster")},
+                        .weight(1f)
+                )
+                ActionButton(
+                    "Monsters",
+                    onClick = { onNavigateToType("monster") },
                     modifier = Modifier
                         .padding(8.dp)
-                        .weight(1f))
+                        .weight(1f)
+                )
             }
-            ActionButton("Dungeon Features",
-                onClick = { /*TODO*/},
+            ActionButton(
+                "Dungeon Features",
+                onClick = { /*TODO*/ },
                 modifier = Modifier
                     .padding(8.dp)
-                    .fillMaxWidth())
+                    .fillMaxWidth()
+            )
             Row {
-                ActionButton("Roles",
+                ActionButton(
+                    "Roles",
                     onClick = { /*TODO*/ },
                     modifier = Modifier
                         .padding(8.dp)
-                        .weight(1f))
-                ActionButton("Properties",
+                        .weight(1f)
+                )
+                ActionButton(
+                    "Properties",
                     onClick = { /*TODO*/ },
                     modifier = Modifier
                         .padding(8.dp)
-                        .weight(1f))
+                        .weight(1f)
+                )
             }
-            Card (
+            Card(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),
@@ -169,13 +181,14 @@ fun HomeScreen(
                         modifier = Modifier
                             .padding(16.dp)
                             .fillMaxWidth()
-                    ){
+                    ) {
                         Text(
                             text = "Monster of the day",
                             color = Black,
                             style = Typography.titleLarge,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(0.dp)
+                            modifier = Modifier
+                                .padding(0.dp)
                                 .align(Alignment.CenterHorizontally)
                         )
                         Text(
@@ -190,11 +203,11 @@ fun HomeScreen(
                         )
                     }
                 } ?: run {
-                    Box (
+                    Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                       Text(text = "oops.")
+                        Text(text = "oops.")
                     }
                 }
             }
@@ -207,10 +220,12 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     NetHackSeerTheme {
-        HomeScreen(textFieldState = rememberTextFieldState(),
+        HomeScreen(
+            textFieldState = rememberTextFieldState(),
             onSearch = {},
             onNavigateToDetail = {},
             onNavigateToType = {},
-            homeViewModel = viewModel())
+            homeViewModel = viewModel()
+        )
     }
 }

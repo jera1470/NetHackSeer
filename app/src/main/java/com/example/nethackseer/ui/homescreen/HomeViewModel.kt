@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
  *
  * @property repository The repository for the home screen.
  */
-class HomeViewModel (repository: NetHackRepository) : ViewModel() {
+class HomeViewModel(repository: NetHackRepository) : ViewModel() {
 
     // This StateFlow will hold the current state of the UI in this case
     private val _pageOfTheDay = MutableStateFlow<MonsterEntity?>(null)

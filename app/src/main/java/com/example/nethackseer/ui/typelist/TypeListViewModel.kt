@@ -22,7 +22,7 @@ sealed class TypeUiState {
 class TypeListViewModel(
     savedStateHandle: SavedStateHandle,
     private val repository: NetHackRepository
-) : ViewModel(){
+) : ViewModel() {
     private val typeId: String = savedStateHandle.get<String>("typeId") ?: "Unknown"
     private val _uiState = MutableStateFlow<TypeUiState>(TypeUiState.Loading)
     val uiState: StateFlow<TypeUiState> = _uiState
@@ -31,7 +31,7 @@ class TypeListViewModel(
         fetchTypeData()
     }
 
-    private fun fetchTypeData(){
+    private fun fetchTypeData() {
         viewModelScope.launch {
             when (typeId.lowercase()) {
                 "monster" -> {
@@ -42,6 +42,7 @@ class TypeListViewModel(
                         )
                     }
                 }
+
                 else -> {
                     _uiState.value = TypeUiState.Error("not done with this yet")
                 }
@@ -51,11 +52,13 @@ class TypeListViewModel(
 
     // factory for creating the viewmodel with repository
     companion object {
-        fun Factory(repository: NetHackRepository) : ViewModelProvider.Factory =
+        fun Factory(repository: NetHackRepository): ViewModelProvider.Factory =
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel> create(modelClass : Class<T>,
-                                                    extras: CreationExtras): T {
+                override fun <T : ViewModel> create(
+                    modelClass: Class<T>,
+                    extras: CreationExtras
+                ): T {
                     val savedStateHandle = extras.createSavedStateHandle()
                     return TypeListViewModel(savedStateHandle, repository) as T
                 }

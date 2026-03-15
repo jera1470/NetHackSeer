@@ -49,11 +49,13 @@ class DetailViewModel(
 
     // Factory for creating the viewmodel with repository
     companion object {
-        fun Factory(repository: NetHackRepository) : ViewModelProvider.Factory =
+        fun Factory(repository: NetHackRepository): ViewModelProvider.Factory =
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel> create(modelClass : Class<T>,
-                                                    extras: CreationExtras): T {
+                override fun <T : ViewModel> create(
+                    modelClass: Class<T>,
+                    extras: CreationExtras
+                ): T {
                     val savedStateHandle = extras.createSavedStateHandle()
                     return DetailViewModel(savedStateHandle, repository) as T
                 }

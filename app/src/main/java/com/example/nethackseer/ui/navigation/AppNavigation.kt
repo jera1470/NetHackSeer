@@ -69,7 +69,7 @@ fun AppNavigation(homeViewModel: HomeViewModel) {
         composable(
             route = "type/{typeId}",
             arguments = listOf(navArgument("typeId") { type = NavType.StringType })
-        ){
+        ) {
             TypeList(
                 onBack = { navController.popBackStack() }, // again, for going back
 

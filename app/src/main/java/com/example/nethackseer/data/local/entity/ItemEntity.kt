@@ -11,11 +11,10 @@ import androidx.room.PrimaryKey
    to the app
  */
 @Entity(tableName = "items")
-data class ItemEntity(
+data class `ItemEntity.kt`(
     @PrimaryKey
     // both name and description have a macro OBJ() technically
-    val name: String,
-    val description: String? = null,
+    val name: String, val description: String? = null,
 
     // BITS() macro, relevant bits only
     val merge: Boolean, // can multiple items of the object stack?
@@ -29,17 +28,14 @@ data class ItemEntity(
         putting this bit as the damage type (pierce, slash, whack)
         AND also the direction type (no dir, immediate, ray)
      */
-    val dirOrType: Int,
-    val subCategory: String, // skills of weapons, spellbooks, etc.
+    val dirOrType: Int, val subCategory: String, // skills of weapons, spellbooks, etc.
     val material: String,
 
     val property: String, // extrinsic given by object (or more)
     val symbol: String, // e.g. WEAPON_CLASS for ')' for weapons
     val probability: Int, // out of 1000
     val delay: Int, // turns to put on or off objects
-    val weight: Int,
-    val value: Int,
-    val smallDamage: Int, // 1d(smallDamage)
+    val weight: Int, val value: Int, val smallDamage: Int, // 1d(smallDamage)
     val largeDamage: Int, // 1d(largeDamage)
 
     // part of oc1 (armor)
@@ -51,6 +47,5 @@ data class ItemEntity(
     // part of oc2 (spellbook)
     val spellLevel: Int? = null, // up to level 7 spellbooks exist
 
-    val nutrition: Int,
-    val color: String
+    val nutrition: Int, val color: String
 )

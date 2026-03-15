@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             NetHackSeerTheme {
-                Surface (
+                Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {

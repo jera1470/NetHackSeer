@@ -49,7 +49,7 @@ fun TypeList(
             (LocalContext.current.applicationContext as NetHackSeerApplication).repository
         )
     ),
-){
+) {
 
     val uiState by typeListViewModel.uiState.collectAsState()
 
@@ -108,7 +108,11 @@ fun TypeList(
                                 .padding(horizontal = 16.dp, vertical = 4.dp),
                             shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text(text = name, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Start)
+                            Text(
+                                text = name,
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Start
+                            )
                         }
                     }
                 }
