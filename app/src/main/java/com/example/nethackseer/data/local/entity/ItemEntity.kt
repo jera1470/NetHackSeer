@@ -44,5 +44,6 @@ data class ItemEntity(
     val spellLevel: Int, // up to level 7 spellbooks exist
 
     val nutrition: Int,
-    val color: String
+    val color: String,
+    val variant: String // what variants do these items appear?
 )

@@ -175,7 +175,8 @@ abstract class AppDatabase : RoomDatabase() {
                     magicCancellation = jsonObject.getInt("magicCancellation"),
                     spellLevel = jsonObject.getInt("spellLevel"),
                     nutrition = jsonObject.getInt("nutrition"),
-                    color = jsonObject.getString("color")
+                    color = jsonObject.getString("color"),
+                    variant = jsonObject.getString("variant")
                 )
 
                 itemList.add(itemEntity)
