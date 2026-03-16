@@ -35,7 +35,7 @@ data class ItemEntity(
     val largeDamage: Int, // 1d(largeDamage)
 
     // 1st use of oc1 (armor)
-    val ac: Int,
+    val ac: Int, // (10 - ac) is the true AC of the armor
     // 2nd use of oc1 (weapon)
     val hitBonus: Int,
     // 1st use of oc2 (armor)
