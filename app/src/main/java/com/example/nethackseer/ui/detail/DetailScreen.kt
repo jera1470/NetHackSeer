@@ -41,7 +41,7 @@ fun DetailScreen(
 /**
  * The content shown for the detail screen. Needed specifically for the EntityUiState.
  *
- * @param EntityUiState the current state of the UI
+ * @param uiState the current state of the UI
  * @param onBack A lambda to be executed when the back button is clicked.
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -92,30 +92,50 @@ fun DetailScreenContent(
                     Text(text = uiState.message, style = Typography.bodyLarge)
                 }
             }
-            // display if found
-            is EntityUiState.Success -> {
-                // should know that viewmodel looked it up and got the data, but forget sometimes
-                if (uiState.type.lowercase() == "monster") { // checking for later types
-                    Column(
-                        modifier = Modifier
-                            .padding(paddingValues)
-                            .padding(16.dp)
-                    ) {
-                        Text(
-                            text = uiState.monsterEntity.name,
-                            style = Typography.headlineMedium
-                        )
-                        Text(
-                            text = "Type: ${uiState.type}",
-                            style = Typography.titleMedium,
-                            color = MaterialTheme.colorScheme.secondary,
-                            modifier = Modifier.padding(top = 4.dp)
-                        )
-                        Text(
-                            text = "Level: ${uiState.monsterEntity.level}",
-                            style = Typography.titleMedium
-                        )
-                    }
+            // display if monster found
+            is EntityUiState.MonsterSuccess -> {
+                Column(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .padding(16.dp)
+                ) {
+                    Text(
+                        text = uiState.monster.name,
+                        style = Typography.headlineMedium
+                    )
+                    Text(
+                        text = "Type: Monster",
+                        style = Typography.titleMedium,
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.padding(top = 4.dp)
+                    )
+                    Text(
+                        text = "Level: ${uiState.monster.level}",
+                        style = Typography.titleMedium
+                    )
+                }
+            }
+            // display if item found
+            is EntityUiState.ItemSuccess -> {
+                Column(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .padding(16.dp)
+                ) {
+                    Text(
+                        text = uiState.item.name,
+                        style = Typography.headlineMedium
+                    )
+                    Text(
+                        text = "Type: Item",
+                        style = Typography.titleMedium,
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.padding(top = 4.dp)
+                    )
+                    Text(
+                        text = "Weight: ${uiState.item.weight}",
+                        style = Typography.titleMedium
+                    )
                 }
             }
         }

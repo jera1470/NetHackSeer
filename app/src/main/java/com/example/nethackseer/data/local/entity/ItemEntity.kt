@@ -23,8 +23,8 @@ data class ItemEntity(
     val charge: Boolean, // can the item be charged or enchanted?
     val unique: Boolean,
     val notWish: Boolean,
-    val tough: Boolean, // is it immune to destruction?\
-    val dirOrType: Int, // clever use of a bit, saving either damage or direction type
+    val tough: Boolean, // is it immune to destruction?
+    val dirOrType: Int, // for the purposes of this app, this will only apply to wand/spells
     val subCategory: String, // skills of weapons, spellbooks, etc.
     val material: String,
 

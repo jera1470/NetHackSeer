@@ -7,44 +7,57 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 // handles all Success, Error, and Loading states, must be sealed
 sealed class EntityUiState {
     object Loading : EntityUiState()
-    data class Success(val monsterEntity: MonsterEntity, val type: String) : EntityUiState()
+    data class MonsterSuccess(val monster: MonsterEntity) : EntityUiState()
+    data class ItemSuccess(val item: ItemEntity) : EntityUiState()
     data class Error(val message: String) : EntityUiState()
 }
 
 class DetailViewModel(
     savedStateHandle: SavedStateHandle,
-    private val repository: NetHackRepository, // Inject this
+    private val repository: NetHackRepository, // inject this
 ) : ViewModel() {
 
     private val entityId: String = savedStateHandle.get<String>("entityId") ?: "Unknown"
 
-    // Transform the database flow into UI State
-    val uiState: StateFlow<EntityUiState> = if (entityId == "Unknown") {
-        MutableStateFlow(EntityUiState.Error("Entity ID missing"))
-    } else {
-        repository.getMonsterByName(entityId)
-            .map { monster ->
-                if (monster != null) {
-                    EntityUiState.Success(monster, "Monster")
-                } else {
-                    EntityUiState.Error("Monster '$entityId' not found")
-                }
+    private val _uiState = MutableStateFlow<EntityUiState>(EntityUiState.Loading)
+    val uiState: StateFlow<EntityUiState> = _uiState.asStateFlow()
+
+    init {
+        loadEntity()
+    }
+
+    private fun loadEntity() {
+        if (entityId == "Unknown") {
+            _uiState.value = EntityUiState.Error("Entity ID missing")
+            return
+        }
+
+        viewModelScope.launch {
+            // First, try to find a monster
+            val monster = repository.getMonsterByName(entityId).first()
+            if (monster != null) {
+                _uiState.value = EntityUiState.MonsterSuccess(monster)
+                return@launch
             }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(5000),
-                initialValue = EntityUiState.Loading
-            )
+
+            // If not a monster, try to find an item
+            val item = repository.getItemByName(entityId).first()
+            if (item != null) {
+                _uiState.value = EntityUiState.ItemSuccess(item)
+                return@launch
+            }
+
+            // If neither, show error
+            _uiState.value = EntityUiState.Error("Entity '$entityId' not found")
+        }
     }
 
     // Factory for creating the viewmodel with repository

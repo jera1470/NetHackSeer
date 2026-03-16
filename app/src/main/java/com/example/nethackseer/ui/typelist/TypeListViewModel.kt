@@ -42,6 +42,14 @@ class TypeListViewModel(
                         )
                     }
                 }
+                "item" -> {
+                    repository.allItems.collect { items ->
+                        _uiState.value = TypeUiState.Success(
+                            listObj = items.map { it.name },
+                            type = typeId
+                        )
+                    }
+                }
 
                 else -> {
                     _uiState.value = TypeUiState.Error("not done with this yet")
