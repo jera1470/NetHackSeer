@@ -22,7 +22,6 @@ fun AppNavigation(homeViewModel: HomeViewModel) {
     // NavHost is the container for all screens here, so tread carefully
     // startDestination is the first screen you see
     NavHost(navController = navController, startDestination = "home") {
-        // home screen route
         composable(
             route = "home"
         ) {
@@ -32,22 +31,18 @@ fun AppNavigation(homeViewModel: HomeViewModel) {
 
             HomeScreen(
                 homeViewModel = homeViewModel,
-
                 textFieldState = textFieldState,
 
-                // searches for the entity and navigates to the detail screen
                 onSearch = { query ->
                     if (query.isNotBlank()) {
                         navController.navigate("detail/$query")
                     }
                 },
 
-                // navigates to the typelist screen when a button is pressed
                 onNavigateToDetail = { entityId ->
                     navController.navigate("detail/$entityId")
                 },
 
-                // navigates to the detail screen when a button is pressed
                 onNavigateToType = { typeId ->
                     navController.navigate("type/$typeId")
                 }

@@ -5,10 +5,21 @@ import com.example.nethackseer.data.local.dao.MonsterDao
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 
 class NetHackRepository(private val monsterDao: MonsterDao, private val itemDao: ItemDao) {
     val allMonsters: Flow<List<MonsterEntity>> = monsterDao.getAll()
     val allItems: Flow<List<ItemEntity>> = itemDao.getAll()
+
+    /**
+     * Get all names from both monsters and items, combined and sorted.
+     */
+    val allNames: Flow<List<String>> = combine(
+        monsterDao.getAllNames(),
+        itemDao.getAllNames()
+    ) { monsters, items ->
+        (monsters + items).sorted()
+    }
 
     /**
      * Search for monsters by name.

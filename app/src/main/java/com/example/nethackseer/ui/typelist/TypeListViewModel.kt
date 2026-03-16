@@ -27,6 +27,7 @@ class TypeListViewModel(
     private val _uiState = MutableStateFlow<TypeUiState>(TypeUiState.Loading)
     val uiState: StateFlow<TypeUiState> = _uiState
 
+    // might change this method in the future, seems somewhat strange
     init {
         fetchTypeData()
     }
@@ -52,7 +53,7 @@ class TypeListViewModel(
                 }
 
                 else -> {
-                    _uiState.value = TypeUiState.Error("not done with this yet")
+                    _uiState.value = TypeUiState.Error("Invalid type ID (i guess)")
                 }
             }
         }

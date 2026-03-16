@@ -33,6 +33,12 @@ interface ItemDao {
     fun getAll(): Flow<List<ItemEntity>>
 
     /**
+     * Selects and returns all item names.
+     */
+    @Query("SELECT name FROM items ORDER BY name ASC")
+    fun getAllNames(): Flow<List<String>>
+
+    /**
      * Selects items based on query given and returns all entities with that given query
      *
      * @return a Flow of a list of ItemEntity objects with the given query

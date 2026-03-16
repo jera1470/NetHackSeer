@@ -11,9 +11,8 @@ data class Attack(
     val diceSides: Int // number of sides (6 in 3d6)
 )
 
-/*
-    in NetHack's monst.c, there is a hierarchy of macros to keep
-    the monster table, the top level one for all macros being MON()
+/**
+ * An entity representing a monster in the database.
  */
 @Entity(tableName = "monsters")
 data class MonsterEntity(

@@ -20,6 +20,11 @@ sealed class EntityUiState {
     data class Error(val message: String) : EntityUiState()
 }
 
+/**
+ * View model for the detail screen.
+ *
+ * @property savedStateHandle The saved state handle for the view model.
+ */
 class DetailViewModel(
     savedStateHandle: SavedStateHandle,
     private val repository: NetHackRepository, // inject this

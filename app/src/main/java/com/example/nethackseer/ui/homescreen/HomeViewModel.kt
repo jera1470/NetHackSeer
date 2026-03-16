@@ -4,12 +4,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.nethackseer.data.NetHackRepository
-import com.example.nethackseer.data.local.entity.MonsterEntity
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+
+/**
+ * A simple data class to represent the "Page of the Day"
+ * which can be either a monster or an item (for now).
+ */
+data class PageOfTheDay(
+    val name: String,
+    val type: String // "monster" or "item"
+)
 
 /**
  * View model for the home screen.
@@ -19,16 +27,21 @@ import kotlinx.coroutines.launch
 class HomeViewModel(repository: NetHackRepository) : ViewModel() {
 
     // This StateFlow will hold the current state of the UI in this case
-    private val _pageOfTheDay = MutableStateFlow<MonsterEntity?>(null)
-    val pageOfTheDay: StateFlow<MonsterEntity?> = _pageOfTheDay.asStateFlow()
+    private val _pageOfTheDay = MutableStateFlow<PageOfTheDay?>(null)
+    val pageOfTheDay: StateFlow<PageOfTheDay?> = _pageOfTheDay.asStateFlow()
 
     init {
         // Coroutine for the viewModelScope. Automatically canceled when ViewModel is cleared
         viewModelScope.launch {
-            // Take the first instance from the Flow, which will be the full list
-            val monsters = repository.allMonsters.first()
-            if (monsters.isNotEmpty()) {
-                _pageOfTheDay.value = monsters.random()
+            // fetch all names from the combined flow we created earlier
+            val allNames = repository.allNames.first()
+            if (allNames.isNotEmpty()) {
+                val randomName = allNames.random()
+
+                val isMonster = repository.getMonsterByName(randomName).first() != null
+                val type = if (isMonster) "monster" else "item"
+                
+                _pageOfTheDay.value = PageOfTheDay(randomName, type)
             }
         }
     }

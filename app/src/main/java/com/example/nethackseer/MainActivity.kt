@@ -18,7 +18,7 @@ import com.example.nethackseer.ui.theme.NetHackSeerTheme
  * Called when the activity is first created.
  */
 class MainActivity : ComponentActivity() {
-    // If the activity is being re-initialized after
+    // if the activity is being re-initialized after
     // previously being shut down then this Bundle contains
     // the data it most recently supplied in onSaveInstanceState(Bundle).
     override fun onCreate(savedInstanceState: Bundle?) {

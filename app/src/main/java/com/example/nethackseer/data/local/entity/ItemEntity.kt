@@ -3,12 +3,8 @@ package com.example.nethackseer.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-/*
-   in NetHack's objects.c, the file uses BITS() and OBJECT(), which
-   are macros that the file as the template for all objects (or items,
-   I guess). There are many bits in BITS() that will not see use
-   in this app, mainly because they are unnecessary or not relevant
-   to the app
+/**
+ * An entity representing an item in the database.
  */
 @Entity(tableName = "items")
 data class ItemEntity(

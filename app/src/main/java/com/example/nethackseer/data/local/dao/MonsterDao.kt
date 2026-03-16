@@ -35,6 +35,12 @@ interface MonsterDao {
     fun getAll(): Flow<List<MonsterEntity>>
 
     /**
+     * Selects and returns all monster names.
+     */
+    @Query("SELECT name FROM monsters ORDER BY name ASC")
+    fun getAllNames(): Flow<List<String>>
+
+    /**
      * Selects monsters based on query given and returns all entities with that given query
      *
      * @return a Flow of a list of MonsterEntity objects with the given query

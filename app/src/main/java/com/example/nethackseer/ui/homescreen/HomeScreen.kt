@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.TextFieldState
-import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -31,9 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.ui.theme.*
 
 
@@ -64,11 +61,10 @@ private fun ActionButton(
  * The HomeScreen UI layout for the home screen of the app.
  *
  * @param textFieldState An editable text field
- * @param onSearch A lambda to be executed when the search button is clicked.
- * @param onNavigateToDetail A lambda to be executed when the detail button is clicked.
- * This is only used for the page of the day currently.
- * @param onNavigateToType A lambda to be executed when the type button is clicked.
- * @param homeViewModel A view model for the home screen.
+ * @param onSearch The lambda to be executed when the search button is clicked
+ * @param onNavigateToType A lambda to be executed when the type button is clicked
+ * @param onNavigateToDetail A lambda to be executed when the detail button is clicked
+ * @param homeViewModel A view model for the home screen
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,7 +77,7 @@ fun HomeScreen(
 ) {
 
     val pageOfTheDay by homeViewModel.pageOfTheDay.collectAsState()
-    // search bar stuff, mutableStateOf is used to track changes to the state
+    // search bar stuff, mutableStateOf is used to track changes to the state of the search bar
     var expanded by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
@@ -89,7 +85,7 @@ fun HomeScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Hello, welcome to NetHackSeer!",
+                        text = "NetHackSeer",
                         color = White,
                         style = Typography.titleLarge
                     )
@@ -169,7 +165,6 @@ fun HomeScreen(
                     .fillMaxSize()
                     .padding(16.dp),
                 colors = CardDefaults.cardColors(containerColor = LightRed),
-                // lambda here to navigate to the detail screen when card is pressed
                 onClick = {
                     pageOfTheDay?.let { page ->
                         onNavigateToDetail(page.name)
@@ -183,7 +178,7 @@ fun HomeScreen(
                             .fillMaxWidth()
                     ) {
                         Text(
-                            text = "Monster of the day",
+                            text = "${page.type.replaceFirstChar { it.uppercase() }} of the day",
                             color = Black,
                             style = Typography.titleLarge,
                             textAlign = TextAlign.Center,
@@ -207,25 +202,10 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "oops.")
+                        Text(text = "Loading...")
                     }
                 }
             }
         }
-    }
-}
-
-// Shows a preview of the home screen.
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    NetHackSeerTheme {
-        HomeScreen(
-            textFieldState = rememberTextFieldState(),
-            onSearch = {},
-            onNavigateToDetail = {},
-            onNavigateToType = {},
-            homeViewModel = viewModel()
-        )
     }
 }
