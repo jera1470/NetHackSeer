@@ -1,0 +1,342 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "c091a5c9a0b1b458a6835b1580a6d1cd",
+    "entities": [
+      {
+        "tableName": "monsters",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `symbol` TEXT NOT NULL, `level` INTEGER NOT NULL, `moveRate` INTEGER NOT NULL, `ac` INTEGER NOT NULL, `mr` INTEGER NOT NULL, `alignment` INTEGER NOT NULL, `genoFlags` TEXT NOT NULL, `attack1` TEXT NOT NULL, `attack2` TEXT NOT NULL, `attack3` TEXT NOT NULL, `attack4` TEXT NOT NULL, `attack5` TEXT NOT NULL, `attack6` TEXT NOT NULL, `weight` INTEGER NOT NULL, `nutritionValue` INTEGER NOT NULL, `sound` TEXT NOT NULL, `size` TEXT NOT NULL, `resistances` TEXT NOT NULL, `resistancesConferred` TEXT NOT NULL, `m1Flags` TEXT NOT NULL, `m2Flags` TEXT NOT NULL, `m3Flags` TEXT NOT NULL, `difficulty` INTEGER NOT NULL, `color` TEXT NOT NULL, PRIMARY KEY(`name`))",
+        "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "symbol",
+            "columnName": "symbol",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "level",
+            "columnName": "level",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moveRate",
+            "columnName": "moveRate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ac",
+            "columnName": "ac",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mr",
+            "columnName": "mr",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alignment",
+            "columnName": "alignment",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "genoFlags",
+            "columnName": "genoFlags",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attack1",
+            "columnName": "attack1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attack2",
+            "columnName": "attack2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attack3",
+            "columnName": "attack3",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attack4",
+            "columnName": "attack4",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attack5",
+            "columnName": "attack5",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attack6",
+            "columnName": "attack6",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weight",
+            "columnName": "weight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nutritionValue",
+            "columnName": "nutritionValue",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sound",
+            "columnName": "sound",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resistances",
+            "columnName": "resistances",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resistancesConferred",
+            "columnName": "resistancesConferred",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "m1Flags",
+            "columnName": "m1Flags",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "m2Flags",
+            "columnName": "m2Flags",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "m3Flags",
+            "columnName": "m3Flags",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "difficulty",
+            "columnName": "difficulty",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "name"
+          ]
+        }
+      },
+      {
+        "tableName": "items",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `description` TEXT, `merge` INTEGER NOT NULL, `magicItem` INTEGER NOT NULL, `charge` INTEGER NOT NULL, `unique` INTEGER NOT NULL, `notWish` INTEGER NOT NULL, `tough` INTEGER NOT NULL, `dirOrType` INTEGER NOT NULL, `subCategory` TEXT NOT NULL, `material` TEXT NOT NULL, `property` TEXT NOT NULL, `symbol` TEXT NOT NULL, `probability` INTEGER NOT NULL, `delay` INTEGER NOT NULL, `weight` INTEGER NOT NULL, `value` INTEGER NOT NULL, `smallDamage` INTEGER NOT NULL, `largeDamage` INTEGER NOT NULL, `ac` INTEGER NOT NULL, `hitBonus` INTEGER NOT NULL, `magicCancellation` INTEGER NOT NULL, `spellLevel` INTEGER NOT NULL, `nutrition` INTEGER NOT NULL, `color` TEXT NOT NULL, `variant` TEXT NOT NULL, PRIMARY KEY(`name`))",
+        "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "merge",
+            "columnName": "merge",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "magicItem",
+            "columnName": "magicItem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "charge",
+            "columnName": "charge",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unique",
+            "columnName": "unique",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notWish",
+            "columnName": "notWish",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tough",
+            "columnName": "tough",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dirOrType",
+            "columnName": "dirOrType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subCategory",
+            "columnName": "subCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "material",
+            "columnName": "material",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "property",
+            "columnName": "property",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "symbol",
+            "columnName": "symbol",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "probability",
+            "columnName": "probability",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "delay",
+            "columnName": "delay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weight",
+            "columnName": "weight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "smallDamage",
+            "columnName": "smallDamage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "largeDamage",
+            "columnName": "largeDamage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ac",
+            "columnName": "ac",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hitBonus",
+            "columnName": "hitBonus",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "magicCancellation",
+            "columnName": "magicCancellation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "spellLevel",
+            "columnName": "spellLevel",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nutrition",
+            "columnName": "nutrition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "variant",
+            "columnName": "variant",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "name"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c091a5c9a0b1b458a6835b1580a6d1cd')"
+    ]
+  }
+}

@@ -16,7 +16,11 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.IOException
 
-@Database(entities = [MonsterEntity::class, ItemEntity::class], version = 3)
+@Database(
+    entities = [MonsterEntity::class, ItemEntity::class],
+    version = 3,
+    exportSchema = true
+)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
