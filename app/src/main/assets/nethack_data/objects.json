@@ -3078,7 +3078,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "enchant armor",
+        "name": "scroll of enchant armor",
         "description": "ZELGO MER",
         "merge": true,
         "magicItem": true,
@@ -3105,7 +3105,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "destroy armor",
+        "name": "scroll of destroy armor",
         "description": "JUYED AWK YACC",
         "merge": true,
         "magicItem": true,
@@ -3132,7 +3132,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "confuse monster",
+        "name": "scroll of confuse monster",
         "description": "NR 9",
         "merge": true,
         "magicItem": true,
@@ -3159,7 +3159,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "scare monster",
+        "name": "scroll of scare monster",
         "description": "XIXAXA XOXAXA XUXAXA",
         "merge": true,
         "magicItem": true,
@@ -3186,7 +3186,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "remove curse",
+        "name": "scroll of remove curse",
         "description": "PRATYAVAYAH",
         "merge": true,
         "magicItem": true,
@@ -3213,7 +3213,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "enchant weapon",
+        "name": "scroll of enchant weapon",
         "description": "DAIYEN FOOELS",
         "merge": true,
         "magicItem": true,
@@ -3240,7 +3240,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "create monster",
+        "name": "scroll of create monster",
         "description": "LEP GEX VEN ZEA",
         "merge": true,
         "magicItem": true,
@@ -3267,7 +3267,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "taming",
+        "name": "scroll of taming",
         "description": "PRIRUTSENIE",
         "merge": true,
         "magicItem": true,
@@ -3294,7 +3294,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "genocide",
+        "name": "scroll of genocide",
         "description": "ELBIB YLOH",
         "merge": true,
         "magicItem": true,
@@ -3321,7 +3321,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "light",
+        "name": "scroll of light",
         "description": "VERR YED HORRE",
         "merge": true,
         "magicItem": true,
@@ -3348,7 +3348,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "teleportation",
+        "name": "scroll of teleportation",
         "description": "VENZAR BORGAVVE",
         "merge": true,
         "magicItem": true,
@@ -3375,7 +3375,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "gold detection",
+        "name": "scroll of gold detection",
         "description": "THARR",
         "merge": true,
         "magicItem": true,
@@ -3402,7 +3402,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "food detection",
+        "name": "scroll of food detection",
         "description": "YUM YUM",
         "merge": true,
         "magicItem": true,
@@ -3429,7 +3429,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "identify",
+        "name": "scroll of identify",
         "description": "KERNOD WEL",
         "merge": true,
         "magicItem": true,
@@ -3456,7 +3456,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "magic mapping",
+        "name": "scroll of magic mapping",
         "description": "ELAM EBOW",
         "merge": true,
         "magicItem": true,
@@ -3483,7 +3483,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "amnesia",
+        "name": "scroll of amnesia",
         "description": "DUAM XNAHT",
         "merge": true,
         "magicItem": true,
@@ -3510,7 +3510,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "fire",
+        "name": "scroll of fire",
         "description": "ANDOVA BEGARIN",
         "merge": true,
         "magicItem": true,
@@ -3537,7 +3537,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "earth",
+        "name": "scroll of earth",
         "description": "KIRJE",
         "merge": true,
         "magicItem": true,
@@ -3564,7 +3564,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "punishment",
+        "name": "scroll of punishment",
         "description": "VE FORBRYDERNE",
         "merge": true,
         "magicItem": true,
@@ -3591,7 +3591,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "charging",
+        "name": "scroll of charging",
         "description": "HACKEM MUCHE",
         "merge": true,
         "magicItem": true,
@@ -3618,7 +3618,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "stinking cloud",
+        "name": "scroll of stinking cloud",
         "description": "VELOX NEB",
         "merge": true,
         "magicItem": true,
@@ -3645,7 +3645,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "mail",
+        "name": "scroll of mail",
         "description": "stamped",
         "merge": true,
         "magicItem": false,
@@ -3672,7 +3672,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "blank paper",
+        "name": "scroll of blank paper",
         "description": "unlabeled",
         "merge": true,
         "magicItem": false,
@@ -3699,7 +3699,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "dig",
+        "name": "spellbook of dig",
         "description": "parchment",
         "merge": false,
         "magicItem": true,
@@ -3726,7 +3726,7 @@
         "color": "HI_LEATHER"
     },
     {
-        "name": "magic missile",
+        "name": "spellbook of magic missile",
         "description": "vellum",
         "merge": false,
         "magicItem": true,
@@ -3753,7 +3753,7 @@
         "color": "HI_LEATHER"
     },
     {
-        "name": "fireball",
+        "name": "spellbook of fireball",
         "description": "ragged",
         "merge": false,
         "magicItem": true,
@@ -3780,7 +3780,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "cone of cold",
+        "name": "spellbook of cone of cold",
         "description": "dog eared",
         "merge": false,
         "magicItem": true,
@@ -3807,7 +3807,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "sleep",
+        "name": "spellbook of sleep",
         "description": "mottled",
         "merge": false,
         "magicItem": true,
@@ -3834,7 +3834,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "finger of death",
+        "name": "spellbook of finger of death",
         "description": "stained",
         "merge": false,
         "magicItem": true,
@@ -3861,7 +3861,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "light",
+        "name": "spellbook of light",
         "description": "cloth",
         "merge": false,
         "magicItem": true,
@@ -3888,7 +3888,7 @@
         "color": "HI_CLOTH"
     },
     {
-        "name": "detect monsters",
+        "name": "spellbook of detect monsters",
         "description": "leathery",
         "merge": false,
         "magicItem": true,
@@ -3915,7 +3915,7 @@
         "color": "HI_LEATHER"
     },
     {
-        "name": "healing",
+        "name": "spellbook of healing",
         "description": "white",
         "merge": false,
         "magicItem": true,
@@ -3942,7 +3942,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "knock",
+        "name": "spellbook of knock",
         "description": "pink",
         "merge": false,
         "magicItem": true,
@@ -3969,7 +3969,7 @@
         "color": "CLR_BRIGHT_MAGENTA"
     },
     {
-        "name": "force bolt",
+        "name": "spellbook of force bolt",
         "description": "red",
         "merge": false,
         "magicItem": true,
@@ -3996,7 +3996,7 @@
         "color": "CLR_RED"
     },
     {
-        "name": "confuse monster",
+        "name": "spellbook of confuse monster",
         "description": "orange",
         "merge": false,
         "magicItem": true,
@@ -4023,7 +4023,7 @@
         "color": "CLR_ORANGE"
     },
     {
-        "name": "cure blindness",
+        "name": "spellbook of cure blindness",
         "description": "yellow",
         "merge": false,
         "magicItem": true,
@@ -4050,7 +4050,7 @@
         "color": "CLR_YELLOW"
     },
     {
-        "name": "drain life",
+        "name": "spellbook of drain life",
         "description": "velvet",
         "merge": false,
         "magicItem": true,
@@ -4077,7 +4077,7 @@
         "color": "CLR_MAGENTA"
     },
     {
-        "name": "slow monster",
+        "name": "spellbook of slow monster",
         "description": "light green",
         "merge": false,
         "magicItem": true,
@@ -4104,7 +4104,7 @@
         "color": "CLR_BRIGHT_GREEN"
     },
     {
-        "name": "wizard lock",
+        "name": "spellbook of wizard lock",
         "description": "dark green",
         "merge": false,
         "magicItem": true,
@@ -4131,7 +4131,7 @@
         "color": "CLR_GREEN"
     },
     {
-        "name": "create monster",
+        "name": "spellbook of create monster",
         "description": "turquoise",
         "merge": false,
         "magicItem": true,
@@ -4158,7 +4158,7 @@
         "color": "CLR_BRIGHT_CYAN"
     },
     {
-        "name": "detect food",
+        "name": "spellbook of detect food",
         "description": "cyan",
         "merge": false,
         "magicItem": true,
@@ -4185,7 +4185,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "cause fear",
+        "name": "spellbook of cause fear",
         "description": "light blue",
         "merge": false,
         "magicItem": true,
@@ -4212,7 +4212,7 @@
         "color": "CLR_BRIGHT_BLUE"
     },
     {
-        "name": "clairvoyance",
+        "name": "spellbook of clairvoyance",
         "description": "dark blue",
         "merge": false,
         "magicItem": true,
@@ -4239,7 +4239,7 @@
         "color": "CLR_BLUE"
     },
     {
-        "name": "cure sickness",
+        "name": "spellbook of cure sickness",
         "description": "indigo",
         "merge": false,
         "magicItem": true,
@@ -4266,7 +4266,7 @@
         "color": "CLR_BLUE"
     },
     {
-        "name": "charm monster",
+        "name": "spellbook of charm monster",
         "description": "magenta",
         "merge": false,
         "magicItem": true,
@@ -4293,7 +4293,7 @@
         "color": "CLR_MAGENTA"
     },
     {
-        "name": "haste self",
+        "name": "spellbook of haste self",
         "description": "purple",
         "merge": false,
         "magicItem": true,
@@ -4320,7 +4320,7 @@
         "color": "CLR_MAGENTA"
     },
     {
-        "name": "detect unseen",
+        "name": "spellbook of detect unseen",
         "description": "violet",
         "merge": false,
         "magicItem": true,
@@ -4347,7 +4347,7 @@
         "color": "CLR_MAGENTA"
     },
     {
-        "name": "levitation",
+        "name": "spellbook of levitation",
         "description": "tan",
         "merge": false,
         "magicItem": true,
@@ -4374,7 +4374,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "extra healing",
+        "name": "spellbook of extra healing",
         "description": "plaid",
         "merge": false,
         "magicItem": true,
@@ -4401,7 +4401,7 @@
         "color": "CLR_GREEN"
     },
     {
-        "name": "restore ability",
+        "name": "spellbook of restore ability",
         "description": "light brown",
         "merge": false,
         "magicItem": true,
@@ -4428,7 +4428,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "invisibility",
+        "name": "spellbook of invisibility",
         "description": "dark brown",
         "merge": false,
         "magicItem": true,
@@ -4455,7 +4455,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "detect treasure",
+        "name": "spellbook of detect treasure",
         "description": "gray",
         "merge": false,
         "magicItem": true,
@@ -4482,7 +4482,7 @@
         "color": "CLR_GRAY"
     },
     {
-        "name": "remove curse",
+        "name": "spellbook of remove curse",
         "description": "wrinkled",
         "merge": false,
         "magicItem": true,
@@ -4509,7 +4509,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "magic mapping",
+        "name": "spellbook of magic mapping",
         "description": "dusty",
         "merge": false,
         "magicItem": true,
@@ -4536,7 +4536,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "identify",
+        "name": "spellbook of identify",
         "description": "bronze",
         "merge": false,
         "magicItem": true,
@@ -4563,7 +4563,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "turn undead",
+        "name": "spellbook of turn undead",
         "description": "copper",
         "merge": false,
         "magicItem": true,
@@ -4590,7 +4590,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "polymorph",
+        "name": "spellbook of polymorph",
         "description": "silver",
         "merge": false,
         "magicItem": true,
@@ -4617,7 +4617,7 @@
         "color": "HI_SILVER"
     },
     {
-        "name": "teleport away",
+        "name": "spellbook of teleport away",
         "description": "gold",
         "merge": false,
         "magicItem": true,
@@ -4644,7 +4644,7 @@
         "color": "HI_GOLD"
     },
     {
-        "name": "create familiar",
+        "name": "spellbook of create familiar",
         "description": "glittering",
         "merge": false,
         "magicItem": true,
@@ -4671,7 +4671,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "cancellation",
+        "name": "spellbook of cancellation",
         "description": "shining",
         "merge": false,
         "magicItem": true,
@@ -4698,7 +4698,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "protection",
+        "name": "spellbook of protection",
         "description": "dull",
         "merge": false,
         "magicItem": true,
@@ -4725,7 +4725,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "jumping",
+        "name": "spellbook of jumping",
         "description": "thin",
         "merge": false,
         "magicItem": true,
@@ -4752,7 +4752,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "stone to flesh",
+        "name": "spellbook of stone to flesh",
         "description": "thick",
         "merge": false,
         "magicItem": true,
@@ -4779,7 +4779,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "blank paper",
+        "name": "spellbook of blank paper",
         "description": "plain",
         "merge": false,
         "magicItem": false,
@@ -4860,7 +4860,7 @@
         "color": "HI_PAPER"
     },
     {
-        "name": "gain ability",
+        "name": "potion of gain ability",
         "description": "ruby",
         "merge": true,
         "magicItem": true,
@@ -4887,7 +4887,7 @@
         "color": "CLR_RED"
     },
     {
-        "name": "restore ability",
+        "name": "potion of restore ability",
         "description": "pink",
         "merge": true,
         "magicItem": true,
@@ -4914,7 +4914,7 @@
         "color": "CLR_BRIGHT_MAGENTA"
     },
     {
-        "name": "confusion",
+        "name": "potion of confusion",
         "description": "orange",
         "merge": true,
         "magicItem": true,
@@ -4941,7 +4941,7 @@
         "color": "CLR_ORANGE"
     },
     {
-        "name": "blindness",
+        "name": "potion of blindness",
         "description": "yellow",
         "merge": true,
         "magicItem": true,
@@ -4968,7 +4968,7 @@
         "color": "CLR_YELLOW"
     },
     {
-        "name": "paralysis",
+        "name": "potion of paralysis",
         "description": "emerald",
         "merge": true,
         "magicItem": true,
@@ -4995,7 +4995,7 @@
         "color": "CLR_BRIGHT_GREEN"
     },
     {
-        "name": "speed",
+        "name": "potion of speed",
         "description": "dark green",
         "merge": true,
         "magicItem": true,
@@ -5022,7 +5022,7 @@
         "color": "CLR_GREEN"
     },
     {
-        "name": "levitation",
+        "name": "potion of levitation",
         "description": "cyan",
         "merge": true,
         "magicItem": true,
@@ -5049,7 +5049,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "hallucination",
+        "name": "potion of hallucination",
         "description": "sky blue",
         "merge": true,
         "magicItem": true,
@@ -5076,7 +5076,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "invisibility",
+        "name": "potion of invisibility",
         "description": "brilliant blue",
         "merge": true,
         "magicItem": true,
@@ -5103,7 +5103,7 @@
         "color": "CLR_BRIGHT_BLUE"
     },
     {
-        "name": "see invisible",
+        "name": "potion of see invisible",
         "description": "magenta",
         "merge": true,
         "magicItem": true,
@@ -5130,7 +5130,7 @@
         "color": "CLR_MAGENTA"
     },
     {
-        "name": "healing",
+        "name": "potion of healing",
         "description": "purple-red",
         "merge": true,
         "magicItem": true,
@@ -5157,7 +5157,7 @@
         "color": "CLR_MAGENTA"
     },
     {
-        "name": "extra healing",
+        "name": "potion of extra healing",
         "description": "puce",
         "merge": true,
         "magicItem": true,
@@ -5184,7 +5184,7 @@
         "color": "CLR_RED"
     },
     {
-        "name": "gain level",
+        "name": "potion of gain level",
         "description": "milky",
         "merge": true,
         "magicItem": true,
@@ -5211,7 +5211,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "enlightenment",
+        "name": "potion of enlightenment",
         "description": "swirly",
         "merge": true,
         "magicItem": true,
@@ -5238,7 +5238,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "monster detection",
+        "name": "potion of monster detection",
         "description": "bubbly",
         "merge": true,
         "magicItem": true,
@@ -5265,7 +5265,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "object detection",
+        "name": "potion of object detection",
         "description": "smoky",
         "merge": true,
         "magicItem": true,
@@ -5292,7 +5292,7 @@
         "color": "CLR_GRAY"
     },
     {
-        "name": "gain energy",
+        "name": "potion of gain energy",
         "description": "cloudy",
         "merge": true,
         "magicItem": true,
@@ -5319,7 +5319,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "sleeping",
+        "name": "potion of sleeping",
         "description": "effervescent",
         "merge": true,
         "magicItem": true,
@@ -5346,7 +5346,7 @@
         "color": "CLR_GRAY"
     },
     {
-        "name": "full healing",
+        "name": "potion of full healing",
         "description": "black",
         "merge": true,
         "magicItem": true,
@@ -5373,7 +5373,7 @@
         "color": "CLR_BLACK"
     },
     {
-        "name": "polymorph",
+        "name": "potion of polymorph",
         "description": "golden",
         "merge": true,
         "magicItem": true,
@@ -5400,7 +5400,7 @@
         "color": "CLR_YELLOW"
     },
     {
-        "name": "booze",
+        "name": "potion of booze",
         "description": "brown",
         "merge": true,
         "magicItem": false,
@@ -5427,7 +5427,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "sickness",
+        "name": "potion of sickness",
         "description": "fizzy",
         "merge": true,
         "magicItem": false,
@@ -5454,7 +5454,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "fruit juice",
+        "name": "potion of fruit juice",
         "description": "dark",
         "merge": true,
         "magicItem": false,
@@ -5481,7 +5481,7 @@
         "color": "CLR_BLACK"
     },
     {
-        "name": "acid",
+        "name": "potion of acid",
         "description": "white",
         "merge": true,
         "magicItem": false,
@@ -5508,7 +5508,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "oil",
+        "name": "potion of oil",
         "description": "murky",
         "merge": true,
         "magicItem": false,
@@ -5535,7 +5535,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "water",
+        "name": "potion of water",
         "description": "clear",
         "merge": true,
         "magicItem": false,
@@ -5562,7 +5562,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "adornment",
+        "name": "ring of adornment",
         "description": "wooden",
         "merge": false,
         "magicItem": true,
@@ -5589,7 +5589,7 @@
         "color": "HI_WOOD"
     },
     {
-        "name": "gain strength",
+        "name": "ring of gain strength",
         "description": "granite",
         "merge": false,
         "magicItem": true,
@@ -5616,7 +5616,7 @@
         "color": "HI_MINERAL"
     },
     {
-        "name": "gain constitution",
+        "name": "ring of gain constitution",
         "description": "opal",
         "merge": false,
         "magicItem": true,
@@ -5643,7 +5643,7 @@
         "color": "HI_MINERAL"
     },
     {
-        "name": "increase accuracy",
+        "name": "ring of increase accuracy",
         "description": "clay",
         "merge": false,
         "magicItem": true,
@@ -5670,7 +5670,7 @@
         "color": "CLR_RED"
     },
     {
-        "name": "increase damage",
+        "name": "ring of increase damage",
         "description": "coral",
         "merge": false,
         "magicItem": true,
@@ -5697,7 +5697,7 @@
         "color": "CLR_ORANGE"
     },
     {
-        "name": "protection",
+        "name": "ring of protection",
         "description": "black onyx",
         "merge": false,
         "magicItem": true,
@@ -5724,7 +5724,7 @@
         "color": "CLR_BLACK"
     },
     {
-        "name": "regeneration",
+        "name": "ring of regeneration",
         "description": "moonstone",
         "merge": false,
         "magicItem": true,
@@ -5751,7 +5751,7 @@
         "color": "HI_MINERAL"
     },
     {
-        "name": "searching",
+        "name": "ring of searching",
         "description": "tiger eye",
         "merge": false,
         "magicItem": true,
@@ -5778,7 +5778,7 @@
         "color": "CLR_BROWN"
     },
     {
-        "name": "stealth",
+        "name": "ring of stealth",
         "description": "jade",
         "merge": false,
         "magicItem": true,
@@ -5805,7 +5805,7 @@
         "color": "CLR_GREEN"
     },
     {
-        "name": "sustain ability",
+        "name": "ring of sustain ability",
         "description": "bronze",
         "merge": false,
         "magicItem": true,
@@ -5832,7 +5832,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "levitation",
+        "name": "ring of levitation",
         "description": "agate",
         "merge": false,
         "magicItem": true,
@@ -5859,7 +5859,7 @@
         "color": "CLR_RED"
     },
     {
-        "name": "hunger",
+        "name": "ring of hunger",
         "description": "topaz",
         "merge": false,
         "magicItem": true,
@@ -5886,7 +5886,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "aggravate monster",
+        "name": "ring of aggravate monster",
         "description": "sapphire",
         "merge": false,
         "magicItem": true,
@@ -5913,7 +5913,7 @@
         "color": "CLR_BLUE"
     },
     {
-        "name": "conflict",
+        "name": "ring of conflict",
         "description": "ruby",
         "merge": false,
         "magicItem": true,
@@ -5940,7 +5940,7 @@
         "color": "CLR_RED"
     },
     {
-        "name": "warning",
+        "name": "ring of warning",
         "description": "diamond",
         "merge": false,
         "magicItem": true,
@@ -5967,7 +5967,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "poison resistance",
+        "name": "ring of poison resistance",
         "description": "pearl",
         "merge": false,
         "magicItem": true,
@@ -5994,7 +5994,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "fire resistance",
+        "name": "ring of fire resistance",
         "description": "iron",
         "merge": false,
         "magicItem": true,
@@ -6021,7 +6021,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "cold resistance",
+        "name": "ring of cold resistance",
         "description": "brass",
         "merge": false,
         "magicItem": true,
@@ -6048,7 +6048,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "shock resistance",
+        "name": "ring of shock resistance",
         "description": "copper",
         "merge": false,
         "magicItem": true,
@@ -6075,7 +6075,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "free action",
+        "name": "ring of free action",
         "description": "twisted",
         "merge": false,
         "magicItem": true,
@@ -6102,7 +6102,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "slow digestion",
+        "name": "ring of slow digestion",
         "description": "steel",
         "merge": false,
         "magicItem": true,
@@ -6129,7 +6129,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "teleportation",
+        "name": "ring of teleportation",
         "description": "silver",
         "merge": false,
         "magicItem": true,
@@ -6156,7 +6156,7 @@
         "color": "HI_SILVER"
     },
     {
-        "name": "teleport control",
+        "name": "ring of teleport control",
         "description": "gold",
         "merge": false,
         "magicItem": true,
@@ -6183,7 +6183,7 @@
         "color": "HI_GOLD"
     },
     {
-        "name": "polymorph",
+        "name": "ring of polymorph",
         "description": "ivory",
         "merge": false,
         "magicItem": true,
@@ -6210,7 +6210,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "polymorph control",
+        "name": "ring of polymorph control",
         "description": "emerald",
         "merge": false,
         "magicItem": true,
@@ -6237,7 +6237,7 @@
         "color": "CLR_BRIGHT_GREEN"
     },
     {
-        "name": "invisibility",
+        "name": "ring of invisibility",
         "description": "wire",
         "merge": false,
         "magicItem": true,
@@ -6264,7 +6264,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "see invisible",
+        "name": "ring of see invisible",
         "description": "engagement",
         "merge": false,
         "magicItem": true,
@@ -6291,7 +6291,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "protection from shape changers",
+        "name": "ring of protection from shape changers",
         "description": "shiny",
         "merge": false,
         "magicItem": true,
@@ -6318,7 +6318,7 @@
         "color": "CLR_BRIGHT_CYAN"
     },
     {
-        "name": "light",
+        "name": "wand of light",
         "description": "glass",
         "merge": false,
         "magicItem": true,
@@ -6345,7 +6345,7 @@
         "color": "HI_GLASS"
     },
     {
-        "name": "secret door detection",
+        "name": "wand of secret door detection",
         "description": "balsa",
         "merge": false,
         "magicItem": true,
@@ -6372,7 +6372,7 @@
         "color": "HI_WOOD"
     },
     {
-        "name": "enlightenment",
+        "name": "wand of enlightenment",
         "description": "crystal",
         "merge": false,
         "magicItem": true,
@@ -6399,7 +6399,7 @@
         "color": "HI_GLASS"
     },
     {
-        "name": "create monster",
+        "name": "wand of create monster",
         "description": "maple",
         "merge": false,
         "magicItem": true,
@@ -6426,7 +6426,7 @@
         "color": "HI_WOOD"
     },
     {
-        "name": "wishing",
+        "name": "wand of wishing",
         "description": "pine",
         "merge": false,
         "magicItem": true,
@@ -6453,7 +6453,7 @@
         "color": "HI_WOOD"
     },
     {
-        "name": "nothing",
+        "name": "wand of nothing",
         "description": "oak",
         "merge": false,
         "magicItem": false,
@@ -6480,7 +6480,7 @@
         "color": "HI_WOOD"
     },
     {
-        "name": "striking",
+        "name": "wand of striking",
         "description": "ebony",
         "merge": false,
         "magicItem": true,
@@ -6507,7 +6507,7 @@
         "color": "HI_WOOD"
     },
     {
-        "name": "make invisible",
+        "name": "wand of make invisible",
         "description": "marble",
         "merge": false,
         "magicItem": true,
@@ -6534,7 +6534,7 @@
         "color": "HI_MINERAL"
     },
     {
-        "name": "slow monster",
+        "name": "wand of slow monster",
         "description": "tin",
         "merge": false,
         "magicItem": true,
@@ -6561,7 +6561,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "speed monster",
+        "name": "wand of speed monster",
         "description": "brass",
         "merge": false,
         "magicItem": true,
@@ -6588,7 +6588,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "undead turning",
+        "name": "wand of undead turning",
         "description": "copper",
         "merge": false,
         "magicItem": true,
@@ -6615,7 +6615,7 @@
         "color": "HI_COPPER"
     },
     {
-        "name": "polymorph",
+        "name": "wand of polymorph",
         "description": "silver",
         "merge": false,
         "magicItem": true,
@@ -6642,7 +6642,7 @@
         "color": "HI_SILVER"
     },
     {
-        "name": "cancellation",
+        "name": "wand of cancellation",
         "description": "platinum",
         "merge": false,
         "magicItem": true,
@@ -6669,7 +6669,7 @@
         "color": "CLR_WHITE"
     },
     {
-        "name": "teleportation",
+        "name": "wand of teleportation",
         "description": "iridium",
         "merge": false,
         "magicItem": true,
@@ -6696,7 +6696,7 @@
         "color": "CLR_BRIGHT_CYAN"
     },
     {
-        "name": "opening",
+        "name": "wand of opening",
         "description": "zinc",
         "merge": false,
         "magicItem": true,
@@ -6723,7 +6723,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "locking",
+        "name": "wand of locking",
         "description": "aluminum",
         "merge": false,
         "magicItem": true,
@@ -6750,7 +6750,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "probing",
+        "name": "wand of probing",
         "description": "uranium",
         "merge": false,
         "magicItem": true,
@@ -6777,7 +6777,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "digging",
+        "name": "wand of digging",
         "description": "iron",
         "merge": false,
         "magicItem": true,
@@ -6804,7 +6804,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "magic missile",
+        "name": "wand of magic missile",
         "description": "steel",
         "merge": false,
         "magicItem": true,
@@ -6831,7 +6831,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "fire",
+        "name": "wand of fire",
         "description": "hexagonal",
         "merge": false,
         "magicItem": true,
@@ -6858,7 +6858,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "cold",
+        "name": "wand of cold",
         "description": "short",
         "merge": false,
         "magicItem": true,
@@ -6885,7 +6885,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "sleep",
+        "name": "wand of sleep",
         "description": "runed",
         "merge": false,
         "magicItem": true,
@@ -6912,7 +6912,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "death",
+        "name": "wand of death",
         "description": "long",
         "merge": false,
         "magicItem": true,
@@ -6939,7 +6939,7 @@
         "color": "HI_METAL"
     },
     {
-        "name": "lightning",
+        "name": "wand of lightning",
         "description": "curved",
         "merge": false,
         "magicItem": true,
