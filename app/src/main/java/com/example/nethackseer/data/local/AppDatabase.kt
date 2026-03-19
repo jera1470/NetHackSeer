@@ -8,23 +8,26 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.nethackseer.data.local.dao.MonsterDao
 import com.example.nethackseer.data.local.dao.ItemDao
+import com.example.nethackseer.data.local.dao.PropertyDao
 import com.example.nethackseer.data.local.entity.Attack
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
+import com.example.nethackseer.data.local.entity.PropertyEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.io.IOException
 
 @Database(
-    entities = [MonsterEntity::class, ItemEntity::class],
-    version = 3,
+    entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class],
+    version = 4,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
     abstract fun itemDao(): ItemDao
+    abstract fun propertyDao(): PropertyDao
 
     companion object {
         @Volatile
@@ -58,6 +61,8 @@ abstract class AppDatabase : RoomDatabase() {
                     prePopulateMonsters(context, monsterDao)
                     val itemDao = database.itemDao()
                     prePopulateItem(context, itemDao)
+                    val propertyDao = database.propertyDao()
+                    prePopulateProperties(context, propertyDao)
                 }
             }
         }
@@ -134,7 +139,6 @@ abstract class AppDatabase : RoomDatabase() {
                 )
 
                 monsterList.add(monsterEntity)
-                print(monsterEntity.name)
             }
             dao.insertAll(monsterList)
         }
@@ -184,9 +188,33 @@ abstract class AppDatabase : RoomDatabase() {
                 )
 
                 itemList.add(itemEntity)
-                print(itemEntity.name)
             }
             dao.insertAll(itemList)
+        }
+
+        private suspend fun prePopulateProperties(context: Context, dao: PropertyDao) {
+            val jsonString: String
+            try {
+                jsonString = context.assets.open("nethack_data/properties.json").bufferedReader()
+                    .use { it.readText() }
+            } catch (ioException: IOException) {
+                ioException.printStackTrace()
+                return
+            }
+
+            val jsonArray = JSONArray(jsonString)
+            val propertyList = mutableListOf<PropertyEntity>()
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+                propertyList.add(
+                    PropertyEntity(
+                        id = jsonObject.getString("id"),
+                        name = jsonObject.getString("name"),
+                        description = jsonObject.getString("description")
+                    )
+                )
+            }
+            dao.insertProperties(propertyList)
         }
     }
 }

@@ -43,6 +43,7 @@ interface MonsterDao {
     /**
      * Selects monsters based on query given and returns all entities with that given query
      *
+     * @param query the query to search for
      * @return a Flow of a list of MonsterEntity objects with the given query
      */
     @Query("SELECT * FROM monsters WHERE name LIKE :query ORDER BY name ASC")
@@ -53,6 +54,7 @@ interface MonsterDao {
      * If no entity is found, returns null.
      *
      * @param name the name of the MonsterEntity object to select
+     * @return a Flow of the MonsterEntity object with the given name, or null if not found
      */
     @Query("SELECT * FROM monsters WHERE name = :name LIMIT 1")
     fun getMonsterByName(name: String): Flow<MonsterEntity?>
