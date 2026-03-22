@@ -14,5 +14,7 @@ class NetHackSeerApplication : Application() {
     val database by lazy { AppDatabase.getDatabase(this, applicationScope) }
     val repository by lazy { NetHackRepository(
         database.monsterDao(),
-        database.itemDao())}
+        database.itemDao(),
+        database.propertyDao()
+    )}
 }

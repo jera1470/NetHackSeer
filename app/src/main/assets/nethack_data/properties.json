@@ -1,0 +1,866 @@
+[
+  {
+    "id": "MS_SILENT",
+    "name": "silent",
+    "type": "sound",
+    "description": "The monster makes no sound."
+  },
+  {
+    "id": "MS_BARK",
+    "name": "bark",
+    "type": "sound",
+    "description": "The monster barks, and may howl on a full moon."
+  },
+  {
+    "id": "MS_MEW",
+    "name": "mew",
+    "type": "sound",
+    "description": "The monster mews or hisses."
+  },
+  {
+    "id": "MS_ROAR",
+    "name": "roar",
+    "type": "sound",
+    "description": "The monster roars."
+  },
+  {
+    "id": "MS_GROWL",
+    "name": "growl",
+    "type": "sound",
+    "description": "The monster growls."
+  },
+  {
+    "id": "MS_SQEEK",
+    "name": "squeak",
+    "type": "sound",
+    "description": "The monster squeaks, as a rodent."
+  },
+  {
+    "id": "MS_SQAWK",
+    "name": "squawk",
+    "type": "sound",
+    "description": "The monster squawks, as a bird."
+  },
+  {
+    "id": "MS_HISS",
+    "name": "hiss",
+    "type": "sound",
+    "description": "The monster hisses."
+  },
+  {
+    "id": "MS_BUZZ",
+    "name": "buzz",
+    "type": "sound",
+    "description": "The monster buzzes."
+  },
+  {
+    "id": "MS_GRUNT",
+    "name": "grunt",
+    "type": "sound",
+    "description": "The monster grunts or speaks own language."
+  },
+  {
+    "id": "MS_NEIGH",
+    "name": "neigh",
+    "type": "sound",
+    "description": "The monster neighs as an equine."
+  },
+  {
+    "id": "MS_WAIL",
+    "name": "wail",
+    "type": "sound",
+    "description": "The monster wails, as a tortured soul."
+  },
+  {
+    "id": "MS_GURGLE",
+    "name": "gurgle",
+    "type": "sound",
+    "description": "The monster gurgles, as a liquid or through saliva."
+  },
+  {
+    "id": "MS_BURBLE",
+    "name": "burble",
+    "type": "sound",
+    "description": "The monster burbles."
+  },
+  {
+    "id": "MS_ANIMAL",
+    "name": "animal",
+    "type": "sound",
+    "description": "The monster makes other animal noises."
+  },
+  {
+    "id": "MS_SHRIEK",
+    "name": "shriek",
+    "type": "sound",
+    "description": "The monster shrieks, waking up others."
+  },
+  {
+    "id": "MS_BONES",
+    "name": "bone-rattling",
+    "type": "sound",
+    "description": "The monster rattles their bones."
+  },
+  {
+    "id": "MS_LAUGH",
+    "name": "laugh",
+    "type": "sound",
+    "description": "The monster grins, smiles, giggles, and laughs."
+  },
+  {
+    "id": "MS_MUMBLE",
+    "name": "mumble",
+    "type": "sound",
+    "description": "The monster says something or mumbles."
+  },
+  {
+    "id": "MS_IMITATE",
+    "name": "imitate",
+    "type": "sound",
+    "description": "The monster imitates others."
+  },
+  {
+    "id": "MS_ORC",
+    "name": "orc sounds",
+    "type": "sound",
+    "description": "The monster makes orc-like sounds."
+  },
+  {
+    "id": "MS_HUMANOID",
+    "name": "humanoid sounds",
+    "type": "sound",
+    "description": "The monster makes humanoid-like sounds."
+  },
+  {
+    "id": "MS_ARREST",
+    "name": "arrest",
+    "type": "sound",
+    "description": "The monster makes arrest sounds."
+  },
+  {
+    "id": "MS_SOLDIER",
+    "name": "soldier sounds",
+    "type": "sound",
+    "description": "The monster makes army and watchmen sounds."
+  },
+  {
+    "id": "MS_GUARD",
+    "name": "guard sounds",
+    "type": "sound",
+    "description": "The monster makes guard sounds."
+  },
+  {
+    "id": "MS_DJINNI",
+    "name": "djinni sounds",
+    "type": "sound",
+    "description": "The monster makes Djinni sounds."
+  },
+  {
+    "id": "MS_NURSE",
+    "name": "nurse sounds",
+    "type": "sound",
+    "description": "A monster that makes nurse sounds."
+  },
+  {
+    "id": "MS_SEDUCE",
+    "name": "seduce",
+    "type": "sound",
+    "description": "A monster that makes seduction sounds."
+  },
+  {
+    "id": "MS_VAMPIRE",
+    "name": "vampire sounds",
+    "type": "sound",
+    "description": "The monster makes vampire sounds and seduction."
+  },
+  {
+    "id": "MS_BRIBE",
+    "name": "bribe",
+    "type": "sound",
+    "description": "The monster bribes, berating or asking for money."
+  },
+  {
+    "id": "MS_CUSS",
+    "name": "cussing",
+    "type": "sound",
+    "description": "The monster cusses, as a demon or the Wizard."
+  },
+  {
+    "id": "MS_RIDER",
+    "name": "rider",
+    "type": "sound",
+    "description": "The monster makes astral level special monster sounds."
+  },
+  {
+    "id": "MS_LEADER",
+    "name": "leader",
+    "type": "sound",
+    "description": "The monster makes role leader sounds."
+  },
+  {
+    "id": "MS_NEMESIS",
+    "name": "nemesis",
+    "type": "sound",
+    "description": "The monster makes role nemesis sounds."
+  },
+  {
+    "id": "MS_GUARDIAN",
+    "name": "guardian",
+    "type": "sound",
+    "description": "The monster makes role guardian sounds."
+  },
+  {
+    "id": "MS_SELL",
+    "name": "shopkeeper",
+    "type": "sound",
+    "description": "The monster makes shopkeeper sounds."
+  },
+  {
+    "id": "MS_ORACLE",
+    "name": "oracle sounds",
+    "type": "sound",
+    "description": "The monster makes consultation sounds."
+  },
+  {
+    "id": "MS_PRIEST",
+    "name": "priest sounds",
+    "type": "sound",
+    "description": "The monster makes aligned priest sounds."
+  },
+  {
+    "id": "MS_SPELL",
+    "name": "spellcaster",
+    "type": "sound",
+    "description": "The monster makes spellcaster sounds apart from others."
+  },
+  {
+    "id": "MS_WERE",
+    "name": "lycanthrope",
+    "type": "sound",
+    "description": "The monster makes lycanthrope sounds in human form."
+  },
+  {
+    "id": "MS_BOAST",
+    "name": "boast",
+    "type": "sound",
+    "description": "The monster boasts, as a giant."
+  },
+  {
+    "id": "MR_FIRE",
+    "name": "fire resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to fire."
+  },
+  {
+    "id": "MR_COLD",
+    "name": "cold resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to cold."
+  },
+  {
+    "id": "MR_SLEEP",
+    "name": "sleep resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to sleep."
+  },
+  {
+    "id": "MR_DISINT",
+    "name": "disintegration resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to disintegration."
+  },
+  {
+    "id": "MR_ELEC",
+    "name": "shock resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to shock."
+  },
+  {
+    "id": "MR_POISON",
+    "name": "poison resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to poison."
+  },
+  {
+    "id": "MR_ACID",
+    "name": "acid resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to acid."
+  },
+  {
+    "id": "MR_STONE",
+    "name": "stoning resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to stoning."
+  },
+  {
+    "id": "MR2_SEE_INVIS",
+    "name": "hero see invisible",
+    "type": "hero resistance",
+    "description": "The hero can see invisible."
+  },
+  {
+    "id": "MR2_LEVITATE",
+    "name": "hero levitate",
+    "type": "hero resistance",
+    "description": "The hero is levitating."
+  },
+  {
+    "id": "MR2_WATERWALK",
+    "name": "hero water walk",
+    "type": "hero resistance",
+    "description": "The hero can walk on water."
+  },
+  {
+    "id": "MR2_MAGBREATH",
+    "name": "hero magical breathing",
+    "type": "hero resistance",
+    "description": "The hero can breathe in any environment."
+  },
+  {
+    "id": "MR2_DISPLACED",
+    "name": "hero displacement",
+    "type": "hero resistance",
+    "description": "The hero has images of themselves, being displaced."
+  },
+  {
+    "id": "MR2_STRENGTH",
+    "name": "hero max strength",
+    "type": "hero resistance",
+    "description": "The hero has their strength set to 25, the highest possible value."
+  },
+  {
+    "id": "MR2_FUMBLING",
+    "name": "hero fumbling",
+    "type": "hero resistance",
+    "description": "The hero is clumsy and fumbles."
+  },
+  {
+    "id": "M1_FLY",
+    "name": "flying",
+    "type": "physical",
+    "description": "The monster can fly."
+  },
+  {
+    "id": "M1_SWIM",
+    "name": "swim",
+    "type": "physical",
+    "description": "The monster can swim across water."
+  },
+  {
+    "id": "M1_AMORPHOUS",
+    "name": "amorphous",
+    "type": "physical",
+    "description": "The monster has no fixed shape or form."
+  },
+  {
+    "id": "M1_WALLWALK",
+    "name": "phase",
+    "type": "physical",
+    "description": "The monster can phase through solid tiles."
+  },
+  {
+    "id": "M1_CLING",
+    "name": "cling",
+    "type": "physical",
+    "description": "The monster can cling to ceilings and hide."
+  },
+  {
+    "id": "M1_TUNNEL",
+    "name": "tunnel",
+    "type": "physical",
+    "description": "The monster can tunnel through rock, breaking solid tiles."
+  },
+  {
+    "id": "M1_NEEDPICK",
+    "name": "pickaxe tunnel",
+    "type": "physical",
+    "description": "The monster can tunnel through rock only if they have a pickaxe."
+  },
+  {
+    "id": "M1_CONCEAL",
+    "name": "conceal",
+    "type": "physical",
+    "description": "The monster can hide under objects."
+  },
+  {
+    "id": "M1_HIDE",
+    "name": "hide",
+    "type": "physical",
+    "description": "The monster blends in with ceiling or mimics something."
+  },
+  {
+    "id": "M1_AMPHIBIOUS",
+    "name": "amphibious",
+    "type": "physical",
+    "description": "The monster can survive in land and water."
+  },
+  {
+    "id": "M1_BREATHLESS",
+    "name": "breathless",
+    "type": "physical",
+    "description": "The monster deosn't need to breathe."
+  },
+  {
+    "id": "M1_NOTAKE",
+    "name": "cannot pickup",
+    "type": "physical",
+    "description": "The monster is unable to pick up objects."
+  },
+  {
+    "id": "M1_NOEYES",
+    "name": "no eyes",
+    "type": "physical",
+    "description": "The monster has no eyes for gazing into or blinding themselves."
+  },
+  {
+    "id": "M1_NOHANDS",
+    "name": "no hands",
+    "type": "physical",
+    "description": "The monster has no hands to handle things."
+  },
+  {
+    "id": "M1_NOLIMBS",
+    "name": "no limbs",
+    "type": "physical",
+    "description": "The monster has no limbs to kick or wear on."
+  },
+  {
+    "id": "M1_NOHEAD",
+    "name": "no head",
+    "type": "physical",
+    "description": "The monster has no head to behead."
+  },
+  {
+    "id": "M1_MINDLESS",
+    "name": "no mind",
+    "type": "physical",
+    "description": "The monster has no mind."
+  },
+  {
+    "id": "M1_HUMANOID",
+    "name": "humanoid features",
+    "type": "physical",
+    "description": "The monster has humanoid arms, torso, and a head."
+  },
+  {
+    "id": "M1_ANIMAL",
+    "name": "animal body",
+    "type": "physical",
+    "description": "The monster has an animal body."
+  },
+  {
+    "id": "M1_SLITHY",
+    "name": "slithy",
+    "type": "physical",
+    "description": "The monster has a serpent body, having no legs."
+  },
+  {
+    "id": "M1_UNSOLID",
+    "name": "unsolid",
+    "type": "physical",
+    "description": "The monster has no solid body or has a liquid body."
+  },
+  {
+    "id": "M1_THICK_HIDE",
+    "name": "thick hide",
+    "type": "physical",
+    "description": "The monster has a thick hide or scales."
+  },
+  {
+    "id": "M1_OVIPAROUS",
+    "name": "oviparous",
+    "type": "physical",
+    "description": "The monster's female form can lay eggs."
+  },
+  {
+    "id": "M1_REGEN",
+    "name": "regeneration",
+    "type": "physical",
+    "description": "The monster can regenerate its hit points."
+  },
+  {
+    "id": "M1_SEE_INVIS",
+    "name": "see invisible",
+    "type": "physical",
+    "description": "The monster can see invisible."
+  },
+  {
+    "id": "M1_TPORT",
+    "name": "teleport",
+    "type": "physical",
+    "description": "The monster can teleport."
+  },
+  {
+    "id": "M1_TPORT_CNTRL",
+    "name": "teleport control",
+    "type": "physical",
+    "description": "The monster can control where it teleports to."
+  },
+  {
+    "id": "M1_ACID",
+    "name": "acidic",
+    "type": "physical",
+    "description": "The monster is acidic to eat."
+  },
+  {
+    "id": "M1_POIS",
+    "name": "poisonous",
+    "type": "physical",
+    "description": "The monster is poisonous to eat."
+  },
+  {
+    "id": "M1_CARNIVORE",
+    "name": "carnivore",
+    "type": "physical",
+    "description": "The monster only eats corpses and meat."
+  },
+  {
+    "id": "M1_HERBIVORE",
+    "name": "herbivore",
+    "type": "physical",
+    "description": "The monster only eats fruits and veggies."
+  },
+  {
+    "id": "M1_OMNIVORE",
+    "name": "omnivore",
+    "type": "physical",
+    "description": "The monster can eat both meat and fruit."
+  },
+  {
+    "id": "M1_METALLIVORE",
+    "name": "metallivore",
+    "type": "physical",
+    "description": "The monster only eats metal."
+  },
+  {
+    "id": "M2_NOPOLY",
+    "name": "no polymorphing",
+    "type": "behavioral",
+    "description": "The hero cannot polymorph to the monster."
+  },
+  {
+    "id": "M2_UNDEAD",
+    "name": "undead",
+    "type": "behavioral",
+    "description": "The monster is part of the walking dead."
+  },
+  {
+    "id": "M2_WERE",
+    "name": "lycanthrope",
+    "type": "behavioral",
+    "description": "The monster is a lycanthrope."
+  },
+  {
+    "id": "M2_HUMAN",
+    "name": "human",
+    "type": "behavioral",
+    "description": "The monster is a human."
+  },
+  {
+    "id": "M2_ELF",
+    "name": "elf",
+    "type": "behavioral",
+    "description": "The monster is an elf."
+  },
+  {
+    "id": "M2_DWARF",
+    "name": "dwarf",
+    "type": "behavioral",
+    "description": "The monster is a dwarf."
+  },
+  {
+    "id": "M2_GNOME",
+    "name": "gnome",
+    "type": "behavioral",
+    "description": "The monster is a gnome."
+  },
+  {
+    "id": "M2_ORC",
+    "name": "orc",
+    "type": "behavioral",
+    "description": "The monster is an orc."
+  },
+  {
+    "id": "M2_DEMON",
+    "name": "demon",
+    "type": "behavioral",
+    "description": "The monster is a demon."
+  },
+  {
+    "id": "M2_MERC",
+    "name": "mercenary",
+    "type": "behavioral",
+    "description": "The monster is a guard or soldier."
+  },
+  {
+    "id": "M2_LORD",
+    "name": "lord",
+    "type": "behavioral",
+    "description": "The monster is a lord to its kind."
+  },
+  {
+    "id": "M2_PRINCE",
+    "name": "overlord",
+    "type": "behavioral",
+    "description": "The monster is an overlord to its kind."
+  },
+  {
+    "id": "M2_MINION",
+    "name": "minion",
+    "type": "behavioral",
+    "description": "The monster is a minion of a deity."
+  },
+  {
+    "id": "M2_GIANT",
+    "name": "giant",
+    "type": "behavioral",
+    "description": "The monster is a giant."
+  },
+  {
+    "id": "M2_SHAPESHIFTER",
+    "name": "shapeshifter",
+    "type": "behavioral",
+    "description": "The monster is a shapeshifting species."
+  },
+  {
+    "id": "M2_MALE",
+    "name": "always male",
+    "type": "behavioral",
+    "description": "The monster is always male."
+  },
+  {
+    "id": "M2_FEMALE",
+    "name": "always female",
+    "type": "behavioral",
+    "description": "The monster is always female."
+  },
+  {
+    "id": "M2_NEUTER",
+    "name": "no sex",
+    "type": "behavioral",
+    "description": "The monster is neither male or female."
+  },
+  {
+    "id": "M2_PNAME",
+    "name": "proper",
+    "type": "behavioral",
+    "description": "The monster has a proper name."
+  },
+  {
+    "id": "M2_HOSTILE",
+    "name": "always hostile",
+    "type": "behavioral",
+    "description": "The monster always starts hostile."
+  },
+  {
+    "id": "M2_PEACEFUL",
+    "name": "always peaceful",
+    "type": "behavioral",
+    "description": "The monster always starts peaceful."
+  },
+  {
+    "id": "M2_DOMESTIC",
+    "name": "domestic",
+    "type": "behavioral",
+    "description": "The monster can be tamed by feeding."
+  },
+  {
+    "id": "M2_WANDER",
+    "name": "wanderer",
+    "type": "behavioral",
+    "description": "The monster is restless and wanders aimlessly."
+  },
+  {
+    "id": "M2_STALK",
+    "name": "stalker",
+    "type": "behavioral",
+    "description": "The monster can follow you to other levels."
+  },
+  {
+    "id": "M2_NASTY",
+    "name": "nasty",
+    "type": "behavioral",
+    "description": "The monster is a more harder monster, considered a nasty for more XP."
+  },
+  {
+    "id": "M2_STRONG",
+    "name": "strong",
+    "type": "behavioral",
+    "description": "The monster is especially strong and/or big."
+  },
+  {
+    "id": "M2_ROCKTHROW",
+    "name": "throw boulder",
+    "type": "behavioral",
+    "description": "The monster can throw boulders."
+  },
+  {
+    "id": "M2_GREEDY",
+    "name": "greedy",
+    "type": "behavioral",
+    "description": "The monster really likes gold."
+  },
+  {
+    "id": "M2_JEWELS",
+    "name": "jeweler",
+    "type": "behavioral",
+    "description": "The monster really likes gems."
+  },
+  {
+    "id": "M2_COLLECT",
+    "name": "pickup",
+    "type": "behavioral",
+    "description": "The monster picks up weapons and food."
+  },
+  {
+    "id": "M2_MAGIC",
+    "name": "pickup magics",
+    "type": "behavioral",
+    "description": "The monster picks up magic items."
+  },
+  {
+    "id": "M3_WANTSAMUL",
+    "name": "amulet stealer",
+    "type": "tactical",
+    "description": "The monster would like to steal the Amulet."
+  },
+  {
+    "id": "M3_WANTSBELL",
+    "name": "bell stealer",
+    "type": "tactical",
+    "description": "The monster would like to steal the Bell."
+  },
+  {
+    "id": "M3_WANTSBOOK",
+    "name": "book stealer",
+    "type": "tactical",
+    "description": "The monster would like to steal the Book."
+  },
+  {
+    "id": "M3_WANTSCAND",
+    "name": "candelabrum stealer",
+    "type": "tactical",
+    "description": "The monster would like to steal the Candelabrum."
+  },
+  {
+    "id": "M3_WANTSARTI",
+    "name": "quest artifact stealer",
+    "type": "tactical",
+    "description": "The monster would like to steal the quest artifact."
+  },
+  {
+    "id": "M3_WANTSALL",
+    "name": "major artifacts stealer",
+    "type": "tactical",
+    "description": "The monster would like to steal any major artifact."
+  },
+  {
+    "id": "M3_WAITFORU",
+    "name": "waits",
+    "type": "tactical",
+    "description": "The monster waits to see you or gets attacked."
+  },
+  {
+    "id": "M3_CLOSE",
+    "name": "close in",
+    "type": "tactical",
+    "description": "The monster waits for you to get close or gets attacked."
+  },
+  {
+    "id": "M3_INFRAVISIBLE",
+    "name": "infravisible",
+    "type": "tactical",
+    "description": "The monster is infravisible to the hero."
+  },
+  {
+    "id": "MZ_TINY",
+    "name": "tiny",
+    "type": "size",
+    "description": "The monster is less than two feet tall."
+  },
+  {
+    "id": "MZ_SMALL",
+    "name": "small",
+    "type": "size",
+    "description": "The monster is roughly two to four feet tall (e.g., a hobbit or gnome)."
+  },
+  {
+    "id": "MZ_MEDIUM",
+    "name": "medium",
+    "type": "size",
+    "description": "The monster is human-sized, roughly four to seven feet tall."
+  },
+  {
+    "id": "MZ_HUMAN",
+    "name": "human-sized",
+    "type": "size",
+    "description": "The monster is human-sized (alias for medium)."
+  },
+  {
+    "id": "MZ_LARGE",
+    "name": "large",
+    "type": "size",
+    "description": "The monster is large, roughly seven to twelve feet tall."
+  },
+  {
+    "id": "MZ_HUGE",
+    "name": "huge",
+    "type": "size",
+    "description": "The monster is very large, roughly 12 to 25 feet tall."
+  },
+  {
+    "id": "MZ_GIGANTIC",
+    "name": "gigantic",
+    "type": "size",
+    "description": "The monster is of massive, titanic proportions, over 25 feet tall."
+  },
+  {
+    "id": "G_UNIQ",
+    "name": "unique",
+    "type": "generation",
+    "description": "The monster is unique, meaning only one can exist at a time."
+  },
+  {
+    "id": "G_NOHELL",
+    "name": "not in hell",
+    "type": "generation",
+    "description": "This monster is never randomly generated in Gehennom."
+  },
+  {
+    "id": "G_HELL",
+    "name": "only in hell",
+    "type": "generation",
+    "description": "This monster is only randomly generated in Gehennom."
+  },
+  {
+    "id": "G_NOGEN",
+    "name": "special generation",
+    "type": "generation",
+    "description": "This monster is not generated randomly, appearing in specific spots."
+  },
+  {
+    "id": "G_SGROUP",
+    "name": "small group",
+    "type": "generation",
+    "description": "This monster usually appears in small groups."
+  },
+  {
+    "id": "G_LGROUP",
+    "name": "large group",
+    "type": "generation",
+    "description": "This monster usually appears in large groups."
+  },
+  {
+    "id": "G_GENO",
+    "name": "genocidable",
+    "type": "generation",
+    "description": "This monster species can be wiped out using a scroll of genocide."
+  },
+  {
+    "id": "G_NOCORPSE",
+    "name": "no corpse",
+    "type": "generation",
+    "description": "This monster never leaves a corpse when it dies."
+  }
+]
