@@ -210,6 +210,7 @@ abstract class AppDatabase : RoomDatabase() {
                     PropertyEntity(
                         id = jsonObject.getString("id"),
                         name = jsonObject.getString("name"),
+                        type = jsonObject.getString("type"),
                         description = jsonObject.getString("description")
                     )
                 )
