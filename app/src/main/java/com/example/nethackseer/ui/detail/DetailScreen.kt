@@ -1,9 +1,16 @@
 package com.example.nethackseer.ui.detail
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
@@ -13,10 +20,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.NetHackSeerApplication
 import com.example.nethackseer.ui.theme.*
+import com.example.nethackseer.ui.utils.getDisplayChar
+import com.example.nethackseer.ui.utils.getNetHackColor
 
 /**
  * The DetailScreen UI layout for the detail screen of the app.
@@ -53,7 +64,36 @@ fun DetailScreenContent(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Details", color = White) },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        when (uiState) {
+                            is EntityUiState.MonsterSuccess -> {
+                                Text(text = uiState.monster.name, color = White)
+                                Text(text = " (", color = White)
+                                Text(
+                                    text = getDisplayChar(uiState.monster.symbol),
+                                    color = getNetHackColor(uiState.monster.color),
+                                    fontFamily = FontFamily.Monospace,
+                                    modifier = Modifier.background(Black)
+                                )
+                                Text(text = ")", color = White)
+                            }
+                            is EntityUiState.ItemSuccess -> {
+                                Text(text = uiState.item.name, color = White)
+                                Text(text = " (", color = White)
+                                Text(
+                                    text = getDisplayChar(uiState.item.symbol),
+                                    color = getNetHackColor(uiState.item.color),
+                                    fontFamily = FontFamily.Monospace,
+                                    modifier = Modifier.background(Black)
+                                )
+                                Text(text = ")", color = White)
+                            }
+                            is EntityUiState.Loading -> Text(text = "wait...", color = White)
+                            is EntityUiState.Error -> Text(text = "error", color = White)
+                        }
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -97,22 +137,52 @@ fun DetailScreenContent(
                 Column(
                     modifier = Modifier
                         .padding(paddingValues)
+                        .fillMaxSize()
                         .padding(16.dp)
+                        .verticalScroll(rememberScrollState())
                 ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = uiState.monster.name,
+                            style = Typography.headlineLarge,
+                            color = DarkRed,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Text(
+                            text = getDisplayChar(uiState.monster.symbol),
+                            style = Typography.headlineLarge.copy(fontFamily = FontFamily.Monospace),
+                            color = getNetHackColor(uiState.monster.color),
+                            modifier = Modifier.background(Black)
+                        )
+                    }
                     Text(
-                        text = uiState.monster.name,
-                        style = Typography.headlineMedium
-                    )
-                    Text(
-                        text = "Type: Monster",
+                        text = "Class: ${uiState.monster.symbol}",
                         style = Typography.titleMedium,
-                        color = MaterialTheme.colorScheme.secondary,
-                        modifier = Modifier.padding(top = 4.dp)
+                        color = DarkGray
                     )
-                    Text(
-                        text = "Level: ${uiState.monster.level}",
-                        style = Typography.titleMedium
-                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Card(
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                       Column(
+                           modifier = Modifier.padding(12.dp)
+                       ) {
+                           Row(
+                               modifier = Modifier
+                                   .fillMaxWidth()
+                                   .padding(top = 8.dp, bottom = 8.dp),
+                               horizontalArrangement = Arrangement.SpaceEvenly
+                           ){
+                               StatItem("LVL", "${uiState.monster.level}")
+                               StatItem("AC", "${uiState.monster.ac}")
+                               StatItem("MR", "${uiState.monster.mr}")
+                               StatItem("SPD", "${uiState.monster.moveRate}")
+                           }
+                       }
+                    }
                 }
             }
             // display if item found
@@ -122,12 +192,21 @@ fun DetailScreenContent(
                         .padding(paddingValues)
                         .padding(16.dp)
                 ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = uiState.item.name,
+                            style = Typography.headlineMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Text(
+                            text = getDisplayChar(uiState.item.symbol),
+                            style = Typography.headlineMedium.copy(fontFamily = FontFamily.Monospace),
+                            color = getNetHackColor(uiState.item.color),
+                            modifier = Modifier.background(Black)
+                        )
+                    }
                     Text(
-                        text = uiState.item.name,
-                        style = Typography.headlineMedium
-                    )
-                    Text(
-                        text = "Type: Item",
+                        text = "Type: Item (${uiState.item.symbol})",
                         style = Typography.titleMedium,
                         color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.padding(top = 4.dp)
@@ -139,5 +218,13 @@ fun DetailScreenContent(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun StatItem(label: String, value: String) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(text = label, style = Typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(text = value, style = Typography.titleLarge, fontWeight = FontWeight.Bold)
     }
 }

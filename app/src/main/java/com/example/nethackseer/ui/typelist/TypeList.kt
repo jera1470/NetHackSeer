@@ -1,7 +1,9 @@
 package com.example.nethackseer.ui.typelist
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,13 +25,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.NetHackSeerApplication
+import com.example.nethackseer.ui.theme.Black
 import com.example.nethackseer.ui.theme.DarkRed
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.theme.White
+import com.example.nethackseer.ui.utils.cleanNetHackName
+import com.example.nethackseer.ui.utils.getDisplayChar
+import com.example.nethackseer.ui.utils.getNetHackColor
 
 /**
  * A TypeList UI layout for listing entities in a list.
@@ -100,19 +107,30 @@ fun TypeList(
                         .fillMaxSize()
                 ) {
                     items(state.listObj.size) { index ->
-                        val name = state.listObj[index]
+                        val summary = state.listObj[index]
                         Button(
-                            onClick = { onNavigateToDetail(name) },
+                            onClick = { onNavigateToDetail(summary.name) },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 16.dp, vertical = 4.dp),
                             shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text(
-                                text = name,
+                            Row(
                                 modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Start
-                            )
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = cleanNetHackName(summary.name),
+                                    textAlign = TextAlign.Start
+                                )
+                                Text(
+                                    text = getDisplayChar(summary.symbol),
+                                    color = getNetHackColor(summary.color),
+                                    fontFamily = FontFamily.Monospace,
+                                    modifier = Modifier.background(Black)
+                                )
+                            }
                         }
                     }
                 }

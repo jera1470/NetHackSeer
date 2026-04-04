@@ -11,10 +11,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+data class EntitySummary(
+    val name: String,
+    val symbol: String,
+    val color: String
+)
+
 sealed class TypeUiState {
     object Loading : TypeUiState()
 
-    data class Success(val listObj: List<String> = emptyList(), val type: String) : TypeUiState()
+    data class Success(val listObj: List<EntitySummary> = emptyList(), val type: String) : TypeUiState()
 
     data class Error(val message: String) : TypeUiState()
 }
@@ -38,7 +44,7 @@ class TypeListViewModel(
                 "monster" -> {
                     repository.allMonsters.collect { monsters ->
                         _uiState.value = TypeUiState.Success(
-                            listObj = monsters.map { it.name },
+                            listObj = monsters.map { EntitySummary(it.name, it.symbol, it.color) },
                             type = typeId
                         )
                     }
@@ -46,7 +52,7 @@ class TypeListViewModel(
                 "item" -> {
                     repository.allItems.collect { items ->
                         _uiState.value = TypeUiState.Success(
-                            listObj = items.map { it.name },
+                            listObj = items.map { EntitySummary(it.name, it.symbol, it.color) },
                             type = typeId
                         )
                     }
@@ -74,4 +80,3 @@ class TypeListViewModel(
             }
     }
 }
-
