@@ -57,6 +57,11 @@ abstract class AppDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
+                    // Clear tables first so "ghost" entries from old/buggy JSONs are removed
+                    db.execSQL("DELETE FROM monsters")
+                    db.execSQL("DELETE FROM items")
+                    db.execSQL("DELETE FROM properties")
+
                     val monsterDao = database.monsterDao()
                     prePopulateMonsters(context, monsterDao)
                     val itemDao = database.itemDao()
