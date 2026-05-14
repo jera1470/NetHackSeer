@@ -393,7 +393,7 @@
             "sound": "MS_IMITATE",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_HUMANOID | M1_SEE_INVIS",
         "m2_flags": "M2_MINION | M2_STALK | M2_NASTY | M2_COLLECT",
@@ -450,7 +450,7 @@
             "sound": "MS_CUSS",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_HUMANOID | M1_SEE_INVIS",
         "m2_flags": "M2_NOPOLY | M2_MINION | M2_STALK | M2_STRONG | M2_NASTY | M2_COLLECT",
@@ -567,7 +567,7 @@
             "sound": "MS_CUSS",
             "size": "MZ_LARGE"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_HUMANOID | M1_SEE_INVIS | M1_REGEN",
         "m2_flags": "M2_NOPOLY | M2_MINION | M2_STALK | M2_STRONG | M2_NASTY | M2_LORD | M2_COLLECT | M2_MAGIC",
@@ -810,8 +810,8 @@
             "sound": "MS_SILENT",
             "size": "MZ_LARGE"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON | MR_ACID | MR_STONE",
-        "resistances_conferred": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON | MR_ACID | MR_STONE",
+        "resistances_conferred": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP",
         "m1_flags": "M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_OMNIVORE | M1_ACID",
         "m2_flags": "M2_WANDER | M2_HOSTILE | M2_NEUTER",
         "m3_flags": "0",
@@ -2040,7 +2040,7 @@
             "sound": "MS_ROAR",
             "size": "MZ_HUGE"
         },
-        "resistances": "MR_DISINT",
+        "resistances": "MR_DISINTEGRATION",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_THICK_HIDE | M1_NOHANDS | M1_CARNIVORE",
         "m2_flags": "M2_HOSTILE | M2_STRONG | M2_GREEDY | M2_JEWELS",
@@ -2088,7 +2088,7 @@
             "sound": "MS_ROAR",
             "size": "MZ_HUGE"
         },
-        "resistances": "MR_ELEC",
+        "resistances": "MR_SHOCK",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_THICK_HIDE | M1_NOHANDS | M1_CARNIVORE",
         "m2_flags": "M2_HOSTILE | M2_STRONG | M2_GREEDY | M2_JEWELS",
@@ -2730,8 +2730,8 @@
             "sound": "MS_ROAR",
             "size": "MZ_GIGANTIC"
         },
-        "resistances": "MR_DISINT",
-        "resistances_conferred": "MR_DISINT",
+        "resistances": "MR_DISINTEGRATION",
+        "resistances_conferred": "MR_DISINTEGRATION",
         "m1_flags": "M1_FLY | M1_THICK_HIDE | M1_NOHANDS | M1_SEE_INVIS | M1_OVIPAROUS | M1_CARNIVORE",
         "m2_flags": "M2_HOSTILE | M2_STRONG | M2_NASTY | M2_GREEDY | M2_JEWELS | M2_MAGIC",
         "m3_flags": "0",
@@ -2752,7 +2752,7 @@
         "attacks": [
             {
                 "type": "AT_BREA",
-                "damage_type": "AD_ELEC",
+                "damage_type": "AD_SHOCK",
                 "dice_count": 4,
                 "dice_sides": 6
             },
@@ -2787,8 +2787,8 @@
             "sound": "MS_ROAR",
             "size": "MZ_GIGANTIC"
         },
-        "resistances": "MR_ELEC",
-        "resistances_conferred": "MR_ELEC",
+        "resistances": "MR_SHOCK",
+        "resistances_conferred": "MR_SHOCK",
         "m1_flags": "M1_FLY | M1_THICK_HIDE | M1_NOHANDS | M1_SEE_INVIS | M1_OVIPAROUS | M1_CARNIVORE",
         "m2_flags": "M2_HOSTILE | M2_STRONG | M2_NASTY | M2_GREEDY | M2_JEWELS | M2_MAGIC",
         "m3_flags": "0",
@@ -3024,8 +3024,8 @@
             "sound": "MS_NEMESIS",
             "size": "MZ_GIGANTIC"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_SLEEP | MR_DISINT | MR_ELEC | MR_POISON | MR_ACID | MR_STONE",
-        "resistances_conferred": "MR_FIRE | MR_COLD | MR_SLEEP | MR_DISINT | MR_ELEC | MR_POISON | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SLEEP | MR_DISINTEGRATION | MR_SHOCK | MR_POISON | MR_ACID | MR_STONE",
+        "resistances_conferred": "MR_FIRE | MR_COLD | MR_SLEEP | MR_DISINTEGRATION | MR_SHOCK | MR_POISON | MR_STONE",
         "m1_flags": "M1_THICK_HIDE | M1_NOHANDS | M1_CARNIVORE | M1_SEE_INVIS | M1_POIS",
         "m2_flags": "M2_NOPOLY | M2_HOSTILE | M2_FEMALE | M2_STALK | M2_STRONG | M2_NASTY | M2_GREEDY | M2_JEWELS | M2_MAGIC",
         "m3_flags": "M3_WANTSARTI | M3_WAITFORU | M3_INFRAVISIBLE",
@@ -3238,7 +3238,7 @@
         "attacks": [
             {
                 "type": "AT_EXPL",
-                "damage_type": "AD_ELEC",
+                "damage_type": "AD_SHOCK",
                 "dice_count": 4,
                 "dice_sides": 6
             },
@@ -3264,8 +3264,8 @@
             "sound": "MS_SILENT",
             "size": "MZ_SMALL"
         },
-        "resistances": "MR_ELEC",
-        "resistances_conferred": "MR_ELEC",
+        "resistances": "MR_SHOCK",
+        "resistances_conferred": "MR_SHOCK",
         "m1_flags": "M1_FLY | M1_BREATHLESS | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_NOTAKE",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
         "m3_flags": "M3_INFRAVISIBLE",
@@ -4791,8 +4791,8 @@
             "sound": "MS_SILENT",
             "size": "MZ_LARGE"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON",
-        "resistances_conferred": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON",
+        "resistances_conferred": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON",
         "m1_flags": "M1_BREATHLESS | M1_MINDLESS | M1_HUMANOID",
         "m2_flags": "M2_HOSTILE | M2_STRONG",
         "m3_flags": "0",
@@ -4893,7 +4893,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_LARGE"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_BREATHLESS | M1_MINDLESS | M1_HUMANOID | M1_THICK_HIDE | M1_POIS",
         "m2_flags": "M2_HOSTILE | M2_STRONG | M2_COLLECT",
@@ -5544,8 +5544,8 @@
             "sound": "MS_BOAST",
             "size": "MZ_HUGE"
         },
-        "resistances": "MR_ELEC",
-        "resistances_conferred": "MR_ELEC",
+        "resistances": "MR_SHOCK",
+        "resistances_conferred": "MR_SHOCK",
         "m1_flags": "M1_HUMANOID | M1_CARNIVORE",
         "m2_flags": "M2_GIANT | M2_STRONG | M2_ROCKTHROW | M2_NASTY | M2_COLLECT | M2_JEWELS",
         "m3_flags": "M3_INFRAVISIBLE | M3_INFRAVISION",
@@ -7014,7 +7014,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_SMALL"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_DISINT | MR_SLEEP | MR_POISON | MR_ACID | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_DISINTEGRATION | MR_SLEEP | MR_POISON | MR_ACID | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_BREATHLESS | M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_UNSOLID | M1_NOTAKE",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
@@ -7062,7 +7062,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_SMALL"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_DISINT | MR_SLEEP | MR_POISON | MR_ACID | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_DISINTEGRATION | MR_SLEEP | MR_POISON | MR_ACID | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_BREATHLESS | M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_UNSOLID | M1_SEE_INVIS | M1_NOTAKE",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
@@ -7266,7 +7266,7 @@
             "sound": "MS_MUMBLE",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_SLEEP | MR_ELEC | MR_POISON",
+        "resistances": "MR_FIRE | MR_COLD | MR_SLEEP | MR_SHOCK | MR_POISON",
         "resistances_conferred": "MR_FIRE | MR_COLD",
         "m1_flags": "M1_BREATHLESS | M1_HUMANOID | M1_POIS | M1_REGEN",
         "m2_flags": "M2_UNDEAD | M2_HOSTILE | M2_MAGIC",
@@ -9129,8 +9129,8 @@
             "sound": "MS_SILENT",
             "size": "MZ_MEDIUM"
         },
-        "resistances": "MR_COLD | MR_ELEC | MR_POISON | MR_ACID | MR_STONE",
-        "resistances_conferred": "MR_COLD | MR_ELEC | MR_POISON",
+        "resistances": "MR_COLD | MR_SHOCK | MR_POISON | MR_ACID | MR_STONE",
+        "resistances_conferred": "MR_COLD | MR_SHOCK | MR_POISON",
         "m1_flags": "M1_BREATHLESS | M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_OMNIVORE | M1_ACID",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
         "m3_flags": "0",
@@ -9180,7 +9180,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_LARGE"
         },
-        "resistances": "MR_COLD | MR_ELEC | MR_POISON | MR_ACID | MR_STONE",
+        "resistances": "MR_COLD | MR_SHOCK | MR_POISON | MR_ACID | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_BREATHLESS | M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_OMNIVORE | M1_ACID | M1_POIS",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
@@ -9231,8 +9231,8 @@
             "sound": "MS_SILENT",
             "size": "MZ_LARGE"
         },
-        "resistances": "MR_COLD | MR_ELEC | MR_POISON | MR_ACID | MR_STONE",
-        "resistances_conferred": "MR_COLD | MR_ELEC | MR_POISON",
+        "resistances": "MR_COLD | MR_SHOCK | MR_POISON | MR_ACID | MR_STONE",
+        "resistances_conferred": "MR_COLD | MR_SHOCK | MR_POISON",
         "m1_flags": "M1_BREATHLESS | M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_OMNIVORE | M1_ACID",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
         "m3_flags": "0",
@@ -11731,7 +11731,7 @@
         "attacks": [
             {
                 "type": "AT_ENGL",
-                "damage_type": "AD_ELEC",
+                "damage_type": "AD_SHOCK",
                 "dice_count": 1,
                 "dice_sides": 6
             },
@@ -11743,7 +11743,7 @@
             },
             {
                 "type": "AT_NONE",
-                "damage_type": "AD_ELEC",
+                "damage_type": "AD_SHOCK",
                 "dice_count": 0,
                 "dice_sides": 4
             },
@@ -11763,7 +11763,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_HUGE"
         },
-        "resistances": "MR_ELEC | MR_SLEEP | MR_DISINT | MR_POISON | MR_STONE",
+        "resistances": "MR_SHOCK | MR_SLEEP | MR_DISINTEGRATION | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_BREATHLESS | M1_NOEYES | M1_NOLIMBS | M1_NOHEAD | M1_MINDLESS | M1_UNSOLID",
         "m2_flags": "M2_HOSTILE | M2_NEUTER",
@@ -12133,7 +12133,7 @@
         "attacks": [
             {
                 "type": "AT_BITE",
-                "damage_type": "AD_ELEC",
+                "damage_type": "AD_SHOCK",
                 "dice_count": 1,
                 "dice_sides": 1
             },
@@ -12159,7 +12159,7 @@
             "sound": "MS_BUZZ",
             "size": "MZ_TINY"
         },
-        "resistances": "MR_ELEC | MR_POISON",
+        "resistances": "MR_SHOCK | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_ANIMAL",
         "m2_flags": "M2_HOSTILE",
@@ -13176,7 +13176,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_SWIM | M1_BREATHLESS | M1_SEE_INVIS | M1_HUMANOID | M1_POIS",
         "m2_flags": "M2_NOPOLY | M2_STALK | M2_PEACEFUL",
@@ -13680,7 +13680,7 @@
             "sound": "MS_RIDER",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_HUMANOID | M1_REGEN | M1_SEE_INVIS | M1_TPORT_CNTRL",
         "m2_flags": "M2_NOPOLY | M2_STALK | M2_HOSTILE | M2_PNAME | M2_STRONG | M2_NASTY",
@@ -13731,7 +13731,7 @@
             "sound": "MS_RIDER",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_HUMANOID | M1_REGEN | M1_SEE_INVIS | M1_TPORT_CNTRL",
         "m2_flags": "M2_NOPOLY | M2_STALK | M2_HOSTILE | M2_PNAME | M2_STRONG | M2_NASTY",
@@ -13782,7 +13782,7 @@
             "sound": "MS_RIDER",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_COLD | MR_ELEC | MR_SLEEP | MR_POISON | MR_STONE",
+        "resistances": "MR_FIRE | MR_COLD | MR_SHOCK | MR_SLEEP | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_HUMANOID | M1_REGEN | M1_SEE_INVIS | M1_TPORT_CNTRL",
         "m2_flags": "M2_NOPOLY | M2_STALK | M2_HOSTILE | M2_PNAME | M2_STRONG | M2_NASTY",
@@ -15342,7 +15342,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "electric eel",
+        "name": "SHOCKtric eel",
         "symbol": "S_EEL",
         "level_details": {
             "level": 7,
@@ -15355,7 +15355,7 @@
         "attacks": [
             {
                 "type": "AT_BITE",
-                "damage_type": "AD_ELEC",
+                "damage_type": "AD_SHOCK",
                 "dice_count": 4,
                 "dice_sides": 6
             },
@@ -15384,8 +15384,8 @@
             "sound": "MS_SILENT",
             "size": "MZ_HUGE"
         },
-        "resistances": "MR_ELEC",
-        "resistances_conferred": "MR_ELEC",
+        "resistances": "MR_SHOCK",
+        "resistances_conferred": "MR_SHOCK",
         "m1_flags": "M1_SWIM | M1_AMPHIBIOUS | M1_ANIMAL | M1_SLITHY | M1_NOLIMBS | M1_CARNIVORE | M1_OVIPAROUS | M1_NOTAKE",
         "m2_flags": "M2_HOSTILE",
         "m3_flags": "M3_INFRAVISIBLE",
@@ -18555,7 +18555,7 @@
             "sound": "MS_PRIEST",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_ELEC",
+        "resistances": "MR_SHOCK",
         "resistances_conferred": "0",
         "m1_flags": "M1_HUMANOID | M1_OMNIVORE",
         "m2_flags": "M2_NOPOLY | M2_HUMAN | M2_LORD | M2_PEACEFUL | M2_COLLECT",
@@ -18828,7 +18828,7 @@
             "sound": "MS_PRIEST",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_FIRE | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_HUMANOID | M1_SEE_INVIS | M1_OMNIVORE",
         "m2_flags": "M2_NOPOLY | M2_HUMAN | M2_MINION | M2_PRINCE | M2_NASTY | M2_COLLECT | M2_MAGIC",
@@ -18942,7 +18942,7 @@
             "sound": "MS_LEADER",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_FIRE | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_HUMANOID | M1_SEE_INVIS | M1_HERBIVORE",
         "m2_flags": "M2_NOPOLY | M2_HUMAN | M2_PEACEFUL | M2_STRONG | M2_MALE | M2_NASTY | M2_MAGIC",
@@ -18999,7 +18999,7 @@
             "sound": "MS_LEADER",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_FIRE | MR_ELEC | MR_SLEEP | MR_POISON",
+        "resistances": "MR_FIRE | MR_SHOCK | MR_SLEEP | MR_POISON",
         "resistances_conferred": "0",
         "m1_flags": "M1_HUMANOID | M1_SEE_INVIS | M1_OMNIVORE",
         "m2_flags": "M2_NOPOLY | M2_HUMAN | M2_PEACEFUL | M2_STRONG | M2_MALE | M2_COLLECT | M2_MAGIC",
@@ -19218,7 +19218,7 @@
             "sound": "MS_SILENT",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_COLD | MR_DISINT | MR_SLEEP | MR_POISON | MR_STONE",
+        "resistances": "MR_COLD | MR_DISINTEGRATION | MR_SLEEP | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_BREATHLESS | M1_WALLWALK | M1_HUMANOID | M1_UNSOLID",
         "m2_flags": "M2_NOPOLY | M2_UNDEAD | M2_STALK | M2_HOSTILE",
@@ -19269,7 +19269,7 @@
             "sound": "MS_WAIL",
             "size": "MZ_HUMAN"
         },
-        "resistances": "MR_COLD | MR_DISINT | MR_SLEEP | MR_POISON | MR_STONE",
+        "resistances": "MR_COLD | MR_DISINTEGRATION | MR_SLEEP | MR_POISON | MR_STONE",
         "resistances_conferred": "0",
         "m1_flags": "M1_FLY | M1_BREATHLESS | M1_WALLWALK | M1_HUMANOID | M1_UNSOLID | M1_SEE_INVIS",
         "m2_flags": "M2_NOPOLY | M2_UNDEAD | M2_WANDER | M2_STALK | M2_HOSTILE | M2_NASTY",
