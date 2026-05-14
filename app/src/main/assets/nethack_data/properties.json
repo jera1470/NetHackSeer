@@ -339,439 +339,512 @@
     "id": "M1_FLY",
     "name": "flying",
     "type": "physical",
-    "description": "The monster can fly."
+    "description": "The monster can fly.",
+    "summary": "can fly."
   },
   {
     "id": "M1_SWIM",
     "name": "swim",
     "type": "physical",
-    "description": "The monster can swim across water."
+    "description": "The monster can swim across water.",
+    "summary": "can swim."
   },
   {
     "id": "M1_AMORPHOUS",
     "name": "amorphous",
     "type": "physical",
-    "description": "The monster has no fixed shape or form."
+    "description": "The monster has no fixed shape or form.",
+    "summary": "has no fixed form."
   },
   {
     "id": "M1_WALLWALK",
     "name": "phase",
     "type": "physical",
-    "description": "The monster can phase through solid tiles."
+    "description": "The monster can phase through solid tiles.",
+    "summary": "can phase through walls."
   },
   {
     "id": "M1_CLING",
     "name": "cling",
     "type": "physical",
-    "description": "The monster can cling to ceilings and hide."
+    "description": "The monster can cling to ceilings and hide.",
+    "summary": "can hide on ceilings."
   },
   {
     "id": "M1_TUNNEL",
     "name": "tunnel",
     "type": "physical",
-    "description": "The monster can tunnel through rock, breaking solid tiles."
+    "description": "The monster can tunnel through rock, breaking solid tiles.",
+    "summary": "can tunnel through walls."
   },
   {
     "id": "M1_NEEDPICK",
     "name": "pickaxe tunnel",
     "type": "physical",
-    "description": "The monster can tunnel through rock only if they have a pickaxe."
+    "description": "The monster can tunnel through rock only if they have a pickaxe.",
+    "summary": "can tunnel through walls with a pickaxe."
   },
   {
     "id": "M1_CONCEAL",
     "name": "conceal",
     "type": "physical",
-    "description": "The monster can hide under objects."
+    "description": "The monster can hide under objects.",
+    "summary": "can hide under objects."
   },
   {
     "id": "M1_HIDE",
     "name": "hide",
     "type": "physical",
-    "description": "The monster blends in with ceiling or mimics something."
+    "description": "The monster blends in with ceiling or mimics something.",
+    "summary": "can blend with its surroundings."
   },
   {
     "id": "M1_AMPHIBIOUS",
     "name": "amphibious",
     "type": "physical",
-    "description": "The monster can survive in land and water."
+    "description": "The monster can survive in land and water.",
+    "summary": "can swim and walk on land."
   },
   {
     "id": "M1_BREATHLESS",
     "name": "breathless",
     "type": "physical",
-    "description": "The monster deosn't need to breathe."
+    "description": "The monster doesn't need to breathe.",
+    "summary": "doesn't need to breathe."
   },
   {
     "id": "M1_NOTAKE",
     "name": "cannot pickup",
     "type": "physical",
-    "description": "The monster is unable to pick up objects."
+    "description": "The monster is unable to pick up objects.",
+    "summary": "cannot pick up objects."
   },
   {
     "id": "M1_NOEYES",
     "name": "no eyes",
     "type": "physical",
-    "description": "The monster has no eyes for gazing into or blinding themselves."
+    "description": "The monster has no eyes for gazing into or blinding themselves.",
+    "summary": "has no eyes."
   },
   {
     "id": "M1_NOHANDS",
     "name": "no hands",
     "type": "physical",
-    "description": "The monster has no hands to handle things."
+    "description": "The monster has no hands to handle things.",
+    "summary": "has no hands."
   },
   {
     "id": "M1_NOLIMBS",
     "name": "no limbs",
     "type": "physical",
-    "description": "The monster has no limbs to kick or wear on."
+    "description": "The monster has no limbs to kick or wear on.",
+    "summary": "has no limbs."
   },
   {
     "id": "M1_NOHEAD",
     "name": "no head",
     "type": "physical",
-    "description": "The monster has no head to behead."
+    "description": "The monster has no head to behead.",
+    "summary": "has no head."
   },
   {
     "id": "M1_MINDLESS",
     "name": "no mind",
     "type": "physical",
-    "description": "The monster has no mind."
+    "description": "The monster has no mind.",
+    "summary": "is mindless."
   },
   {
     "id": "M1_HUMANOID",
     "name": "humanoid features",
     "type": "physical",
-    "description": "The monster has humanoid arms, torso, and a head."
+    "description": "The monster has humanoid arms, torso, and a head.",
+    "summary": "is human-like."
   },
   {
     "id": "M1_ANIMAL",
     "name": "animal body",
     "type": "physical",
-    "description": "The monster has an animal body."
+    "description": "The monster has an animal body.",
+    "summary": "is an animal."
   },
   {
     "id": "M1_SLITHY",
     "name": "slithy",
     "type": "physical",
-    "description": "The monster has a serpent body, having no legs."
+    "description": "The monster has a serpent body, having no legs.",
+    "summary": "has a slithy body with no legs."
   },
   {
     "id": "M1_UNSOLID",
     "name": "unsolid",
     "type": "physical",
-    "description": "The monster has no solid body or has a liquid body."
+    "description": "The monster has no solid body or has a liquid body.",
+    "summary": "has no solid body."
   },
   {
     "id": "M1_THICK_HIDE",
     "name": "thick hide",
     "type": "physical",
-    "description": "The monster has a thick hide or scales."
+    "description": "The monster has a thick hide or scales.",
+    "summary": "has a thick hide."
   },
   {
     "id": "M1_OVIPAROUS",
     "name": "oviparous",
     "type": "physical",
-    "description": "The monster's female form can lay eggs."
+    "description": "The monster's female form can lay eggs.",
+    "summary": "lay eggs as females."
   },
   {
     "id": "M1_REGEN",
     "name": "regeneration",
     "type": "physical",
-    "description": "The monster can regenerate its hit points."
+    "description": "The monster can regenerate its hit points.",
+    "summary": "has rapid regeneration."
   },
   {
     "id": "M1_SEE_INVIS",
     "name": "see invisible",
     "type": "physical",
-    "description": "The monster can see invisible."
+    "description": "The monster can see invisible.",
+    "summary": "can see invisible."
   },
   {
     "id": "M1_TPORT",
     "name": "teleport",
     "type": "physical",
-    "description": "The monster can teleport."
+    "description": "The monster can teleport.",
+    "summary": "can teleport randomly."
   },
   {
     "id": "M1_TPORT_CNTRL",
     "name": "teleport control",
     "type": "physical",
-    "description": "The monster can control where it teleports to."
+    "description": "The monster can control where it teleports to.",
+    "summary": "can control its teleports."
   },
   {
     "id": "M1_ACID",
     "name": "acidic",
     "type": "physical",
-    "description": "The monster is acidic to eat."
+    "description": "The monster is acidic to eat.",
+    "summary": "is acidic to eat."
   },
   {
     "id": "M1_POIS",
     "name": "poisonous",
     "type": "physical",
-    "description": "The monster is poisonous to eat."
+    "description": "The monster is poisonous to eat.",
+    "summary": "is poisonous to eat."
   },
   {
     "id": "M1_CARNIVORE",
     "name": "carnivore",
     "type": "physical",
-    "description": "The monster only eats corpses and meat."
+    "description": "The monster only eats corpses and meat.",
+    "summary": "is a carnivore."
   },
   {
     "id": "M1_HERBIVORE",
     "name": "herbivore",
     "type": "physical",
-    "description": "The monster only eats fruits and veggies."
+    "description": "The monster only eats fruits and veggies.",
+    "summary": "is a herbivore."
   },
   {
     "id": "M1_OMNIVORE",
     "name": "omnivore",
     "type": "physical",
-    "description": "The monster can eat both meat and fruit."
+    "description": "The monster can eat both meat and fruit.",
+    "summary": "is an omnivore."
   },
   {
     "id": "M1_METALLIVORE",
     "name": "metallivore",
     "type": "physical",
-    "description": "The monster only eats metal."
+    "description": "The monster only eats metal.",
+    "summary": "is a metallivore."
   },
   {
     "id": "M2_NOPOLY",
     "name": "no polymorphing",
     "type": "behavioral",
-    "description": "The hero cannot polymorph to the monster."
+    "description": "The hero cannot polymorph to the monster.",
+    "summary": "cannot be polymorphed into."
   },
   {
     "id": "M2_UNDEAD",
     "name": "undead",
     "type": "behavioral",
-    "description": "The monster is part of the walking dead."
+    "description": "The monster is part of the walking dead.",
+    "summary": "is undead."
   },
   {
     "id": "M2_WERE",
     "name": "lycanthrope",
     "type": "behavioral",
-    "description": "The monster is a lycanthrope."
+    "description": "The monster is a lycanthrope.",
+    "summary": "is a lycanthrope."
   },
   {
     "id": "M2_HUMAN",
     "name": "human",
     "type": "behavioral",
-    "description": "The monster is a human."
+    "description": "The monster is a human.",
+    "summary": "is a human."
   },
   {
     "id": "M2_ELF",
     "name": "elf",
     "type": "behavioral",
-    "description": "The monster is an elf."
+    "description": "The monster is an elf.",
+    "summary": "is a elf."
   },
   {
     "id": "M2_DWARF",
     "name": "dwarf",
     "type": "behavioral",
-    "description": "The monster is a dwarf."
+    "description": "The monster is a dwarf.",
+    "summary": "is a dwarf."
   },
   {
     "id": "M2_GNOME",
     "name": "gnome",
     "type": "behavioral",
-    "description": "The monster is a gnome."
+    "description": "The monster is a gnome.",
+    "summary": "is a gnome."
   },
   {
     "id": "M2_ORC",
     "name": "orc",
     "type": "behavioral",
-    "description": "The monster is an orc."
+    "description": "The monster is an orc.",
+    "summary": "is a orc."
   },
   {
     "id": "M2_DEMON",
     "name": "demon",
     "type": "behavioral",
-    "description": "The monster is a demon."
+    "description": "The monster is a demon.",
+    "summary": "is a demon."
   },
   {
     "id": "M2_MERC",
     "name": "mercenary",
     "type": "behavioral",
-    "description": "The monster is a guard or soldier."
+    "description": "The monster is a guard or soldier.",
+    "summary": "is a mercenary."
   },
   {
     "id": "M2_LORD",
     "name": "lord",
     "type": "behavioral",
-    "description": "The monster is a lord to its kind."
+    "description": "The monster is a lord to its kind.",
+    "summary": "is a lord to its kind."
   },
   {
     "id": "M2_PRINCE",
     "name": "overlord",
     "type": "behavioral",
-    "description": "The monster is an overlord to its kind."
+    "description": "The monster is an overlord to its kind.",
+    "summary": "is an overlord to its kind."
   },
   {
     "id": "M2_MINION",
     "name": "minion",
     "type": "behavioral",
-    "description": "The monster is a minion of a deity."
+    "description": "The monster is a minion of a deity.",
+    "summary": "is a minion of a deity."
   },
   {
     "id": "M2_GIANT",
     "name": "giant",
     "type": "behavioral",
-    "description": "The monster is a giant."
+    "description": "The monster is a giant.",
+    "summary": "is a giant."
   },
   {
     "id": "M2_SHAPESHIFTER",
     "name": "shapeshifter",
     "type": "behavioral",
-    "description": "The monster is a shapeshifting species."
+    "description": "The monster is a shapeshifting species.",
+    "summary": "is a shapeshifter."
   },
   {
     "id": "M2_MALE",
     "name": "always male",
     "type": "behavioral",
-    "description": "The monster is always male."
+    "description": "The monster is always male.",
+    "summary": "is always male."
   },
   {
     "id": "M2_FEMALE",
     "name": "always female",
     "type": "behavioral",
-    "description": "The monster is always female."
+    "description": "The monster is always female.",
+    "summary": "is always female."
   },
   {
     "id": "M2_NEUTER",
     "name": "no sex",
     "type": "behavioral",
-    "description": "The monster is neither male or female."
+    "description": "The monster is neither male or female.",
+    "summary": "is neither male or female."
   },
   {
     "id": "M2_PNAME",
     "name": "proper",
     "type": "behavioral",
-    "description": "The monster has a proper name."
+    "description": "The monster has a proper name.",
+    "summary": "is its actual name."
   },
   {
     "id": "M2_HOSTILE",
     "name": "always hostile",
     "type": "behavioral",
-    "description": "The monster always starts hostile."
+    "description": "The monster always starts hostile.",
+    "summary": "is normally generated hostile."
   },
   {
     "id": "M2_PEACEFUL",
     "name": "always peaceful",
     "type": "behavioral",
-    "description": "The monster always starts peaceful."
+    "description": "The monster always starts peaceful.",
+    "summary": "is normally generated peaceful."
   },
   {
     "id": "M2_DOMESTIC",
     "name": "domestic",
     "type": "behavioral",
-    "description": "The monster can be tamed by feeding."
+    "description": "The monster can be tamed by feeding.",
+    "summary": "can be domesticated."
   },
   {
     "id": "M2_WANDER",
     "name": "wanderer",
     "type": "behavioral",
-    "description": "The monster is restless and wanders aimlessly."
+    "description": "The monster is restless and wanders aimlessly.",
+    "summary": "wanders aimlessly"
   },
   {
     "id": "M2_STALK",
     "name": "stalker",
     "type": "behavioral",
-    "description": "The monster can follow you to other levels."
+    "description": "The monster can follow you to other levels.",
+    "summary": "can follow you to other levels."
   },
   {
     "id": "M2_NASTY",
     "name": "nasty",
     "type": "behavioral",
-    "description": "The monster is a more harder monster, considered a nasty for more XP."
+    "description": "The monster is a more harder monster, considered a nasty for more XP.",
+    "summary": "is nasty."
   },
   {
     "id": "M2_STRONG",
     "name": "strong",
     "type": "behavioral",
-    "description": "The monster is especially strong and/or big."
+    "description": "The monster is especially strong and/or big.",
+    "summary": "is strong."
   },
   {
     "id": "M2_ROCKTHROW",
     "name": "throw boulder",
     "type": "behavioral",
-    "description": "The monster can throw boulders."
+    "description": "The monster can throw boulders.",
+    "summary": "can throw boulders."
   },
   {
     "id": "M2_GREEDY",
     "name": "greedy",
     "type": "behavioral",
-    "description": "The monster really likes gold."
+    "description": "The monster really likes gold.",
+    "summary": "likes gold."
   },
   {
     "id": "M2_JEWELS",
     "name": "jeweler",
     "type": "behavioral",
-    "description": "The monster really likes gems."
+    "description": "The monster really likes gems.",
+    "summary": "likes gems."
   },
   {
     "id": "M2_COLLECT",
     "name": "pickup",
     "type": "behavioral",
-    "description": "The monster picks up weapons and food."
+    "description": "The monster picks up weapons and food.",
+    "summary": "picks up weapons and food."
   },
   {
     "id": "M2_MAGIC",
     "name": "pickup magics",
     "type": "behavioral",
-    "description": "The monster picks up magic items."
+    "description": "The monster picks up magic items.",
+    "summary": "picks up magical items."
   },
   {
     "id": "M3_WANTSAMUL",
     "name": "amulet stealer",
     "type": "tactical",
-    "description": "The monster would like to steal the Amulet."
+    "description": "The monster would like to steal the Amulet.",
+    "summary": "wants the Amulet of Yendor."
   },
   {
     "id": "M3_WANTSBELL",
     "name": "bell stealer",
     "type": "tactical",
-    "description": "The monster would like to steal the Bell."
+    "description": "The monster would like to steal the Bell.",
+    "summary": "wants the Bell of Opening."
   },
   {
     "id": "M3_WANTSBOOK",
     "name": "book stealer",
     "type": "tactical",
-    "description": "The monster would like to steal the Book."
+    "description": "The monster would like to steal the Book.",
+    "summary": "wants the Book of the Dead."
   },
   {
     "id": "M3_WANTSCAND",
     "name": "candelabrum stealer",
     "type": "tactical",
-    "description": "The monster would like to steal the Candelabrum."
+    "description": "The monster would like to steal the Candelabrum.",
+    "summary": "wants the Candelabrum."
   },
   {
     "id": "M3_WANTSARTI",
     "name": "quest artifact stealer",
     "type": "tactical",
-    "description": "The monster would like to steal the quest artifact."
+    "description": "The monster would like to steal the quest artifact.",
+    "summary": "wants your quest artifact."
   },
   {
     "id": "M3_WANTSALL",
     "name": "major artifacts stealer",
     "type": "tactical",
-    "description": "The monster would like to steal any major artifact."
+    "description": "The monster would like to steal any major artifact.",
+    "summary": "wants any quest artifact."
   },
   {
     "id": "M3_WAITFORU",
     "name": "waits",
     "type": "tactical",
-    "description": "The monster waits to see you or gets attacked."
+    "description": "The monster waits to see you or gets attacked.",
+    "summary": "waits to see you in view."
   },
   {
     "id": "M3_CLOSE",
     "name": "close in",
     "type": "tactical",
-    "description": "The monster waits for you to get close or gets attacked."
+    "description": "The monster waits for you to get close or gets attacked.",
+    "summary": "waits for you to draw near."
   },
   {
     "id": "M3_INFRAVISIBLE",
     "name": "infravisible",
     "type": "tactical",
-    "description": "The monster is infravisible to the hero."
+    "description": "The monster is infravisible to the hero.",
+    "summary": "is infravisible."
   },
   {
     "id": "MZ_TINY",
@@ -819,48 +892,56 @@
     "id": "G_UNIQ",
     "name": "unique",
     "type": "generation",
-    "description": "The monster is unique, meaning only one can exist at a time."
+    "description": "The monster is unique, meaning only one can exist at a time.",
+    "summary": "is unique."
   },
   {
     "id": "G_NOHELL",
     "name": "not in hell",
     "type": "generation",
-    "description": "This monster is never randomly generated in Gehennom."
+    "description": "This monster is never randomly generated in Gehennom.",
+    "summary": "never generates in Gehennom."
   },
   {
     "id": "G_HELL",
     "name": "only in hell",
     "type": "generation",
-    "description": "This monster is only randomly generated in Gehennom."
+    "description": "This monster is only randomly generated in Gehennom.",
+    "summary": "only generates in Gehennom."
   },
   {
     "id": "G_NOGEN",
     "name": "special generation",
     "type": "generation",
-    "description": "This monster is not generated randomly, appearing in specific spots."
+    "description": "This monster is not generated randomly, appearing in specific spots.",
+    "summary": "never randomly generates."
   },
   {
     "id": "G_SGROUP",
     "name": "small group",
     "type": "generation",
-    "description": "This monster usually appears in small groups."
+    "description": "This monster usually appears in small groups.",
+    "summary": "can generate in small groups."
   },
   {
     "id": "G_LGROUP",
     "name": "large group",
     "type": "generation",
-    "description": "This monster usually appears in large groups."
+    "description": "This monster usually appears in large groups.",
+    "summary": "can generate in large groups."
   },
   {
     "id": "G_GENO",
     "name": "genocidable",
     "type": "generation",
-    "description": "This monster species can be wiped out using a scroll of genocide."
+    "description": "This monster species can be wiped out.",
+    "summary": "is genocidable."
   },
   {
     "id": "G_NOCORPSE",
     "name": "no corpse",
     "type": "generation",
-    "description": "This monster never leaves a corpse when it dies."
+    "description": "This monster never leaves a corpse when it dies.",
+    "summary": "leaves no corpse."
   }
 ]
