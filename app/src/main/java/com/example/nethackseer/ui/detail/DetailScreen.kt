@@ -233,6 +233,43 @@ fun DetailScreenContent(
                             }
                         }
                     }
+
+                    // M1 flags section
+                    val m1Properties = uiState.properties.filter { it.id.startsWith("M1_") }
+                    if (m1Properties.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(24.dp))
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth(0.85f)
+                        ) {
+                            Text(
+                                text = "The ${uiState.monster.name}:",
+                                style = Typography.titleMedium,
+                                color = DarkRed,
+                                fontWeight = FontWeight.Bold
+                            )
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            m1Properties.forEach { prop ->
+                                Row(
+                                    modifier = Modifier.padding(vertical = 2.dp),
+                                    verticalAlignment = Alignment.Top
+                                ) {
+                                    Text(
+                                        text = "• ",
+                                        style = Typography.bodyLarge,
+                                        fontWeight = FontWeight.Bold,
+                                        color = DarkRed
+                                    )
+                                    Text(
+                                        text = prop.summary.ifEmpty { prop.description },
+                                        style = Typography.bodyLarge
+                                    )
+                                }
+                            }
+                        }
+                    }
                 }
             }
             // display if item found

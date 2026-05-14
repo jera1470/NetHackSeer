@@ -9,13 +9,17 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
+import com.example.nethackseer.data.local.entity.PropertyEntity
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 // handles all Success, Error, and Loading states, must be sealed
 sealed class EntityUiState {
     object Loading : EntityUiState()
-    data class MonsterSuccess(val monster: MonsterEntity) : EntityUiState()
+    data class MonsterSuccess(
+        val monster: MonsterEntity,
+        val properties: List<PropertyEntity> = emptyList()
+    ) : EntityUiState()
     data class ItemSuccess(val item: ItemEntity) : EntityUiState()
     data class Error(val message: String) : EntityUiState()
 }
@@ -49,7 +53,20 @@ class DetailViewModel(
             // First, try to find a monster
             val monster = repository.getMonsterByName(entityId).first()
             if (monster != null) {
-                _uiState.value = EntityUiState.MonsterSuccess(monster)
+                // Collect all flag IDs
+                val flagIds = mutableListOf<String>()
+                if (monster.m1Flags != "0") flagIds.addAll(monster.m1Flags.split("|").map { it.trim() })
+                if (monster.m2Flags != "0") flagIds.addAll(monster.m2Flags.split("|").map { it.trim() })
+                if (monster.m3Flags != "0") flagIds.addAll(monster.m3Flags.split("|").map { it.trim() })
+                // Also resistances for consistency if needed later, but they are currently handled by text in UI
+                
+                val properties = if (flagIds.isNotEmpty()) {
+                    repository.getPropertiesByIds(flagIds).first()
+                } else {
+                    emptyList()
+                }
+
+                _uiState.value = EntityUiState.MonsterSuccess(monster, properties)
                 return@launch
             }
 
