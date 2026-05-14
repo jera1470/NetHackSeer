@@ -3,8 +3,10 @@ package com.example.nethackseer.ui.detail
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -167,21 +169,69 @@ fun DetailScreenContent(
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                       Column(
-                           modifier = Modifier.padding(12.dp)
-                       ) {
-                           Row(
-                               modifier = Modifier
-                                   .fillMaxWidth()
-                                   .padding(top = 8.dp, bottom = 8.dp),
-                               horizontalArrangement = Arrangement.SpaceEvenly
-                           ){
-                               StatItem("LVL", "${uiState.monster.level}")
-                               StatItem("AC", "${uiState.monster.ac}")
-                               StatItem("MR", "${uiState.monster.mr}")
-                               StatItem("SPD", "${uiState.monster.moveRate}")
-                           }
-                       }
+                        Row(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth()
+                                .height(IntrinsicSize.Max),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight(),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.SpaceEvenly
+                            ) {
+                                Text(
+                                    text = "Stats",
+                                    style = Typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
+                                StatItem("LVL", "${uiState.monster.level}")
+                                StatItem("AC", "${uiState.monster.ac}")
+                                StatItem("MR", "${uiState.monster.mr}")
+                                StatItem("SPD", "${uiState.monster.moveRate}")
+                            }
+
+                            VerticalDivider(
+                                modifier = Modifier
+                                    .padding(horizontal = 16.dp)
+                                    .fillMaxHeight(),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                            )
+
+                            Column(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight(),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.SpaceEvenly
+                            ) {
+                                Text(
+                                    text = "Resistances",
+                                    style = Typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
+                                val resistancesList = if (uiState.monster.resistances == "0") {
+                                    listOf("None")
+                                } else {
+                                    uiState.monster.resistances.split("|").map {
+                                        it.trim().removePrefix("MR_").lowercase()
+                                            .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                    }
+                                }
+                                resistancesList.forEach { resistance ->
+                                    Text(
+                                        text = resistance,
+                                        style = Typography.bodyLarge,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
             }
