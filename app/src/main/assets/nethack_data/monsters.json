@@ -9,7 +9,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 3)",
+        "geno_flags": "G_GENO | G_SGROUP | 3",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -57,7 +57,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_LGROUP | 2)",
+        "geno_flags": "G_GENO | G_LGROUP | 2",
         "attacks": [
             {
                 "type": "AT_STNG",
@@ -105,7 +105,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -153,7 +153,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_STNG",
@@ -201,7 +201,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -252,7 +252,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -303,7 +303,7 @@
             "mr": 30,
             "alignment": 7
         },
-        "geno_flags": "(G_NOHELL | G_SGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_NOHELL | G_SGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -357,7 +357,7 @@
             "mr": 30,
             "alignment": 7
         },
-        "geno_flags": "(G_NOHELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_NOHELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -411,7 +411,7 @@
             "mr": 55,
             "alignment": 12
         },
-        "geno_flags": "(G_NOHELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_NOHELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -468,7 +468,7 @@
             "mr": 90,
             "alignment": 15
         },
-        "geno_flags": "(G_NOHELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_NOHELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_KICK",
@@ -525,7 +525,7 @@
             "mr": 80,
             "alignment": 15
         },
-        "geno_flags": "(G_NOHELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_NOHELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -585,7 +585,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -633,7 +633,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -681,7 +681,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -729,7 +729,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -777,7 +777,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -828,7 +828,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -879,7 +879,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -930,7 +930,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_GAZE",
@@ -978,7 +978,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -1029,7 +1029,7 @@
             "mr": 10,
             "alignment": -1
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -1080,7 +1080,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1134,7 +1134,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 5)",
+        "geno_flags": "G_GENO | 5",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1188,7 +1188,7 @@
             "mr": 10,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -1242,7 +1242,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 3)",
+        "geno_flags": "G_GENO | G_SGROUP | 3",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1290,7 +1290,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1338,7 +1338,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1386,7 +1386,7 @@
             "mr": 10,
             "alignment": -7
         },
-        "geno_flags": "(G_NOGEN | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1434,7 +1434,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1482,7 +1482,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1530,7 +1530,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1578,7 +1578,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1626,7 +1626,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1674,7 +1674,7 @@
             "mr": 20,
             "alignment": -7
         },
-        "geno_flags": "(G_NOGEN | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -1722,7 +1722,7 @@
             "mr": 0,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -2202,7 +2202,7 @@
             "mr": 0,
             "alignment": -5
         },
-        "geno_flags": "(G_NOHELL | G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_NOHELL | G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -2253,7 +2253,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_NOHELL | G_GENO | 1)",
+        "geno_flags": "G_NOHELL | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -2304,7 +2304,7 @@
             "mr": 20,
             "alignment": -5
         },
-        "geno_flags": "(G_HELL | G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_HELL | G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -2355,7 +2355,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_HELL | G_GENO | 1)",
+        "geno_flags": "G_HELL | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -2406,7 +2406,7 @@
             "mr": 20,
             "alignment": 4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2463,7 +2463,7 @@
             "mr": 20,
             "alignment": 4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2520,7 +2520,7 @@
             "mr": 20,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2577,7 +2577,7 @@
             "mr": 20,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2634,7 +2634,7 @@
             "mr": 20,
             "alignment": 5
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2691,7 +2691,7 @@
             "mr": 20,
             "alignment": -6
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2748,7 +2748,7 @@
             "mr": 20,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2805,7 +2805,7 @@
             "mr": 20,
             "alignment": 6
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2862,7 +2862,7 @@
             "mr": 20,
             "alignment": 7
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2919,7 +2919,7 @@
             "mr": 20,
             "alignment": -14
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -2979,7 +2979,7 @@
             "mr": 30,
             "alignment": -14
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_BREA",
@@ -3042,7 +3042,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_GENO | 1)",
+        "geno_flags": "G_NOCORPSE | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BOOM",
@@ -3090,7 +3090,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 5)",
+        "geno_flags": "G_GENO | 5",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -3138,7 +3138,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_NOHELL | G_GENO | 2)",
+        "geno_flags": "G_NOCORPSE | G_NOHELL | G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_EXPL",
@@ -3186,7 +3186,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_GENO | 2)",
+        "geno_flags": "G_NOCORPSE | G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_EXPL",
@@ -3234,7 +3234,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_GENO | 2)",
+        "geno_flags": "G_NOCORPSE | G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_EXPL",
@@ -3282,7 +3282,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -3330,7 +3330,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -3378,7 +3378,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -3426,7 +3426,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -3474,7 +3474,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -3525,7 +3525,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "NO_ATTK"
@@ -3570,7 +3570,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -3618,7 +3618,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -3666,7 +3666,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -3714,7 +3714,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 4)",
+        "geno_flags": "G_GENO | 4",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -3762,7 +3762,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -3810,7 +3810,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -3858,7 +3858,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -3906,7 +3906,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -3954,7 +3954,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -4005,7 +4005,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4059,7 +4059,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4113,7 +4113,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4167,7 +4167,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4221,7 +4221,7 @@
             "mr": 4,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -4269,7 +4269,7 @@
             "mr": 4,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -4317,7 +4317,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_MAGC",
@@ -4365,7 +4365,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -4413,7 +4413,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4461,7 +4461,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4509,7 +4509,7 @@
             "mr": 40,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4557,7 +4557,7 @@
             "mr": 50,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4605,7 +4605,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4656,7 +4656,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4707,7 +4707,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4758,7 +4758,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(1)",
+        "geno_flags": "1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4809,7 +4809,7 @@
             "mr": 50,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4860,7 +4860,7 @@
             "mr": 60,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -4911,7 +4911,7 @@
             "mr": 0,
             "alignment": -9
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -4965,7 +4965,7 @@
             "mr": 0,
             "alignment": -12
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -5019,7 +5019,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -5073,7 +5073,7 @@
             "mr": 25,
             "alignment": -9
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -5130,7 +5130,7 @@
             "mr": 0,
             "alignment": 6
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5178,7 +5178,7 @@
             "mr": 10,
             "alignment": 4
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5226,7 +5226,7 @@
             "mr": 0,
             "alignment": -6
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5274,7 +5274,7 @@
             "mr": 0,
             "alignment": 2
         },
-        "geno_flags": "(G_GENO | G_NOGEN | 1)",
+        "geno_flags": "G_GENO | G_NOGEN | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5322,7 +5322,7 @@
             "mr": 0,
             "alignment": 2
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5370,7 +5370,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5418,7 +5418,7 @@
             "mr": 5,
             "alignment": 2
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5466,7 +5466,7 @@
             "mr": 10,
             "alignment": -3
         },
-        "geno_flags": "(G_NOHELL | G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_NOHELL | G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5514,7 +5514,7 @@
             "mr": 10,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5562,7 +5562,7 @@
             "mr": 10,
             "alignment": 5
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5613,7 +5613,7 @@
             "mr": 20,
             "alignment": 6
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5664,7 +5664,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5715,7 +5715,7 @@
             "mr": 70,
             "alignment": 9
         },
-        "geno_flags": "(1)",
+        "geno_flags": "1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5766,7 +5766,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -5820,7 +5820,7 @@
             "mr": 0,
             "alignment": -15
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5874,7 +5874,7 @@
             "mr": 50,
             "alignment": 12
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5928,7 +5928,7 @@
             "mr": 90,
             "alignment": -8
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -5985,7 +5985,7 @@
             "mr": 90,
             "alignment": -8
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6048,7 +6048,7 @@
             "mr": 10,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -6096,7 +6096,7 @@
             "mr": 20,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -6144,7 +6144,7 @@
             "mr": 0,
             "alignment": -7
         },
-        "geno_flags": "(G_HELL | G_GENO | G_LGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_GENO | G_LGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -6192,7 +6192,7 @@
             "mr": 30,
             "alignment": 7
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -6240,7 +6240,7 @@
             "mr": 0,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | G_LGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_LGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -6294,7 +6294,7 @@
             "mr": 20,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -6348,7 +6348,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -6396,7 +6396,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -6444,7 +6444,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -6495,7 +6495,7 @@
             "mr": 50,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -6552,7 +6552,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6600,7 +6600,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6648,7 +6648,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6696,7 +6696,7 @@
             "mr": 10,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_MAGC",
@@ -6744,7 +6744,7 @@
             "mr": 10,
             "alignment": 9
         },
-        "geno_flags": "(G_GENO | G_LGROUP | G_NOGEN)",
+        "geno_flags": "G_GENO | G_LGROUP | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6792,7 +6792,7 @@
             "mr": 10,
             "alignment": 10
         },
-        "geno_flags": "(G_GENO | G_SGROUP | G_NOGEN)",
+        "geno_flags": "G_GENO | G_SGROUP | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6840,7 +6840,7 @@
             "mr": 20,
             "alignment": 11
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6888,7 +6888,7 @@
             "mr": 20,
             "alignment": 12
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -6936,7 +6936,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 4)",
+        "geno_flags": "G_GENO | 4",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -6984,7 +6984,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_GENO | 4)",
+        "geno_flags": "G_NOCORPSE | G_GENO | 4",
         "attacks": [
             {
                 "type": "AT_EXPL",
@@ -7032,7 +7032,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_GENO | 2)",
+        "geno_flags": "G_NOCORPSE | G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_EXPL",
@@ -7080,7 +7080,7 @@
             "mr": 30,
             "alignment": -9
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -7131,7 +7131,7 @@
             "mr": 60,
             "alignment": -12
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -7182,7 +7182,7 @@
             "mr": 90,
             "alignment": -15
         },
-        "geno_flags": "(G_HELL | G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -7233,7 +7233,7 @@
             "mr": 90,
             "alignment": -15
         },
-        "geno_flags": "(G_HELL | G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -7284,7 +7284,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7332,7 +7332,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7380,7 +7380,7 @@
             "mr": 20,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7428,7 +7428,7 @@
             "mr": 20,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7476,7 +7476,7 @@
             "mr": 20,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7524,7 +7524,7 @@
             "mr": 20,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7572,7 +7572,7 @@
             "mr": 30,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7620,7 +7620,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7671,7 +7671,7 @@
             "mr": 30,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7722,7 +7722,7 @@
             "mr": 30,
             "alignment": -6
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -7773,7 +7773,7 @@
             "mr": 30,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -8016,7 +8016,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -8067,7 +8067,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -8118,7 +8118,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -8169,7 +8169,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -8220,7 +8220,7 @@
             "mr": 10,
             "alignment": 4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -8271,7 +8271,7 @@
             "mr": 70,
             "alignment": 5
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -8322,7 +8322,7 @@
             "mr": 50,
             "alignment": 7
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -8376,7 +8376,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8424,7 +8424,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8472,7 +8472,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_NOGEN | G_LGROUP)",
+        "geno_flags": "G_GENO | G_NOGEN | G_LGROUP",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8520,7 +8520,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | G_LGROUP | 2)",
+        "geno_flags": "G_GENO | G_LGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8568,7 +8568,7 @@
             "mr": 0,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | G_LGROUP | 1)",
+        "geno_flags": "G_GENO | G_LGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8616,7 +8616,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | G_LGROUP | 1)",
+        "geno_flags": "G_GENO | G_LGROUP | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8664,7 +8664,7 @@
             "mr": 10,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_MAGC",
@@ -8712,7 +8712,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_SGROUP | G_GENO | 1)",
+        "geno_flags": "G_SGROUP | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8760,7 +8760,7 @@
             "mr": 30,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8808,7 +8808,7 @@
             "mr": 60,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8856,7 +8856,7 @@
             "mr": 0,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -8907,7 +8907,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 4)",
+        "geno_flags": "G_GENO | 4",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -8955,7 +8955,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9003,7 +9003,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9051,7 +9051,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 2)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9099,7 +9099,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9147,7 +9147,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_HELL | G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -9198,7 +9198,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9249,7 +9249,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9297,7 +9297,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -9345,7 +9345,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -9393,7 +9393,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BUTT",
@@ -9444,7 +9444,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -9495,7 +9495,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BUTT",
@@ -9546,7 +9546,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 4)",
+        "geno_flags": "G_GENO | G_SGROUP | 4",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -9600,7 +9600,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -9654,7 +9654,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9702,7 +9702,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9750,7 +9750,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9798,7 +9798,7 @@
             "mr": 10,
             "alignment": -7
         },
-        "geno_flags": "(G_NOGEN | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9846,7 +9846,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9894,7 +9894,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_GENO)",
+        "geno_flags": "G_NOGEN | G_GENO",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -9942,7 +9942,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_HELL | G_GENO | 2)",
+        "geno_flags": "G_HELL | G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -9993,7 +9993,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -10047,7 +10047,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10095,7 +10095,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10143,7 +10143,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10191,7 +10191,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_LGROUP | G_GENO | 1)",
+        "geno_flags": "G_LGROUP | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10239,7 +10239,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10287,7 +10287,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN | G_LGROUP)",
+        "geno_flags": "G_GENO | G_NOGEN | G_LGROUP",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10335,7 +10335,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10386,7 +10386,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10437,7 +10437,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -10491,7 +10491,7 @@
             "mr": 0,
             "alignment": -15
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -10545,7 +10545,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -10602,7 +10602,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -10650,7 +10650,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -10698,7 +10698,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -10752,7 +10752,7 @@
             "mr": 20,
             "alignment": -3
         },
-        "geno_flags": "(G_NOHELL | G_GENO | 1)",
+        "geno_flags": "G_NOHELL | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -10806,7 +10806,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -10860,7 +10860,7 @@
             "mr": 40,
             "alignment": -3
         },
-        "geno_flags": "(G_NOGEN | G_GENO)",
+        "geno_flags": "G_NOGEN | G_GENO",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -10914,7 +10914,7 @@
             "mr": 0,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -10968,7 +10968,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_KICK",
@@ -11019,7 +11019,7 @@
             "mr": 70,
             "alignment": 7
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BUTT",
@@ -11070,7 +11070,7 @@
             "mr": 70,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BUTT",
@@ -11121,7 +11121,7 @@
             "mr": 70,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BUTT",
@@ -11172,7 +11172,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_KICK",
@@ -11223,7 +11223,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_KICK",
@@ -11274,7 +11274,7 @@
             "mr": 25,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -11331,7 +11331,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 2)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -11379,7 +11379,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 2)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -11427,7 +11427,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOHELL | G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_NOHELL | G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -11475,7 +11475,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_HELL | G_GENO | G_NOCORPSE | 2)",
+        "geno_flags": "G_HELL | G_GENO | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -11523,7 +11523,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_HELL | G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -11574,7 +11574,7 @@
             "mr": 25,
             "alignment": -8
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -11625,7 +11625,7 @@
             "mr": 50,
             "alignment": -9
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -11676,7 +11676,7 @@
             "mr": 80,
             "alignment": -10
         },
-        "geno_flags": "(G_NOGEN | G_NOCORPSE | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_NOCORPSE | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -11727,7 +11727,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -11877,7 +11877,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -11925,7 +11925,7 @@
             "mr": 15,
             "alignment": -6
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -11973,7 +11973,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -12024,7 +12024,7 @@
             "mr": 25,
             "alignment": -17
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -12075,7 +12075,7 @@
             "mr": 5,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -12129,7 +12129,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | G_NOCORPSE | 3)",
+        "geno_flags": "G_GENO | G_SGROUP | G_NOCORPSE | 3",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -12177,7 +12177,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_STNG",
@@ -12225,7 +12225,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12282,7 +12282,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12333,7 +12333,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12387,7 +12387,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12441,7 +12441,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12495,7 +12495,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12549,7 +12549,7 @@
             "mr": 0,
             "alignment": 2
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12603,7 +12603,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12651,7 +12651,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12699,7 +12699,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_SGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12747,7 +12747,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_SGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12795,7 +12795,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_SGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12843,7 +12843,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_SGROUP | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_SGROUP | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12891,7 +12891,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12942,7 +12942,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -12993,7 +12993,7 @@
             "mr": 0,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | G_NOCORPSE | 1)",
+        "geno_flags": "G_GENO | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -13044,7 +13044,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_NOGEN)",
+        "geno_flags": "G_NOCORPSE | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13095,7 +13095,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -13149,7 +13149,7 @@
             "mr": 127,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_NOCORPSE",
         "attacks": [
             {
                 "type": "NO_ATTK"
@@ -13194,7 +13194,7 @@
             "mr": 30,
             "alignment": 10
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_SGROUP | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13242,7 +13242,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13290,7 +13290,7 @@
             "mr": 40,
             "alignment": -9
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_SGROUP | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13341,7 +13341,7 @@
             "mr": 60,
             "alignment": -5
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13392,7 +13392,7 @@
             "mr": 75,
             "alignment": -14
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13443,7 +13443,7 @@
             "mr": 65,
             "alignment": -15
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_ENGL",
@@ -13494,7 +13494,7 @@
             "mr": 80,
             "alignment": 15
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13545,7 +13545,7 @@
             "mr": 85,
             "alignment": 20
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -13596,7 +13596,7 @@
             "mr": 90,
             "alignment": 20
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -13647,7 +13647,7 @@
             "mr": 100,
             "alignment": 0
         },
-        "geno_flags": "(G_UNIQ | G_NOGEN)",
+        "geno_flags": "G_UNIQ | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -13698,7 +13698,7 @@
             "mr": 100,
             "alignment": 0
         },
-        "geno_flags": "(G_UNIQ | G_NOGEN)",
+        "geno_flags": "G_UNIQ | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -13749,7 +13749,7 @@
             "mr": 100,
             "alignment": 0
         },
-        "geno_flags": "(G_UNIQ | G_NOGEN)",
+        "geno_flags": "G_UNIQ | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -13800,7 +13800,7 @@
             "mr": 30,
             "alignment": -7
         },
-        "geno_flags": "(G_NOCORPSE | G_NOGEN)",
+        "geno_flags": "G_NOCORPSE | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -13854,7 +13854,7 @@
             "mr": 70,
             "alignment": -9
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -13908,7 +13908,7 @@
             "mr": 70,
             "alignment": -9
         },
-        "geno_flags": "(G_NOCORPSE | 1)",
+        "geno_flags": "G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -13962,7 +13962,7 @@
             "mr": 35,
             "alignment": 8
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_SGROUP | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -14016,7 +14016,7 @@
             "mr": 55,
             "alignment": -10
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_SGROUP | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -14070,7 +14070,7 @@
             "mr": 65,
             "alignment": -13
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14124,7 +14124,7 @@
             "mr": 75,
             "alignment": 15
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -14178,7 +14178,7 @@
             "mr": 50,
             "alignment": 11
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14235,7 +14235,7 @@
             "mr": 55,
             "alignment": -12
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -14292,7 +14292,7 @@
             "mr": 65,
             "alignment": -11
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -14349,7 +14349,7 @@
             "mr": 80,
             "alignment": -15
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14406,7 +14406,7 @@
             "mr": 95,
             "alignment": -20
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_MAGC",
@@ -14463,7 +14463,7 @@
             "mr": 75,
             "alignment": -14
         },
-        "geno_flags": "(G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14520,7 +14520,7 @@
             "mr": 85,
             "alignment": -127
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_UNIQ | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14577,7 +14577,7 @@
             "mr": 50,
             "alignment": -9
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_SGROUP | 2)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -14637,7 +14637,7 @@
             "mr": 85,
             "alignment": -20
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_HELL | G_NOCORPSE | G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14697,7 +14697,7 @@
             "mr": 80,
             "alignment": -12
         },
-        "geno_flags": "(G_HELL | G_NOCORPSE | 1)",
+        "geno_flags": "G_HELL | G_NOCORPSE | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -14760,7 +14760,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 5)",
+        "geno_flags": "G_GENO | 5",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -14808,7 +14808,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 5)",
+        "geno_flags": "G_GENO | 5",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -14856,7 +14856,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 5)",
+        "geno_flags": "G_GENO | 5",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -14952,7 +14952,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 5)",
+        "geno_flags": "G_GENO | 5",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15000,7 +15000,7 @@
             "mr": 10,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 2)",
+        "geno_flags": "G_GENO | 2",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15048,7 +15048,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15099,7 +15099,7 @@
             "mr": 0,
             "alignment": -9
         },
-        "geno_flags": "(G_HELL | 1)",
+        "geno_flags": "G_HELL | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15156,7 +15156,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_STNG",
@@ -15204,7 +15204,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN | G_SGROUP)",
+        "geno_flags": "G_GENO | G_NOGEN | G_SGROUP",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15252,7 +15252,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15300,7 +15300,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15342,7 +15342,7 @@
         "color": "CLR_CYAN"
     },
     {
-        "name": "SHOCKtric eel",
+        "name": "electric eel",
         "symbol": "S_EEL",
         "level_details": {
             "level": 7,
@@ -15351,7 +15351,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_BITE",
@@ -15402,7 +15402,7 @@
             "mr": 0,
             "alignment": -3
         },
-        "geno_flags": "(G_GENO | G_NOGEN)",
+        "geno_flags": "G_GENO | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -15507,7 +15507,7 @@
             "mr": 10,
             "alignment": -7
         },
-        "geno_flags": "(1)",
+        "geno_flags": "1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15555,7 +15555,7 @@
             "mr": 10,
             "alignment": -7
         },
-        "geno_flags": "(1)",
+        "geno_flags": "1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15603,7 +15603,7 @@
             "mr": 20,
             "alignment": -7
         },
-        "geno_flags": "(1)",
+        "geno_flags": "1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15699,7 +15699,7 @@
             "mr": 10,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15747,7 +15747,7 @@
             "mr": 10,
             "alignment": -6
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15795,7 +15795,7 @@
             "mr": 10,
             "alignment": -7
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15843,7 +15843,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -15987,7 +15987,7 @@
             "mr": 50,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_NONE",
@@ -16035,7 +16035,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_SGROUP | G_GENO | 1)",
+        "geno_flags": "G_SGROUP | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16083,7 +16083,7 @@
             "mr": 5,
             "alignment": -3
         },
-        "geno_flags": "(G_SGROUP | G_GENO | 1)",
+        "geno_flags": "G_SGROUP | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16131,7 +16131,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_GENO | 3)",
+        "geno_flags": "G_GENO | 3",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -16179,7 +16179,7 @@
             "mr": 0,
             "alignment": -2
         },
-        "geno_flags": "(G_SGROUP | G_NOGEN | G_GENO | 1)",
+        "geno_flags": "G_SGROUP | G_NOGEN | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16227,7 +16227,7 @@
             "mr": 40,
             "alignment": 15
         },
-        "geno_flags": "(G_UNIQ | G_NOGEN)",
+        "geno_flags": "G_UNIQ | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16611,7 +16611,7 @@
             "mr": 30,
             "alignment": 20
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16659,7 +16659,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16707,7 +16707,7 @@
             "mr": 30,
             "alignment": 20
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16755,7 +16755,7 @@
             "mr": 40,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -16803,7 +16803,7 @@
             "mr": 30,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17091,7 +17091,7 @@
             "mr": 20,
             "alignment": -9
         },
-        "geno_flags": "(G_GENO | G_SGROUP | 2)",
+        "geno_flags": "G_GENO | G_SGROUP | 2",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17142,7 +17142,7 @@
             "mr": 25,
             "alignment": -10
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17244,7 +17244,7 @@
             "mr": 15,
             "alignment": -4
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17295,7 +17295,7 @@
             "mr": 15,
             "alignment": -5
         },
-        "geno_flags": "(G_GENO | 1)",
+        "geno_flags": "G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17346,7 +17346,7 @@
             "mr": 15,
             "alignment": -4
         },
-        "geno_flags": "(G_NOGEN | G_GENO | 1)",
+        "geno_flags": "G_NOGEN | G_GENO | 1",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17397,7 +17397,7 @@
             "mr": 100,
             "alignment": -100
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -17856,7 +17856,7 @@
             "mr": 40,
             "alignment": 20
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17907,7 +17907,7 @@
             "mr": 30,
             "alignment": 20
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -17958,7 +17958,7 @@
             "mr": 20,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18009,7 +18009,7 @@
             "mr": 80,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18060,7 +18060,7 @@
             "mr": 60,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18573,7 +18573,7 @@
             "mr": 30,
             "alignment": -20
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18627,7 +18627,7 @@
             "mr": 30,
             "alignment": 18
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18681,7 +18681,7 @@
             "mr": 40,
             "alignment": -13
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_UNIQ | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18789,7 +18789,7 @@
             "mr": 70,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18846,7 +18846,7 @@
             "mr": 50,
             "alignment": -15
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -18903,7 +18903,7 @@
             "mr": 70,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -18960,7 +18960,7 @@
             "mr": 70,
             "alignment": 0
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -19017,7 +19017,7 @@
             "mr": 10,
             "alignment": -14
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_UNIQ | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -19074,7 +19074,7 @@
             "mr": 10,
             "alignment": -20
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ)",
+        "geno_flags": "G_NOGEN | G_UNIQ",
         "attacks": [
             {
                 "type": "AT_CLAW",
@@ -19131,7 +19131,7 @@
             "mr": 80,
             "alignment": -10
         },
-        "geno_flags": "(G_NOGEN | G_UNIQ | G_NOCORPSE)",
+        "geno_flags": "G_NOGEN | G_UNIQ | G_NOCORPSE",
         "attacks": [
             {
                 "type": "AT_WEAP",
@@ -19188,7 +19188,7 @@
             "mr": 50,
             "alignment": -5
         },
-        "geno_flags": "(G_NOCORPSE | G_NOGEN)",
+        "geno_flags": "G_NOCORPSE | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_TUCH",
@@ -19236,7 +19236,7 @@
             "mr": 0,
             "alignment": 0
         },
-        "geno_flags": "(G_NOCORPSE | G_NOGEN)",
+        "geno_flags": "G_NOCORPSE | G_NOGEN",
         "attacks": [
             {
                 "type": "AT_TUCH",
