@@ -249,49 +249,57 @@
     "id": "MR_FIRE",
     "name": "fire resistance",
     "type": "resistance",
-    "description": "The monster is resistant to fire."
+    "description": "The monster is resistant to fire.",
+    "summary": "fire"
   },
   {
     "id": "MR_COLD",
     "name": "cold resistance",
     "type": "resistance",
-    "description": "The monster is resistant to cold."
+    "description": "The monster is resistant to cold.",
+    "summary": "cold"
   },
   {
     "id": "MR_SLEEP",
     "name": "sleep resistance",
     "type": "resistance",
-    "description": "The monster is resistant to sleep."
+    "description": "The monster is resistant to sleep.",
+    "summary": "sleep"
   },
   {
     "id": "MR_DISINT",
     "name": "disintegration resistance",
     "type": "resistance",
-    "description": "The monster is resistant to disintegration."
+    "description": "The monster is resistant to disintegration.",
+    "summary": "disintegration"
   },
   {
     "id": "MR_ELEC",
     "name": "shock resistance",
     "type": "resistance",
-    "description": "The monster is resistant to shock."
+    "description": "The monster is resistant to shock.",
+    "summary": "shock"
   },
   {
     "id": "MR_POISON",
     "name": "poison resistance",
     "type": "resistance",
-    "description": "The monster is resistant to poison."
+    "description": "The monster is resistant to poison.",
+    "summary": "poison"
   },
   {
     "id": "MR_ACID",
     "name": "acid resistance",
     "type": "resistance",
-    "description": "The monster is resistant to acid."
+    "description": "The monster is resistant to acid.",
+    "summary": "acid"
   },
   {
     "id": "MR_STONE",
     "name": "stoning resistance",
     "type": "resistance",
-    "description": "The monster is resistant to stoning."
+    "description": "The monster is resistant to stoning.",
+    "summary": "stone"
   },
   {
     "id": "MR2_SEE_INVIS",
@@ -402,8 +410,8 @@
     "id": "M1_AMPHIBIOUS",
     "name": "amphibious",
     "type": "physical",
-    "description": "The monster can survive in land and water.",
-    "summary": "can swim and walk on land."
+    "description": "The monster can breath underwater",
+    "summary": "can survive underwater."
   },
   {
     "id": "M1_BREATHLESS",
