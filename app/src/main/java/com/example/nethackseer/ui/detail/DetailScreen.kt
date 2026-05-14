@@ -234,9 +234,15 @@ fun DetailScreenContent(
                         }
                     }
 
-                    // M1 flags section
-                    val m1Properties = uiState.properties.filter { it.id.startsWith("M1_") }
-                    if (m1Properties.isNotEmpty()) {
+                    // Properties section (M1, M2, M3, and Geno flags)
+                    val displayProperties = uiState.properties.filter { 
+                        it.id.startsWith("M1_") || 
+                        it.id.startsWith("M2_") || 
+                        it.id.startsWith("M3_") || 
+                        it.id.startsWith("G_") 
+                    }
+                    
+                    if (displayProperties.isNotEmpty()) {
                         Spacer(modifier = Modifier.height(24.dp))
                         Column(
                             modifier = Modifier
@@ -251,7 +257,7 @@ fun DetailScreenContent(
 
                             Spacer(modifier = Modifier.height(8.dp))
 
-                            m1Properties.forEach { prop ->
+                            displayProperties.forEach { prop ->
                                 Row(
                                     modifier = Modifier.padding(vertical = 2.dp),
                                     verticalAlignment = Alignment.Top

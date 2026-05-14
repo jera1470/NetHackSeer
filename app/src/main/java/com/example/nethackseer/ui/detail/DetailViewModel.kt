@@ -58,7 +58,7 @@ class DetailViewModel(
                 if (monster.m1Flags != "0") flagIds.addAll(monster.m1Flags.split("|").map { it.trim() })
                 if (monster.m2Flags != "0") flagIds.addAll(monster.m2Flags.split("|").map { it.trim() })
                 if (monster.m3Flags != "0") flagIds.addAll(monster.m3Flags.split("|").map { it.trim() })
-                // Also resistances for consistency if needed later, but they are currently handled by text in UI
+                if (monster.genoFlags != "0") flagIds.addAll(monster.genoFlags.split("|").map { it.trim() })
                 
                 val properties = if (flagIds.isNotEmpty()) {
                     repository.getPropertiesByIds(flagIds).first()
