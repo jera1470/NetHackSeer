@@ -20,7 +20,7 @@ import java.io.IOException
 
 @Database(
     entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class],
-    version = 4,
+    version = 5,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -211,7 +211,8 @@ abstract class AppDatabase : RoomDatabase() {
                         id = jsonObject.getString("id"),
                         name = jsonObject.getString("name"),
                         type = jsonObject.getString("type"),
-                        description = jsonObject.getString("description")
+                        description = jsonObject.getString("description"),
+                        summary = if (jsonObject.has("summary")) jsonObject.getString("summary") else ""
                     )
                 )
             }

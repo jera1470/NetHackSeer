@@ -12,5 +12,6 @@ data class PropertyEntity(
     val id: String, // e.g., "M1_ANIMAL" or "MR_FIRE"
     val name: String, // more descriptive name, e.g., "Animal" or "Fire resistance"
     val type: String, // what is the flag about?
-    val description: String
+    val description: String, // long description for glossary stuff
+    val summary: String // short summary of the property
 )
