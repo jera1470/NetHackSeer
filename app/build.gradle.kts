@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.nethackseer"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.nethackseer"
@@ -46,9 +46,9 @@ kotlin {
 
 dependencies {
     val lifecyclever = "2.10.0"
-    val navVer = "2.9.7"
+    val navVer = "2.9.8"
     val roomVer = "2.8.4"
-    val gson = "2.13.2"
+    val gson = "2.14.0"
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecyclever")
