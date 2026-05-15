@@ -169,66 +169,134 @@ fun DetailScreenContent(
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        Row(
+                        Column(
                             modifier = Modifier
                                 .padding(16.dp)
-                                .fillMaxWidth()
-                                .height(IntrinsicSize.Max),
-                            verticalAlignment = Alignment.CenterVertically
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Column(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .fillMaxHeight(),
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.SpaceEvenly
+                            Text(
+                                text = "Stats",
+                                style = Typography.labelLarge,
+                                color = MaterialTheme.colorScheme.secondary,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
-                                Text(
-                                    text = "Stats",
-                                    style = Typography.labelLarge,
-                                    color = MaterialTheme.colorScheme.secondary,
-                                    modifier = Modifier.padding(bottom = 8.dp)
-                                )
-                                StatItem("LVL", "${uiState.monster.level}")
+                                StatItem("Level", "${uiState.monster.level}")
                                 StatItem("AC", "${uiState.monster.ac}")
                                 StatItem("MR", "${uiState.monster.mr}")
-                                StatItem("SPD", "${uiState.monster.moveRate}")
+                                StatItem("Speed", "${uiState.monster.moveRate}")
+                            }
+                            Spacer(modifier = Modifier.height(12.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceEvenly
+                            ) {
+                                StatItem("Diff", "${uiState.monster.difficulty}")
+                                StatItem("Weight", "${uiState.monster.weight}")
+                                StatItem("Nutr", "${uiState.monster.nutritionValue}")
+                                StatItem("Size", uiState.monster.size.removePrefix("MZ_").lowercase().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
                             }
 
-                            VerticalDivider(
-                                modifier = Modifier
-                                    .padding(horizontal = 16.dp)
-                                    .fillMaxHeight(),
+                            HorizontalDivider(
+                                modifier = Modifier.padding(vertical = 16.dp),
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
                             )
 
-                            Column(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .fillMaxHeight(),
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.SpaceEvenly
+                            Row(
+                                modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
+                                verticalAlignment = Alignment.Top
                             ) {
-                                Text(
-                                    text = "Resistances",
-                                    style = Typography.labelLarge,
-                                    color = MaterialTheme.colorScheme.secondary,
-                                    modifier = Modifier.padding(bottom = 8.dp)
-                                )
-                                val resistancesList = if (uiState.monster.resistances == "0") {
-                                    listOf("None")
-                                } else {
-                                    uiState.monster.resistances.split("|").map {
-                                        it.trim().removePrefix("MR_").lowercase()
-                                            .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                Column(
+                                    modifier = Modifier.weight(1f),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Text(
+                                        text = "Resistances",
+                                        style = Typography.labelLarge,
+                                        color = MaterialTheme.colorScheme.secondary,
+                                        modifier = Modifier.padding(bottom = 4.dp)
+                                    )
+                                    val resistancesList = if (uiState.monster.resistances == "0") {
+                                        listOf("None")
+                                    } else {
+                                        uiState.monster.resistances.split("|").map {
+                                            it.trim().removePrefix("MR_").lowercase()
+                                                .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                        }
+                                    }
+                                    resistancesList.forEach { resistance ->
+                                        Text(
+                                            text = resistance,
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold
+                                        )
                                     }
                                 }
-                                resistancesList.forEach { resistance ->
+
+                                VerticalDivider(
+                                    modifier = Modifier
+                                        .padding(horizontal = 8.dp)
+                                        .fillMaxHeight(),
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                                )
+
+                                Column(
+                                    modifier = Modifier.weight(1f),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
                                     Text(
-                                        text = resistance,
-                                        style = Typography.bodyLarge,
-                                        fontWeight = FontWeight.Bold
+                                        text = "Res. Conferred",
+                                        style = Typography.labelLarge,
+                                        color = MaterialTheme.colorScheme.secondary,
+                                        modifier = Modifier.padding(bottom = 4.dp)
                                     )
+                                    val conferredRaw = uiState.monster.resistancesConferred
+                                    val conferredList = if (conferredRaw == "0") {
+                                        emptyList()
+                                    } else {
+                                        conferredRaw.split("|")
+                                            .map { it.trim() }
+                                            .filter { !it.contains("STONE") && !it.contains("ACID") }
+                                    }
+
+                                    if (conferredList.isEmpty()) {
+                                        Text(
+                                            text = "None",
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    } else {
+                                        val ml = uiState.monster.level.toDouble()
+                                        val count = conferredList.size
+                                        conferredList.forEach { id ->
+                                            val pConfer = when {
+                                                id.contains("TELEPATHY", ignoreCase = true) -> 1.0
+                                                id.contains("TELEPORTITIS", ignoreCase = true) -> ml / 10.0
+                                                id.contains("TELEPORT", ignoreCase = true) && id.contains("CONTROL", ignoreCase = true) -> ml / 12.0
+                                                id.contains("POISON", ignoreCase = true) &&
+                                                        (uiState.monster.name.contains("killer bee", ignoreCase = true) ||
+                                                                uiState.monster.name.contains("scorpion", ignoreCase = true)) -> (ml + 5.0) / 20.0
+                                                else -> ml / 15.0
+                                            }
+                                            val totalChance = ((1.0 / count) * pConfer).coerceIn(0.0, 1.0)
+                                            val percentageExact = totalChance * 100
+                                            val percentage = percentageExact.toInt()
+                                            val prefix = if (percentageExact != percentage.toDouble()) "~" else ""
+
+                                            val name = id.removePrefix("MR_").lowercase()
+                                                .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+
+                                            Text(
+                                                text = "$name\n($prefix$percentage%)",
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                        }
+                                    }
                                 }
                             }
                         }

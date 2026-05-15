@@ -58,6 +58,7 @@ abstract class AppDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     // Clear tables first so "ghost" entries from old/buggy JSONs are removed
+                    // TODO: remove this when releasing app
                     db.execSQL("DELETE FROM monsters")
                     db.execSQL("DELETE FROM items")
                     db.execSQL("DELETE FROM properties")
@@ -115,6 +116,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val sizeDetails = jsonObject.getJSONObject("size_details")
                 val name = jsonObject.getString("name")
 
+                val sizeRaw = sizeDetails.getString("size")
                 val monsterEntity = MonsterEntity(
                     name = name, // primary key for the repo
                     symbol = jsonObject.getString("symbol"),
@@ -133,7 +135,7 @@ abstract class AppDatabase : RoomDatabase() {
                     weight = sizeDetails.getInt("weight"),
                     nutritionValue = sizeDetails.getInt("nutritional_value"),
                     sound = sizeDetails.getString("sound"),
-                    size = sizeDetails.getString("size"),
+                    size = if (sizeRaw == "MZ_HUMAN") "MZ_MEDIUM" else sizeRaw,
                     resistances = jsonObject.getString("resistances"),
                     resistancesConferred = jsonObject.getString("resistances_conferred"),
                     m1Flags = jsonObject.getString("m1_flags"),
