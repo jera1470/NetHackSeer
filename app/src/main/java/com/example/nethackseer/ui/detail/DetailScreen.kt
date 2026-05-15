@@ -224,8 +224,14 @@ fun DetailScreenContent(
                                         listOf("None")
                                     } else {
                                         uiState.monster.resistances.split("|").map {
-                                            it.trim().removePrefix("MR_").lowercase()
-                                                .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                            val id = it.trim()
+                                            when (id) {
+                                                // better than just elec or disint
+                                                "MR_ELEC" -> "Shock"
+                                                "MR_DISINT" -> "Disintegrate"
+                                                else -> id.removePrefix("MR_").lowercase()
+                                                    .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                            }
                                         }
                                     }
                                     resistancesList.forEach { resistance ->
@@ -255,13 +261,26 @@ fun DetailScreenContent(
                                         modifier = Modifier.padding(bottom = 4.dp)
                                     )
                                     val conferredRaw = uiState.monster.resistancesConferred
-                                    val conferredList = if (conferredRaw == "0") {
-                                        emptyList()
+                                    val baseConferred = if (conferredRaw == "0") {
+                                        mutableListOf()
                                     } else {
-                                        conferredRaw.split("|")
-                                            .map { it.trim() }
-                                            .filter { !it.contains("STONE") && !it.contains("ACID") }
+                                        conferredRaw.split("|").map { it.trim() }.toMutableList()
                                     }
+                                    
+                                    // Add intrinsics from M1 flags and special cases
+                                    if (uiState.monster.m1Flags.contains("M1_TPORT")) {
+                                        if (!baseConferred.contains("MR_TELEPORT")) baseConferred.add("MR_TELEPORT")
+                                    }
+                                    if (uiState.monster.m1Flags.contains("M1_TPORT_CNTRL")) {
+                                        if (!baseConferred.contains("MR_TELEPORT_CONTROL")) baseConferred.add("MR_TELEPORT CONTROL")
+                                    }
+                                    val telepathicNames = listOf("floating eye", "mind flayer", "master mind flayer")
+                                    if (telepathicNames.any { it.equals(uiState.monster.name, ignoreCase = true) }) {
+                                        if (!baseConferred.contains("MR_TELEPATHY")) baseConferred.add("MR_TELEPATHY")
+                                    }
+
+                                    // Neater list for intrinsics
+                                    val conferredList = baseConferred
 
                                     if (conferredList.isEmpty()) {
                                         Text(
@@ -270,28 +289,66 @@ fun DetailScreenContent(
                                             fontWeight = FontWeight.Bold
                                         )
                                     } else {
-                                        val ml = uiState.monster.level.toDouble()
                                         val count = conferredList.size
                                         conferredList.forEach { id ->
-                                            val pConfer = when {
-                                                id.contains("TELEPATHY", ignoreCase = true) -> 1.0
-                                                id.contains("TELEPORTITIS", ignoreCase = true) -> ml / 10.0
-                                                id.contains("TELEPORT", ignoreCase = true) && id.contains("CONTROL", ignoreCase = true) -> ml / 12.0
-                                                id.contains("POISON", ignoreCase = true) &&
-                                                        (uiState.monster.name.contains("killer bee", ignoreCase = true) ||
-                                                                uiState.monster.name.contains("scorpion", ignoreCase = true)) -> (ml + 5.0) / 20.0
-                                                else -> ml / 15.0
-                                            }
-                                            val totalChance = ((1.0 / count) * pConfer).coerceIn(0.0, 1.0)
-                                            val percentageExact = totalChance * 100
-                                            val percentage = percentageExact.toInt()
-                                            val prefix = if (percentageExact != percentage.toDouble()) "~" else ""
+                                            val isBeeOrScorpion = uiState.monster.name.contains("killer bee", ignoreCase = true) ||
+                                                    uiState.monster.name.contains("scorpion", ignoreCase = true)
 
-                                            val name = id.removePrefix("MR_").lowercase()
-                                                .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                            // Logic from NetHack 5.0.0 per-intrinsic check
+                                            // Calculate the fraction (num/den) for the success
+                                            val (num, den) = when {
+                                                id.contains("TELEPATHY", ignoreCase = true) -> 1L to 1L
+                                                id.contains("TELEPORT", ignoreCase = true) && !id.contains("CONTROL", ignoreCase = true) -> 
+                                                    uiState.monster.level.toLong().coerceAtMost(10L) to 10L
+                                                id.contains("TELEPORT", ignoreCase = true) && id.contains("CONTROL", ignoreCase = true) -> 
+                                                    uiState.monster.level.toLong().coerceAtMost(12L) to 12L
+                                                id.contains("POISON", ignoreCase = true) && isBeeOrScorpion -> 
+                                                    (uiState.monster.level.toLong() + 5).coerceAtMost(20L) to 20L
+                                                id.contains("ACID", ignoreCase = true) -> {
+                                                    val lvl = uiState.monster.level.toLong()
+                                                    if (lvl >= 3) 1L to 1L
+                                                    else (18 * lvl - lvl * lvl) to 45L
+                                                }
+                                                id.contains("STONE", ignoreCase = true) -> {
+                                                    val lvl = uiState.monster.level.toLong()
+                                                    if (lvl >= 6) 1L to 1L
+                                                    else (21 * lvl - lvl * lvl) to 90L
+                                                }
+                                                else -> uiState.monster.level.toLong().coerceAtMost(15L) to 15L
+                                            }
+
+                                            // Final fraction is (1/count) * (num/den) = num / (count * den)
+                                            val finalNum = num
+                                            val finalDen = count.toLong() * den
+
+                                            // Simplify fraction using GCD (courtesy of a friend)
+                                            fun getGcd(a: Long, b: Long): Long = if (b == 0L) a else getGcd(b, a % b)
+                                            val common = getGcd(finalNum, finalDen)
+                                            val displayNum = finalNum / common
+                                            val displayDen = finalDen / common
+
+                                            val totalChanceExact = (displayNum.toDouble() / displayDen.toDouble()) * 100.0
+                                            val percentage = totalChanceExact.toInt().coerceIn(0, 100)
+                                            val prefix = if (totalChanceExact > percentage.toDouble() && percentage < 100) "~" else ""
+
+                                            var name = when (id) {
+                                                "MR_ELEC" -> "Shock"
+                                                "MR_DISINT" -> "Disintegrate"
+                                                else -> id.removePrefix("MR_").lowercase()
+                                                    .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+                                            }
+                                            
+                                            if (id.contains("ACID") || id.contains("STONE")) {
+                                                name += " (3-18 turns)"
+                                            }
 
                                             Text(
-                                                text = "$name\n($prefix$percentage%)",
+                                                text = name,
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            Text(
+                                                text = "($displayNum/$displayDen or $prefix$percentage%)",
                                                 style = Typography.bodyMedium,
                                                 fontWeight = FontWeight.Bold
                                             )
