@@ -280,7 +280,11 @@ fun DetailScreenContent(
                                     val lowerName = uiState.monster.name.lowercase()
                                     if (lowerName == "wraith") specialEffects.add("Gain level")
                                     if (lowerName.contains("were")) specialEffects.add("Contract lycanthropy")
-                                    if (lowerName.contains("mimic")) specialEffects.add("Mimic an object (20-50 turns)")
+                                    when (lowerName) {
+                                        "small mimic" -> specialEffects.add("Mimic an object (20 turns)")
+                                        "large mimic" -> specialEffects.add("Mimic an object (40 turns)")
+                                        "giant mimic" -> specialEffects.add("Mimic an object (50 turns)")
+                                    }
                                     if (listOf("chameleon", "doppelganger", "genetic engineer").any { lowerName == it }) specialEffects.add("Polymorph")
                                     if (lowerName == "nurse") specialEffects.add("Full heal/cure blindness")
                                     if (lowerName == "lizard") specialEffects.add("Reduce stun/confusion")
