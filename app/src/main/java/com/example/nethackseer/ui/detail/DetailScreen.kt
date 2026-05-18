@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.NetHackSeerApplication
@@ -255,7 +256,7 @@ fun DetailScreenContent(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
-                                        text = "Res. Conferred",
+                                        text = "Properties Given",
                                         style = Typography.labelLarge,
                                         color = MaterialTheme.colorScheme.secondary,
                                         modifier = Modifier.padding(bottom = 4.dp)
@@ -272,30 +273,86 @@ fun DetailScreenContent(
                                         if (!baseConferred.contains("MR_TELEPORT")) baseConferred.add("MR_TELEPORT")
                                     }
                                     if (uiState.monster.m1Flags.contains("M1_TPORT_CNTRL")) {
-                                        if (!baseConferred.contains("MR_TELEPORT_CONTROL")) baseConferred.add("MR_TELEPORT CONTROL")
+                                        if (!baseConferred.contains("MR_TELEPORT_CONTROL")) baseConferred.add("MR_TELEPORT_CONTROL")
                                     }
-                                    val telepathicNames = listOf("floating eye", "mind flayer", "master mind flayer")
-                                    if (telepathicNames.any { it.equals(uiState.monster.name, ignoreCase = true) }) {
-                                        if (!baseConferred.contains("MR_TELEPATHY")) baseConferred.add("MR_TELEPATHY")
-                                    }
+                                    // Special post-eating effects (cpostfx)
+                                    val specialEffects = mutableListOf<String>()
+                                    val lowerName = uiState.monster.name.lowercase()
+                                    if (lowerName == "wraith") specialEffects.add("Gain level")
+                                    if (lowerName.contains("were")) specialEffects.add("Contract Lycanthropy")
+                                    if (lowerName.contains("mimic")) specialEffects.add("Mimic an object (20-50 turns)")
+                                    if (listOf("chameleon", "doppelganger", "genetic engineer").any { lowerName == it }) specialEffects.add("Polymorph")
+                                    if (lowerName == "nurse") specialEffects.add("Full heal/cure blindness")
+                                    if (lowerName == "lizard") specialEffects.add("Reduce stun/confusion")
+                                    if (lowerName == "stalker") specialEffects.add("Temp./Perm. Invisibility & See Invisible")
+                                    if (lowerName == "displacer beast") specialEffects.add("Temp. Displacement (+6-36 turns)")
+                                    if (listOf("yellow light", "bat", "giant bat").any { lowerName == it }) specialEffects.add("Stun (+30 turns)")
+                                    if (lowerName == "quantum mechanic") specialEffects.add("Toggle speed")
+                                    if (lowerName == "disenchanter") specialEffects.add("Lose a random intrinsic")
+                                    if (lowerName == "violet fungus") specialEffects.add("Hallucination (+200 turns)")
+                                    val isMagical = listOf(uiState.monster.attack1, uiState.monster.attack2, uiState.monster.attack3, uiState.monster.attack4, uiState.monster.attack5, uiState.monster.attack6)
+                                        .any { it.type == "AT_MAGC" }
+                                    if (lowerName == "newt" || isMagical) specialEffects.add("Increase energy")
+                                    if (listOf("death", "pestilence", "famine").any { lowerName == it }) specialEffects.add("Death when eaten")
 
                                     // Neater list for intrinsics
                                     val conferredList = baseConferred
 
-                                    if (conferredList.isEmpty()) {
+                                    if (conferredList.isEmpty() && specialEffects.isEmpty() && !lowerName.contains("mind flayer") && uiState.monster.symbol != "S_GIANT") {
                                         Text(
                                             text = "None",
                                             style = Typography.bodyMedium,
                                             fontWeight = FontWeight.Bold
                                         )
                                     } else {
-                                        val count = conferredList.size
+                                        // Display additive special effects first
+                                        specialEffects.forEach { effect ->
+                                            Text(
+                                                text = effect,
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold,
+                                                textAlign = TextAlign.Center
+                                            )
+                                        }
+                                        
+                                        if (specialEffects.isNotEmpty() && (conferredList.isNotEmpty() || lowerName.contains("mind flayer") || uiState.monster.symbol == "S_GIANT")) {
+                                            Spacer(modifier = Modifier.height(8.dp))
+                                        }
+
+                                        // Competitive pool calculation (giant and mind flayers)
+                                        val isGiant = uiState.monster.symbol == "S_GIANT"
+                                        val isMindFlayer = lowerName.contains("mind flayer")
+                                        
+                                        // Mind flayer is 50/50 +1 int and telepathy
+                                        if (isMindFlayer) {
+                                            Text(text = "+1 Int", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
+                                            Text(text = "(1/2 or 50%)", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
+                                            Spacer(modifier = Modifier.height(8.dp))
+                                        }
+
+                                        val poolMultiplier = if (isMindFlayer) 2L else 1L
+                                        val poolSize = conferredList.size + (if (isGiant) 1 else 0)
+                                        
+                                        // Handle giants with only strength (50% fail rate)
+                                        val giantFailMultiplier = if (isGiant && conferredList.isEmpty()) 2L else 1L
+                                        val finalDenomBase = poolSize.toLong() * poolMultiplier * giantFailMultiplier
+
+                                        if (isGiant) {
+                                            fun getGcd(a: Long, b: Long): Long = if (b == 0L) a else getGcd(b, a % b)
+                                            val common = getGcd(1, finalDenomBase)
+                                            val dNum = 1 / common
+                                            val dDen = finalDenomBase / common
+                                            val perc = ((dNum.toDouble() / dDen.toDouble()) * 100.0).toInt()
+
+                                            Text(text = "Increase strength", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
+                                            Text(text = "($dNum/$dDen or $perc%)", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
+                                            if (conferredList.isNotEmpty()) Spacer(modifier = Modifier.height(8.dp))
+                                        }
+
                                         conferredList.forEach { id ->
-                                            val isBeeOrScorpion = uiState.monster.name.contains("killer bee", ignoreCase = true) ||
-                                                    uiState.monster.name.contains("scorpion", ignoreCase = true)
+                                            val isBeeOrScorpion = lowerName.contains("killer bee") || lowerName.contains("scorpion")
 
                                             // Logic from NetHack 5.0.0 per-intrinsic check
-                                            // Calculate the fraction (num/den) for the success
                                             val (num, den) = when {
                                                 id.contains("TELEPATHY", ignoreCase = true) -> 1L to 1L
                                                 id.contains("TELEPORT", ignoreCase = true) && !id.contains("CONTROL", ignoreCase = true) -> 
@@ -317,9 +374,8 @@ fun DetailScreenContent(
                                                 else -> uiState.monster.level.toLong().coerceAtMost(15L) to 15L
                                             }
 
-                                            // Final fraction is (1/count) * (num/den) = num / (count * den)
                                             val finalNum = num
-                                            val finalDen = count.toLong() * den
+                                            val finalDen = finalDenomBase * den
 
                                             // Simplify fraction using GCD (courtesy of a friend)
                                             fun getGcd(a: Long, b: Long): Long = if (b == 0L) a else getGcd(b, a % b)
@@ -334,7 +390,7 @@ fun DetailScreenContent(
                                             var name = when (id) {
                                                 "MR_ELEC" -> "Shock"
                                                 "MR_DISINT" -> "Disintegrate"
-                                                else -> id.removePrefix("MR_").lowercase()
+                                                else -> id.removePrefix("MR_").lowercase().replace("_", " ")
                                                     .replaceFirstChar { char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
                                             }
                                             
@@ -350,7 +406,8 @@ fun DetailScreenContent(
                                             Text(
                                                 text = "($displayNum/$displayDen or $prefix$percentage%)",
                                                 style = Typography.bodyMedium,
-                                                fontWeight = FontWeight.Bold
+                                                fontWeight = FontWeight.Bold,
+                                                textAlign = TextAlign.Center
                                             )
                                         }
                                     }
