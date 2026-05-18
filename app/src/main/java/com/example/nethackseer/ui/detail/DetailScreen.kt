@@ -275,21 +275,23 @@ fun DetailScreenContent(
                                     if (uiState.monster.m1Flags.contains("M1_TPORT_CNTRL")) {
                                         if (!baseConferred.contains("MR_TELEPORT_CONTROL")) baseConferred.add("MR_TELEPORT_CONTROL")
                                     }
-                                    // Special post-eating effects (cpostfx)
+                                    // Special post-eating effects (cpostfx function in eat.c)
                                     val specialEffects = mutableListOf<String>()
                                     val lowerName = uiState.monster.name.lowercase()
                                     if (lowerName == "wraith") specialEffects.add("Gain level")
-                                    if (lowerName.contains("were")) specialEffects.add("Contract Lycanthropy")
+                                    if (lowerName.contains("were")) specialEffects.add("Contract lycanthropy")
                                     if (lowerName.contains("mimic")) specialEffects.add("Mimic an object (20-50 turns)")
                                     if (listOf("chameleon", "doppelganger", "genetic engineer").any { lowerName == it }) specialEffects.add("Polymorph")
                                     if (lowerName == "nurse") specialEffects.add("Full heal/cure blindness")
                                     if (lowerName == "lizard") specialEffects.add("Reduce stun/confusion")
-                                    if (lowerName == "stalker") specialEffects.add("Temp./Perm. Invisibility & See Invisible")
-                                    if (lowerName == "displacer beast") specialEffects.add("Temp. Displacement (+6-36 turns)")
+                                    if (lowerName == "stalker") specialEffects.add("Temp. Invis. (+50-149 turns)\nPerm. Invis./See Invis if already invis.")
+                                    if (lowerName == "displacer beast") specialEffects.add("Temp. displacement (+6-36 turns)")
                                     if (listOf("yellow light", "bat", "giant bat").any { lowerName == it }) specialEffects.add("Stun (+30 turns)")
                                     if (lowerName == "quantum mechanic") specialEffects.add("Toggle speed")
                                     if (lowerName == "disenchanter") specialEffects.add("Lose a random intrinsic")
-                                    if (lowerName == "violet fungus") specialEffects.add("Hallucination (+200 turns)")
+                                    val hasHaluAttack = listOf(uiState.monster.attack1, uiState.monster.attack2, uiState.monster.attack3, uiState.monster.attack4, uiState.monster.attack5, uiState.monster.attack6)
+                                        .any { it.damageType == "AD_HALU" || it.damageType == "AD_STUN" }
+                                    if (lowerName == "violet fungus" || hasHaluAttack) specialEffects.add("Hallucination (+200 turns)")
                                     val isMagical = listOf(uiState.monster.attack1, uiState.monster.attack2, uiState.monster.attack3, uiState.monster.attack4, uiState.monster.attack5, uiState.monster.attack6)
                                         .any { it.type == "AT_MAGC" }
                                     if (lowerName == "newt" || isMagical) specialEffects.add("Increase energy")
