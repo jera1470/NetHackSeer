@@ -848,6 +848,13 @@
     "summary": "waits for you to draw near."
   },
   {
+    "id": "M3_INFRAVISION",
+    "name": "infravision",
+    "type": "tactical",
+    "description": "The monster has infravision.",
+    "summary": "has infravision."
+  },
+  {
     "id": "M3_INFRAVISIBLE",
     "name": "infravisible",
     "type": "tactical",
@@ -951,5 +958,389 @@
     "type": "generation",
     "description": "This monster never leaves a corpse when it dies.",
     "summary": "leaves no corpse."
+  },
+  {
+    "id": "AT_NONE",
+    "name": "passive",
+    "type": "attack type",
+    "description": "Attack type that takes effect in response to melee attack on target."
+  },
+  {
+    "id": "AT_CLAW",
+    "name": "claw",
+    "type": "attack type",
+    "description": "Attack type that uses their hands."
+  },
+  {
+    "id": "AT_BITE",
+    "name": "bite",
+    "type": "attack type",
+    "description": "Attack type that uses mouth with teeth."
+  },
+  {
+    "id": "AT_KICK",
+    "name": "kick",
+    "type": "attack type",
+    "description": "Attack type that uses feet."
+  },
+  {
+    "id": "AT_BUTT",
+    "name": "headbutt",
+    "type": "attack type",
+    "description": "Attack type that uses their head or horns."
+  },
+  {
+    "id": "AT_TUCH",
+    "name": "touch",
+    "type": "attack type",
+    "description": "Attack type that uses some form of touch to make contact."
+  },
+  {
+    "id": "AT_STNG",
+    "name": "sting",
+    "type": "attack type",
+    "description": "Attack type that uses a stinging limb."
+  },
+  {
+    "id": "AT_HUGS",
+    "name": "bearhug",
+    "type": "attack type",
+    "description": "Attack type that holds target tight against body."
+  },
+  {
+    "id": "AT_SPIT",
+    "name": "spitting",
+    "type": "attack type",
+    "description": "Attack type that spits something at target."
+  },
+  {
+    "id": "AT_ENGL",
+    "name": "engulfing",
+    "type": "attack type",
+    "description": "Attack type that engulfs a target."
+  },
+  {
+    "id": "AT_BREA",
+    "name": "breath",
+    "type": "attack type",
+    "description": "Attack type that breathes elemental substances at target."
+  },
+  {
+    "id": "AT_EXPL",
+    "name": "active explode",
+    "type": "attack type",
+    "description": "Attack type that explodes on target when close."
+  },
+  {
+    "id": "AT_BOOM",
+    "name": "on-death explode",
+    "type": "attack type",
+    "description": "Attack type that explodes on death."
+  },
+  {
+    "id": "AT_GAZE",
+    "name": "gaze",
+    "type": "attack type",
+    "description": "Attack type that uses eyes to gaze on target."
+  },
+  {
+    "id": "AT_TENT",
+    "name": "tentacle",
+    "type": "attack type",
+    "description": "Attack type that uses tentacles."
+  },
+  {
+    "id": "AT_WEAP",
+    "name": "weapon",
+    "type": "attack type",
+    "description": "Attack type that uses any weapon to its disposition, or their hands."
+  },
+  {
+    "id": "AT_MAGC",
+    "name": "magic",
+    "type": "attack type",
+    "description": "Attack type that uses magic on target."
+  },
+  {
+    "id": "AD_PHYS",
+    "name": "physical",
+    "type": "damage type",
+    "description": "Damage type that does normal physical damage."
+  },
+  {
+    "id": "AD_MAGM",
+    "name": "magic missile",
+    "type": "damage type",
+    "description": "Damage type that does a blast of missiles."
+  },
+  {
+    "id": "AD_FIRE",
+    "name": "fire",
+    "type": "damage type",
+    "description": "Damage type that does fire damage."
+  },
+  {
+    "id": "AD_COLD",
+    "name": "cold",
+    "type": "damage type",
+    "description": "Damage type that does cold damage."
+  },
+  {
+    "id": "AD_SLEE",
+    "name": "sleep",
+    "type": "damage type",
+    "description": "Damage type that can put target to sleep."
+  },
+  {
+    "id": "AD_DISN",
+    "name": "disintegration",
+    "type": "damage type",
+    "description": "Damage type that can disintegrate target instantly."
+  },
+  {
+    "id": "AD_ELEC",
+    "name": "shock",
+    "type": "damage type",
+    "description": "Damage type that does shock damage."
+  },
+  {
+    "id": "AD_DRST",
+    "name": "poison (strength)",
+    "type": "damage type",
+    "description": "Damage type that can drain strength with poison."
+  },
+  {
+    "id": "AD_ACID",
+    "name": "acid",
+    "type": "damage type",
+    "description": "Damage type that does acid damage."
+  },
+  {
+    "id": "AD_BLND",
+    "name": "blind",
+    "type": "damage type",
+    "description": "Damage type that blinds the target."
+  },
+  {
+    "id": "AD_STUN",
+    "name": "stunning",
+    "type": "damage type",
+    "description": "Damage type that stuns the target."
+  },
+  {
+    "id": "AD_SLOW",
+    "name": "slowing",
+    "type": "damage type",
+    "description": "Damage type that slows the target."
+  },
+  {
+    "id": "AD_PLYS",
+    "name": "paralysis",
+    "type": "damage type",
+    "description": "Damage type that paralyzes the target."
+  },
+  {
+    "id": "AD_DRLI",
+    "name": "drain life",
+    "type": "damage type",
+    "description": "Damage type that drains levels from the target."
+  },
+  {
+    "id": "AD_DREN",
+    "name": "drain energy",
+    "type": "damage type",
+    "description": "Damage type that drains energy from the target."
+  },
+  {
+    "id": "AD_LEGS",
+    "name": "wounded legs",
+    "type": "damage type",
+    "description": "Damage type that causes wounded legs on hero, otherwise normal damage."
+  },
+  {
+    "id": "AD_STON",
+    "name": "stoning",
+    "type": "damage type",
+    "description": "Damage type that causes delayed or instant stoning depending on attack."
+  },
+  {
+    "id": "AD_STCK",
+    "name": "sticking",
+    "type": "damage type",
+    "description": "Damage type that causes hero to stick to attacker."
+  },
+  {
+    "id": "AD_SGLD",
+    "name": "steal gold",
+    "type": "damage type",
+    "description": "Damage type that steals gold from the target."
+  },
+  {
+    "id": "AD_SITM",
+    "name": "steal item",
+    "type": "damage type",
+    "description": "Damage type that steals items from the target."
+  },
+  {
+    "id": "AD_SEDU",
+    "name": "seduction",
+    "type": "damage type",
+    "description": "Damage type that seduces and steals items from the target."
+  },
+  {
+    "id": "AD_TLPT",
+    "name": "teleportation",
+    "type": "damage type",
+    "description": "Damage type that teleports the target on hit."
+  },
+  {
+    "id": "AD_RUST",
+    "name": "rust",
+    "type": "damage type",
+    "description": "Damage type that rusts eligible items on contact."
+  },
+  {
+    "id": "AD_CONF",
+    "name": "confusion",
+    "type": "damage type",
+    "description": "Damage type that confuses the target."
+  },
+  {
+    "id": "AD_DGST",
+    "name": "digestion",
+    "type": "damage type",
+    "description": "Damage type that digests hero slowly, otherwise instant death if small enough."
+  },
+  {
+    "id": "AD_HEAL",
+    "name": "healing",
+    "type": "damage type",
+    "description": "Damage type that heals target if not wearing equipment."
+  },
+  {
+    "id": "AD_WRAP",
+    "name": "wrap",
+    "type": "damage type",
+    "description": "Damage type that grabs hero, then drowns them if next to water."
+  },
+  {
+    "id": "AD_WERE",
+    "name": "lycanthropy",
+    "type": "damage type",
+    "description": "Damage type that causes lycanthropy to hero."
+  },
+  {
+    "id": "AD_DRDX",
+    "name": "poison (dexterity)",
+    "type": "damage type",
+    "description": "Damage type that can drain dexterity with poison."
+  },
+  {
+    "id": "AD_DRCO",
+    "name": "poison (constitution)",
+    "type": "damage type",
+    "description": "Damage type that can drain constitution with poison."
+  },
+  {
+    "id": "AD_DRIN",
+    "name": "intelligence drain",
+    "type": "damage type",
+    "description": "Damage type that can drain intelligence, potentially making target brainless."
+  },
+  {
+    "id": "AD_DISE",
+    "name": "disease",
+    "type": "damage type",
+    "description": "Damage type that causes illness on target."
+  },
+  {
+    "id": "AD_DCAY",
+    "name": "decay",
+    "type": "damage type",
+    "description": "Damage type that rots eligible items."
+  },
+  {
+    "id": "AD_SSEX",
+    "name": "seduction",
+    "type": "damage type",
+    "description": "Damage type that seduces hero into having sex, otherwise steals items."
+  },
+  {
+    "id": "AD_HALU",
+    "name": "hallucination",
+    "type": "damage type",
+    "description": "Damage type that causes hallucination to target."
+  },
+  {
+    "id": "AD_DETH",
+    "name": "death attack",
+    "type": "damage type",
+    "description": "Damage type that damages hero's max HP, and can cause instadeath."
+  },
+  {
+    "id": "AD_PEST",
+    "name": "pestilence attack",
+    "type": "damage type",
+    "description": "Damage type that causes major illness to target."
+  },
+  {
+    "id": "AD_FAMN",
+    "name": "famine attack",
+    "type": "damage type",
+    "description": "Damage type that causes hunger to target."
+  },
+  {
+    "id": "AD_SLIM",
+    "name": "slime",
+    "type": "damage type",
+    "description": "Damage type that causes delayed sliming to hero, otherwise turn into green slime."
+  },
+  {
+    "id": "AD_ENCH",
+    "name": "disenchanting",
+    "type": "damage type",
+    "description": "Damage type that disenchants eligible items on contact."
+  },
+  {
+    "id": "AD_CORR",
+    "name": "corrosion",
+    "type": "damage type",
+    "description": "Damage type that corrodes eligible items on contact."
+  },
+  {
+    "id": "AD_POLY",
+    "name": "polymorph",
+    "type": "damage type",
+    "description": "Damage type that causes polymorphing on contact."
+  },
+  {
+    "id": "AD_CLRC",
+    "name": "clerical spell",
+    "type": "damage type",
+    "description": "Damage type that attempts to cast clerical spells on hero."
+  },
+  {
+    "id": "AD_SPEL",
+    "name": "mage spell",
+    "type": "damage type",
+    "description": "Damage type that attempts to cast mage spells on hero."
+  },
+  {
+    "id": "AD_RBRE",
+    "name": "random breath",
+    "type": "damage type",
+    "description": "Damage type that picks a random element."
+  },
+  {
+    "id": "AD_SAMU",
+    "name": "steal amulet",
+    "type": "damage type",
+    "description": "Damage type that can steal the Amulet, unique items, and quest artifacts."
+  },
+  {
+    "id": "AD_CURS",
+    "name": "curse",
+    "type": "damage type",
+    "description": "Damage type that can remove a random intrinsic from hero."
   }
 ]
