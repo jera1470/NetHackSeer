@@ -196,10 +196,26 @@ fun DetailScreenContent(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
-                                StatItem("Diff", "${uiState.monster.difficulty}")
                                 StatItem("Weight", "${uiState.monster.weight}")
                                 StatItem("Nutr", "${uiState.monster.nutritionValue}")
                                 StatItem("Size", uiState.monster.size.removePrefix("MZ_").lowercase().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
+                            }
+                            Spacer(modifier = Modifier.height(12.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceEvenly
+                            ) {
+                                StatItem("Difficulty", "${uiState.monster.difficulty}")
+                                val alignmentText = when {
+                                    uiState.monster.alignment == -128 -> "Unaligned"
+                                    uiState.monster.alignment == 0 -> "0 (Neutral)"
+                                    uiState.monster.alignment > 0 -> "${uiState.monster.alignment} (Lawful)"
+                                    else -> "${uiState.monster.alignment} (Chaotic)"
+                                }
+                                StatItem("Alignment", alignmentText)
+                                val exp = calculateExperience(uiState.monster)
+                                // Base EXP for now...
+                                StatItem("Base EXP", "$exp")
                             }
 
                             HorizontalDivider(
@@ -569,3 +585,88 @@ fun StatItem(label: String, value: String) {
         Text(text = value, style = Typography.titleLarge, fontWeight = FontWeight.Bold)
     }
 }
+
+/**
+ * Calculates the experience points awarded for killing a monster.
+ * Based on the experience() function in exper.c.
+ *
+ * @param com.example.nethackseer.data.local.entity.MonsterEntity monster to calculate kill on
+ * @return number of experience points for killing monster
+ */
+private fun calculateExperience(monster: com.example.nethackseer.data.local.entity.MonsterEntity): Int {
+    if (monster.name.equals("mail daemon", ignoreCase = true)) return 1
+
+    // TODO: THIS IS ONLY FOR BASE LEVEL, will provide better coverage for different levels
+    val level = monster.level
+    var tmp = 1 + level * level
+
+    // AC bonus: For higher ac values (lower numeric values), give extra experience
+    val ac = monster.ac
+    if (ac < 3) {
+        tmp += (7 - ac) * (if (ac < 0) 2 else 1)
+    }
+
+    // Speed bonus: For very fast monsters, give extra experience
+    if (monster.moveRate > 12) {
+        tmp += if (monster.moveRate > 18) 5 else 3
+    }
+
+    val attacks = listOf(
+        monster.attack1, monster.attack2, monster.attack3,
+        monster.attack4, monster.attack5, monster.attack6
+    )
+
+    // Attack type bonus: For each "special" attack type give extra experience
+    val lowAttackTypes = setOf("NO_ATTK", "AT_ANY", "AT_NONE", "AT_CLAW", "AT_BITE", "AT_KICK", "AT_BUTT")
+    attacks.forEach { attack ->
+        if (attack.type != "NO_ATTK" && !lowAttackTypes.contains(attack.type)) {
+            when (attack.type) {
+                "AT_WEAP" -> tmp += 5
+                "AT_MAGC" -> tmp += 10
+                else -> tmp += 3
+            }
+        }
+    }
+
+    // Damage type bonus: For each "special" damage type give extra experience
+    val elementalDamageTypes = setOf(
+        "AD_MAGM", "AD_FIRE", "AD_COLD", "AD_SLEE",
+        "AD_DISN", "AD_ELEC", "AD_DRST", "AD_ACID", "AD_SPC1"
+    )
+    attacks.forEach { attack ->
+        val adtyp = attack.damageType
+        if (elementalDamageTypes.contains(adtyp)) {
+            tmp += 2 * level
+        } else if (adtyp == "AD_DRLI" || adtyp == "AD_STON" || adtyp == "AD_SLIM") {
+            tmp += 50
+        } else if (adtyp != "AD_PHYS" && adtyp != "AD_NONE") {
+            tmp += level
+        }
+
+        // Heavy damage bonus: (dice * sides) > 23
+        if (attack.diceCount * attack.diceSides > 23) {
+            tmp += level
+        }
+
+        // Eel wrap bonus
+        if (adtyp == "AD_WRAP" && monster.symbol == "S_EEL") {
+            tmp += 1000
+        }
+    }
+
+    // Extra nasty bonus: M2_NASTY or specific categories
+    if (monster.m2Flags.contains("M2_NASTY") ||
+        monster.m2Flags.contains("M2_LORD") ||
+        monster.m2Flags.contains("M2_PRINCE") ||
+        monster.symbol == "S_DEMON") {
+        tmp += 7 * level
+    }
+
+    // High level bonus
+    if (level > 8) {
+        tmp += 50
+    }
+
+    return tmp
+}
+
