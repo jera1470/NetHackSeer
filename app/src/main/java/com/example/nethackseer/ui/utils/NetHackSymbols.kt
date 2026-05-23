@@ -101,7 +101,7 @@ fun getNetHackColor(color: String): Color {
         "BRIGHT_GREEN", "CLR_BRIGHT_GREEN" -> Color(0xFF00FF00)
         "YELLOW", "CLR_YELLOW" -> Color(0xFFFFFF00)
         "BRIGHT_BLUE", "CLR_BRIGHT_BLUE" -> Color(0xFF0000FF)
-        "BRIGHT_MAGENTA", "CLR_BRIGHT_MAGENTA" -> Color(0xFFFF00FF)
+        "BRIGHT_MAGENTA", "CLR_BRIGHT_MAGENTA" -> Color(0xFFFF55FF)
         "BRIGHT_CYAN", "CLR_BRIGHT_CYAN" -> Color(0xFF00FFFF)
         "WHITE", "CLR_WHITE" -> Color(0xFFFFFFFF)
         
@@ -122,7 +122,8 @@ fun getNetHackColor(color: String): Color {
         "HI_ZAP" -> Color(0xFF0000FF)         // CLR_BRIGHT_BLUE
         "HI_DOMESTIC" -> Color(0xFFFFFFFF)    // CLR_WHITE
         "HI_LORD" -> Color(0xFFFF00FF)        // CLR_MAGENTA
-        
+        "HI_OVERLORD" -> Color(0xFFFF55FF)    // CLR_BRIGHT_MAGENTA
+
         else -> Color.Gray
     }
 }
