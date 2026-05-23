@@ -422,6 +422,66 @@ fun DetailScreenContent(
                         }
                     }
 
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Card(
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth()
+                        ) {
+                            Text(
+                                text = "Attacks",
+                                style = Typography.labelLarge,
+                                color = MaterialTheme.colorScheme.secondary,
+                                modifier = Modifier
+                                    .align(Alignment.CenterHorizontally)
+                                    .padding(bottom = 8.dp)
+                            )
+
+                            val attacks = listOf(
+                                uiState.monster.attack1, uiState.monster.attack2, uiState.monster.attack3,
+                                uiState.monster.attack4, uiState.monster.attack5, uiState.monster.attack6
+                            ).filter { it.type != "NO_ATTK" }
+
+                            if (attacks.isEmpty()) {
+                                Text(
+                                    text = "• None",
+                                    style = Typography.bodyLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(vertical = 2.dp)
+                                )
+                            } else {
+                                attacks.forEach { attack ->
+                                    val typeName = uiState.properties.find { it.id == attack.type }?.name
+                                        ?: attack.type.removePrefix("AT_").lowercase().replace("_", " ")
+                                    val damageName = if (attack.damageType == "AD_NONE") {
+                                        ""
+                                    } else {
+                                        uiState.properties.find { it.id == attack.damageType }?.name
+                                            ?: attack.damageType.removePrefix("AD_").lowercase().replace("_", " ")
+                                    }
+
+                                    val diceString = if (attack.diceCount == 0 && attack.diceSides == 0) {
+                                        ""
+                                    } else {
+                                        "${attack.diceCount}d${attack.diceSides} "
+                                    }
+
+                                    Text(
+                                        text = "• ${typeName.replaceFirstChar { it.uppercase() }} $diceString$damageName".trimEnd(),
+                                        style = Typography.bodyLarge,
+                                        fontWeight = FontWeight.Bold,
+                                        modifier = Modifier.padding(vertical = 2.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
                     // Properties section (M1, M2, M3, and Geno flags)
                     val displayProperties = uiState.properties.filter { 
                         it.id.startsWith("M1_") || 

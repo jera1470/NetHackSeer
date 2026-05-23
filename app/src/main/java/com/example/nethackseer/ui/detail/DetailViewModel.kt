@@ -59,6 +59,15 @@ class DetailViewModel(
                 if (monster.m2Flags != "0") flagIds.addAll(monster.m2Flags.split("|").map { it.trim() })
                 if (monster.m3Flags != "0") flagIds.addAll(monster.m3Flags.split("|").map { it.trim() })
                 if (monster.genoFlags != "0") flagIds.addAll(monster.genoFlags.split("|").map { it.trim() })
+
+                // Add attack and damage types to fetch readable names
+                val attacks = listOf(monster.attack1, monster.attack2, monster.attack3, monster.attack4, monster.attack5, monster.attack6)
+                attacks.forEach {
+                    if (it.type != "NO_ATTK") {
+                        flagIds.add(it.type)
+                        if (it.damageType != "AD_NONE") flagIds.add(it.damageType)
+                    }
+                }
                 
                 val properties = if (flagIds.isNotEmpty()) {
                     repository.getPropertiesByIds(flagIds).first()
