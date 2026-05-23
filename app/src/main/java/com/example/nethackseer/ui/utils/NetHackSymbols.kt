@@ -88,40 +88,41 @@ fun getDisplayChar(symbol: String): String {
 
 fun getNetHackColor(color: String): Color {
     return when (color.uppercase()) {
-        "BLACK" -> Color(0xFF555555) // Dark gray for visibility
-        "RED", "CLR_RED" -> Color(0xFFFF0000)
-        "GREEN", "CLR_GREEN" -> Color(0xFF008000)
-        "BROWN", "CLR_BROWN" -> Color(0xFF8B4513)
-        "BLUE", "CLR_BLUE" -> Color(0xFF0000FF)
-        "MAGENTA", "CLR_MAGENTA" -> Color(0xFFFF00FF)
-        "CYAN", "CLR_CYAN" -> Color(0xFF00FFFF)
-        "GRAY", "CLR_GRAY" -> Color(0xFF808080)
-        "NO_COLOR" -> Color(0xFFA9A9A9)
-        "ORANGE", "CLR_ORANGE" -> Color(0xFFFFA500)
-        "BRIGHT_GREEN", "CLR_BRIGHT_GREEN" -> Color(0xFF00FF00)
-        "YELLOW", "CLR_YELLOW" -> Color(0xFFFFFF00)
-        "BRIGHT_BLUE", "CLR_BRIGHT_BLUE" -> Color(0xFF0000FF)
+        "BLACK", "CLR_BLACK" -> Color(0xFF333333) // Slightly lighter than pure black for visibility
+        "RED", "CLR_RED" -> Color(0xFFAA0000)
+        "GREEN", "CLR_GREEN" -> Color(0xFF00AA00)
+        "BROWN", "CLR_BROWN" -> Color(0xFFAA5500)
+        "BLUE", "CLR_BLUE" -> Color(0xFF0000AA)
+        "MAGENTA", "CLR_MAGENTA" -> Color(0xFFAA00AA)
+        "CYAN", "CLR_CYAN" -> Color(0xFF00AAAA)
+        "GRAY", "CLR_GRAY" -> Color(0xFFAAAAAA)
+        "NO_COLOR" -> Color(0xFFAAAAAA)        // Default to Gray cause yeah
+        "ORANGE", "CLR_ORANGE" -> Color(0xFFFF5555)
+        "BRIGHT_GREEN", "CLR_BRIGHT_GREEN" -> Color(0xFF55FF55)
+        "YELLOW", "CLR_YELLOW" -> Color(0xFFFFFF55)
+        "BRIGHT_BLUE", "CLR_BRIGHT_BLUE" -> Color(0xFF5555FF)
         "BRIGHT_MAGENTA", "CLR_BRIGHT_MAGENTA" -> Color(0xFFFF55FF)
-        "BRIGHT_CYAN", "CLR_BRIGHT_CYAN" -> Color(0xFF00FFFF)
+        "BRIGHT_CYAN", "CLR_BRIGHT_CYAN" -> Color(0xFF55FFFF)
         "WHITE", "CLR_WHITE" -> Color(0xFFFFFFFF)
+        "BRIGHT_RED", "CLR_BRIGHT_RED" -> Color(0xFFFF5555)
         
-        // NetHack specific color macros
-        "HI_OBJ" -> Color(0xFFFF00FF)         // CLR_MAGENTA
-        "HI_METAL" -> Color(0xFF00FFFF)       // CLR_CYAN
-        "HI_COPPER" -> Color(0xFFFFFF00)      // CLR_YELLOW
-        "HI_SILVER" -> Color(0xFF808080)      // CLR_GRAY
-        "HI_GOLD" -> Color(0xFFFFFF00)        // CLR_YELLOW
-        "HI_LEATHER" -> Color(0xFF8B4513)     // CLR_BROWN
-        "HI_CLOTH" -> Color(0xFF8B4513)       // CLR_BROWN
-        "HI_ORGANIC" -> Color(0xFF8B4513)     // CLR_BROWN
-        "HI_WOOD" -> Color(0xFF8B4513)        // CLR_BROWN
+        // NetHack specific color macros from color.h
+        "HI_OBJ" -> Color(0xFFAA00AA)         // CLR_MAGENTA
+        "HI_METAL" -> Color(0xFF00AAAA)       // CLR_CYAN
+        "HI_COPPER" -> Color(0xFFFFFF55)      // CLR_YELLOW
+        "HI_SILVER" -> Color(0xFFAAAAAA)      // CLR_GRAY
+        "HI_GOLD" -> Color(0xFFFFFF55)        // CLR_YELLOW
+        "HI_LEATHER" -> Color(0xFFAA5500)     // CLR_BROWN
+        "HI_CLOTH" -> Color(0xFFAA5500)       // CLR_BROWN
+        "HI_ORGANIC" -> Color(0xFFAA5500)     // CLR_BROWN
+        "HI_WOOD" -> Color(0xFFAA5500)        // CLR_BROWN
         "HI_PAPER" -> Color(0xFFFFFFFF)       // CLR_WHITE
-        "HI_GLASS" -> Color(0xFF00FFFF)       // CLR_BRIGHT_CYAN
-        "HI_MINERAL" -> Color(0xFF808080)     // CLR_GRAY
-        "DRAGON_SILVER" -> Color(0xFF00FFFF)  // CLR_BRIGHT_CYAN
-        "HI_ZAP" -> Color(0xFF0000FF)         // CLR_BRIGHT_BLUE
+        "HI_GLASS" -> Color(0xFF55FFFF)       // CLR_BRIGHT_CYAN
+        "HI_MINERAL" -> Color(0xFFAAAAAA)     // CLR_GRAY
+        "DRAGON_SILVER" -> Color(0xFF55FFFF)  // CLR_BRIGHT_CYAN
+        "HI_ZAP" -> Color(0xFF5555FF)         // CLR_BRIGHT_BLUE
         "HI_DOMESTIC" -> Color(0xFFFFFFFF)    // CLR_WHITE
-        "HI_LORD" -> Color(0xFFFF00FF)        // CLR_MAGENTA
+        "HI_LORD" -> Color(0xFFAA00AA)        // CLR_MAGENTA
         "HI_OVERLORD" -> Color(0xFFFF55FF)    // CLR_BRIGHT_MAGENTA
 
         else -> Color.Gray
