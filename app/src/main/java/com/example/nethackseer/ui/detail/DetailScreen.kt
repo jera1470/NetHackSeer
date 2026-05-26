@@ -177,7 +177,14 @@ fun DetailScreenContent(
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
                                 StatItem("Difficulty", "${uiState.monster.difficulty}")
-                                StatItem("Level", "${uiState.monster.level}")
+                                val mlevel = uiState.monster.level
+                                val levelText = if (mlevel > 49) {
+                                    val hp = 2 * (mlevel - 6)
+                                    "${hp / 4} ($mlevel)"
+                                } else {
+                                    "$mlevel"
+                                }
+                                StatItem("Level", levelText)
                                 StatItem("AC", "${uiState.monster.ac}")
                                 StatItem("MR", "${uiState.monster.mr}")
                             }
@@ -612,8 +619,14 @@ fun StatItem(label: String, value: String) {
 private fun calculateExperience(monster: com.example.nethackseer.data.local.entity.MonsterEntity): Int {
     if (monster.name.equals("mail daemon", ignoreCase = true)) return 1
 
-    // TODO: THIS IS ONLY FOR BASE LEVEL, will provide better coverage for different levels
-    val level = monster.level
+    // Base level is used for EXP calculation
+    var level = monster.level
+    // For "special" fixed hp monsters (level > 49), calculate effective combat level
+    if (level > 49) {
+        val hp = 2 * (level - 6)
+        level = hp / 4
+    }
+
     var tmp = 1 + level * level
 
     // AC bonus: For higher ac values (lower numeric values), give extra experience
