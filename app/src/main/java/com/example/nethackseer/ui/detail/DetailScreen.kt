@@ -158,11 +158,6 @@ fun DetailScreenContent(
                             modifier = Modifier.background(Black)
                         )
                     }
-                    Text(
-                        text = "Class: ${uiState.monster.symbol}",
-                        style = Typography.titleMedium,
-                        color = DarkGray
-                    )
 
                     Spacer(modifier = Modifier.height(16.dp))
 
@@ -186,6 +181,7 @@ fun DetailScreenContent(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
+                                StatItem("Difficulty", "${uiState.monster.difficulty}")
                                 StatItem("Level", "${uiState.monster.level}")
                                 StatItem("AC", "${uiState.monster.ac}")
                                 StatItem("MR", "${uiState.monster.mr}")
@@ -205,7 +201,6 @@ fun DetailScreenContent(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
-                                StatItem("Difficulty", "${uiState.monster.difficulty}")
                                 val alignmentText = when {
                                     uiState.monster.alignment == -128 -> "Unaligned"
                                     uiState.monster.alignment == 0 -> "0 (Neutral)"
@@ -499,14 +494,17 @@ fun DetailScreenContent(
                     }
 
                     // Properties section (M1, M2, M3, and Geno flags)
-                    val displayProperties = uiState.properties.filter { 
-                        it.id.startsWith("M1_") || 
+                    val m1Properties = uiState.properties.filter { it.id.startsWith("M1_") }
+                    val otherProperties = uiState.properties.filter { 
                         it.id.startsWith("M2_") || 
                         it.id.startsWith("M3_") || 
                         it.id.startsWith("G_") 
                     }
+                    val isInediate = !uiState.monster.m1Flags.contains("M1_CARNIVORE") && 
+                                    !uiState.monster.m1Flags.contains("M1_HERBIVORE") && 
+                                    !uiState.monster.m1Flags.contains("M1_OMNIVORE")
                     
-                    if (displayProperties.isNotEmpty()) {
+                    if (m1Properties.isNotEmpty() || otherProperties.isNotEmpty() || isInediate) {
                         Spacer(modifier = Modifier.height(24.dp))
                         Column(
                             modifier = Modifier
@@ -520,23 +518,13 @@ fun DetailScreenContent(
                             )
 
                             Spacer(modifier = Modifier.height(8.dp))
+                            
+                            if (isInediate) {
+                                PropertyBullet("does not need to eat.")
+                            }
 
-                            displayProperties.forEach { prop ->
-                                Row(
-                                    modifier = Modifier.padding(vertical = 2.dp),
-                                    verticalAlignment = Alignment.Top
-                                ) {
-                                    Text(
-                                        text = "• ",
-                                        style = Typography.bodyLarge,
-                                        fontWeight = FontWeight.Bold,
-                                        color = DarkRed
-                                    )
-                                    Text(
-                                        text = prop.summary.ifEmpty { prop.description },
-                                        style = Typography.bodyLarge
-                                    )
-                                }
+                            otherProperties.forEach { prop ->
+                                PropertyBullet(prop.summary.ifEmpty { prop.description })
                             }
                         }
                     }
@@ -575,6 +563,25 @@ fun DetailScreenContent(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun PropertyBullet(text: String) {
+    Row(
+        modifier = Modifier.padding(vertical = 2.dp),
+        verticalAlignment = Alignment.Top
+    ) {
+        Text(
+            text = "• ",
+            style = Typography.bodyLarge,
+            fontWeight = FontWeight.Bold,
+            color = DarkRed
+        )
+        Text(
+            text = text,
+            style = Typography.bodyLarge
+        )
     }
 }
 
