@@ -21,6 +21,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -47,7 +48,6 @@ fun DetailScreen(
         )
     )
 ) {
-    // important as hell, gotta remember to collect the state before using it
     val uiState by detailViewModel.uiState.collectAsState()
     DetailScreenContent(uiState = uiState, onBack = onBack)
 }
@@ -100,7 +100,6 @@ fun DetailScreenContent(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
-                            // arrow to go back ye
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
                             tint = White
@@ -111,7 +110,6 @@ fun DetailScreenContent(
             )
         }
     ) { paddingValues ->
-        // this when block checks the current state and displays the correct UI
         when (uiState) {
             is EntityUiState.Loading -> {
                 Column(
@@ -119,11 +117,9 @@ fun DetailScreenContent(
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // loading spinner
                     CircularProgressIndicator()
                 }
             }
-            // error message when not found
             is EntityUiState.Error -> {
                 Column(
                     modifier = Modifier
@@ -135,7 +131,6 @@ fun DetailScreenContent(
                     Text(text = uiState.message, style = Typography.bodyLarge)
                 }
             }
-            // display if monster found
             is EntityUiState.MonsterSuccess -> {
                 Column(
                     modifier = Modifier
@@ -185,22 +180,33 @@ fun DetailScreenContent(
                                 StatItem("Level", "${uiState.monster.level}")
                                 StatItem("AC", "${uiState.monster.ac}")
                                 StatItem("MR", "${uiState.monster.mr}")
-                                StatItem("Speed", "${uiState.monster.moveRate}")
                             }
                             Spacer(modifier = Modifier.height(12.dp))
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
+                                val mmove = uiState.monster.moveRate
+                                val slow = if (mmove < 12) (2 * mmove + 1) / 3 else 4 + (mmove / 3)
+                                val fast = (4 * mmove + 2) / 3
+
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Text(text = "Speed", style = Typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                    Row {
+                                        Text(text = "($slow) ", style = Typography.titleLarge, fontWeight = FontWeight.Bold, color = Color.Red)
+                                        Text(text = "$mmove", style = Typography.titleLarge, fontWeight = FontWeight.Bold)
+                                        Text(text = " ($fast)", style = Typography.titleLarge, fontWeight = FontWeight.Bold, color = Color(0xFF00AA00))
+                                    }
+                                }
                                 StatItem("Weight", "${uiState.monster.weight}")
                                 StatItem("Nutr", "${uiState.monster.nutritionValue}")
-                                StatItem("Size", uiState.monster.size.removePrefix("MZ_").lowercase().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
                             }
                             Spacer(modifier = Modifier.height(12.dp))
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceEvenly
                             ) {
+                                StatItem("Size", uiState.monster.size.removePrefix("MZ_").lowercase().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
                                 val alignmentText = when {
                                     uiState.monster.alignment == -128 -> "Unaligned"
                                     uiState.monster.alignment == 0 -> "0 (Neutral)"
@@ -209,7 +215,6 @@ fun DetailScreenContent(
                                 }
                                 StatItem("Alignment", alignmentText)
                                 val exp = calculateExperience(uiState.monster)
-                                // Base EXP for now...
                                 StatItem("Base EXP", "$exp")
                             }
 
@@ -238,7 +243,7 @@ fun DetailScreenContent(
                                         uiState.monster.resistances.split("|").map {
                                             val id = it.trim()
                                             when (id) {
-                                                // better than just elec or disint
+                                                // More neater to say instead of "elec" or "disint"
                                                 "MR_ELEC" -> "Shock"
                                                 "MR_DISINT" -> "Disintegrate"
                                                 else -> id.removePrefix("MR_").lowercase()
