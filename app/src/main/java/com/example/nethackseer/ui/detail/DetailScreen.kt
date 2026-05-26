@@ -523,6 +523,10 @@ fun DetailScreenContent(
                             )
 
                             Spacer(modifier = Modifier.height(8.dp))
+
+                            m1Properties.forEach { prop ->
+                                PropertyBullet(prop.summary.ifEmpty { prop.description })
+                            }
                             
                             if (isInediate) {
                                 PropertyBullet("does not need to eat.")
