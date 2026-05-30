@@ -1,16 +1,16 @@
 package com.example.nethackseer.ui.detail
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -158,75 +158,120 @@ fun DetailScreenContent(
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    Card(
-                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .padding(16.dp)
-                                .fillMaxWidth(),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                text = "Stats",
-                                style = Typography.labelLarge,
-                                color = MaterialTheme.colorScheme.secondary,
-                                modifier = Modifier.padding(bottom = 8.dp)
-                            )
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceEvenly
-                            ) {
-                                StatItem("Difficulty", "${details.difficulty}")
-                                StatItem("Level", details.levelText)
-                                StatItem("AC", "${details.ac}")
-                                StatItem("MR", "${details.mr}")
-                            }
-                            Spacer(modifier = Modifier.height(12.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceEvenly
-                            ) {
-                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                    Text(text = "Speed", style = Typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                                    Row {
-                                        Text(text = "(${details.speedSlow}) ", style = Typography.titleLarge, fontWeight = FontWeight.Bold, color = Color.Red)
-                                        Text(text = "${details.speedBase}", style = Typography.titleLarge, fontWeight = FontWeight.Bold)
-                                        Text(text = " (${details.speedFast})", style = Typography.titleLarge, fontWeight = FontWeight.Bold, color = Color(0xFF00AA00))
-                                    }
-                                }
-                                StatItem("Weight", "${details.weight}")
-                                StatItem("Nutr", "${details.nutrition}")
-                            }
-                            Spacer(modifier = Modifier.height(12.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceEvenly
-                            ) {
-                                StatItem("Size", details.size)
-                                StatItem("Alignment", details.alignmentText)
-                                StatItem("Base EXP", "${details.baseExp}")
-                            }
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        // Left Column: Statistics boxes
+                        Column(modifier = Modifier.weight(1f)) {
+                            StatBox("Difficulty", "${details.difficulty}")
+                            StatBox("Level", details.levelText)
+                            StatBox("AC", "${details.ac}")
+                            StatBox("MR", "${details.mr}")
 
-                            HorizontalDivider(
-                                modifier = Modifier.padding(vertical = 16.dp),
-                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-                            )
-
-                            Row(
-                                modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
-                                verticalAlignment = Alignment.Top
+                            Card(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 2.dp),
+                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
                             ) {
                                 Column(
-                                    modifier = Modifier.weight(1f),
+                                    modifier = Modifier
+                                        .padding(8.dp)
+                                        .fillMaxWidth(),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Text(
+                                        text = "Speed",
+                                        style = Typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.secondary
+                                    )
+                                    Row {
+                                        Text(
+                                            text = "(${details.speedSlow}) ",
+                                            style = Typography.titleMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color.Red
+                                        )
+                                        Text(
+                                            text = "${details.speedBase}",
+                                            style = Typography.titleMedium,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                        Text(
+                                            text = " (${details.speedFast})",
+                                            style = Typography.titleMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color(0xFF00AA00)
+                                        )
+                                    }
+                                }
+                            }
+
+                            StatBox("Weight", "${details.weight}")
+                            StatBox("Nutr", "${details.nutrition}")
+                            StatBox("Size", details.size)
+                            StatBox("Alignment", details.alignmentText)
+                            StatBox("Base EXP", "${details.baseExp}")
+                        }
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        // Right Column: Attacks, Resistances and Properties Given
+                        Column(modifier = Modifier.weight(1f)) {
+                            Card(
+                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                            ) {
+                                Column(
+                                    modifier = Modifier
+                                        .padding(12.dp)
+                                        .fillMaxWidth()
+                                ) {
+                                    Text(
+                                        text = "Attacks",
+                                        style = Typography.labelLarge,
+                                        color = MaterialTheme.colorScheme.secondary,
+                                        modifier = Modifier
+                                            .align(Alignment.CenterHorizontally)
+                                            .padding(bottom = 8.dp)
+                                    )
+
+                                    if (details.attacks.isEmpty()) {
+                                        Text(
+                                            text = "• None",
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            modifier = Modifier.padding(vertical = 1.dp)
+                                        )
+                                    } else {
+                                        details.attacks.forEach { attackText ->
+                                            Text(
+                                                text = attackText,
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold,
+                                                modifier = Modifier.padding(vertical = 1.dp)
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+
+                            Card(
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
+                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                            ) {
+                                Column(
+                                    modifier = Modifier
+                                        .padding(12.dp)
+                                        .fillMaxWidth(),
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
                                         text = "Resistances",
                                         style = Typography.labelLarge,
                                         color = MaterialTheme.colorScheme.secondary,
-                                        modifier = Modifier.padding(bottom = 4.dp)
+                                        modifier = Modifier.padding(bottom = 8.dp)
                                     )
                                     details.resistances.forEach { resistance ->
                                         Text(
@@ -236,25 +281,26 @@ fun DetailScreenContent(
                                         )
                                     }
                                 }
+                            }
 
-                                VerticalDivider(
-                                    modifier = Modifier
-                                        .padding(horizontal = 8.dp)
-                                        .fillMaxHeight(),
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-                                )
-
+                            Card(
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
+                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                            ) {
                                 Column(
-                                    modifier = Modifier.weight(1f),
+                                    modifier = Modifier
+                                        .padding(12.dp)
+                                        .fillMaxWidth(),
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
                                         text = "Properties Given",
                                         style = Typography.labelLarge,
                                         color = MaterialTheme.colorScheme.secondary,
-                                        modifier = Modifier.padding(bottom = 4.dp)
+                                        modifier = Modifier.padding(bottom = 8.dp)
                                     )
-                                    
+
                                     if (details.conferredIntrinsics.isEmpty() && details.specialEffects.isEmpty() && !details.isMindFlayer && !details.isGiant) {
                                         Text(
                                             text = "None",
@@ -270,21 +316,39 @@ fun DetailScreenContent(
                                                 textAlign = TextAlign.Center
                                             )
                                         }
-                                        
+
                                         if (details.specialEffects.isNotEmpty() && (details.conferredIntrinsics.isNotEmpty() || details.isMindFlayer || details.isGiant)) {
                                             Spacer(modifier = Modifier.height(8.dp))
                                         }
 
                                         if (details.isMindFlayer) {
-                                            Text(text = "+1 Int", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
-                                            Text(text = "(1/2 or 50%)", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
+                                            Text(
+                                                text = "+1 Int",
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            Text(
+                                                text = "(1/2 or 50%)",
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold
+                                            )
                                             Spacer(modifier = Modifier.height(8.dp))
                                         }
 
                                         if (details.isGiant) {
-                                            Text(text = "Increase strength", style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
-                                            Text(text = details.giantChanceText, style = Typography.bodyMedium, fontWeight = FontWeight.Bold)
-                                            if (details.conferredIntrinsics.isNotEmpty()) Spacer(modifier = Modifier.height(8.dp))
+                                            Text(
+                                                text = "Increase strength",
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            Text(
+                                                text = details.giantChanceText,
+                                                style = Typography.bodyMedium,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            if (details.conferredIntrinsics.isNotEmpty()) Spacer(
+                                                modifier = Modifier.height(8.dp)
+                                            )
                                         }
 
                                         details.conferredIntrinsics.forEach { intrinsic ->
@@ -301,46 +365,6 @@ fun DetailScreenContent(
                                             )
                                         }
                                     }
-                                }
-                            }
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    Card(
-                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .padding(16.dp)
-                                .fillMaxWidth()
-                        ) {
-                            Text(
-                                text = "Attacks",
-                                style = Typography.labelLarge,
-                                color = MaterialTheme.colorScheme.secondary,
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally)
-                                    .padding(bottom = 8.dp)
-                            )
-
-                            if (details.attacks.isEmpty()) {
-                                Text(
-                                    text = "• None",
-                                    style = Typography.bodyLarge,
-                                    fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.padding(vertical = 2.dp)
-                                )
-                            } else {
-                                details.attacks.forEach { attackText ->
-                                    Text(
-                                        text = attackText,
-                                        style = Typography.bodyLarge,
-                                        fontWeight = FontWeight.Bold,
-                                        modifier = Modifier.padding(vertical = 2.dp)
-                                    )
                                 }
                             }
                         }
@@ -423,9 +447,30 @@ fun PropertyBullet(text: String) {
 }
 
 @Composable
-fun StatItem(label: String, value: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = label, style = Typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Text(text = value, style = Typography.titleLarge, fontWeight = FontWeight.Bold)
+fun StatBox(label: String, value: String) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 2.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = label,
+                style = Typography.labelSmall,
+                color = MaterialTheme.colorScheme.secondary
+            )
+            Text(
+                text = value,
+                style = Typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+        }
     }
 }
