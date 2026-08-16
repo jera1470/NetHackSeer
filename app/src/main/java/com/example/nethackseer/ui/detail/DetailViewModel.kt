@@ -56,8 +56,6 @@ sealed class EntityUiState {
 
 /**
  * View model for the detail screen.
- *
- * @property savedStateHandle The saved state handle for the view model.
  */
 class DetailViewModel(
     savedStateHandle: SavedStateHandle,
@@ -149,8 +147,7 @@ class DetailViewModel(
             listOf("None")
         } else {
             monster.resistances.split("|").map {
-                val id = it.trim()
-                when (id) {
+                when (val id = it.trim()) {
                     "MR_ELEC" -> "Shock"
                     "MR_DISINT" -> "Disintegrate"
                     else -> id.removePrefix("MR_").lowercase()
@@ -203,9 +200,8 @@ class DetailViewModel(
         val isMindFlayer = lowerName.contains("mind flayer")
         
         val poolMultiplier = if (isMindFlayer) 2L else 1L
-        val conferredList = baseConferred
-        val poolSize = conferredList.size + (if (isGiant) 1 else 0)
-        val giantFailMultiplier = if (isGiant && conferredList.isEmpty()) 2L else 1L
+        val poolSize = baseConferred.size + (if (isGiant) 1 else 0)
+        val giantFailMultiplier = if (isGiant && baseConferred.isEmpty()) 2L else 1L
         val finalDenomBase = poolSize.toLong() * poolMultiplier * giantFailMultiplier
 
         var giantChanceText = ""
@@ -217,37 +213,48 @@ class DetailViewModel(
             giantChanceText = "($dNum/$dDen or $perc%)"
         }
 
-        val conferredIntrinsics = conferredList.map { id ->
+        val conferredIntrinsics = baseConferred.map { id ->
             val isBeeOrScorpion = lowerName.contains("killer bee") || lowerName.contains("scorpion")
             val (num, den) = when {
                 id.contains("TELEPATHY", ignoreCase = true) -> 1L to 1L
-                id.contains("TELEPORT", ignoreCase = true) && !id.contains("CONTROL", ignoreCase = true) -> 
+                id.contains("TELEPORT", ignoreCase = true) && !id.contains(
+                    "CONTROL",
+                    ignoreCase = true
+                ) ->
                     monster.level.toLong().coerceAtMost(10L) to 10L
-                id.contains("TELEPORT", ignoreCase = true) && id.contains("CONTROL", ignoreCase = true) -> 
+
+                id.contains("TELEPORT", ignoreCase = true) && id.contains(
+                    "CONTROL",
+                    ignoreCase = true
+                ) ->
                     monster.level.toLong().coerceAtMost(12L) to 12L
-                id.contains("POISON", ignoreCase = true) && isBeeOrScorpion -> 
+
+                id.contains("POISON", ignoreCase = true) && isBeeOrScorpion ->
                     (monster.level.toLong() + 5).coerceAtMost(20L) to 20L
+
                 id.contains("ACID", ignoreCase = true) -> {
                     val lvl = monster.level.toLong()
                     if (lvl >= 3) 1L to 1L
                     else (18 * lvl - lvl * lvl) to 45L
                 }
+
                 id.contains("STONE", ignoreCase = true) -> {
                     val lvl = monster.level.toLong()
                     if (lvl >= 6) 1L to 1L
                     else (21 * lvl - lvl * lvl) to 90L
                 }
+
                 else -> monster.level.toLong().coerceAtMost(15L) to 15L
             }
 
-            val finalNum = num
             val finalDen = finalDenomBase * den
-            val common = getGcd(finalNum, finalDen)
-            val displayNum = finalNum / common
+            val common = getGcd(num, finalDen)
+            val displayNum = num / common
             val displayDen = finalDen / common
             val totalChanceExact = (displayNum.toDouble() / displayDen.toDouble()) * 100.0
             val percentage = totalChanceExact.toInt().coerceIn(0, 100)
-            val prefix = if (totalChanceExact > percentage.toDouble() && percentage < 100) "~" else ""
+            val prefix =
+                if (totalChanceExact > percentage.toDouble() && percentage < 100) "~" else ""
 
             var name = when (id) {
                 "MR_ELEC" -> "Shock"
@@ -350,10 +357,10 @@ class DetailViewModel(
         val lowAttackTypes = setOf("NO_ATTK", "AT_ANY", "AT_NONE", "AT_CLAW", "AT_BITE", "AT_KICK", "AT_BUTT")
         attacks.forEach { attack ->
             if (attack.type != "NO_ATTK" && !lowAttackTypes.contains(attack.type)) {
-                when (attack.type) {
-                    "AT_WEAP" -> tmp += 5
-                    "AT_MAGC" -> tmp += 10
-                    else -> tmp += 3
+                tmp += when (attack.type) {
+                    "AT_WEAP" -> 5
+                    "AT_MAGC" -> 10
+                    else -> 3
                 }
             }
         }
