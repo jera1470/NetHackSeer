@@ -12,11 +12,11 @@ import kotlinx.coroutines.launch
 
 /**
  * A simple data class to represent the "Page of the Day"
- * which can be either a monster or an item (for now).
+ * which can be either a monster, an item, or a property.
  */
 data class PageOfTheDay(
     val name: String,
-    val type: String // "monster" or "item"
+    val type: String // "monster", "item", or "property"
 )
 
 /**
@@ -39,7 +39,12 @@ class HomeViewModel(repository: NetHackRepository) : ViewModel() {
                 val randomName = allNames.random()
 
                 val isMonster = repository.getMonsterByName(randomName).first() != null
-                val type = if (isMonster) "monster" else "item"
+                val isItem = if (!isMonster) repository.getItemByName(randomName).first() != null else false
+                val type = when {
+                    isMonster -> "monster"
+                    isItem -> "item"
+                    else -> "property"
+                }
                 
                 _pageOfTheDay.value = PageOfTheDay(randomName, type)
             }

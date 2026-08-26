@@ -83,11 +83,12 @@ fun DetailScreenContent(
                                 Text(text = ")", color = White)
                             }
                             is EntityUiState.ItemSuccess -> {
-                                Text(text = uiState.item.name, color = White)
+                                val details = uiState.itemDetails
+                                Text(text = details.name, color = White)
                                 Text(text = " (", color = White)
                                 Text(
-                                    text = getDisplayChar(uiState.item.symbol),
-                                    color = getNetHackColor(uiState.item.color),
+                                    text = getDisplayChar(details.symbol),
+                                    color = getNetHackColor(details.color),
                                     fontFamily = FontFamily.Monospace,
                                     modifier = Modifier.background(Black)
                                 )
@@ -95,6 +96,7 @@ fun DetailScreenContent(
                             }
                             is EntityUiState.Loading -> Text(text = "wait...", color = White)
                             is EntityUiState.Error -> Text(text = "error", color = White)
+                            is EntityUiState.PropertySuccess -> TODO()
                         }
                     }
                 },
@@ -393,6 +395,7 @@ fun DetailScreenContent(
                 }
             }
             is EntityUiState.ItemSuccess -> {
+                val details = uiState.itemDetails
                 Column(
                     modifier = Modifier
                         .padding(paddingValues)
@@ -400,29 +403,31 @@ fun DetailScreenContent(
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = uiState.item.name,
+                            text = details.name,
                             style = Typography.headlineMedium,
                             modifier = Modifier.weight(1f)
                         )
                         Text(
-                            text = getDisplayChar(uiState.item.symbol),
+                            text = getDisplayChar(details.symbol),
                             style = Typography.headlineMedium.copy(fontFamily = FontFamily.Monospace),
-                            color = getNetHackColor(uiState.item.color),
+                            color = getNetHackColor(details.color),
                             modifier = Modifier.background(Black)
                         )
                     }
                     Text(
-                        text = "Type: Item (${uiState.item.symbol})",
+                        text = "Type: Item (${details.material})",
                         style = Typography.titleMedium,
                         color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.padding(top = 4.dp)
                     )
                     Text(
-                        text = "Weight: ${uiState.item.weight}",
+                        text = "Weight: ${details.weight}",
                         style = Typography.titleMedium
                     )
                 }
             }
+
+            is EntityUiState.PropertySuccess -> TODO()
         }
     }
 }

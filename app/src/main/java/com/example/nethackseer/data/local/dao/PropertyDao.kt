@@ -47,4 +47,16 @@ interface PropertyDao {
      */
     @Query("SELECT * FROM properties")
     fun getAllProperties(): Flow<List<PropertyEntity>>
+
+    /**
+     * Retrieves a property by its name.
+     */
+    @Query("SELECT * FROM properties WHERE name = :name")
+    fun getPropertyByName(name: String): Flow<PropertyEntity?>
+
+    /**
+     * Retrieves a list of all property names in the database.
+     */
+    @Query("SELECT name FROM properties")
+    fun getAllNames(): Flow<List<String>>
 }

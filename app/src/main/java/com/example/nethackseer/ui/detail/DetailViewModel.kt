@@ -44,13 +44,38 @@ data class MonsterDetails(
     val giantChanceText: String = ""
 )
 
+data class ItemDetails(
+    val name: String,
+    val description: String?,
+    val material: String,
+    val weight: Int,
+    val value: Int,
+    val symbol: String,
+    val color: String,
+    val propertyIds: List<String>,
+    val ac: String?,
+    val mc: Int?,
+    val nutrition: Int?,
+    val damageSmall: String?,
+    val damageLarge: String?,
+    val charge: Boolean,
+    val magic: Boolean,
+    val subCategory: String
+)
+
+data class PropertyDetails(
+    val name: String,
+    val description: String,
+    val summary: String,
+    val type: String
+)
+
 // handles all Success, Error, and Loading states, must be sealed
 sealed class EntityUiState {
     object Loading : EntityUiState()
-    data class MonsterSuccess(
-        val monsterDetails: MonsterDetails
-    ) : EntityUiState()
-    data class ItemSuccess(val item: ItemEntity) : EntityUiState()
+    data class MonsterSuccess(val monsterDetails: MonsterDetails) : EntityUiState()
+    data class ItemSuccess(val itemDetails: ItemDetails) : EntityUiState()
+    data class PropertySuccess(val propertyDetails: PropertyDetails) : EntityUiState()
     data class Error(val message: String) : EntityUiState()
 }
 
@@ -110,7 +135,14 @@ class DetailViewModel(
             // If not a monster, try to find an item
             val item = repository.getItemByName(entityId).first()
             if (item != null) {
-                _uiState.value = EntityUiState.ItemSuccess(item)
+                _uiState.value = EntityUiState.ItemSuccess(mapToItemDetails(item))
+                return@launch
+            }
+
+            // Finally, try to find a property
+            val property = repository.getPropertyByName(entityId).first()
+            if (property != null) {
+                _uiState.value = EntityUiState.PropertySuccess(mapToPropertyDetails(property))
                 return@launch
             }
 
@@ -324,6 +356,43 @@ class DetailViewModel(
             isMindFlayer = isMindFlayer,
             isGiant = isGiant,
             giantChanceText = giantChanceText
+        )
+    }
+
+    private fun mapToItemDetails(item: ItemEntity): ItemDetails {
+        val acText = if (item.ac != 0 || item.symbol == "ARMOR_CLASS") {
+            "${10 - item.ac}"
+        } else null
+
+        val damageSmall = if (item.smallDamage > 0) "1d${item.smallDamage}" else null
+        val damageLarge = if (item.largeDamage > 0) "1d${item.largeDamage}" else null
+
+        return ItemDetails(
+            name = item.name,
+            description = item.description,
+            material = item.material.lowercase().replaceFirstChar { it.uppercase() },
+            weight = item.weight,
+            value = item.value,
+            symbol = item.symbol,
+            color = item.color,
+            propertyIds = if (item.property != "0") item.property.split("|").map { it.trim() } else emptyList(),
+            ac = acText,
+            mc = if (item.magicCancellation > 0) item.magicCancellation else null,
+            nutrition = if (item.nutrition > 0) item.nutrition else null,
+            damageSmall = damageSmall,
+            damageLarge = damageLarge,
+            charge = item.charge,
+            magic = item.magicItem,
+            subCategory = item.subCategory
+        )
+    }
+
+    private fun mapToPropertyDetails(property: PropertyEntity): PropertyDetails {
+        return PropertyDetails(
+            name = property.name,
+            description = property.description,
+            summary = property.summary,
+            type = property.type
         )
     }
 
