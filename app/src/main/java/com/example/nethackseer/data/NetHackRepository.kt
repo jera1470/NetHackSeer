@@ -18,13 +18,14 @@ class NetHackRepository(
     val allItems: Flow<List<ItemEntity>> = itemDao.getAll()
 
     /**
-     * Get all names from both monsters and items, combined and sorted.
+     * Get all names from monsters, items, and properties, combined and sorted.
      */
     val allNames: Flow<List<String>> = combine(
         monsterDao.getAllNames(),
-        itemDao.getAllNames()
-    ) { monsters, items ->
-        (monsters + items).sorted()
+        itemDao.getAllNames(),
+        propertyDao.getAllNames()
+    ) { monsters, items, properties ->
+        (monsters + items + properties).sorted()
     }
 
     /**
@@ -47,6 +48,11 @@ class NetHackRepository(
      * Get an item by name.
      */
     fun getItemByName(name: String): Flow<ItemEntity?> = itemDao.getItemByName(name)
+
+    /**
+     * Get a property by name.
+     */
+    fun getPropertyByName(name: String): Flow<PropertyEntity?> = propertyDao.getPropertyByName(name)
 
     /**
      * Resolves a list of property IDs (e.g., ["M1_ANIMAL", "M1_NOHANDS"]) into full PropertyEntity objects.
