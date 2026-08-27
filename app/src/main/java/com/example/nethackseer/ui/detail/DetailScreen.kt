@@ -161,7 +161,6 @@ fun DetailScreenContent(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Row(modifier = Modifier.fillMaxWidth()) {
-                        // Left Column: Statistics boxes
                         Column(modifier = Modifier.weight(1f)) {
                             StatBox("Difficulty", "${details.difficulty}")
                             StatBox("Level", details.levelText)
@@ -217,7 +216,6 @@ fun DetailScreenContent(
 
                         Spacer(modifier = Modifier.width(8.dp))
 
-                        // Right Column: Attacks, Resistances and Properties Given
                         Column(modifier = Modifier.weight(1f)) {
                             Card(
                                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
@@ -399,31 +397,88 @@ fun DetailScreenContent(
                 Column(
                     modifier = Modifier
                         .padding(paddingValues)
+                        .fillMaxSize()
                         .padding(16.dp)
+                        .verticalScroll(rememberScrollState())
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             text = details.name,
-                            style = Typography.headlineMedium,
+                            style = Typography.headlineLarge,
+                            color = DarkRed,
                             modifier = Modifier.weight(1f)
                         )
                         Text(
                             text = getDisplayChar(details.symbol),
-                            style = Typography.headlineMedium.copy(fontFamily = FontFamily.Monospace),
+                            style = Typography.headlineLarge.copy(fontFamily = FontFamily.Monospace),
                             color = getNetHackColor(details.color),
                             modifier = Modifier.background(Black)
                         )
                     }
-                    Text(
-                        text = "Type: Item (${details.material})",
-                        style = Typography.titleMedium,
-                        color = MaterialTheme.colorScheme.secondary,
-                        modifier = Modifier.padding(top = 4.dp)
-                    )
-                    Text(
-                        text = "Weight: ${details.weight}",
-                        style = Typography.titleMedium
-                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            StatBox("Weight", "${details.weight}")
+                            StatBox("Value", "${details.value}")
+                            StatBox("Material", details.material)
+                            if (details.nutrition != null) {
+                                StatBox("Nutrition", "${details.nutrition}")
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        Column(modifier = Modifier.weight(1f)) {
+                            if (details.ac != null) {
+                                StatBox("Base AC", details.ac)
+                            }
+                            if (details.mc != null) {
+                                StatBox("MC", "MC${details.mc}")
+                            }
+                            if (details.damageSmall != null) {
+                                StatBox("Dmg (S)", details.damageSmall)
+                            }
+                            if (details.damageLarge != null) {
+                                StatBox("Dmg (L)", details.damageLarge)
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(0.85f)
+                    ) {
+                        Text(
+                            text = "An ${details.name} is:",
+                            style = Typography.titleMedium,
+                            color = DarkRed,
+                            fontWeight = FontWeight.Bold
+                        )
+
+                        val infoPoints = mutableListOf<String>()
+                        if (details.magic) infoPoints.add("a magical item.")
+                        if (details.charge) infoPoints.add("can be charged or enchanted.")
+
+                        if (details.propertyIds.isNotEmpty()) {
+                            details.propertyIds.forEach { id ->
+                                infoPoints.add("Intrinsic/Extrinsic: $id")
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        if (infoPoints.isEmpty()) {
+                            Text("None...", style = Typography.bodyMedium)
+                        } else {
+                            infoPoints.forEach { point ->
+                                PropertyBullet(point)
+                            }
+                        }
+                    }
                 }
             }
 

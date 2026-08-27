@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 5,
-    "identityHash": "f92b04e1724bfd392adc751975150274",
+    "version": 6,
+    "identityHash": "e9c640241ee6cea36cd84a9eeb6f725a",
     "entities": [
       {
         "tableName": "monsters",
@@ -168,7 +168,7 @@
       },
       {
         "tableName": "items",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `description` TEXT, `merge` INTEGER NOT NULL, `magicItem` INTEGER NOT NULL, `charge` INTEGER NOT NULL, `unique` INTEGER NOT NULL, `notWish` INTEGER NOT NULL, `tough` INTEGER NOT NULL, `damageType` TEXT NOT NULL, `zapDirection` TEXT NOT NULL, `subCategory` TEXT NOT NULL, `material` TEXT NOT NULL, `property` TEXT NOT NULL, `symbol` TEXT NOT NULL, `probability` INTEGER NOT NULL, `delay` INTEGER NOT NULL, `weight` INTEGER NOT NULL, `value` INTEGER NOT NULL, `smallDamage` INTEGER NOT NULL, `largeDamage` INTEGER NOT NULL, `ac` INTEGER NOT NULL, `hitBonus` INTEGER NOT NULL, `magicCancellation` INTEGER NOT NULL, `spellLevel` INTEGER NOT NULL, `nutrition` INTEGER NOT NULL, `color` TEXT NOT NULL, `variant` TEXT NOT NULL, PRIMARY KEY(`name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `description` TEXT, `merge` INTEGER NOT NULL, `magicItem` INTEGER NOT NULL, `charge` INTEGER NOT NULL, `unique` INTEGER NOT NULL, `notWish` INTEGER NOT NULL, `tough` INTEGER NOT NULL, `damageType` TEXT NOT NULL, `zapDirection` TEXT NOT NULL, `subCategory` TEXT NOT NULL, `material` TEXT NOT NULL, `property` TEXT NOT NULL, `symbol` TEXT NOT NULL, `probability` INTEGER NOT NULL, `delay` INTEGER NOT NULL, `weight` INTEGER NOT NULL, `value` INTEGER NOT NULL, `smallDamage` INTEGER NOT NULL, `largeDamage` INTEGER NOT NULL, `ac` INTEGER NOT NULL, `hitBonus` INTEGER NOT NULL, `magicCancellation` INTEGER NOT NULL, `spellLevel` INTEGER NOT NULL, `nutrition` INTEGER NOT NULL, `color` TEXT NOT NULL, PRIMARY KEY(`name`))",
         "fields": [
           {
             "fieldPath": "name",
@@ -324,12 +324,6 @@
             "columnName": "color",
             "affinity": "TEXT",
             "notNull": true
-          },
-          {
-            "fieldPath": "variant",
-            "columnName": "variant",
-            "affinity": "TEXT",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -384,7 +378,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f92b04e1724bfd392adc751975150274')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e9c640241ee6cea36cd84a9eeb6f725a')"
     ]
   }
 }

@@ -20,7 +20,8 @@ data class ItemEntity(
     val unique: Boolean,
     val notWish: Boolean,
     val tough: Boolean, // is it immune to destruction?
-    val dirOrType: Int, // for the purposes of this app, this will only apply to wand/spells
+    val damageType: String, // damage type of weapon
+    val zapDirection: String, // type of ray produced from wands or spellbooks
     val subCategory: String, // skills of weapons, spellbooks, etc.
     val material: String,
 
@@ -44,6 +45,5 @@ data class ItemEntity(
     val spellLevel: Int, // up to level 7 spellbooks exist
 
     val nutrition: Int,
-    val color: String,
-    val variant: String // what variants do these items appear?
+    val color: String
 )
