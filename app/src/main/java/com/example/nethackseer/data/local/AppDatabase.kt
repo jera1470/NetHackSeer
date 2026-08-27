@@ -20,7 +20,7 @@ import java.io.IOException
 
 @Database(
     entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class],
-    version = 5,
+    version = 7,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -76,7 +76,7 @@ abstract class AppDatabase : RoomDatabase() {
         private suspend fun prePopulateMonsters(context: Context, dao: MonsterDao) {
             val jsonString: String
             try {
-                jsonString = context.assets.open("nethack_data/monsters.json").bufferedReader()
+                jsonString = context.assets.open("nethack_data/nethack500/monsters500.json").bufferedReader()
                     .use { it.readText() }
             } catch (ioException: IOException) {
                 ioException.printStackTrace()
@@ -153,7 +153,7 @@ abstract class AppDatabase : RoomDatabase() {
         private suspend fun prePopulateItem(context: Context, dao: ItemDao){
             val jsonString: String
             try {
-                jsonString = context.assets.open("nethack_data/objects.json").bufferedReader()
+                jsonString = context.assets.open("nethack_data/nethack500/objects500.json").bufferedReader()
                     .use { it.readText() }
             } catch (ioException: IOException) {
                 ioException.printStackTrace()
@@ -174,7 +174,8 @@ abstract class AppDatabase : RoomDatabase() {
                     unique = jsonObject.getBoolean("unique"),
                     notWish = jsonObject.getBoolean("notWish"),
                     tough = jsonObject.getBoolean("tough"),
-                    dirOrType = jsonObject.getInt("dirOrType"),
+                    damageType = jsonObject.getString("damageType"),
+                    zapDirection = jsonObject.getString("zapDirection"),
                     subCategory = jsonObject.getString("subCategory"),
                     material = jsonObject.getString("material"),
                     property = jsonObject.getString("property"),
@@ -190,8 +191,7 @@ abstract class AppDatabase : RoomDatabase() {
                     magicCancellation = jsonObject.getInt("magicCancellation"),
                     spellLevel = jsonObject.getInt("spellLevel"),
                     nutrition = jsonObject.getInt("nutrition"),
-                    color = jsonObject.getString("color"),
-                    variant = jsonObject.getString("variant")
+                    color = jsonObject.getString("color")
                 )
 
                 itemList.add(itemEntity)

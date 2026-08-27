@@ -161,7 +161,6 @@ fun DetailScreenContent(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Row(modifier = Modifier.fillMaxWidth()) {
-                        // Left Column: Statistics boxes
                         Column(modifier = Modifier.weight(1f)) {
                             StatBox("Difficulty", "${details.difficulty}")
                             StatBox("Level", details.levelText)
@@ -217,7 +216,6 @@ fun DetailScreenContent(
 
                         Spacer(modifier = Modifier.width(8.dp))
 
-                        // Right Column: Attacks, Resistances and Properties Given
                         Column(modifier = Modifier.weight(1f)) {
                             Card(
                                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
@@ -421,7 +419,6 @@ fun DetailScreenContent(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Row(modifier = Modifier.fillMaxWidth()) {
-                        // Left Column: Statistics
                         Column(modifier = Modifier.weight(1f)) {
                             StatBox("Weight", "${details.weight}")
                             StatBox("Value", "${details.value}")
@@ -433,7 +430,6 @@ fun DetailScreenContent(
 
                         Spacer(modifier = Modifier.width(8.dp))
 
-                        // Right Column: Combat/Magic Stats
                         Column(modifier = Modifier.weight(1f)) {
                             if (details.ac != null) {
                                 StatBox("Base AC", details.ac)
