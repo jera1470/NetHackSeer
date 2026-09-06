@@ -158,6 +158,19 @@ fun DetailScreenContent(
                         )
                     }
 
+                    if (details.maleName != null || details.femaleName != null) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = buildString {
+                                if (details.maleName != null) append("♂ ${details.maleName}")
+                                if (details.maleName != null && details.femaleName != null) append("  |  ")
+                                if (details.femaleName != null) append("♀ ${details.femaleName}")
+                            },
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Row(modifier = Modifier.fillMaxWidth()) {

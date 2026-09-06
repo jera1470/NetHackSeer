@@ -39,6 +39,8 @@ data class MonsterDetails(
     val conferredIntrinsics: List<IntrinsicChance>,
     val attacks: List<String>,
     val propertyBulletPoints: List<String>,
+    val maleName: String? = null,
+    val femaleName: String? = null,
     val isMindFlayer: Boolean = false,
     val isGiant: Boolean = false,
     val giantChanceText: String = ""
@@ -353,6 +355,8 @@ class DetailViewModel(
             conferredIntrinsics = conferredIntrinsics,
             attacks = attacksFormatted,
             propertyBulletPoints = propertyBulletPoints,
+            maleName = monster.maleName,
+            femaleName = monster.femaleName,
             isMindFlayer = isMindFlayer,
             isGiant = isGiant,
             giantChanceText = giantChanceText
