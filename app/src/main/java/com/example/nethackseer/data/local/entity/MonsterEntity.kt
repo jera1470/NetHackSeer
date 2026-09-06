@@ -49,5 +49,7 @@ data class MonsterEntity(
     val m2Flags: String, // flags for behavioral traits (hostile, peaceful...)
     val m3Flags: String, // flags for mental/misc traits (infravision...)
     val difficulty: Int,
-    val color: String
+    val color: String,
+    val maleName: String? = null,
+    val femaleName: String? = null
 )

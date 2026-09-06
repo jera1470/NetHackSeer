@@ -2296,6 +2296,8 @@
     },
     {
         "name": "dwarf leader",
+        "male_name": "dwarf lord",
+        "female_name": "dwarf lady",
         "symbol": "S_HUMANOID",
         "level_details": {
             "level": 4,
@@ -2347,6 +2349,8 @@
     },
     {
         "name": "dwarf ruler",
+        "male_name": "dwarf king",
+        "female_name": "dwarf queen",
         "symbol": "S_HUMANOID",
         "level_details": {
             "level": 6,
@@ -3061,6 +3065,8 @@
     },
     {
         "name": "kobold leader",
+        "male_name": "kobold lord",
+        "female_name": "kobold lady",
         "symbol": "S_KOBOLD",
         "level_details": {
             "level": 2,
@@ -8338,6 +8344,8 @@
     },
     {
         "name": "gnome leader",
+        "male_name": "gnome lord",
+        "female_name": "gnome lady",
         "symbol": "S_GNOME",
         "level_details": {
             "level": 3,
@@ -8434,6 +8442,8 @@
     },
     {
         "name": "gnome ruler",
+        "male_name": "gnome king",
+        "female_name": "gnome queen",
         "symbol": "S_GNOME",
         "level_details": {
             "level": 5,
@@ -10222,6 +10232,8 @@
     },
     {
         "name": "ogre leader",
+        "male_name": "ogre lord",
+        "female_name": "ogre lady",
         "symbol": "S_OGRE",
         "level_details": {
             "level": 7,
@@ -10270,6 +10282,8 @@
     },
     {
         "name": "ogre tyrant",
+        "male_name": "ogre king",
+        "female_name": "ogre queen",
         "symbol": "S_OGRE",
         "level_details": {
             "level": 9,
@@ -11398,6 +11412,8 @@
     },
     {
         "name": "vampire leader",
+        "male_name": "vampire lord",
+        "female_name": "vampire lady",
         "symbol": "S_VAMPIRE",
         "level_details": {
             "level": 12,
@@ -13462,6 +13478,8 @@
     },
     {
         "name": "elf-noble",
+        "male_name": "elf-lord",
+        "female_name": "elf-lady",
         "symbol": "S_HUMAN",
         "level_details": {
             "level": 8,
@@ -13513,6 +13531,8 @@
     },
     {
         "name": "elven monarch",
+        "male_name": "Elvenking",
+        "female_name": "Elvenqueen",
         "symbol": "S_HUMAN",
         "level_details": {
             "level": 9,
@@ -13807,6 +13827,8 @@
     },
     {
         "name": "aligned cleric",
+        "male_name": "priest",
+        "female_name": "priestess",
         "symbol": "S_HUMAN",
         "level_details": {
             "level": 12,
@@ -13861,6 +13883,8 @@
     },
     {
         "name": "high cleric",
+        "male_name": "high priest",
+        "female_name": "high priestess",
         "symbol": "S_HUMAN",
         "level_details": {
             "level": 25,
@@ -14572,6 +14596,8 @@
     },
     {
         "name": "amorous demon",
+        "male_name": "incubus",
+        "female_name": "succubus",
         "symbol": "S_DEMON",
         "level_details": {
             "level": 6,
@@ -16813,6 +16839,8 @@
     },
     {
         "name": "cave dweller",
+        "male_name": "caveman",
+        "female_name": "cavewoman",
         "symbol": "S_HUMAN",
         "level_details": {
             "level": 10,
@@ -17011,6 +17039,8 @@
     },
     {
         "name": "cleric",
+        "male_name": "priest",
+        "female_name": "priestess",
         "symbol": "S_HUMAN",
         "level_details": {
             "level": 10,

@@ -46,7 +46,7 @@ interface MonsterDao {
      * @param query the query to search for
      * @return a Flow of a list of MonsterEntity objects with the given query
      */
-    @Query("SELECT * FROM monsters WHERE name LIKE :query ORDER BY name ASC")
+    @Query("SELECT * FROM monsters WHERE name LIKE :query OR maleName LIKE :query OR femaleName LIKE :query ORDER BY name ASC")
     fun search(query: String): Flow<List<MonsterEntity>>
 
     /**

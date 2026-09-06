@@ -20,7 +20,7 @@ import java.io.IOException
 
 @Database(
     entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class],
-    version = 7,
+    version = 8,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -143,6 +143,8 @@ abstract class AppDatabase : RoomDatabase() {
                     m3Flags = jsonObject.getString("m3_flags"),
                     difficulty = jsonObject.getInt("difficulty"),
                     color = jsonObject.getString("color"),
+                    maleName = if (jsonObject.has("male_name")) jsonObject.getString("male_name") else null,
+                    femaleName = if (jsonObject.has("female_name")) jsonObject.getString("female_name") else null
                 )
 
                 monsterList.add(monsterEntity)
