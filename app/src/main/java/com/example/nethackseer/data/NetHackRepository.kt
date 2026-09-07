@@ -6,6 +6,8 @@ import com.example.nethackseer.data.local.dao.PropertyDao
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import com.example.nethackseer.data.local.entity.PropertyEntity
+import com.example.nethackseer.ui.components.SearchResultItem
+import com.example.nethackseer.ui.utils.getDisplayChar
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 
@@ -29,20 +31,54 @@ class NetHackRepository(
     }
 
     /**
-     * Search for monsters by name.
+     * Search for monsters and items matching a text query (name, gendered name, or glyph display character).
+     *
+     * @param query The text query to search with
+     *
+     * @return a Flow giving a list of SearchResultItem objects that match the query
      */
-    fun searchMonsters(query: String): Flow<List<MonsterEntity>> =
-        monsterDao.search(query)
+    fun searchMonstersItems(query: String): Flow<List<SearchResultItem>> = combine(
+        allMonsters,
+        allItems
+    ) { monsters, items ->
+        val trimmedQuery = query.trim().lowercase()
+        if (trimmedQuery.isEmpty()) {
+            emptyList()
+        } else {
+            val monsterResults = monsters.filter { monster ->
+                monster.name.contains(trimmedQuery, ignoreCase = true) ||
+                        monster.maleName?.contains(trimmedQuery, ignoreCase = true) == true ||
+                        monster.femaleName?.contains(trimmedQuery, ignoreCase = true) == true ||
+                        getDisplayChar(monster.symbol).equals(trimmedQuery, ignoreCase = true)
+            }.map { monster ->
+                SearchResultItem(
+                    name = monster.name,
+                    category = "monster",
+                    symbol = monster.symbol,
+                    color = monster.color
+                )
+            }
+
+            val itemResults = items.filter { item ->
+                item.name.contains(trimmedQuery, ignoreCase = true) ||
+                        getDisplayChar(item.symbol).equals(trimmedQuery, ignoreCase = true)
+            }.map { item ->
+                SearchResultItem(
+                    name = item.name,
+                    category = "item",
+                    symbol = item.symbol,
+                    color = item.color
+                )
+            }
+
+            (monsterResults + itemResults).sortedBy { it.name }
+        }
+    }
 
     /**
      * Get a monster by name.
      */
     fun getMonsterByName(name: String): Flow<MonsterEntity?> = monsterDao.getMonsterByName(name)
-
-    /**
-     * Search for items by name.
-     */
-    fun searchItems(query: String): Flow<List<ItemEntity>> = itemDao.search(query)
 
     /**
      * Get an item by name.
@@ -59,9 +95,4 @@ class NetHackRepository(
      */
     fun getPropertiesByIds(ids: List<String>): Flow<List<PropertyEntity>> =
         propertyDao.getPropertiesByIds(ids)
-
-    /**
-     * Gets all available properties.
-     */
-    val allProperties: Flow<List<PropertyEntity>> = propertyDao.getAllProperties()
 }
