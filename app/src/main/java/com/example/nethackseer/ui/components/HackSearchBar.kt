@@ -25,9 +25,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.nethackseer.ui.theme.Black
+import com.example.nethackseer.ui.theme.Red
 import com.example.nethackseer.ui.theme.Typography
-import com.example.nethackseer.ui.theme.White
 import com.example.nethackseer.ui.utils.cleanNetHackName
+import com.example.nethackseer.ui.utils.getCategoryDisplayName
 import com.example.nethackseer.ui.utils.getDisplayChar
 import com.example.nethackseer.ui.utils.getNetHackColor
 
@@ -128,9 +129,9 @@ fun SearchResultRow(
                     style = Typography.bodyLarge
                 )
                 Text(
-                    text = item.category.replaceFirstChar { it.uppercase() },
+                    text = getCategoryDisplayName(item.symbol).replaceFirstChar { it.uppercase() },
                     style = Typography.bodySmall,
-                    color = White.copy(alpha = 0.7f)
+                    color = Red.copy(alpha = 0.7f)
                 )
             }
             Text(

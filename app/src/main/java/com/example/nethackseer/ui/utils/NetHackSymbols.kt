@@ -149,3 +149,99 @@ fun cleanNetHackName(name: String): String {
         .replace("HI_SILVER", "silver")
         .replace("HI_GOLD", "gold")
 }
+
+/**
+ * Maps item and monster class symbols to their human-readable names
+ */
+fun getCategoryDisplayName(symbol: String): String {
+    return when (symbol.uppercase()) {
+        // Items
+        "WEAPON_CLASS" -> "weapon"
+        "ARMOR_CLASS" -> "armor"
+        "RING_CLASS" -> "ring"
+        "AMULET_CLASS" -> "amulet"
+        "TOOL_CLASS" -> "tool"
+        "FOOD_CLASS" -> "food"
+        "POTION_CLASS" -> "potion"
+        "SCROLL_CLASS" -> "scroll"
+        "SPBOOK_CLASS" -> "spellbook"
+        "WAND_CLASS" -> "wand"
+        "COIN_CLASS" -> "coin"
+        "GEM_CLASS" -> "gem"
+        "ROCK_CLASS" -> "rock"
+        "BALL_CLASS" -> "iron ball"
+        "CHAIN_CLASS" -> "chain"
+        "VENOM_CLASS" -> "venom"
+        "ILLOBJ_CLASS" -> "illegal object"
+
+        // monsters
+        "S_ANT" -> "ant / insect"
+        "S_BLOB" -> "blob"
+        "S_COCKATRICE" -> "cockatrice"
+        "S_DOG" -> "canine"
+        "S_EYE" -> "sphere / eye"
+        "S_FELINE" -> "feline"
+        "S_GREMLIN" -> "gremlin"
+        "S_HUMANOID" -> "humanoid"
+        "S_IMP" -> "imp"
+        "S_JELLY" -> "jelly"
+        "S_KOBOLD" -> "kobold"
+        "S_LEPRECHAUN" -> "leprechaun"
+        "S_MIMIC" -> "mimic"
+        "S_NYMPH" -> "nymph"
+        "S_ORC" -> "orc"
+        "S_PIERCER" -> "piercer"
+        "S_QUADRUPED" -> "quadruped"
+        "S_RODENT" -> "rodent"
+        "S_SPIDER" -> "spider"
+        "S_TRAPPER" -> "trapper / lurker above"
+        "S_UNICORN" -> "unicorn"
+        "S_VORTEX" -> "vortex"
+        "S_WORM" -> "worm"
+        "S_XAN" -> "xan"
+        "S_LIGHT" -> "light"
+        "S_ZRUTY" -> "zruty"
+        "S_ANGEL" -> "angel"
+        "S_BAT" -> "bat"
+        "S_CENTAUR" -> "centaur"
+        "S_DRAGON" -> "dragon"
+        "S_ELEMENTAL" -> "elemental"
+        "S_FUNGUS" -> "fungus / mold"
+        "S_GNOME" -> "gnome"
+        "S_GIANT" -> "giant"
+        "S_JABBERWOCK" -> "jabberwock"
+        "S_KOP" -> "Keystone Kop"
+        "S_LICH" -> "lich"
+        "S_MUMMY" -> "mummy"
+        "S_NAGA" -> "naga"
+        "S_OGRE" -> "ogre"
+        "S_PUDDING" -> "pudding"
+        "S_QUANTMECH" -> "quantum mechanic or genetic engineer"
+        "S_RUSTMONST" -> "rust monster or disenchanter"
+        "S_SNAKE" -> "snake"
+        "S_TROLL" -> "troll"
+        "S_UMBER" -> "umber hulk"
+        "S_VAMPIRE" -> "vampire"
+        "S_WRAITH" -> "wraith"
+        "S_XORN" -> "xorn"
+        "S_YETI" -> "yeti"
+        "S_ZOMBIE" -> "zombie"
+        "S_HUMAN" -> "human"
+        "S_GHOST" -> "ghost"
+        "S_GOLEM" -> "golem"
+        "S_DEMON" -> "demon"
+        "S_EEL" -> "sea monster"
+        "S_LIZARD" -> "lizard"
+
+        else -> {
+            var cleaned = symbol
+            if (cleaned.endsWith("_CLASS", ignoreCase = true)) {
+                cleaned = cleaned.substring(0, cleaned.length - 6)
+            }
+            if (cleaned.startsWith("S_", ignoreCase = true)) {
+                cleaned = cleaned.substring(2)
+            }
+            cleaned.lowercase().replace("_", " ")
+        }
+    }
+}
