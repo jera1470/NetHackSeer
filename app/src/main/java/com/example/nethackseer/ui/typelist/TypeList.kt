@@ -2,6 +2,7 @@ package com.example.nethackseer.ui.typelist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,21 +31,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.nethackseer.NetHackSeerApplication
+import com.example.nethackseer.ui.components.HackSearchBar
 import com.example.nethackseer.ui.theme.Black
 import com.example.nethackseer.ui.theme.DarkRed
+import com.example.nethackseer.ui.theme.Red
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.theme.White
 import com.example.nethackseer.ui.utils.cleanNetHackName
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import com.example.nethackseer.ui.utils.getDisplayChar
 import com.example.nethackseer.ui.utils.getNetHackColor
 
 /**
- * A TypeList UI layout for listing entities in a list.
- * This is used when showing a different route for showing all possible entities when given a query,
+ * A Category UI layout for listing entities within a specific category.
  *
  * @param onBack A lambda to be executed when the back button is clicked.
  * @param onNavigateToDetail A lambda to be executed when an entity is clicked.
- * @param typeListViewModel A view model for the typelist screen.
+ * @param typeListViewModel A view model for the category screen.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,12 +62,21 @@ fun TypeList(
 ) {
 
     val uiState by typeListViewModel.uiState.collectAsState()
+    val searchQuery by typeListViewModel.searchQuery.collectAsState()
 
-    // this is the UI to list all element of a certain type (or all types)
+    val pageTitle = when (val state = uiState) {
+        is TypeUiState.Success -> when (state.type.lowercase()) {
+            "monster" -> "Monsters"
+            "item" -> "Items"
+            else -> state.type.replaceFirstChar { it.uppercase() } + "s"
+        }
+        else -> "Category"
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Typelist", color = DarkRed) },
+                title = { Text(pageTitle, color = DarkRed) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -77,59 +89,96 @@ fun TypeList(
             )
         }
     ) { paddingValues ->
-        when (val state = uiState) {
-            is TypeUiState.Loading -> {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    CircularProgressIndicator()
-                }
-            }
-            // error message when not found
-            is TypeUiState.Error -> {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(text = state.message, style = Typography.bodyLarge)
-                }
-            }
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize()
+        ) {
+            HackSearchBar(
+                query = searchQuery,
+                onQueryChange = { typeListViewModel.onSearchQueryChange(it) },
+                onSearch = { },
+                expanded = false,
+                onExpandedChange = { },
+                placeholderText = "Search $pageTitle...",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp, vertical = 4.dp)
+            )
 
-            is TypeUiState.Success -> {
-                LazyColumn(
-                    modifier = Modifier
-                        .padding(paddingValues)
-                        .fillMaxSize()
-                ) {
-                    items(state.listObj.size) { index ->
-                        val summary = state.listObj[index]
-                        Button(
-                            onClick = { onNavigateToDetail(summary.name) },
+            when (val state = uiState) {
+                is TypeUiState.Loading -> {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                }
+
+                is TypeUiState.Error -> {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(text = state.message, style = Typography.bodyLarge)
+                    }
+                }
+
+                is TypeUiState.Success -> {
+                    if (state.listObj.isEmpty()) {
+                        Box(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 16.dp, vertical = 4.dp),
-                            shape = RoundedCornerShape(8.dp)
+                                .fillMaxSize()
+                                .padding(16.dp),
+                            contentAlignment = Alignment.Center
                         ) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(
-                                    text = cleanNetHackName(summary.name),
-                                    textAlign = TextAlign.Start
-                                )
-                                Text(
-                                    text = getDisplayChar(summary.symbol),
-                                    color = getNetHackColor(summary.color),
-                                    fontFamily = FontFamily.Monospace,
-                                    modifier = Modifier.background(Black)
-                                )
+                            Text(
+                                text = if (searchQuery.isNotBlank()) "No $pageTitle found matching \"$searchQuery\"" else "No $pageTitle available",
+                                style = Typography.bodyLarge
+                            )
+                        }
+                    } else {
+                        LazyColumn(
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            items(state.listObj.size) { index ->
+                                val summary = state.listObj[index]
+                                Button(
+                                    onClick = { onNavigateToDetail(summary.name) },
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 16.dp, vertical = 4.dp),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Column{
+                                            Text(
+                                                text = cleanNetHackName(summary.name),
+                                                textAlign = TextAlign.Start
+                                            )
+                                            Text(
+                                                text = getSymbolDisplayName(summary.symbol),
+                                                style = Typography.bodySmall,
+                                                color = Red.copy(alpha = 0.7f)
+                                            )
+                                        }
+                                        Text(
+                                            text = getDisplayChar(summary.symbol),
+                                            color = getNetHackColor(summary.color),
+                                            fontFamily = FontFamily.Monospace,
+                                            modifier = Modifier.background(Black)
+                                        )
+                                    }
+                                }
                             }
                         }
                     }

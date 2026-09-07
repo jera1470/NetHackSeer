@@ -28,9 +28,9 @@ import com.example.nethackseer.ui.theme.Black
 import com.example.nethackseer.ui.theme.Red
 import com.example.nethackseer.ui.theme.Typography
 import com.example.nethackseer.ui.utils.cleanNetHackName
-import com.example.nethackseer.ui.utils.getCategoryDisplayName
 import com.example.nethackseer.ui.utils.getDisplayChar
 import com.example.nethackseer.ui.utils.getNetHackColor
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
 
 data class SearchResultItem(
     val name: String,
@@ -45,15 +45,15 @@ data class SearchResultItem(
  * @param query Text query inputted to search field
  * @param onQueryChange Callback invoked when the search query text changes
  * @param onSearch Callback invoked when the user submits a search action
- * @param expanded Controls whether search bar is collapsed or not
- * @param onExpandedChange Callback invoked when expanded state changes
- * @param placeholderText Placeholder text shown when query is empty.
  * @param modifier Normal modifier for all composables
- * @param content Slot for rendering live search results inside the expanded overlay
+ * @param expanded Controls whether search bar is collapsed or expanded overlay
+ * @param onExpandedChange Callback invoked when expanded state changes
+ * @param placeholderText Placeholder text shown when query is empty
+ * @param content Slot for rendering live search results inside expanded overlay
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HackSearchBar(
+fun HackneySearchBar(
     query: String,
     onQueryChange: (String) -> Unit,
     onSearch: (String) -> Unit,
@@ -98,6 +98,32 @@ fun HackSearchBar(
 }
 
 /**
+ * Alias for HackneySearchBar.
+ */
+@Composable
+fun HackSearchBar(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onSearch: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    expanded: Boolean = false,
+    onExpandedChange: (Boolean) -> Unit = {},
+    placeholderText: String = "Search",
+    content: @Composable ColumnScope.() -> Unit = {}
+) {
+    HackneySearchBar(
+        query = query,
+        onQueryChange = onQueryChange,
+        onSearch = onSearch,
+        modifier = modifier,
+        expanded = expanded,
+        onExpandedChange = onExpandedChange,
+        placeholderText = placeholderText,
+        content = content
+    )
+}
+
+/**
  * Reusable component for displaying an individual search result item within a search list or dropdown.
  *
  * @param item The SearchResultItem to render
@@ -129,7 +155,7 @@ fun SearchResultRow(
                     style = Typography.bodyLarge
                 )
                 Text(
-                    text = getCategoryDisplayName(item.symbol).replaceFirstChar { it.uppercase() },
+                    text = getSymbolDisplayName(item.symbol).replaceFirstChar { it.uppercase() },
                     style = Typography.bodySmall,
                     color = Red.copy(alpha = 0.7f)
                 )

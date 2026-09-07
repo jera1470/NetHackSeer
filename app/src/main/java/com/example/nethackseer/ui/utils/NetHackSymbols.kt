@@ -153,7 +153,7 @@ fun cleanNetHackName(name: String): String {
 /**
  * Maps item and monster class symbols to their human-readable names
  */
-fun getCategoryDisplayName(symbol: String): String {
+fun getSymbolDisplayName(symbol: String): String {
     return when (symbol.uppercase()) {
         // Items
         "WEAPON_CLASS" -> "weapon"

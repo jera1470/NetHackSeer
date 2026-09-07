@@ -7,9 +7,18 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.ui.utils.cleanNetHackName
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
+import com.example.nethackseer.ui.utils.getDisplayChar
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 data class EntitySummary(
     val name: String,
@@ -27,42 +36,49 @@ sealed class TypeUiState {
 
 class TypeListViewModel(
     savedStateHandle: SavedStateHandle,
-    private val repository: NetHackRepository
+    repository: NetHackRepository
 ) : ViewModel() {
     private val typeId: String = savedStateHandle.get<String>("typeId") ?: "Unknown"
-    private val _uiState = MutableStateFlow<TypeUiState>(TypeUiState.Loading)
-    val uiState: StateFlow<TypeUiState> = _uiState
 
-    // might change this method in the future, seems somewhat strange
-    init {
-        fetchTypeData()
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val _rawEntities = when (typeId.lowercase()) {
+        "monster" -> repository.allMonsters.map { monsters ->
+            monsters.map { EntitySummary(it.name, it.symbol, it.color) }
+        }
+        "item" -> repository.allItems.map { items ->
+            items.map { EntitySummary(it.name, it.symbol, it.color) }
+        }
+        else -> flowOf(null)
     }
 
-    private fun fetchTypeData() {
-        viewModelScope.launch {
-            when (typeId.lowercase()) {
-                "monster" -> {
-                    repository.allMonsters.collect { monsters ->
-                        _uiState.value = TypeUiState.Success(
-                            listObj = monsters.map { EntitySummary(it.name, it.symbol, it.color) },
-                            type = typeId
-                        )
-                    }
-                }
-                "item" -> {
-                    repository.allItems.collect { items ->
-                        _uiState.value = TypeUiState.Success(
-                            listObj = items.map { EntitySummary(it.name, it.symbol, it.color) },
-                            type = typeId
-                        )
-                    }
-                }
-
-                else -> {
-                    _uiState.value = TypeUiState.Error("Invalid type ID (i guess)")
+    val uiState: StateFlow<TypeUiState> = combine(_rawEntities, _searchQuery) { entities, query ->
+        if (entities == null) {
+            TypeUiState.Error("Invalid type ID: $typeId")
+        } else {
+            val trimmed = query.trim().lowercase()
+            val filtered = if (trimmed.isEmpty()) {
+                entities
+            } else {
+                entities.filter { summary ->
+                    summary.name.contains(trimmed, ignoreCase = true) ||
+                            cleanNetHackName(summary.name).contains(trimmed, ignoreCase = true) ||
+                            getDisplayChar(summary.symbol).equals(trimmed, ignoreCase = true) ||
+                            getSymbolDisplayName(summary.symbol).contains(trimmed, ignoreCase = true)
                 }
             }
+            TypeUiState.Success(listObj = filtered, type = typeId)
         }
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = TypeUiState.Loading
+    )
+
+    fun onSearchQueryChange(newQuery: String) {
+        _searchQuery.value = newQuery
     }
 
     // factory for creating the viewmodel with repository
