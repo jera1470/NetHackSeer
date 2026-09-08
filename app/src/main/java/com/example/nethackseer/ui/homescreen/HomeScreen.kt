@@ -17,8 +17,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SearchBar
-import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -31,6 +29,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import com.example.nethackseer.ui.components.HackSearchBar
+import com.example.nethackseer.ui.components.SearchResultRow
 import com.example.nethackseer.ui.theme.*
 
 
@@ -61,7 +63,6 @@ private fun ActionButton(
  * The HomeScreen UI layout for the home screen of the app.
  *
  * @param textFieldState An editable text field
- * @param onSearch The lambda to be executed when the search button is clicked
  * @param onNavigateToType A lambda to be executed when the type button is clicked
  * @param onNavigateToDetail A lambda to be executed when the detail button is clicked
  * @param homeViewModel A view model for the home screen
@@ -70,14 +71,14 @@ private fun ActionButton(
 @Composable
 fun HomeScreen(
     textFieldState: TextFieldState,
-    onSearch: (String) -> Unit,
     onNavigateToType: (String) -> Unit,
     onNavigateToDetail: (String) -> Unit,
     homeViewModel: HomeViewModel
 ) {
 
     val pageOfTheDay by homeViewModel.pageOfTheDay.collectAsState()
-    // search bar stuff, mutableStateOf is used to track changes to the state of the search bar
+    val searchQuery by homeViewModel.searchQuery.collectAsState()
+    val searchResults by homeViewModel.searchResults.collectAsState()
     var expanded by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
@@ -101,26 +102,41 @@ fun HomeScreen(
                 .background(LightGray),
             verticalArrangement = Arrangement.Top
         ) {
-            /* TODO: implement search bar for later use of searching up stuff (very obvious)
-            *   currently justs opens and closes, but it works for now*/
-            SearchBar(
-                modifier = Modifier.fillMaxWidth(),
-                inputField = {
-                    SearchBarDefaults.InputField(
-                        query = textFieldState.text.toString(),
-                        onQueryChange = { textFieldState.edit { replace(0, length, it) } },
-                        onSearch = {
-                            onSearch(textFieldState.text.toString())
-                            expanded = false
-                        },
-                        expanded = expanded,
-                        onExpandedChange = { expanded = it },
-                        placeholder = { Text(text = "Search") }
-                    )
+            HackSearchBar(
+                query = searchQuery,
+                onQueryChange = { newQuery ->
+                    homeViewModel.onSearchQueryChange(newQuery)
+                    textFieldState.edit { replace(0, length, newQuery) }
                 },
+                onSearch = { },
                 expanded = expanded,
                 onExpandedChange = { expanded = it },
-            ) {}
+                placeholderText = "Search items and monsters...",
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (searchResults.isEmpty() && searchQuery.isNotBlank()) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(text = "No results found for \"$searchQuery\"")
+                    }
+                } else {
+                    LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                        items(searchResults) { item ->
+                            SearchResultRow(
+                                item = item,
+                                onClick = {
+                                    expanded = false
+                                    onNavigateToDetail(item.name)
+                                }
+                            )
+                        }
+                    }
+                }
+            }
             Row(Modifier.fillMaxWidth()) {
                 ActionButton(
                     "Items",

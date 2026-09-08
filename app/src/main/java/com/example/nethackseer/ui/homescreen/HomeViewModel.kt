@@ -4,16 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.ui.components.SearchResultItem
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-/**
- * A simple data class to represent the "Page of the Day"
- * which can be either a monster, an item, or a property.
- */
 data class PageOfTheDay(
     val name: String,
     val type: String // "monster", "item", or "property"
@@ -24,16 +25,31 @@ data class PageOfTheDay(
  *
  * @property repository The repository for the home screen.
  */
-class HomeViewModel(repository: NetHackRepository) : ViewModel() {
-
-    // This StateFlow will hold the current state of the UI in this case
+class HomeViewModel(private val repository: NetHackRepository) : ViewModel() {
+    // will make this better in the future
     private val _pageOfTheDay = MutableStateFlow<PageOfTheDay?>(null)
     val pageOfTheDay: StateFlow<PageOfTheDay?> = _pageOfTheDay.asStateFlow()
+
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val searchResults: StateFlow<List<SearchResultItem>> = _searchQuery
+        // used to switch from one flow to another without having race conditions
+        .flatMapLatest { query -> repository.searchMonstersItems(query) }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
+
+    fun onSearchQueryChange(newQuery: String) {
+        _searchQuery.value = newQuery
+    }
 
     init {
         // Coroutine for the viewModelScope. Automatically canceled when ViewModel is cleared
         viewModelScope.launch {
-            // fetch all names from the combined flow we created earlier
             val allNames = repository.allNames.first()
             if (allNames.isNotEmpty()) {
                 val randomName = allNames.random()
