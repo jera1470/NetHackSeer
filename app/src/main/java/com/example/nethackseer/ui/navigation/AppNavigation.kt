@@ -33,12 +33,6 @@ fun AppNavigation(homeViewModel: HomeViewModel) {
                 homeViewModel = homeViewModel,
                 textFieldState = textFieldState,
 
-                onSearch = { query ->
-                    if (query.isNotBlank()) {
-                        navController.navigate("detail/$query")
-                    }
-                },
-
                 onNavigateToDetail = { entityId ->
                     navController.navigate("detail/$entityId")
                 },

@@ -63,7 +63,6 @@ private fun ActionButton(
  * The HomeScreen UI layout for the home screen of the app.
  *
  * @param textFieldState An editable text field
- * @param onSearch The lambda to be executed when the search button is clicked
  * @param onNavigateToType A lambda to be executed when the type button is clicked
  * @param onNavigateToDetail A lambda to be executed when the detail button is clicked
  * @param homeViewModel A view model for the home screen
@@ -72,7 +71,6 @@ private fun ActionButton(
 @Composable
 fun HomeScreen(
     textFieldState: TextFieldState,
-    onSearch: (String) -> Unit,
     onNavigateToType: (String) -> Unit,
     onNavigateToDetail: (String) -> Unit,
     homeViewModel: HomeViewModel
@@ -110,12 +108,7 @@ fun HomeScreen(
                     homeViewModel.onSearchQueryChange(newQuery)
                     textFieldState.edit { replace(0, length, newQuery) }
                 },
-                onSearch = { query ->
-                    if (query.isNotBlank()) {
-                        onSearch(query)
-                        expanded = false
-                    }
-                },
+                onSearch = { },
                 expanded = expanded,
                 onExpandedChange = { expanded = it },
                 placeholderText = "Search items and monsters...",
