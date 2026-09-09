@@ -308,7 +308,7 @@ fun DetailScreenContent(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
-                                        text = "Properties Given",
+                                        text = "When Eaten",
                                         style = Typography.labelLarge,
                                         color = MaterialTheme.colorScheme.secondary,
                                         modifier = Modifier.padding(bottom = 8.dp)
@@ -341,7 +341,7 @@ fun DetailScreenContent(
                                                 fontWeight = FontWeight.Bold
                                             )
                                             Text(
-                                                text = "(1/2 or 50%)",
+                                                text = "(50%)",
                                                 style = Typography.bodyMedium,
                                                 fontWeight = FontWeight.Bold
                                             )

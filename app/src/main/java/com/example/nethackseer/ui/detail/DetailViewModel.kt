@@ -205,8 +205,41 @@ class DetailViewModel(
             if (!baseConferred.contains("MR_TELEPORT_CONTROL")) baseConferred.add("MR_TELEPORT_CONTROL")
         }
 
-        val specialEffects = mutableListOf<String>()
         val lowerName = monster.name.lowercase()
+        if (lowerName == "floating eye" || lowerName.contains("mind flayer")) {
+            if (!baseConferred.contains("MR_TELEPATHY")) baseConferred.add("MR_TELEPATHY")
+        }
+
+        val specialEffects = mutableListOf<String>()
+
+        if (lowerName.contains("cockatrice") || lowerName.contains("chickatrice")) {
+            specialEffects.add("Instant petrification")
+        }
+
+        if (listOf("death", "pestilence", "famine").contains(lowerName)) {
+            specialEffects.add("Instantly fatal")
+        }
+
+        if (lowerName == "green slime") {
+            specialEffects.add("Causes sliming (10 turns)")
+        }
+
+        val isAcidic = baseConferred.contains("MR_ACID") || monster.m1Flags.contains("M1_ACID")
+        if (lowerName == "lizard" || isAcidic) {
+            if (lowerName == "lizard") {
+                specialEffects.add("Reduce stun/confusion to 2 turns")
+            }
+            specialEffects.add("Cures petrification")
+        }
+
+        // Domestic Carnivores (Dogs and Cats)
+        val isDomesticCarnivore = (monster.m2Flags.contains("M2_DOMESTIC") && monster.m1Flags.contains("M1_CARNIVORE")) ||
+                listOf("kitten", "housecat", "large cat", "little dog", "dog", "large dog").contains(lowerName)
+        if (isDomesticCarnivore) {
+            specialEffects.add("Aggravates monsters")
+        }
+
+        // Other special effects
         if (lowerName == "wraith") specialEffects.add("Gain level")
         if (lowerName.contains("were")) specialEffects.add("Contract lycanthropy")
         when (lowerName) {
@@ -216,21 +249,19 @@ class DetailViewModel(
         }
         if (listOf("chameleon", "doppelganger", "genetic engineer").any { lowerName == it }) specialEffects.add("Polymorph")
         if (lowerName == "nurse") specialEffects.add("Full heal/cure blindness")
-        if (lowerName == "lizard") specialEffects.add("Reduce stun/confusion")
-        if (lowerName == "stalker") specialEffects.add("Temp. Invis. (+50-149 turns)\nPerm. Invis./See Invis if already invis.")
+        if (lowerName == "stalker") specialEffects.add("Temp. Invis. (+50-149 turns)\nPerm. Invis./See Invis if already invis.\nStun (+30 turns)")
         if (lowerName == "displacer beast") specialEffects.add("Temp. displacement (+6-36 turns)")
         if (listOf("yellow light", "bat", "giant bat").any { lowerName == it }) specialEffects.add("Stun (+30 turns)")
         if (lowerName == "quantum mechanic") specialEffects.add("Toggle speed")
         if (lowerName == "disenchanter") specialEffects.add("Lose a random intrinsic")
         
         val monsterAttacks = listOf(monster.attack1, monster.attack2, monster.attack3, monster.attack4, monster.attack5, monster.attack6)
-        val hasHaluAttack = monsterAttacks.any { it.damageType == "AD_HALU" || it.damageType == "AD_STUN" }
-        if (lowerName == "violet fungus" || hasHaluAttack) specialEffects.add("Hallucination (+200 turns)")
+        val hasHalluAttack = monsterAttacks.any { it.damageType == "AD_HALU" || it.damageType == "AD_STUN" }
+        if (lowerName == "violet fungus" || hasHalluAttack) specialEffects.add("Hallucination (+200 turns)")
         val isMagical = monsterAttacks.any { it.type == "AT_MAGC" }
-        if (lowerName == "newt" || isMagical) specialEffects.add("Increase energy")
-        if (listOf("death", "pestilence", "famine").any { lowerName == it }) specialEffects.add("Death when eaten")
+        if (lowerName == "newt" || isMagical) specialEffects.add("Increase energy by 1-3 Pw\n(33% for +1 max Pw if full)")
 
-        val isGiant = monster.symbol == "S_GIANT"
+        val isGiant = monster.m2Flags.contains("M2_GIANT")
         val isMindFlayer = lowerName.contains("mind flayer")
         
         val poolMultiplier = if (isMindFlayer) 2L else 1L
@@ -244,7 +275,7 @@ class DetailViewModel(
             val dNum = 1 / common
             val dDen = finalDenomBase / common
             val perc = ((dNum.toDouble() / dDen.toDouble()) * 100.0).toInt()
-            giantChanceText = "($dNum/$dDen or $perc%)"
+            giantChanceText = "($perc%)"
         }
 
         val conferredIntrinsics = baseConferred.map { id ->
@@ -299,7 +330,7 @@ class DetailViewModel(
             if (id.contains("ACID") || id.contains("STONE")) {
                 name += " (3-18 turns)"
             }
-            IntrinsicChance(name, "($displayNum/$displayDen or $prefix$percentage%)")
+            IntrinsicChance(name, "($prefix$percentage%)")
         }
 
         val attacksFormatted = monsterAttacks.filter { it.type != "NO_ATTK" }.map { attack ->
