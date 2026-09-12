@@ -32,7 +32,6 @@ import com.example.nethackseer.NetHackSeerApplication
 import com.example.nethackseer.ui.theme.*
 import com.example.nethackseer.ui.utils.getDisplayChar
 import com.example.nethackseer.ui.utils.getNetHackColor
-import com.example.nethackseer.ui.utils.getSymbolDisplayName
 
 /**
  * The DetailScreen UI layout for the detail screen of the app.
@@ -159,23 +158,18 @@ fun DetailScreenContent(
                         )
                     }
 
-                    val monsterType = getSymbolDisplayName(details.symbol)
-                        .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
-
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = buildString {
-                            append("Symbol: $monsterType")
-                            if (details.maleName != null || details.femaleName != null) {
-                                append("  |  ")
+                    if (details.maleName != null || details.femaleName != null) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = buildString {
                                 if (details.maleName != null) append("♂ ${details.maleName}")
                                 if (details.maleName != null && details.femaleName != null) append("  |  ")
                                 if (details.femaleName != null) append("♀ ${details.femaleName}")
-                            }
-                        },
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                            },
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
 
                     Spacer(modifier = Modifier.height(16.dp))
 
@@ -314,7 +308,7 @@ fun DetailScreenContent(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
-                                        text = "When Eaten",
+                                        text = "Properties Given",
                                         style = Typography.labelLarge,
                                         color = MaterialTheme.colorScheme.secondary,
                                         modifier = Modifier.padding(bottom = 8.dp)
@@ -347,7 +341,7 @@ fun DetailScreenContent(
                                                 fontWeight = FontWeight.Bold
                                             )
                                             Text(
-                                                text = "(50%)",
+                                                text = "(1/2 or 50%)",
                                                 style = Typography.bodyMedium,
                                                 fontWeight = FontWeight.Bold
                                             )
@@ -435,15 +429,6 @@ fun DetailScreenContent(
                         )
                     }
 
-                    if (details.headerSubtitle.isNotEmpty()) {
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = details.headerSubtitle,
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Row(modifier = Modifier.fillMaxWidth()) {
@@ -451,25 +436,18 @@ fun DetailScreenContent(
                             StatBox("Weight", "${details.weight}")
                             StatBox("Value", "${details.value}")
                             StatBox("Material", details.material)
-                            if (details.probabilityText != null) {
-                                StatBox("Rel. Prob.", details.probabilityText)
-                            }
-                            if (details.delay != null && details.delay > 0) {
-                                // just in case something was missed
-                                StatBox(details.delayLabel, "${details.delay} turn${if (details.delay > 1) "s" else ""}")
-                            }
-                            if (details.nutrition != null && details.nutrition > 0) {
-                                StatBox("Nutr", "${details.nutrition}")
+                            if (details.nutrition != null) {
+                                StatBox("Nutrition", "${details.nutrition}")
                             }
                         }
 
                         Spacer(modifier = Modifier.width(8.dp))
 
                         Column(modifier = Modifier.weight(1f)) {
-                            if (details.ac != null && details.symbol == "ARMOR_CLASS") {
+                            if (details.ac != null) {
                                 StatBox("Base AC", details.ac)
                             }
-                            if (details.mc != null && details.mc > 0) {
+                            if (details.mc != null) {
                                 StatBox("MC", "MC${details.mc}")
                             }
                             if (details.damageSmall != null) {
@@ -478,101 +456,39 @@ fun DetailScreenContent(
                             if (details.damageLarge != null) {
                                 StatBox("Dmg (L)", details.damageLarge)
                             }
-                            if (details.hitBonus != null && details.hitBonus != 0) {
-                                val sign = if (details.hitBonus > 0) "+" else ""
-                                StatBox("To-Hit", "$sign${details.hitBonus}")
-                            }
-                            if (details.spellLevel != null && details.spellLevel > 0) {
-                                StatBox("Spell Lvl", "Lvl ${details.spellLevel}")
-                            }
-                            if (details.zapDirectionText != null) {
-                                StatBox("Zap Dir", details.zapDirectionText)
-                            }
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(24.dp))
 
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        Card(
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(vertical = 2.dp),
-                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-                        ) {
-                            Column(
-                                modifier = Modifier
-                                    .padding(12.dp)
-                                    .fillMaxWidth(),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Text(
-                                    text = "Properties Conferred",
-                                    style = Typography.labelLarge,
-                                    color = MaterialTheme.colorScheme.secondary,
-                                    modifier = Modifier.padding(bottom = 8.dp)
-                                )
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(0.85f)
+                    ) {
+                        Text(
+                            text = "An ${details.name} is:",
+                            style = Typography.titleMedium,
+                            color = DarkRed,
+                            fontWeight = FontWeight.Bold
+                        )
 
-                                if (details.conferredProperties.isEmpty()) {
-                                    Text(
-                                        text = "None",
-                                        style = Typography.bodyMedium,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                } else {
-                                    details.conferredProperties.forEach { prop ->
-                                        Text(
-                                            text = prop,
-                                            style = Typography.bodyMedium,
-                                            fontWeight = FontWeight.Bold,
-                                            textAlign = TextAlign.Center,
-                                            modifier = Modifier.padding(vertical = 1.dp)
-                                        )
-                                    }
-                                }
+                        val infoPoints = mutableListOf<String>()
+                        if (details.magic) infoPoints.add("a magical item.")
+                        if (details.charge) infoPoints.add("can be charged or enchanted.")
+
+                        if (details.propertyIds.isNotEmpty()) {
+                            details.propertyIds.forEach { id ->
+                                infoPoints.add("Intrinsic/Extrinsic: $id")
                             }
                         }
 
-                        Spacer(modifier = Modifier.width(8.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
 
-                        Card(
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(vertical = 2.dp),
-                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-                        ) {
-                            Column(
-                                modifier = Modifier
-                                    .padding(12.dp)
-                                    .fillMaxWidth(),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Text(
-                                    text = "Capabilities",
-                                    style = Typography.labelLarge,
-                                    color = MaterialTheme.colorScheme.secondary,
-                                    modifier = Modifier.padding(bottom = 8.dp)
-                                )
-
-                                if (details.capabilities.isEmpty()) {
-                                    Text(
-                                        text = "None",
-                                        style = Typography.bodyMedium,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                } else {
-                                    details.capabilities.forEach { cap ->
-                                        Text(
-                                            text = cap,
-                                            style = Typography.bodyMedium,
-                                            fontWeight = FontWeight.Bold,
-                                            textAlign = TextAlign.Center,
-                                            modifier = Modifier.padding(vertical = 1.dp)
-                                        )
-                                    }
-                                }
+                        if (infoPoints.isEmpty()) {
+                            Text("None...", style = Typography.bodyMedium)
+                        } else {
+                            infoPoints.forEach { point ->
+                                PropertyBullet(point)
                             }
                         }
                     }
