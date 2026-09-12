@@ -32,6 +32,7 @@ import com.example.nethackseer.NetHackSeerApplication
 import com.example.nethackseer.ui.theme.*
 import com.example.nethackseer.ui.utils.getDisplayChar
 import com.example.nethackseer.ui.utils.getNetHackColor
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
 
 /**
  * The DetailScreen UI layout for the detail screen of the app.
@@ -158,18 +159,23 @@ fun DetailScreenContent(
                         )
                     }
 
-                    if (details.maleName != null || details.femaleName != null) {
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = buildString {
+                    val monsterType = getSymbolDisplayName(details.symbol)
+                        .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = buildString {
+                            append("Symbol: $monsterType")
+                            if (details.maleName != null || details.femaleName != null) {
+                                append("  |  ")
                                 if (details.maleName != null) append("♂ ${details.maleName}")
                                 if (details.maleName != null && details.femaleName != null) append("  |  ")
                                 if (details.femaleName != null) append("♀ ${details.femaleName}")
-                            },
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
+                            }
+                        },
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
 
                     Spacer(modifier = Modifier.height(16.dp))
 
@@ -426,6 +432,15 @@ fun DetailScreenContent(
                             style = Typography.headlineLarge.copy(fontFamily = FontFamily.Monospace),
                             color = getNetHackColor(details.color),
                             modifier = Modifier.background(Black)
+                        )
+                    }
+
+                    if (details.headerSubtitle.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = details.headerSubtitle,
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
 

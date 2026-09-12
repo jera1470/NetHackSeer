@@ -10,6 +10,7 @@ import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import com.example.nethackseer.data.local.entity.PropertyEntity
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -62,7 +63,8 @@ data class ItemDetails(
     val damageLarge: String?,
     val charge: Boolean,
     val magic: Boolean,
-    val subCategory: String
+    val subCategory: String,
+    val headerSubtitle: String = ""
 )
 
 data class PropertyDetails(
@@ -402,6 +404,32 @@ class DetailViewModel(
         val damageSmall = if (item.smallDamage > 0) "1d${item.smallDamage}" else null
         val damageLarge = if (item.largeDamage > 0) "1d${item.largeDamage}" else null
 
+        val categoryDisplayName = getSymbolDisplayName(item.symbol)
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+
+        val formattedSubCategory = if (item.subCategory != "0" && item.subCategory.isNotEmpty() && item.subCategory != "P_NONE") {
+            item.subCategory
+                .removePrefix("-P_")
+                .removePrefix("P_")
+                .removePrefix("ARM_")
+                .lowercase()
+                .replace("_", " ") // e.g. P_PICK_AXE -> pick axe
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+        } else null
+
+        val headerSubtitle = buildString {
+            append(categoryDisplayName)
+            if (formattedSubCategory != null && !formattedSubCategory.equals(categoryDisplayName, ignoreCase = true)) {
+                append(" • Skill: $formattedSubCategory")
+            }
+            if (item.material.isNotEmpty() && item.material != "0") {
+                val matName = item.material.lowercase()
+                    .replace("_", " ")
+                    .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+                append("  |  $matName")
+            }
+        }
+
         return ItemDetails(
             name = item.name,
             description = item.description,
@@ -418,7 +446,8 @@ class DetailViewModel(
             damageLarge = damageLarge,
             charge = item.charge,
             magic = item.magicItem,
-            subCategory = item.subCategory
+            subCategory = item.subCategory,
+            headerSubtitle = headerSubtitle
         )
     }
 
