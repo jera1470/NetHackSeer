@@ -8,6 +8,7 @@ import com.example.nethackseer.data.local.entity.MonsterEntity
 import com.example.nethackseer.data.local.entity.PropertyEntity
 import com.example.nethackseer.ui.components.SearchResultItem
 import com.example.nethackseer.ui.utils.getDisplayChar
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 
@@ -49,7 +50,8 @@ class NetHackRepository(
                 monster.name.contains(trimmedQuery, ignoreCase = true) ||
                         monster.maleName?.contains(trimmedQuery, ignoreCase = true) == true ||
                         monster.femaleName?.contains(trimmedQuery, ignoreCase = true) == true ||
-                        getDisplayChar(monster.symbol).equals(trimmedQuery, ignoreCase = true)
+                        getDisplayChar(monster.symbol).equals(trimmedQuery, ignoreCase = true) ||
+                        getSymbolDisplayName(monster.symbol).contains(trimmedQuery, ignoreCase = true)
             }.map { monster ->
                 SearchResultItem(
                     name = monster.name,

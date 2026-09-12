@@ -1,11 +1,13 @@
 package com.example.nethackseer
 
 import com.google.gson.JsonParser
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
 
-// runs locally
+// Runs locally as a unit test
 class AssetJsonValidationTest {
 
     private fun getAssetFile(relativePath: String): File {
@@ -18,6 +20,7 @@ class AssetJsonValidationTest {
         throw AssertionError("Asset file not found at src/main/assets/$relativePath or app/src/main/assets/$relativePath")
     }
 
+    // Check if monsters500.json exists, is a valid array, and has valid monster fields
     @Test
     fun testMonsters500Json_isValid() {
         val file = getAssetFile("nethack_data/nethack500/monsters500.json")
@@ -40,18 +43,20 @@ class AssetJsonValidationTest {
         }
     }
 
+    // Check if gendered monster names (e.g. gnome ruler) exist in monsters500.json
     @Test
-    fun testMonsters500Json_genderedMonsterNames() {
+    fun testMonsters500Json_containsGenderedMonsterNames() {
         val file = getAssetFile("nethack_data/nethack500/monsters500.json")
         val jsonText = file.readText()
         val jsonArray = JsonParser.parseString(jsonText).asJsonArray
 
         val gnomeRuler = jsonArray.find { it.asJsonObject["name"].asString == "gnome ruler" }?.asJsonObject
-        assertTrue("gnome ruler should exist in monsters500.json", gnomeRuler != null)
-        assertTrue("gnome ruler should have male_name", gnomeRuler?.has("male_name") == true && gnomeRuler["male_name"].asString == "gnome king")
-        assertTrue("gnome ruler should have female_name", gnomeRuler?.has("female_name") == true && gnomeRuler["female_name"].asString == "gnome queen")
+        assertNotNull("gnome ruler should exist in monsters500.json", gnomeRuler)
+        assertEquals("gnome king", gnomeRuler?.get("male_name")?.asString)
+        assertEquals("gnome queen", gnomeRuler?.get("female_name")?.asString)
     }
 
+    // Check if objects500.json exists, is a valid array, and has valid item fields
     @Test
     fun testObjects500Json_isValid() {
         val file = getAssetFile("nethack_data/nethack500/objects500.json")
@@ -69,6 +74,26 @@ class AssetJsonValidationTest {
             assertTrue("Item entry should have name", obj.has("name") && !obj["name"].asString.isNullOrBlank())
             assertTrue("Item entry should have symbol", obj.has("symbol"))
             assertTrue("Item entry should have description", obj.has("description"))
+        }
+    }
+
+    // Check if properties.json exists, is a valid array, and has valid property fields
+    @Test
+    fun testPropertiesJson_isValid() {
+        val file = getAssetFile("nethack_data/properties.json")
+        assertTrue("properties.json should exist", file.exists())
+
+        val jsonText = file.readText()
+        val jsonElement = JsonParser.parseString(jsonText)
+        assertTrue("properties.json root should be a JSON array", jsonElement.isJsonArray)
+
+        val jsonArray = jsonElement.asJsonArray
+        assertTrue("properties.json should contain property entries", jsonArray.size() > 0)
+
+        for (element in jsonArray) {
+            val obj = element.asJsonObject
+            assertTrue("Property entry should have id", obj.has("id") && !obj["id"].asString.isNullOrBlank())
+            assertTrue("Property entry should have name", obj.has("name"))
         }
     }
 }

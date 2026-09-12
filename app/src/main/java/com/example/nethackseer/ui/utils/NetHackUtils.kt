@@ -150,9 +150,6 @@ fun cleanNetHackName(name: String): String {
         .replace("HI_GOLD", "gold")
 }
 
-/**
- * Maps item and monster class symbols to their human-readable names
- */
 fun getSymbolDisplayName(symbol: String): String {
     return when (symbol.uppercase()) {
         // Items
@@ -243,5 +240,48 @@ fun getSymbolDisplayName(symbol: String): String {
             }
             cleaned.lowercase().replace("_", " ")
         }
+    }
+}
+
+fun formatItemProperty(id: String): String {
+    return when (id.uppercase()) {
+        "FIRE_RES" -> "Fire resistance"
+        "COLD_RES" -> "Cold resistance"
+        "SLEEP_RES" -> "Sleep resistance"
+        "DISINT_RES" -> "Disintegration resistance"
+        "SHOCK_RES" -> "Shock resistance"
+        "POISON_RES" -> "Poison resistance"
+        "ACID_RES" -> "Acid resistance"
+        "DRAIN_RES" -> "Drain resistance"
+        "STONE_RES" -> "Stone resistance"
+        "ANTIMAGIC" -> "Antimagic"
+        "REFLECTING" -> "Reflection"
+        "TELEPAT" -> "Telepathy"
+        "INVIS" -> "Invisibility"
+        "DISPLACED" -> "Displacement"
+        "STEALTH" -> "Stealth"
+        "FAST" -> "Speed / Fast"
+        "LEVITATION" -> "Levitation"
+        "WWALKING" -> "Water walking"
+        "JUMPING" -> "Jumping"
+        "CLAIRVOYANT" -> "Clairvoyance"
+        "WARNING" -> "Warning"
+        "SEARCHING" -> "Searching"
+        "SEE_INVIS" -> "See invisible"
+        "TELEPORT" -> "Teleportation"
+        "TELEPORT_CNTRL" -> "Teleport control"
+        "POLYMORPH" -> "Polymorph"
+        "POLY_CONTROL" -> "Polymorph control"
+        "PROTECTION" -> "Protection"
+        "PROT_FROM_SHAPE_CHANGERS" -> "Protection from shape changers"
+        "AGGRAVATE_MONSTER" -> "Aggravate monster"
+        "CONFLICT" -> "Conflict"
+        "FUMBLING" -> "Fumbling"
+        "HUNGER" -> "Hunger"
+        "REGENERATION" -> "Regeneration"
+        "SLOW_DIGESTION" -> "Slow digestion"
+        "INFRAVISION" -> "Infravision"
+        "ADORNED" -> "Adornment"
+        else -> id.lowercase().replace("_", " ").replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
     }
 }
