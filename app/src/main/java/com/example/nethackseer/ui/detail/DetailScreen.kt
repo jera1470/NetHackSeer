@@ -452,7 +452,7 @@ fun DetailScreenContent(
                             StatBox("Value", "${details.value}")
                             StatBox("Material", details.material)
                             if (details.probabilityText != null) {
-                                StatBox("Prob.", details.probabilityText)
+                                StatBox("Rel. Prob.", details.probabilityText)
                             }
                             if (details.delay != null && details.delay > 0) {
                                 // just in case something was missed
@@ -466,7 +466,7 @@ fun DetailScreenContent(
                         Spacer(modifier = Modifier.width(8.dp))
 
                         Column(modifier = Modifier.weight(1f)) {
-                            if (details.ac != null) {
+                            if (details.ac != null && details.symbol == "ARMOR_CLASS") {
                                 StatBox("Base AC", details.ac)
                             }
                             if (details.mc != null && details.mc > 0) {
@@ -491,36 +491,88 @@ fun DetailScreenContent(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(24.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
 
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth(0.85f)
-                    ) {
-                        Text(
-                            text = "An ${details.name} is:",
-                            style = Typography.titleMedium,
-                            color = DarkRed,
-                            fontWeight = FontWeight.Bold
-                        )
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(vertical = 2.dp),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .padding(12.dp)
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = "Properties Conferred",
+                                    style = Typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
 
-                        val infoPoints = mutableListOf<String>()
-                        if (details.magic) infoPoints.add("a magical item.")
-                        if (details.charge) infoPoints.add("can be charged or enchanted.")
-
-                        if (details.propertyIds.isNotEmpty()) {
-                            details.propertyIds.forEach { id ->
-                                infoPoints.add("Intrinsic/Extrinsic: $id")
+                                if (details.conferredProperties.isEmpty()) {
+                                    Text(
+                                        text = "None",
+                                        style = Typography.bodyMedium,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                } else {
+                                    details.conferredProperties.forEach { prop ->
+                                        Text(
+                                            text = prop,
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            textAlign = TextAlign.Center,
+                                            modifier = Modifier.padding(vertical = 1.dp)
+                                        )
+                                    }
+                                }
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.width(8.dp))
 
-                        if (infoPoints.isEmpty()) {
-                            Text("None...", style = Typography.bodyMedium)
-                        } else {
-                            infoPoints.forEach { point ->
-                                PropertyBullet(point)
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(vertical = 2.dp),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .padding(12.dp)
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = "Capabilities",
+                                    style = Typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
+
+                                if (details.capabilities.isEmpty()) {
+                                    Text(
+                                        text = "None",
+                                        style = Typography.bodyMedium,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                } else {
+                                    details.capabilities.forEach { cap ->
+                                        Text(
+                                            text = cap,
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            textAlign = TextAlign.Center,
+                                            modifier = Modifier.padding(vertical = 1.dp)
+                                        )
+                                    }
+                                }
                             }
                         }
                     }

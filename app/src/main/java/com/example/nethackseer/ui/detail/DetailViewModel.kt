@@ -10,6 +10,7 @@ import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import com.example.nethackseer.data.local.entity.PropertyEntity
+import com.example.nethackseer.ui.utils.formatItemProperty
 import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -70,7 +71,9 @@ data class ItemDetails(
     val delayLabel: String = "Delay",
     val hitBonus: Int? = null,
     val spellLevel: Int? = null,
-    val zapDirectionText: String? = null
+    val zapDirectionText: String? = null,
+    val conferredProperties: List<String> = emptyList(),
+    val capabilities: List<String> = emptyList()
 )
 
 data class PropertyDetails(
@@ -403,9 +406,7 @@ class DetailViewModel(
     }
 
     private fun mapToItemDetails(item: ItemEntity): ItemDetails {
-        val acText = if (item.ac != 0 || item.symbol == "ARMOR_CLASS") {
-            "${10 - item.ac}"
-        } else null
+        val acText = "${item.ac}"
 
         val damageSmall = if (item.smallDamage > 0) "1d${item.smallDamage}" else null
         val damageLarge = if (item.largeDamage > 0) "1d${item.largeDamage}" else null
@@ -459,10 +460,28 @@ class DetailViewModel(
             else -> "Delay"
         }
 
+        val conferredProperties = if (item.property != "0" && item.property.isNotEmpty() && item.property != "null") {
+            item.property.split("|").map { formatItemProperty(it.trim()) }
+        } else {
+            emptyList()
+        }
+
+        val capabilities = mutableListOf<String>()
+        if (item.magicItem) capabilities.add("Magical item")
+        if (item.charge) capabilities.add("Chargeable / Enchantable")
+        if (item.merge) capabilities.add("Stackable")
+        if (item.unique) capabilities.add("Unique")
+        if (item.tough) capabilities.add("Immune to destruction")
+        if (item.notWish) capabilities.add("Cannot be wished for")
+
+        val formattedMaterial = if (item.material.isNotEmpty() && item.material != "0") {
+            item.material.lowercase().replace("_", " ").replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+        } else "Unknown"
+
         return ItemDetails(
             name = item.name,
             description = item.description,
-            material = item.material.lowercase().replaceFirstChar { it.uppercase() },
+            material = formattedMaterial,
             weight = item.weight,
             value = item.value,
             symbol = item.symbol,
@@ -482,7 +501,9 @@ class DetailViewModel(
             delayLabel = delayLabel,
             hitBonus = if (item.hitBonus != 0) item.hitBonus else null,
             spellLevel = if (item.spellLevel > 0) item.spellLevel else null,
-            zapDirectionText = zapDirectionText
+            zapDirectionText = zapDirectionText,
+            conferredProperties = conferredProperties,
+            capabilities = capabilities
         )
     }
 
