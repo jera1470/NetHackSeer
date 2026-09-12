@@ -451,8 +451,14 @@ fun DetailScreenContent(
                             StatBox("Weight", "${details.weight}")
                             StatBox("Value", "${details.value}")
                             StatBox("Material", details.material)
-                            if (details.nutrition != null) {
-                                StatBox("Nutrition", "${details.nutrition}")
+                            if (details.probabilityText != null) {
+                                StatBox("Prob.", details.probabilityText)
+                            }
+                            if (details.delay != null && details.delay > 0) {
+                                StatBox("Delay", "${details.delay} turn${if (details.delay > 1) "s" else ""}")
+                            }
+                            if (details.nutrition != null && details.nutrition > 0) {
+                                StatBox("Nutr", "${details.nutrition}")
                             }
                         }
 
@@ -462,7 +468,7 @@ fun DetailScreenContent(
                             if (details.ac != null) {
                                 StatBox("Base AC", details.ac)
                             }
-                            if (details.mc != null) {
+                            if (details.mc != null && details.mc > 0) {
                                 StatBox("MC", "MC${details.mc}")
                             }
                             if (details.damageSmall != null) {
@@ -470,6 +476,16 @@ fun DetailScreenContent(
                             }
                             if (details.damageLarge != null) {
                                 StatBox("Dmg (L)", details.damageLarge)
+                            }
+                            if (details.hitBonus != null && details.hitBonus != 0) {
+                                val sign = if (details.hitBonus > 0) "+" else ""
+                                StatBox("To-Hit", "$sign${details.hitBonus}")
+                            }
+                            if (details.spellLevel != null && details.spellLevel > 0) {
+                                StatBox("Spell Lvl", "Lvl ${details.spellLevel}")
+                            }
+                            if (details.zapDirectionText != null) {
+                                StatBox("Zap Dir", details.zapDirectionText)
                             }
                         }
                     }

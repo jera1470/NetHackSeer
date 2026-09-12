@@ -64,7 +64,12 @@ data class ItemDetails(
     val charge: Boolean,
     val magic: Boolean,
     val subCategory: String,
-    val headerSubtitle: String = ""
+    val headerSubtitle: String = "",
+    val probabilityText: String? = null,
+    val delay: Int? = null,
+    val hitBonus: Int? = null,
+    val spellLevel: Int? = null,
+    val zapDirectionText: String? = null
 )
 
 data class PropertyDetails(
@@ -417,10 +422,13 @@ class DetailViewModel(
                 .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
         } else null
 
+        val isArmor = item.symbol == "ARMOR_CLASS" || item.subCategory.startsWith("ARM_")
+        val subCategoryLabel = if (isArmor) "Slot" else "Skill"
+
         val headerSubtitle = buildString {
             append(categoryDisplayName)
             if (formattedSubCategory != null && !formattedSubCategory.equals(categoryDisplayName, ignoreCase = true)) {
-                append(" • Skill: $formattedSubCategory")
+                append(" • $subCategoryLabel: $formattedSubCategory")
             }
             if (item.material.isNotEmpty() && item.material != "0") {
                 val matName = item.material.lowercase()
@@ -428,6 +436,18 @@ class DetailViewModel(
                     .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
                 append("  |  $matName")
             }
+        }
+
+        val probabilityText = if (item.probability > 0) {
+            val perc = item.probability / 10.0
+            "$perc%"
+        } else null
+
+        val zapDirectionText = when (item.zapDirection) {
+            "RAY" -> "Beam / Ray"
+            "IMMEDIATE" -> "Immediate"
+            "NODIR" -> "No Direction"
+            else -> if (item.zapDirection != "0" && item.zapDirection.isNotEmpty()) item.zapDirection else null
         }
 
         return ItemDetails(
@@ -447,7 +467,12 @@ class DetailViewModel(
             charge = item.charge,
             magic = item.magicItem,
             subCategory = item.subCategory,
-            headerSubtitle = headerSubtitle
+            headerSubtitle = headerSubtitle,
+            probabilityText = probabilityText,
+            delay = if (item.delay > 0) item.delay else null,
+            hitBonus = if (item.hitBonus != 0) item.hitBonus else null,
+            spellLevel = if (item.spellLevel > 0) item.spellLevel else null,
+            zapDirectionText = zapDirectionText
         )
     }
 
