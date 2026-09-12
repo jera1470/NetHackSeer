@@ -455,7 +455,8 @@ fun DetailScreenContent(
                                 StatBox("Prob.", details.probabilityText)
                             }
                             if (details.delay != null && details.delay > 0) {
-                                StatBox("Delay", "${details.delay} turn${if (details.delay > 1) "s" else ""}")
+                                // just in case something was missed
+                                StatBox(details.delayLabel, "${details.delay} turn${if (details.delay > 1) "s" else ""}")
                             }
                             if (details.nutrition != null && details.nutrition > 0) {
                                 StatBox("Nutr", "${details.nutrition}")

@@ -67,6 +67,7 @@ data class ItemDetails(
     val headerSubtitle: String = "",
     val probabilityText: String? = null,
     val delay: Int? = null,
+    val delayLabel: String = "Delay",
     val hitBonus: Int? = null,
     val spellLevel: Int? = null,
     val zapDirectionText: String? = null
@@ -450,6 +451,14 @@ class DetailViewModel(
             else -> if (item.zapDirection != "0" && item.zapDirection.isNotEmpty()) item.zapDirection else null
         }
 
+        val delayLabel = when (item.symbol) {
+            "ARMOR_CLASS" -> "Equip Delay"
+            "FOOD_CLASS" -> "Eat Time"
+            "TOOL_CLASS" -> "Use Delay"
+            "SPBOOK_CLASS" -> "Read Time"
+            else -> "Delay"
+        }
+
         return ItemDetails(
             name = item.name,
             description = item.description,
@@ -470,6 +479,7 @@ class DetailViewModel(
             headerSubtitle = headerSubtitle,
             probabilityText = probabilityText,
             delay = if (item.delay > 0) item.delay else null,
+            delayLabel = delayLabel,
             hitBonus = if (item.hitBonus != 0) item.hitBonus else null,
             spellLevel = if (item.spellLevel > 0) item.spellLevel else null,
             zapDirectionText = zapDirectionText
