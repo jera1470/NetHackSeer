@@ -4,14 +4,14 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * An entity representing a property in the database (e.g., M1_ANIMAL, MR_FIRE).
+ * An entity representing a property in the database.
  */
 @Entity(tableName = "properties")
 data class PropertyEntity(
     @PrimaryKey
     val id: String, // e.g., "M1_ANIMAL" or "MR_FIRE"
-    val name: String, // more descriptive name, e.g., "Animal" or "Fire resistance"
-    val type: String, // what is the flag about?
+    val name: String,
+    val type: String,
     val description: String, // long description for glossary stuff
-    val summary: String // short summary of the property
+    val summary: String // short summary of the property, used in bullet points
 )
