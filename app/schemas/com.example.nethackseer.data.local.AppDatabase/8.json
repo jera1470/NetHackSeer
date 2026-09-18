@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 8,
-    "identityHash": "61564d1c4df8e43c5126d775d40f490c",
+    "identityHash": "95645481ee848550cdac03947d15b903",
     "entities": [
       {
         "tableName": "monsters",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `symbol` TEXT NOT NULL, `level` INTEGER NOT NULL, `moveRate` INTEGER NOT NULL, `ac` INTEGER NOT NULL, `mr` INTEGER NOT NULL, `alignment` INTEGER NOT NULL, `genoFlags` TEXT NOT NULL, `attack1` TEXT NOT NULL, `attack2` TEXT NOT NULL, `attack3` TEXT NOT NULL, `attack4` TEXT NOT NULL, `attack5` TEXT NOT NULL, `attack6` TEXT NOT NULL, `weight` INTEGER NOT NULL, `nutritionValue` INTEGER NOT NULL, `sound` TEXT NOT NULL, `size` TEXT NOT NULL, `resistances` TEXT NOT NULL, `resistancesConferred` TEXT NOT NULL, `m1Flags` TEXT NOT NULL, `m2Flags` TEXT NOT NULL, `m3Flags` TEXT NOT NULL, `difficulty` INTEGER NOT NULL, `color` TEXT NOT NULL, `maleName` TEXT, `femaleName` TEXT, PRIMARY KEY(`name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `symbol` TEXT NOT NULL, `level` INTEGER NOT NULL, `moveRate` INTEGER NOT NULL, `ac` INTEGER NOT NULL, `mr` INTEGER NOT NULL, `alignment` INTEGER NOT NULL, `genoFlags` TEXT NOT NULL, `attack1` TEXT NOT NULL, `attack2` TEXT NOT NULL, `attack3` TEXT NOT NULL, `attack4` TEXT NOT NULL, `attack5` TEXT NOT NULL, `attack6` TEXT NOT NULL, `weight` INTEGER NOT NULL, `nutritionValue` INTEGER NOT NULL, `sound` TEXT NOT NULL, `size` TEXT NOT NULL, `resistances` TEXT NOT NULL, `resistancesConferred` TEXT NOT NULL, `m1Flags` TEXT NOT NULL, `m2Flags` TEXT NOT NULL, `m3Flags` TEXT NOT NULL, `difficulty` INTEGER NOT NULL, `color` TEXT NOT NULL, `maleName` TEXT, `femaleName` TEXT, `corpseEffects` TEXT NOT NULL, `extraEffects` TEXT NOT NULL, PRIMARY KEY(`name`))",
         "fields": [
           {
             "fieldPath": "name",
@@ -167,6 +167,18 @@
             "fieldPath": "femaleName",
             "columnName": "femaleName",
             "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "corpseEffects",
+            "columnName": "corpseEffects",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extraEffects",
+            "columnName": "extraEffects",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -388,7 +400,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '61564d1c4df8e43c5126d775d40f490c')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '95645481ee848550cdac03947d15b903')"
     ]
   }
 }

@@ -733,7 +733,7 @@
     "name": "wanderer",
     "type": "behavioral",
     "description": "The monster is restless and wanders aimlessly.",
-    "summary": "wanders aimlessly"
+    "summary": "wanders aimlessly."
   },
   {
     "id": "M2_STALK",
@@ -860,6 +860,27 @@
     "type": "tactical",
     "description": "The monster is infravisible to the hero.",
     "summary": "is infravisible."
+  },
+  {
+    "id": "M3_COVETOUS",
+    "name": "covetous",
+    "type": "tactical",
+    "description": "The monster covets and would like to steal any major artifact.",
+    "summary": "wants any major artifact."
+  },
+  {
+    "id": "M3_WAITMASK",
+    "name": "waits or closes",
+    "type": "tactical",
+    "description": "The monster waits to see you or draw near unless attacked.",
+    "summary": "waits for you."
+  },
+  {
+    "id": "M3_DISPLACES",
+    "name": "displaces",
+    "type": "tactical",
+    "description": "The monster moves other monsters out of its way.",
+    "summary": "displaces other monsters."
   },
   {
     "id": "MZ_TINY",
@@ -1057,7 +1078,7 @@
   },
   {
     "id": "AT_MAGC",
-    "name": "magic",
+    "name": "spell cast",
     "type": "attack type",
     "description": "Attack type that uses magic on target."
   },
@@ -1243,7 +1264,7 @@
   },
   {
     "id": "AD_DRIN",
-    "name": "intelligence drain",
+    "name": "int drain",
     "type": "damage type",
     "description": "Damage type that can drain intelligence, potentially making target brainless."
   },
@@ -1279,13 +1300,13 @@
   },
   {
     "id": "AD_PEST",
-    "name": "pestilence attack",
+    "name": "disease",
     "type": "damage type",
     "description": "Damage type that causes major illness to target."
   },
   {
     "id": "AD_FAMN",
-    "name": "famine attack",
+    "name": "hungering",
     "type": "damage type",
     "description": "Damage type that causes hunger to target."
   },
@@ -1315,13 +1336,13 @@
   },
   {
     "id": "AD_CLRC",
-    "name": "clerical spell",
+    "name": "clerical",
     "type": "damage type",
     "description": "Damage type that attempts to cast clerical spells on hero."
   },
   {
     "id": "AD_SPEL",
-    "name": "mage spell",
+    "name": "mage",
     "type": "damage type",
     "description": "Damage type that attempts to cast mage spells on hero."
   },

@@ -51,5 +51,7 @@ data class MonsterEntity(
     val difficulty: Int,
     val color: String,
     val maleName: String? = null,
-    val femaleName: String? = null
+    val femaleName: String? = null,
+    val corpseEffects: String = "0",
+    val extraEffects: String = "0"
 )
