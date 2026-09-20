@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.Flow
 
 /**
  * The data access object for the NetHack monsters.
- * Defines database interactions (queries, inserts, updates, etc.)
  *
  * @see MonsterEntity
  */
@@ -19,7 +18,7 @@ interface MonsterDao {
     /**
      * Inserts a list of MonsterEntity objects into the database.
      * If an entity has the same primary key already, then it will be replaced.
-     * Must be called from a coroutine or another suspend function
+     * Must be called from a coroutine or another suspend function.
      *
      * @param entities the list of MonsterEntity objects to insert
      */
@@ -41,7 +40,7 @@ interface MonsterDao {
     fun getAllNames(): Flow<List<String>>
 
     /**
-     * Selects monsters based on query given and returns all entities with that given query
+     * Selects monsters based on query given and returns all entities with that given query.
      *
      * @param query the query to search for
      * @return a Flow of a list of MonsterEntity objects with the given query
@@ -51,7 +50,6 @@ interface MonsterDao {
 
     /**
      * Selects and returns the MonsterEntity object with the given name.
-     * If no entity is found, returns null.
      *
      * @param name the name of the MonsterEntity object to select
      * @return a Flow of the MonsterEntity object with the given name, or null if not found

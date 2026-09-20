@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.Flow
 
 /**
  * The data access object for the NetHack objects.
- * Defines database interactions like with MonsterDao.
  *
  * @see ItemEntity
  */

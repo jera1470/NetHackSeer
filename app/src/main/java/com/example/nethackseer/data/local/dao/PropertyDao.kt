@@ -8,7 +8,7 @@ import com.example.nethackseer.data.local.entity.PropertyEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Data access object for the properties table in the database.
+ * The data access object for the NetHack properties.
  *
  * @see PropertyEntity
  */

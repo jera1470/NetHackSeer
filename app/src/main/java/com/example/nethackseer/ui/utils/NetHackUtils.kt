@@ -4,7 +4,6 @@ import androidx.compose.ui.graphics.Color
 
 fun getDisplayChar(symbol: String): String {
     return when (symbol) {
-        // Monsters
         "S_ANT" -> "a"
         "S_BLOB" -> "b"
         "S_COCKATRICE" -> "c"
@@ -62,8 +61,7 @@ fun getDisplayChar(symbol: String): String {
         "S_DEMON" -> "&"
         "S_EEL" -> ";"
         "S_LIZARD" -> ":"
-        
-        // Items
+
         "ILLOBJ_CLASS" -> " "
         "WEAPON_CLASS" -> ")"
         "ARMOR_CLASS" -> "["
@@ -88,7 +86,7 @@ fun getDisplayChar(symbol: String): String {
 
 fun getNetHackColor(color: String): Color {
     return when (color.uppercase()) {
-        "BLACK", "CLR_BLACK" -> Color(0xFF333333) // Slightly lighter than pure black for visibility
+        "BLACK", "CLR_BLACK" -> Color(0xFF333333) // slightly lighter than pure black for visibility
         "RED", "CLR_RED" -> Color(0xFFAA0000)
         "GREEN", "CLR_GREEN" -> Color(0xFF00AA00)
         "BROWN", "CLR_BROWN" -> Color(0xFFAA5500)
@@ -96,7 +94,7 @@ fun getNetHackColor(color: String): Color {
         "MAGENTA", "CLR_MAGENTA" -> Color(0xFFAA00AA)
         "CYAN", "CLR_CYAN" -> Color(0xFF00AAAA)
         "GRAY", "CLR_GRAY" -> Color(0xFFAAAAAA)
-        "NO_COLOR" -> Color(0xFFAAAAAA)        // Default to Gray cause yeah
+        "NO_COLOR" -> Color(0xFFAAAAAA)        // default to gray cause yeah...
         "ORANGE", "CLR_ORANGE" -> Color(0xFFFF5555)
         "BRIGHT_GREEN", "CLR_BRIGHT_GREEN" -> Color(0xFF55FF55)
         "YELLOW", "CLR_YELLOW" -> Color(0xFFFFFF55)
@@ -106,7 +104,7 @@ fun getNetHackColor(color: String): Color {
         "WHITE", "CLR_WHITE" -> Color(0xFFFFFFFF)
         "BRIGHT_RED", "CLR_BRIGHT_RED" -> Color(0xFFFF5555)
         
-        // NetHack specific color macros from color.h
+        // netHack specific color macros from color.h
         "HI_OBJ" -> Color(0xFFAA00AA)         // CLR_MAGENTA
         "HI_METAL" -> Color(0xFF00AAAA)       // CLR_CYAN
         "HI_COPPER" -> Color(0xFFFFFF55)      // CLR_YELLOW
@@ -152,7 +150,6 @@ fun cleanNetHackName(name: String): String {
 
 fun getSymbolDisplayName(symbol: String): String {
     return when (symbol.uppercase()) {
-        // Items
         "WEAPON_CLASS" -> "weapon"
         "ARMOR_CLASS" -> "armor"
         "RING_CLASS" -> "ring"
@@ -171,7 +168,6 @@ fun getSymbolDisplayName(symbol: String): String {
         "VENOM_CLASS" -> "venom"
         "ILLOBJ_CLASS" -> "illegal object"
 
-        // monsters
         "S_ANT" -> "ant / insect"
         "S_BLOB" -> "blob"
         "S_COCKATRICE" -> "cockatrice"

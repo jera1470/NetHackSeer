@@ -81,7 +81,6 @@ class TypeListViewModel(
         _searchQuery.value = newQuery
     }
 
-    // factory for creating the viewmodel with repository
     companion object {
         fun Factory(repository: NetHackRepository): ViewModelProvider.Factory =
             object : ViewModelProvider.Factory {

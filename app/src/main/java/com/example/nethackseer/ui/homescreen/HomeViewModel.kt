@@ -20,11 +20,6 @@ data class PageOfTheDay(
     val type: String // "monster", "item", or "property"
 )
 
-/**
- * View model for the home screen.
- *
- * @property repository The repository for the home screen.
- */
 class HomeViewModel(private val repository: NetHackRepository) : ViewModel() {
     // will make this better in the future
     private val _pageOfTheDay = MutableStateFlow<PageOfTheDay?>(null)
@@ -48,7 +43,7 @@ class HomeViewModel(private val repository: NetHackRepository) : ViewModel() {
     }
 
     init {
-        // Coroutine for the viewModelScope. Automatically canceled when ViewModel is cleared
+        // coroutine for the viewModelScope, automatically canceled when ViewModel is cleared
         viewModelScope.launch {
             val allNames = repository.allNames.first()
             if (allNames.isNotEmpty()) {
@@ -74,7 +69,7 @@ class HomeViewModel(private val repository: NetHackRepository) : ViewModel() {
 class HomeViewModelFactory(private val repository: NetHackRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            // Suppressing this since we know this must be a HomeViewModel from isAssignableFrom()
+            // suppressing this since we know this must be a HomeViewModel from isAssignableFrom()
             @Suppress("UNCHECKED_CAST")
             return HomeViewModel(repository) as T
         }

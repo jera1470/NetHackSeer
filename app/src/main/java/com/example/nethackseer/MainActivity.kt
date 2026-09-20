@@ -14,9 +14,6 @@ import com.example.nethackseer.ui.homescreen.HomeViewModelFactory
 import com.example.nethackseer.ui.navigation.AppNavigation
 import com.example.nethackseer.ui.theme.NetHackSeerTheme
 
-/**
- * Called when the activity is first created.
- */
 class MainActivity : ComponentActivity() {
     // if the activity is being re-initialized after
     // previously being shut down then this Bundle contains

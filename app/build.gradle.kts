@@ -45,9 +45,9 @@ kotlin {
 }
 
 dependencies {
-    val lifecyclever = "2.10.0"
-    val navVer = "2.9.8"
-    val roomVer = "2.8.4"
+    val lifecyclever = "2.11.0"
+    val navVer = "2.10.1"
+    val roomVer = "2.8.5"
     val gson = "2.14.0"
 
     // ViewModel
@@ -72,7 +72,6 @@ dependencies {
     ksp("androidx.room:room-compiler:${roomVer}")
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -84,7 +83,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
