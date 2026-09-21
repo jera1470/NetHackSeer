@@ -1,0 +1,503 @@
+[
+  {
+    "name": "Excalibur",
+    "baseItem": "long sword",
+    "alignment": "Lawful",
+    "role": "Knight",
+    "wieldedProperties": [
+      "SEARCHING",
+      "STEALTH",
+      "DRAIN_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "1d10",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Stormbringer",
+    "baseItem": "runesword",
+    "alignment": "Chaotic",
+    "role": null,
+    "wieldedProperties": [
+      "DRAIN_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "1d2",
+    "attackTypeModifier": "AD_DRLI",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Mjollnir",
+    "baseItem": "war hammer",
+    "alignment": "Neutral",
+    "role": "Valkyrie",
+    "wieldedProperties": [
+      "SHOCK_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "1d24",
+    "attackTypeModifier": "AD_ELEC",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Cleaver",
+    "baseItem": "battle-axe",
+    "alignment": "Neutral",
+    "role": "Barbarian",
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 3,
+    "attackModifier": "1d6",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Grimtooth",
+    "baseItem": "orcish dagger",
+    "alignment": "Chaotic",
+    "role": null,
+    "wieldedProperties": [
+      "POISON_RES",
+      "WARN_OF_MON"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 2,
+    "attackModifier": "1d6",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": "FLING_POISON"
+  },
+  {
+    "name": "Orcrist",
+    "baseItem": "elven broadsword",
+    "alignment": "Chaotic",
+    "role": null,
+    "wieldedProperties": [
+      "WARN_OF_MON"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "orc",
+    "invokedPower": null
+  },
+  {
+    "name": "Sting",
+    "baseItem": "elven dagger",
+    "alignment": "Chaotic",
+    "role": null,
+    "wieldedProperties": [
+      "WARN_OF_MON"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "orc",
+    "invokedPower": null
+  },
+  {
+    "name": "Magicbane",
+    "baseItem": "athame",
+    "alignment": "Neutral",
+    "role": "Wizard",
+    "wieldedProperties": [
+      "ANTIMAGIC"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 3,
+    "attackModifier": "1d4",
+    "attackTypeModifier": "AD_STUN",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Frost Brand",
+    "baseItem": "long sword",
+    "alignment": "Unaligned",
+    "role": null,
+    "wieldedProperties": [
+      "COLD_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_COLD",
+    "damageTarget": "non-cold resistant monsters",
+    "invokedPower": "SNOWSTORM"
+  },
+  {
+    "name": "Fire Brand",
+    "baseItem": "long sword",
+    "alignment": "Unaligned",
+    "role": null,
+    "wieldedProperties": [
+      "FIRE_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_FIRE",
+    "damageTarget": "non-fire resistant monsters",
+    "invokedPower": "FIRESTORM"
+  },
+  {
+    "name": "Dragonbane",
+    "baseItem": "broadsword",
+    "alignment": "Unaligned",
+    "role": null,
+    "wieldedProperties": [
+      "REFLECTING"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "dragon",
+    "invokedPower": null
+  },
+  {
+    "name": "Demonbane",
+    "baseItem": "silver mace",
+    "alignment": "Lawful",
+    "role": "Priest",
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "demon",
+    "invokedPower": "BANISH"
+  },
+  {
+    "name": "Werebane",
+    "baseItem": "silver saber",
+    "alignment": "Unaligned",
+    "role": null,
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "were",
+    "invokedPower": null
+  },
+  {
+    "name": "Grayswandir",
+    "baseItem": "silver saber",
+    "alignment": "Lawful",
+    "role": null,
+    "wieldedProperties": [
+      "HALLUC_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Giantslayer",
+    "baseItem": "long sword",
+    "alignment": "Neutral",
+    "role": null,
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "giant",
+    "invokedPower": null
+  },
+  {
+    "name": "Ogresmasher",
+    "baseItem": "war hammer",
+    "alignment": "Unaligned",
+    "role": null,
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "ogre",
+    "invokedPower": null
+  },
+  {
+    "name": "Trollsbane",
+    "baseItem": "morning star",
+    "alignment": "Unaligned",
+    "role": null,
+    "wieldedProperties": [
+      "REGENERATION"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "troll",
+    "invokedPower": null
+  },
+  {
+    "name": "Vorpal Blade",
+    "baseItem": "long sword",
+    "alignment": "Neutral",
+    "role": null,
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "+1",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "creatures with heads",
+    "invokedPower": null
+  },
+  {
+    "name": "Snickersnee",
+    "baseItem": "katana",
+    "alignment": "Lawful",
+    "role": "Samurai",
+    "wieldedProperties": [],
+    "carriedProperties": [],
+    "attackToHitBonus": 0,
+    "attackModifier": "1d8",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "Sunsword",
+    "baseItem": "long sword",
+    "alignment": "Lawful",
+    "role": null,
+    "wieldedProperties": [
+      "BLND_RES"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "undead",
+    "invokedPower": "BLINDING_RAY"
+  },
+  {
+    "name": "The Orb of Detection",
+    "baseItem": "crystal ball",
+    "alignment": "Lawful",
+    "role": "Archeologist",
+    "wieldedProperties": [],
+    "carriedProperties": [
+      "TELEPAT",
+      "HALF_SPDAM",
+      "ANTIMAGIC"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "INVIS"
+  },
+  {
+    "name": "The Heart of Ahriman",
+    "baseItem": "luckstone",
+    "alignment": "Neutral",
+    "role": "Barbarian",
+    "wieldedProperties": [],
+    "carriedProperties": [
+      "STEALTH"
+    ],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage (thrown)",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": "LEVITATION"
+  },
+  {
+    "name": "The Sceptre of Might",
+    "baseItem": "mace",
+    "alignment": "Lawful",
+    "role": "Caveman",
+    "wieldedProperties": [
+      "ANTIMAGIC"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": "non-lawful monsters",
+    "invokedPower": "CONFLICT"
+  },
+  {
+    "name": "The Staff of Aesculapius",
+    "baseItem": "quarterstaff",
+    "alignment": "Neutral",
+    "role": "Healer",
+    "wieldedProperties": [
+      "DRAIN_RES",
+      "REGENERATION"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 0,
+    "attackModifier": "level drain",
+    "attackTypeModifier": "AD_DRLI",
+    "damageTarget": null,
+    "invokedPower": "HEALING"
+  },
+  {
+    "name": "The Magic Mirror of Merlin",
+    "baseItem": "mirror",
+    "alignment": "Lawful",
+    "role": "Knight",
+    "wieldedProperties": [],
+    "carriedProperties": [
+      "TELEPAT",
+      "ANTIMAGIC"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "The Eyes of the Overworld",
+    "baseItem": "lenses",
+    "alignment": "Neutral",
+    "role": "Monk",
+    "wieldedProperties": [
+      "ANTIMAGIC"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "ENLIGHTENING"
+  },
+  {
+    "name": "The Mitre of Holiness",
+    "baseItem": "helm of brilliance",
+    "alignment": "Lawful",
+    "role": "Priest",
+    "wieldedProperties": [
+      "PROTECTION"
+    ],
+    "carriedProperties": [
+      "FIRE_RES"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "ENERGY_BOOST"
+  },
+  {
+    "name": "The Longbow of Diana",
+    "baseItem": "bow",
+    "alignment": "Chaotic",
+    "role": "Ranger",
+    "wieldedProperties": [
+      "REFLECTING"
+    ],
+    "carriedProperties": [
+      "TELEPAT"
+    ],
+    "attackToHitBonus": 5,
+    "attackModifier": "double damage (arrows)",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": "CREATE_AMMO"
+  },
+  {
+    "name": "The Master Key of Thievery",
+    "baseItem": "skeleton key",
+    "alignment": "Chaotic",
+    "role": "Rogue",
+    "wieldedProperties": [],
+    "carriedProperties": [
+      "WARNING",
+      "TELEPORT_CONTROL",
+      "HALF_PHDAM"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "UNTRAP"
+  },
+  {
+    "name": "The Tsurugi of Muramasa",
+    "baseItem": "tsurugi",
+    "alignment": "Lawful",
+    "role": "Samurai",
+    "wieldedProperties": [
+      "PROTECTION"
+    ],
+    "carriedProperties": [],
+    "attackToHitBonus": 0,
+    "attackModifier": "1d8",
+    "attackTypeModifier": "AD_PHYS",
+    "damageTarget": null,
+    "invokedPower": null
+  },
+  {
+    "name": "The Platinum Yendorian Express Card",
+    "baseItem": "credit card",
+    "alignment": "Neutral",
+    "role": "Tourist",
+    "wieldedProperties": [],
+    "carriedProperties": [
+      "TELEPAT",
+      "HALF_SPDAM",
+      "ANTIMAGIC"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "CHARGE_OBJ"
+  },
+  {
+    "name": "The Orb of Fate",
+    "baseItem": "crystal ball",
+    "alignment": "Neutral",
+    "role": "Valkyrie",
+    "wieldedProperties": [],
+    "carriedProperties": [
+      "WARNING",
+      "HALF_SPDAM",
+      "HALF_PHDAM"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "LEV_TELE"
+  },
+  {
+    "name": "The Eye of the Aethiopica",
+    "baseItem": "amulet of esp",
+    "alignment": "Neutral",
+    "role": "Wizard",
+    "wieldedProperties": [
+      "ANTIMAGIC"
+    ],
+    "carriedProperties": [
+      "ENERGY_REGENERATION",
+      "HALF_SPDAM"
+    ],
+    "attackToHitBonus": null,
+    "attackModifier": null,
+    "attackTypeModifier": null,
+    "damageTarget": null,
+    "invokedPower": "CREATE_PORTAL"
+  }
+]
