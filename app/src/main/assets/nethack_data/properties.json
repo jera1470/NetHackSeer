@@ -246,104 +246,6 @@
     "description": "The monster boasts, as a giant."
   },
   {
-    "id": "MR_FIRE",
-    "name": "fire resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to fire.",
-    "summary": "fire"
-  },
-  {
-    "id": "MR_COLD",
-    "name": "cold resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to cold.",
-    "summary": "cold"
-  },
-  {
-    "id": "MR_SLEEP",
-    "name": "sleep resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to sleep.",
-    "summary": "sleep"
-  },
-  {
-    "id": "MR_DISINT",
-    "name": "disintegration resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to disintegration.",
-    "summary": "disintegration"
-  },
-  {
-    "id": "MR_ELEC",
-    "name": "shock resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to shock.",
-    "summary": "shock"
-  },
-  {
-    "id": "MR_POISON",
-    "name": "poison resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to poison.",
-    "summary": "poison"
-  },
-  {
-    "id": "MR_ACID",
-    "name": "acid resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to acid.",
-    "summary": "acid"
-  },
-  {
-    "id": "MR_STONE",
-    "name": "stoning resistance",
-    "type": "resistance",
-    "description": "The monster is resistant to stoning.",
-    "summary": "stone"
-  },
-  {
-    "id": "MR2_SEE_INVIS",
-    "name": "hero see invisible",
-    "type": "hero resistance",
-    "description": "The hero can see invisible."
-  },
-  {
-    "id": "MR2_LEVITATE",
-    "name": "hero levitate",
-    "type": "hero resistance",
-    "description": "The hero is levitating."
-  },
-  {
-    "id": "MR2_WATERWALK",
-    "name": "hero water walk",
-    "type": "hero resistance",
-    "description": "The hero can walk on water."
-  },
-  {
-    "id": "MR2_MAGBREATH",
-    "name": "hero magical breathing",
-    "type": "hero resistance",
-    "description": "The hero can breathe in any environment."
-  },
-  {
-    "id": "MR2_DISPLACED",
-    "name": "hero displacement",
-    "type": "hero resistance",
-    "description": "The hero has images of themselves, being displaced."
-  },
-  {
-    "id": "MR2_STRENGTH",
-    "name": "hero max strength",
-    "type": "hero resistance",
-    "description": "The hero has their strength set to 25, the highest possible value."
-  },
-  {
-    "id": "MR2_FUMBLING",
-    "name": "hero fumbling",
-    "type": "hero resistance",
-    "description": "The hero is clumsy and fumbles."
-  },
-  {
     "id": "M1_FLY",
     "name": "flying",
     "type": "physical",
@@ -1363,5 +1265,369 @@
     "name": "curse",
     "type": "damage type",
     "description": "Damage type that can remove a random intrinsic from hero."
+  },
+  {
+    "id": "MR_FIRE",
+    "name": "fire resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to fire.",
+    "summary": "fire"
+  },
+  {
+    "id": "MR_COLD",
+    "name": "cold resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to cold.",
+    "summary": "cold"
+  },
+  {
+    "id": "MR_SLEEP",
+    "name": "sleep resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to sleep.",
+    "summary": "sleep"
+  },
+  {
+    "id": "MR_DISINT",
+    "name": "disintegration resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to disintegration.",
+    "summary": "disintegration"
+  },
+  {
+    "id": "MR_ELEC",
+    "name": "shock resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to shock.",
+    "summary": "shock"
+  },
+  {
+    "id": "MR_POISON",
+    "name": "poison resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to poison.",
+    "summary": "poison"
+  },
+  {
+    "id": "MR_ACID",
+    "name": "acid resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to acid.",
+    "summary": "acid"
+  },
+  {
+    "id": "MR_STONE",
+    "name": "stoning resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to stoning.",
+    "summary": "stoning"
+  },
+  {
+    "id": "MR_DRAIN",
+    "name": "drain resistance",
+    "type": "resistance",
+    "description": "The monster is immune to level reduction.",
+    "summary": "drain"
+  },
+  {
+    "id": "MR_ANTIMAGIC",
+    "name": "magic resistance",
+    "type": "resistance",
+    "description": "The monster is resistant to death magic and magic missiles.",
+    "summary": "magic"
+  },
+  {
+    "id": "MR_BLND",
+    "name": "blindness resistance",
+    "type": "resistance",
+    "description": "The monster is immune to blindness",
+    "summary": "blindness"
+  },
+  {
+    "id": "MR_REFLECTING",
+    "name": "reflection",
+    "type": "resistance",
+    "description": "The monster reflects ray, beam, and gaze attacks.",
+    "summary": "reflecting"
+  },
+  {
+    "id": "MR_LIFESAVED",
+    "name": "life saving",
+    "type": "resistance",
+    "description": "The monster's life will be saved once.",
+    "summary": "life saving"
+  },
+  {
+    "id": "MR_TELEPORT",
+    "name": "teleportation",
+    "type": "resistance",
+    "description": "The monster can teleport randomly.",
+    "summary": "teleport"
+  },
+  {
+    "id": "MR_TELEPORT_CONTROL",
+    "name": "teleport control",
+    "type": "resistance",
+    "description": "The monster can control its teleportation.",
+    "summary": "teleport control"
+  },
+  {
+    "id": "MR_TELEPATHY",
+    "name": "telepathy",
+    "type": "resistance",
+    "description": "The monster can detect non-mindless monsters nearby.",
+    "summary": "telepathy"
+  },
+  {
+    "id": "MR2_SEE_INVIS",
+    "name": "hero see invisible",
+    "type": "hero resistance",
+    "description": "The hero can see invisible."
+  },
+  {
+    "id": "MR2_LEVITATE",
+    "name": "hero levitate",
+    "type": "hero resistance",
+    "description": "The hero is levitating."
+  },
+  {
+    "id": "MR2_WATERWALK",
+    "name": "hero water walk",
+    "type": "hero resistance",
+    "description": "The hero can walk on water."
+  },
+  {
+    "id": "MR2_MAGBREATH",
+    "name": "hero magical breathing",
+    "type": "hero resistance",
+    "description": "The hero can breathe in any environment."
+  },
+  {
+    "id": "MR2_DISPLACED",
+    "name": "hero displacement",
+    "type": "hero resistance",
+    "description": "The hero has images of themselves around its true form."
+  },
+  {
+    "id": "MR2_STRENGTH",
+    "name": "hero max strength",
+    "type": "hero resistance",
+    "description": "The hero has their strength set to 25."
+  },
+  {
+    "id": "MR2_FUMBLING",
+    "name": "hero fumbling",
+    "type": "hero resistance",
+    "description": "The hero is clumsy and fumbles."
+  },
+  {
+    "id": "MR2_INVULNERABLE",
+    "name": "hero invulnerability",
+    "type": "hero resistance",
+    "description": "The hero is completely invulnerable to all damage, attacks, and status ailments for a short time.",
+    "summary": "invulnerable"
+  },
+  {
+    "id": "MR2_HALF_SPDAM",
+    "name": "half spell damage",
+    "type": "hero resistance",
+    "description": "The hero takes only half damage from spells, explosions, and magical attacks.",
+    "summary": "half spell damage"
+  },
+  {
+    "id": "MR2_HALF_PHDAM",
+    "name": "half physical damage",
+    "type": "hero resistance",
+    "description": "The hero takes only half damage from physical and melee attacks.",
+    "summary": "half physical damage"
+  },
+  {
+    "id": "MR2_FREE_ACTION",
+    "name": "free action",
+    "type": "hero resistance",
+    "description": "The hero is immune to most sources of paralysis and sleep.",
+    "summary": "free action"
+  },
+  {
+    "id": "MR2_FIXED_ABIL",
+    "name": "fixed abilities",
+    "type": "hero resistance",
+    "description": "The hero's attributes stayed fixed.",
+    "summary": "fixed abilities"
+  },
+  {
+    "id": "MR2_PROTECTION",
+    "name": "protection",
+    "type": "hero resistance",
+    "description": "The hero has divine protection from their god.",
+    "summary": "protection"
+  },
+  {
+    "id": "MR2_PROT_SHAPE_CHANGERS",
+    "name": "protection from shape changers",
+    "type": "hero resistance",
+    "description": "The hero disallows shapeshifters to change form.",
+    "summary": "prevents shape changing"
+  },
+  {
+    "id": "MR2_UNCHANGING",
+    "name": "unchanging",
+    "type": "hero resistance",
+    "description": "The hero can't change form via polymorph or sliming.",
+    "summary": "unchanging"
+  },
+  {
+    "id": "MR2_POLYMORPH_CONTROL",
+    "name": "polymorph control",
+    "type": "hero resistance",
+    "description": "The hero can control its polymorphing.",
+    "summary": "polymorph control"
+  },
+  {
+    "id": "MR2_WARNING",
+    "name": "warning",
+    "type": "hero resistance",
+    "description": "The hero is warned of nearby monsters.",
+    "summary": "warning"
+  },
+  {
+    "id": "MR2_WARN_OF_MON",
+    "name": "warn of monster",
+    "type": "hero resistance",
+    "description": "The hero can see specific types of monsters near them.",
+    "summary": "warn of monster"
+  },
+  {
+    "id": "MR2_WARN_UNDEAD",
+    "name": "warn undead",
+    "type": "hero resistance",
+    "description": "The hero can see nearby undead monsters.",
+    "summary": "warn undead"
+  },
+  {
+    "id": "MR2_SEARCHING",
+    "name": "searching",
+    "type": "hero resistance",
+    "description": "The hero can passively search their area.",
+    "summary": "automatic searching"
+  },
+  {
+    "id": "MR2_CLAIRVOYANT",
+    "name": "clairvoyance",
+    "type": "hero resistance",
+    "description": "The hero is clairvoyant.",
+    "summary": "clairvoyance"
+  },
+  {
+    "id": "MR2_DETECT_MONSTERS",
+    "name": "monster detection",
+    "type": "hero resistance",
+    "description": "The hero can sense monsters across the whole level.",
+    "summary": "monster detection"
+  },
+  {
+    "id": "MR2_TELEPAT",
+    "name": "hero telepathy",
+    "type": "hero resistance",
+    "description": "Allows the hero to sense the locations of thinking minds across the entire level, especially when blind.",
+    "summary": "hero telepathy"
+  },
+  {
+    "id": "MR2_STRANGLED",
+    "name": "strangled",
+    "type": "hero resistance",
+    "description": "The hero is being strangled or suffocated, facing fatal suffocation within six turns.",
+    "summary": "strangulation"
+  },
+  {
+    "id": "MR2_VOMITING",
+    "name": "vomiting",
+    "type": "hero resistance",
+    "description": "The hero suffers extreme nausea and vomiting, losing nutrition and turns.",
+    "summary": "vomiting"
+  },
+  {
+    "id": "MR2_GLIB",
+    "name": "slippery fingers",
+    "type": "hero resistance",
+    "description": "The hero hands are slippery, increasing the chance of dropping wielded weapons and fumbling items.",
+    "summary": "slippery fingers"
+  },
+  {
+    "id": "MR2_WOUNDED_LEGS",
+    "name": "wounded legs",
+    "type": "hero resistance",
+    "description": "The hero or steed suffers damaged legs, substantially reducing movement rate and disabling jumping.",
+    "summary": "wounded legs"
+  },
+  {
+    "id": "MR2_SLEEPY",
+    "name": "sleepy",
+    "type": "hero resistance",
+    "description": "The hero suffers from sudden drowsiness and periodically falls asleep involuntarily.",
+    "summary": "sleepy"
+  },
+  {
+    "id": "MR2_HUNGER",
+    "name": "voracious hunger",
+    "type": "hero resistance",
+    "description": "The hero burns nutrition at twice the normal rate, leading to rapid starvation.",
+    "summary": "voracious hunger"
+  },
+  {
+    "id": "MR2_HALLUC",
+    "name": "hallucination",
+    "type": "hero resistance",
+    "description": "The hero is hallucinating.",
+    "summary": "hallucination"
+  },
+  {
+    "id": "MR2_HALLUC_RES",
+    "name": "hallucination resistance",
+    "type": "hero resistance",
+    "description": "The hero is immune to hallucination.",
+    "summary": "hallucination resistance"
+  },
+  {
+    "id": "MR2_CONFLICT",
+    "name": "conflict",
+    "type": "hero resistance",
+    "description": "The hero causes monsters to turn against each other.",
+    "summary": "conflict"
+  },
+  {
+    "id": "MR2_AGGRAVATE_MON",
+    "name": "aggravate monster",
+    "type": "hero resistance",
+    "description": "The hero aggravates monsters awake.",
+    "summary": "aggravates monsters"
+  },
+  {
+    "id": "MR2_ADORNED",
+    "name": "adornment",
+    "type": "hero resistance",
+    "description": "The hero has their charisma adjusted.",
+    "summary": "modifies Charisma"
+  },
+  {
+    "id": "MR2_SLOW_DIGESTION",
+    "name": "slow digestion",
+    "type": "hero resistance",
+    "description": "The hero has slow digestion.",
+    "summary": "slows digestion"
+  },
+  {
+    "id": "MR2_ENERGY_REGEN",
+    "name": "energy regeneration",
+    "type": "hero resistance",
+    "description": "The hero rapidly restores energy power.",
+    "summary": "regenerates energy"
+  },
+  {
+    "id": "MR2_JUMPING",
+    "name": "jumping",
+    "type": "hero resistance",
+    "description": "The hero can jump far.",
+    "summary": "jumping"
   }
 ]
