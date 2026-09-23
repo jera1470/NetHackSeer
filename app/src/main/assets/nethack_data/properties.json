@@ -1529,7 +1529,7 @@
     "id": "MR2_TELEPAT",
     "name": "hero telepathy",
     "type": "hero resistance",
-    "description": "Allows the hero to sense the locations of thinking minds across the entire level, especially when blind.",
+    "description": "The hero can sense non-mindless monsters.",
     "summary": "hero telepathy"
   },
   {
