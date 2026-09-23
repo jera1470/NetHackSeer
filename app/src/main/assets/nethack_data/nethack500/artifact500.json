@@ -10,7 +10,7 @@
       "DRAIN_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "1d10",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -25,7 +25,7 @@
       "DRAIN_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "1d2",
     "attackTypeModifier": "AD_DRLI",
     "damageTarget": null,
@@ -40,7 +40,7 @@
       "SHOCK_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "1d24",
     "attackTypeModifier": "AD_ELEC",
     "damageTarget": null,
@@ -53,7 +53,7 @@
     "role": "Barbarian",
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 3,
+    "attackToHitBonus": "1d3",
     "attackModifier": "1d6",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -69,7 +69,7 @@
       "WARN_OF_MON"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 2,
+    "attackToHitBonus": "1d2",
     "attackModifier": "1d6",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -84,7 +84,7 @@
       "WARN_OF_MON"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "orc",
@@ -99,7 +99,7 @@
       "WARN_OF_MON"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "orc",
@@ -114,9 +114,9 @@
       "ANTIMAGIC"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 3,
+    "attackToHitBonus": "1d3",
     "attackModifier": "1d4",
-    "attackTypeModifier": "AD_STUN",
+    "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
     "invokedPower": null
   },
@@ -129,7 +129,7 @@
       "COLD_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_COLD",
     "damageTarget": "non-cold resistant monsters",
@@ -144,7 +144,7 @@
       "FIRE_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_FIRE",
     "damageTarget": "non-fire resistant monsters",
@@ -159,7 +159,7 @@
       "REFLECTING"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "dragon",
@@ -172,7 +172,7 @@
     "role": "Priest",
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "demon",
@@ -185,7 +185,7 @@
     "role": null,
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "were",
@@ -200,7 +200,7 @@
       "HALLUC_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -213,7 +213,7 @@
     "role": null,
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "giant",
@@ -226,7 +226,7 @@
     "role": null,
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "ogre",
@@ -241,7 +241,7 @@
       "REGENERATION"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "troll",
@@ -254,7 +254,7 @@
     "role": null,
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "+1",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "creatures with heads",
@@ -267,7 +267,7 @@
     "role": "Samurai",
     "wieldedProperties": [],
     "carriedProperties": [],
-    "attackToHitBonus": 0,
+    "attackToHitBonus": "0",
     "attackModifier": "1d8",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -282,7 +282,7 @@
       "BLND_RES"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "undead",
@@ -314,7 +314,7 @@
     "carriedProperties": [
       "STEALTH"
     ],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage (thrown)",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -329,7 +329,7 @@
       "ANTIMAGIC"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "non-lawful monsters",
@@ -345,7 +345,7 @@
       "REGENERATION"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 0,
+    "attackToHitBonus": "0",
     "attackModifier": "level drain",
     "attackTypeModifier": "AD_DRLI",
     "damageTarget": null,
@@ -410,7 +410,7 @@
     "carriedProperties": [
       "TELEPAT"
     ],
-    "attackToHitBonus": 5,
+    "attackToHitBonus": "1d5",
     "attackModifier": "double damage (arrows)",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
@@ -442,7 +442,7 @@
       "PROTECTION"
     ],
     "carriedProperties": [],
-    "attackToHitBonus": 0,
+    "attackToHitBonus": "0",
     "attackModifier": "1d8",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
