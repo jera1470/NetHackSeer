@@ -5,9 +5,9 @@
     "alignment": "Lawful",
     "role": "Knight",
     "wieldedProperties": [
-      "SEARCHING",
-      "STEALTH",
-      "DRAIN_RES"
+      "MR2_SEARCHING",
+      "MR2_STEALTH",
+      "MR_DRAIN"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -22,7 +22,7 @@
     "alignment": "Chaotic",
     "role": null,
     "wieldedProperties": [
-      "DRAIN_RES"
+      "MR_DRAIN"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -37,7 +37,7 @@
     "alignment": "Neutral",
     "role": "Valkyrie",
     "wieldedProperties": [
-      "SHOCK_RES"
+      "MR_ELEC"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -65,8 +65,8 @@
     "alignment": "Chaotic",
     "role": null,
     "wieldedProperties": [
-      "POISON_RES",
-      "WARN_OF_MON"
+      "MR_POISON",
+      "MR2_WARN_OF_MON"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d2",
@@ -81,7 +81,7 @@
     "alignment": "Chaotic",
     "role": null,
     "wieldedProperties": [
-      "WARN_OF_MON"
+      "MR2_WARN_OF_MON"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -96,7 +96,7 @@
     "alignment": "Chaotic",
     "role": null,
     "wieldedProperties": [
-      "WARN_OF_MON"
+      "MR2_WARN_OF_MON"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -111,7 +111,7 @@
     "alignment": "Neutral",
     "role": "Wizard",
     "wieldedProperties": [
-      "ANTIMAGIC"
+      "MR_ANTIMAGIC"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d3",
@@ -126,7 +126,7 @@
     "alignment": "Unaligned",
     "role": null,
     "wieldedProperties": [
-      "COLD_RES"
+      "MR_COLD"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -141,7 +141,7 @@
     "alignment": "Unaligned",
     "role": null,
     "wieldedProperties": [
-      "FIRE_RES"
+      "MR_FIRE"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -156,7 +156,7 @@
     "alignment": "Unaligned",
     "role": null,
     "wieldedProperties": [
-      "REFLECTING"
+      "MR_REFLECTING"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -197,7 +197,7 @@
     "alignment": "Lawful",
     "role": null,
     "wieldedProperties": [
-      "HALLUC_RES"
+      "MR2_HALLUC_RES"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -238,7 +238,7 @@
     "alignment": "Unaligned",
     "role": null,
     "wieldedProperties": [
-      "REGENERATION"
+      "MR2_REGEN"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -279,7 +279,7 @@
     "alignment": "Lawful",
     "role": null,
     "wieldedProperties": [
-      "BLND_RES"
+      "MR_BLND"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -295,9 +295,9 @@
     "role": "Archeologist",
     "wieldedProperties": [],
     "carriedProperties": [
-      "TELEPAT",
-      "HALF_SPDAM",
-      "ANTIMAGIC"
+      "MR2_TELEPAT",
+      "MR2_HALF_SPDAM",
+      "MR_ANTIMAGIC"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
@@ -312,7 +312,7 @@
     "role": "Barbarian",
     "wieldedProperties": [],
     "carriedProperties": [
-      "STEALTH"
+      "MR2_STEALTH"
     ],
     "attackToHitBonus": "1d5",
     "attackModifier": "double damage (thrown)",
@@ -326,7 +326,7 @@
     "alignment": "Lawful",
     "role": "Caveman",
     "wieldedProperties": [
-      "ANTIMAGIC"
+      "MR_ANTIMAGIC"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
@@ -341,8 +341,8 @@
     "alignment": "Neutral",
     "role": "Healer",
     "wieldedProperties": [
-      "DRAIN_RES",
-      "REGENERATION"
+      "MR_DRAIN",
+      "MR2_REGEN"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "0",
@@ -358,8 +358,8 @@
     "role": "Knight",
     "wieldedProperties": [],
     "carriedProperties": [
-      "TELEPAT",
-      "ANTIMAGIC"
+      "MR2_TELEPAT",
+      "MR_ANTIMAGIC"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
@@ -373,7 +373,7 @@
     "alignment": "Neutral",
     "role": "Monk",
     "wieldedProperties": [
-      "ANTIMAGIC"
+      "MR_ANTIMAGIC"
     ],
     "carriedProperties": [],
     "attackToHitBonus": null,
@@ -388,10 +388,10 @@
     "alignment": "Lawful",
     "role": "Priest",
     "wieldedProperties": [
-      "PROTECTION"
+      "MR2_PROTECTION"
     ],
     "carriedProperties": [
-      "FIRE_RES"
+      "MR_FIRE"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
@@ -405,10 +405,10 @@
     "alignment": "Chaotic",
     "role": "Ranger",
     "wieldedProperties": [
-      "REFLECTING"
+      "MR_REFLECTING"
     ],
     "carriedProperties": [
-      "TELEPAT"
+      "MR2_TELEPAT"
     ],
     "attackToHitBonus": "1d5",
     "attackModifier": "double damage (arrows)",
@@ -423,9 +423,9 @@
     "role": "Rogue",
     "wieldedProperties": [],
     "carriedProperties": [
-      "WARNING",
-      "TELEPORT_CONTROL",
-      "HALF_PHDAM"
+      "MR2_WARNING",
+      "MR_TELEPORT_CONTROL",
+      "MR2_HALF_PHDAM"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
@@ -439,7 +439,7 @@
     "alignment": "Lawful",
     "role": "Samurai",
     "wieldedProperties": [
-      "PROTECTION"
+      "MR2_PROTECTION"
     ],
     "carriedProperties": [],
     "attackToHitBonus": "0",
@@ -455,9 +455,9 @@
     "role": "Tourist",
     "wieldedProperties": [],
     "carriedProperties": [
-      "TELEPAT",
-      "HALF_SPDAM",
-      "ANTIMAGIC"
+      "MR2_TELEPAT",
+      "MR2_HALF_SPDAM",
+      "MR_ANTIMAGIC"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
@@ -472,9 +472,9 @@
     "role": "Valkyrie",
     "wieldedProperties": [],
     "carriedProperties": [
-      "WARNING",
-      "HALF_SPDAM",
-      "HALF_PHDAM"
+      "MR2_WARNING",
+      "MR2_HALF_SPDAM",
+      "MR2_HALF_PHDAM"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
@@ -488,11 +488,11 @@
     "alignment": "Neutral",
     "role": "Wizard",
     "wieldedProperties": [
-      "ANTIMAGIC"
+      "MR_ANTIMAGIC"
     ],
     "carriedProperties": [
-      "ENERGY_REGENERATION",
-      "HALF_SPDAM"
+      "MR2_ENERGY_REGEN",
+      "MR2_HALF_SPDAM"
     ],
     "attackToHitBonus": null,
     "attackModifier": null,
