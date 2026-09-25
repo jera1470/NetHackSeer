@@ -1529,7 +1529,7 @@
     "id": "MR2_TELEPAT",
     "name": "hero telepathy",
     "type": "hero resistance",
-    "description": "Allows the hero to sense the locations of thinking minds across the entire level, especially when blind.",
+    "description": "The hero can sense non-mindless monsters.",
     "summary": "hero telepathy"
   },
   {
@@ -1629,5 +1629,61 @@
     "type": "hero resistance",
     "description": "The hero can jump far.",
     "summary": "jumping"
+  },
+  {
+    "id": "MR2_FAST",
+    "name": "speed",
+    "type": "hero resistance",
+    "description": "The hero moves at very fast speed.",
+    "summary": "speed"
+  },
+  {
+    "id": "MR2_INVIS",
+    "name": "invisibility",
+    "type": "hero resistance",
+    "description": "The hero is invisible to monsters that cannot see invisible.",
+    "summary": "invisibility"
+  },
+  {
+    "id": "MR2_STEALTH",
+    "name": "stealth",
+    "type": "hero resistance",
+    "description": "The hero moves silently and does not awaken sleeping monsters.",
+    "summary": "stealth"
+  },
+  {
+    "id": "MR2_REGEN",
+    "name": "regeneration",
+    "type": "hero resistance",
+    "description": "The hero regenerates hit points rapidly.",
+    "summary": "regeneration"
+  },
+  {
+    "id": "MR2_FLYING",
+    "name": "flying",
+    "type": "hero resistance",
+    "description": "The hero can fly freely above the ground.",
+    "summary": "flying"
+  },
+  {
+    "id": "MR2_POLYMORPH",
+    "name": "polymorph",
+    "type": "hero resistance",
+    "description": "The hero periodically changes form into different creatures.",
+    "summary": "polymorph"
+  },
+  {
+    "id": "MR2_BLINDED",
+    "name": "blinded",
+    "type": "hero resistance",
+    "description": "The hero cannot see.",
+    "summary": "blinded"
+  },
+  {
+    "id": "MR2_CONFUSION",
+    "name": "confusion",
+    "type": "hero resistance",
+    "description": "The hero is confused.",
+    "summary": "confusion"
   }
 ]
