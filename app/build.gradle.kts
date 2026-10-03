@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -45,31 +45,26 @@ kotlin {
 }
 
 dependencies {
-    val lifecyclever = "2.11.0"
-    val navVer = "2.10.1"
-    val roomVer = "2.8.5"
-    val gson = "2.14.0"
-
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecyclever")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecyclever")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecyclever")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
     // Lifecycles only (without ViewModel or LiveData)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     // Lifecycle utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecyclever")
+    implementation(libs.androidx.lifecycle.runtime.compose)
     // Saved state module for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecyclever")
-    // ViewModel integration with Navigation3
-    implementation("androidx.navigation:navigation-compose:${navVer}")
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    // Navigation Compose
+    implementation(libs.androidx.navigation.compose)
     // Room
-    implementation("androidx.room:room-runtime:${roomVer}")
+    implementation(libs.androidx.room.runtime)
     // TypeConverter
-    implementation("com.google.code.gson:gson:${gson}")
+    implementation(libs.google.code.gson)
     // Kotlin Symbol Processing (KSP)
-    ksp("androidx.room:room-compiler:${roomVer}")
+    ksp(libs.androidx.room.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
