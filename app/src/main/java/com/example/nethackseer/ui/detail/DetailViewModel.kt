@@ -77,6 +77,19 @@ data class ItemDetails(
     val capabilities: List<String> = emptyList()
 )
 
+data class ArtifactDetails(
+    val name: String,
+    val baseItem: String,
+    val alignment: String,
+    val role: String? = null,
+    val wieldedProperties: String,
+    val carriedProperties: String,
+    val attackToHitBonus: String? = null,
+    val attackTypeModifier: String? = null,
+    val damageTarget: String? = null,
+    val invokedPower: String? = null
+)
+
 data class PropertyDetails(
     val name: String,
     val description: String,
