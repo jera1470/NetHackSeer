@@ -7,10 +7,12 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
+import com.example.nethackseer.data.local.entity.ArtifactEntity
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import com.example.nethackseer.data.local.entity.PropertyEntity
 import com.example.nethackseer.data.local.extensions.*
+import com.example.nethackseer.ui.utils.formatArtifactProperty
 import com.example.nethackseer.ui.utils.formatItemProperty
 import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import kotlinx.coroutines.flow.*
@@ -82,12 +84,15 @@ data class ArtifactDetails(
     val baseItem: String,
     val alignment: String,
     val role: String? = null,
-    val wieldedProperties: String,
-    val carriedProperties: String,
+    val wieldedProperties: List<String> = emptyList(),
+    val carriedProperties: List<String> = emptyList(),
     val attackToHitBonus: String? = null,
+    val attackModifier: String? = null,
     val attackTypeModifier: String? = null,
     val damageTarget: String? = null,
-    val invokedPower: String? = null
+    val invokedPower: String? = null,
+    val symbol: String = "WEAPON_CLASS",
+    val color: String = "HI_METAL"
 )
 
 data class PropertyDetails(
@@ -101,6 +106,7 @@ sealed class EntityUiState {
     object Loading : EntityUiState()
     data class MonsterSuccess(val monsterDetails: MonsterDetails) : EntityUiState()
     data class ItemSuccess(val itemDetails: ItemDetails) : EntityUiState()
+    data class ArtifactSuccess(val artifactDetails: ArtifactDetails) : EntityUiState()
     data class PropertySuccess(val propertyDetails: PropertyDetails) : EntityUiState()
     data class Error(val message: String) : EntityUiState()
 }
@@ -158,6 +164,14 @@ class DetailViewModel(
             val item = repository.getItemByName(entityId).first()
             if (item != null) {
                 _uiState.value = EntityUiState.ItemSuccess(mapToItemDetails(item))
+                return@launch
+            }
+
+            // artifact code
+            val artifact = repository.getArtifactByName(entityId).first()
+            if (artifact != null) {
+                val baseItem = repository.getItemByName(artifact.baseItem).first()
+                _uiState.value = EntityUiState.ArtifactSuccess(mapToArtifactDetails(artifact, baseItem))
                 return@launch
             }
 
@@ -523,6 +537,69 @@ class DetailViewModel(
         }
 
         return tmp
+    }
+
+    private fun mapToArtifactDetails(artifact: ArtifactEntity, baseItem: ItemEntity?): ArtifactDetails {
+        val wielded =
+            if (artifact.wieldedProperties.isNotEmpty() && artifact.wieldedProperties != "0") {
+            artifact.wieldedProperties.split("|").map {
+                formatArtifactProperty(it.trim())
+            }
+        } else {
+            emptyList()
+        }
+
+        val carried = if (artifact.carriedProperties.isNotEmpty() && artifact.carriedProperties != "0") {
+            artifact.carriedProperties.split("|").map {
+                formatArtifactProperty(it.trim())
+            }
+        } else {
+            emptyList()
+        }
+
+        val formattedAttackType = when (artifact.attackTypeModifier) {
+            "AD_PHYS" -> "Physical"
+            "AD_DRLI" -> "Drain life"
+            "AD_FIRE" -> "Fire"
+            "AD_COLD" -> "Cold"
+            "AD_ELEC" -> "Shock"
+            "AD_MAGM" -> "Magic missile"
+            null, "0", "AD_NONE" -> null
+            else -> artifact.attackTypeModifier.removePrefix("AD_").lowercase().replace("_", " ")
+                .replaceFirstChar {
+                    if (it.isLowerCase())
+                        it.titlecase()
+                    else
+                        it.toString()
+                }
+        }
+
+        val formattedInvoked = when (artifact.invokedPower) {
+            "LEV_TELE" -> "Levitate / Teleport"
+            null, "0" -> null
+            else -> artifact.invokedPower.lowercase().replace("_", " ")
+                .replaceFirstChar {
+                    if (it.isLowerCase())
+                        it.titlecase()
+                    else
+                        it.toString() }
+        }
+
+        return ArtifactDetails(
+            name = artifact.name,
+            baseItem = artifact.baseItem,
+            alignment = artifact.alignment,
+            role = artifact.role,
+            wieldedProperties = wielded,
+            carriedProperties = carried,
+            attackToHitBonus = artifact.attackToHitBonus,
+            attackModifier = artifact.attackModifier,
+            attackTypeModifier = formattedAttackType,
+            damageTarget = artifact.damageTarget,
+            invokedPower = formattedInvoked,
+            symbol = baseItem?.symbol ?: "WEAPON_CLASS",
+            color = baseItem?.color ?: "HI_METAL"
+        )
     }
 
     // factory for creating the viewmodel with repository

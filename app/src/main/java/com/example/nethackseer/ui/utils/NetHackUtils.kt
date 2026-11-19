@@ -281,3 +281,20 @@ fun formatItemProperty(id: String): String {
         else -> id.lowercase().replace("_", " ").replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
     }
 }
+
+// artifacts have their own flags in the code (at least for now in NetHack 5.0)
+fun formatArtifactProperty(id: String): String {
+    val clean = id.removePrefix("MR2_").removePrefix("MR_").trim()
+    return when (clean) {
+        "DRAIN" -> "Drain resistance"
+        "ELEC" -> "Shock resistance"
+        "FIRE" -> "Fire resistance"
+        "COLD" -> "Cold resistance"
+        "SLEEP" -> "Sleep resistance"
+        "DISINT" -> "Disintegration resistance"
+        "POISON" -> "Poison resistance"
+        "ACID" -> "Acid resistance"
+        "STONE" -> "Stone resistance"
+        else -> formatItemProperty(clean)
+    }
+}
