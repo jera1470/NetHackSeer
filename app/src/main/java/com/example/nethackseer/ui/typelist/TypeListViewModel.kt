@@ -51,6 +51,17 @@ class TypeListViewModel(
         "item" -> repository.allItems.map { items ->
             items.map { EntitySummary(it.name, it.symbol, it.color) }
         }
+        "artifact" -> combine(repository.allArtifacts, repository.allItems) { artifacts, items ->
+            val itemMap = items.associateBy { it.name.lowercase() }
+            artifacts.map { artifact ->
+                val baseItem = itemMap[artifact.baseItem.lowercase()]
+                EntitySummary(
+                    name = artifact.name,
+                    symbol = baseItem?.symbol ?: "WEAPON_CLASS",
+                    color = baseItem?.color ?: "HI_METAL"
+                )
+            }
+        }
         else -> flowOf(null)
     }
 
