@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 9,
-    "identityHash": "4a1f7a367a983f36f2dea5a1cb4a4770",
+    "identityHash": "2948c815591f6b44809005a054fe7afd",
     "entities": [
       {
         "tableName": "monsters",
@@ -399,7 +399,7 @@
       },
       {
         "tableName": "artifacts",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `baseItem` TEXT NOT NULL, `alignment` TEXT NOT NULL, `role` TEXT, `wieldedProperties` TEXT NOT NULL, `carriedProperties` TEXT NOT NULL, `attackToHitBonus` TEXT, `attackModifier` TEXT, `attackTypeModifier` TEXT, `damageTarget` TEXT, `invokedPower` TEXT, PRIMARY KEY(`name`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `baseItem` TEXT NOT NULL, `alignment` TEXT NOT NULL, `role` TEXT, `wieldedProperties` TEXT NOT NULL, `carriedProperties` TEXT NOT NULL, `attackToHitBonus` TEXT, `attackModifier` TEXT, `attackTypeModifier` TEXT, `damageTarget` TEXT, `invokedPower` TEXT, `specialEffects` TEXT NOT NULL, PRIMARY KEY(`name`))",
         "fields": [
           {
             "fieldPath": "name",
@@ -460,6 +460,12 @@
             "fieldPath": "invokedPower",
             "columnName": "invokedPower",
             "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "specialEffects",
+            "columnName": "specialEffects",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -472,7 +478,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a1f7a367a983f36f2dea5a1cb4a4770')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2948c815591f6b44809005a054fe7afd')"
     ]
   }
 }

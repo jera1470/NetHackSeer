@@ -265,6 +265,14 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 }
 
+                val specialEffectsArray = jsonObject.optJSONArray("specialEffects")
+                val specialEffectsList = mutableListOf<String>()
+                if (specialEffectsArray != null) {
+                    for (j in 0 until specialEffectsArray.length()) {
+                        specialEffectsList.add(specialEffectsArray.getString(j))
+                    }
+                }
+
                 val artifactEntity = ArtifactEntity(
                     name = jsonObject.getString("name"),
                     baseItem = jsonObject.getString("baseItem"),
@@ -276,7 +284,8 @@ abstract class AppDatabase : RoomDatabase() {
                     attackModifier = if (jsonObject.isNull("attackModifier")) null else jsonObject.optString("attackModifier"),
                     attackTypeModifier = if (jsonObject.isNull("attackTypeModifier")) null else jsonObject.optString("attackTypeModifier"),
                     damageTarget = if (jsonObject.isNull("damageTarget")) null else jsonObject.optString("damageTarget"),
-                    invokedPower = if (jsonObject.isNull("invokedPower")) null else jsonObject.optString("invokedPower")
+                    invokedPower = if (jsonObject.isNull("invokedPower")) null else jsonObject.optString("invokedPower"),
+                    specialEffects = specialEffectsList.joinToString("|")
                 )
                 artifactList.add(artifactEntity)
             }

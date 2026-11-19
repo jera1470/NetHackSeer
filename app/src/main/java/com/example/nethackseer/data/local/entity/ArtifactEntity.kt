@@ -19,5 +19,6 @@ data class ArtifactEntity(
     val attackModifier: String? = null,
     val attackTypeModifier: String? = null,
     val damageTarget: String? = null, // target creature type/class if conditional
-    val invokedPower: String? = null // will make separate summaries of invoked powers later
+    val invokedPower: String? = null, // will make separate summaries of invoked powers later
+    val specialEffects: String = "" // important special things about the artifact for later
 )

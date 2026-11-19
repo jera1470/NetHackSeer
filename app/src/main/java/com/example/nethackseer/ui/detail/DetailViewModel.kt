@@ -91,6 +91,7 @@ data class ArtifactDetails(
     val attackTypeModifier: String? = null,
     val damageTarget: String? = null,
     val invokedPower: String? = null,
+    val specialEffects: List<String> = emptyList(),
     val symbol: String = "WEAPON_CLASS",
     val color: String = "HI_METAL"
 )
@@ -585,6 +586,12 @@ class DetailViewModel(
                         it.toString() }
         }
 
+        val specialEffects = if (artifact.specialEffects.isNotEmpty()) {
+            artifact.specialEffects.split("|").map { it.trim() }.filter { it.isNotEmpty() }
+        } else {
+            emptyList()
+        }
+
         return ArtifactDetails(
             name = artifact.name,
             baseItem = artifact.baseItem,
@@ -597,6 +604,7 @@ class DetailViewModel(
             attackTypeModifier = formattedAttackType,
             damageTarget = artifact.damageTarget,
             invokedPower = formattedInvoked,
+            specialEffects = specialEffects,
             symbol = baseItem?.symbol ?: "WEAPON_CLASS",
             color = baseItem?.color ?: "HI_METAL"
         )

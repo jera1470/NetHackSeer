@@ -6,7 +6,6 @@
     "role": "Knight",
     "wieldedProperties": [
       "MR2_SEARCHING",
-      "MR2_STEALTH",
       "MR_DRAIN"
     ],
     "carriedProperties": [],
@@ -14,7 +13,14 @@
     "attackModifier": "1d10",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Can be gifted to the hero by dipping a long sword in a fountain at XL 5+ (1/6 chance for Knight, 1/30 for other lawfuls).",
+      "Can be wielded by any lawful character without blast damage.",
+      "Adds sword enchantment (up to +5) to manual search chance.",
+      "Demons and demon princes cannot be bribed and become immediately hostile.",
+      "Monsters can always track the hero while wielded."
+    ]
   },
   {
     "name": "Stormbringer",
@@ -29,7 +35,8 @@
     "attackModifier": "1d2",
     "attackTypeModifier": "AD_DRLI",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Mjollnir",
@@ -44,7 +51,8 @@
     "attackModifier": "1d24",
     "attackTypeModifier": "AD_ELEC",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Cleaver",
@@ -57,7 +65,8 @@
     "attackModifier": "1d6",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Grimtooth",
@@ -73,7 +82,8 @@
     "attackModifier": "1d6",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": "FLING_POISON"
+    "invokedPower": "FLING_POISON",
+    "specialEffects": []
   },
   {
     "name": "Orcrist",
@@ -88,7 +98,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "orc",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Sting",
@@ -103,7 +114,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "orc",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Magicbane",
@@ -118,7 +130,8 @@
     "attackModifier": "1d4",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Frost Brand",
@@ -133,7 +146,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_COLD",
     "damageTarget": "non-cold resistant monsters",
-    "invokedPower": "SNOWSTORM"
+    "invokedPower": "SNOWSTORM",
+    "specialEffects": []
   },
   {
     "name": "Fire Brand",
@@ -148,7 +162,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_FIRE",
     "damageTarget": "non-fire resistant monsters",
-    "invokedPower": "FIRESTORM"
+    "invokedPower": "FIRESTORM",
+    "specialEffects": []
   },
   {
     "name": "Dragonbane",
@@ -163,7 +178,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "dragon",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Demonbane",
@@ -176,7 +192,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "demon",
-    "invokedPower": "BANISH"
+    "invokedPower": "BANISH",
+    "specialEffects": []
   },
   {
     "name": "Werebane",
@@ -189,7 +206,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "were",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Grayswandir",
@@ -204,7 +222,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Giantslayer",
@@ -217,7 +236,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "giant",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Ogresmasher",
@@ -230,7 +250,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "ogre",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Trollsbane",
@@ -245,7 +266,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "troll",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Vorpal Blade",
@@ -258,7 +280,8 @@
     "attackModifier": "+1",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "creatures with heads",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Snickersnee",
@@ -271,7 +294,8 @@
     "attackModifier": "1d8",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Sunsword",
@@ -286,7 +310,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "undead",
-    "invokedPower": "BLINDING_RAY"
+    "invokedPower": "BLINDING_RAY",
+    "specialEffects": []
   },
   {
     "name": "The Orb of Detection",
@@ -303,7 +328,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "INVIS"
+    "invokedPower": "INVIS",
+    "specialEffects": []
   },
   {
     "name": "The Heart of Ahriman",
@@ -318,7 +344,8 @@
     "attackModifier": "double damage (thrown)",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": "LEVITATION"
+    "invokedPower": "LEVITATION",
+    "specialEffects": []
   },
   {
     "name": "The Sceptre of Might",
@@ -333,7 +360,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "non-lawful monsters",
-    "invokedPower": "CONFLICT"
+    "invokedPower": "CONFLICT",
+    "specialEffects": []
   },
   {
     "name": "The Staff of Aesculapius",
@@ -349,7 +377,8 @@
     "attackModifier": "level drain",
     "attackTypeModifier": "AD_DRLI",
     "damageTarget": null,
-    "invokedPower": "HEALING"
+    "invokedPower": "HEALING",
+    "specialEffects": []
   },
   {
     "name": "The Magic Mirror of Merlin",
@@ -365,7 +394,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "The Eyes of the Overworld",
@@ -380,7 +410,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "ENLIGHTENING"
+    "invokedPower": "ENLIGHTENING",
+    "specialEffects": []
   },
   {
     "name": "The Mitre of Holiness",
@@ -397,7 +428,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "ENERGY_BOOST"
+    "invokedPower": "ENERGY_BOOST",
+    "specialEffects": []
   },
   {
     "name": "The Longbow of Diana",
@@ -414,7 +446,8 @@
     "attackModifier": "double damage (arrows)",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": "CREATE_AMMO"
+    "invokedPower": "CREATE_AMMO",
+    "specialEffects": []
   },
   {
     "name": "The Master Key of Thievery",
@@ -431,7 +464,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "UNTRAP"
+    "invokedPower": "UNTRAP",
+    "specialEffects": []
   },
   {
     "name": "The Tsurugi of Muramasa",
@@ -446,7 +480,8 @@
     "attackModifier": "1d8",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "The Platinum Yendorian Express Card",
@@ -463,7 +498,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "CHARGE_OBJ"
+    "invokedPower": "CHARGE_OBJ",
+    "specialEffects": []
   },
   {
     "name": "The Orb of Fate",
@@ -480,7 +516,8 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "LEV_TELE"
+    "invokedPower": "LEV_TELE",
+    "specialEffects": []
   },
   {
     "name": "The Eye of the Aethiopica",
@@ -498,6 +535,7 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "CREATE_PORTAL"
+    "invokedPower": "CREATE_PORTAL",
+    "specialEffects": []
   }
 ]

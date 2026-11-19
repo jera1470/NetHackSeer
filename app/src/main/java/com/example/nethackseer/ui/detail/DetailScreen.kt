@@ -745,6 +745,19 @@ fun DetailScreenContent(
                             }
                         }
                     }
+
+                    if (details.specialEffects.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            text = "Special Effects",
+                            style = Typography.titleMedium,
+                            color = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                        details.specialEffects.forEach { effect ->
+                            PropertyBullet(text = effect)
+                        }
+                    }
                 }
             }
 
