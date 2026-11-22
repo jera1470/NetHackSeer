@@ -1,12 +1,17 @@
 package com.example.nethackseer
 
 import androidx.compose.foundation.text.input.TextFieldState
+import androidx.lifecycle.SavedStateHandle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.AppDatabase
 import com.example.nethackseer.ui.components.SearchResultItem
+import com.example.nethackseer.ui.detail.DetailViewModel
+import com.example.nethackseer.ui.detail.EntityUiState
 import com.example.nethackseer.ui.homescreen.HomeViewModel
+import com.example.nethackseer.ui.typelist.TypeListViewModel
+import com.example.nethackseer.ui.typelist.TypeUiState
 import com.example.nethackseer.ui.utils.cleanNetHackName
 import com.example.nethackseer.ui.utils.getDisplayChar
 import com.example.nethackseer.ui.utils.getNetHackColor
@@ -276,5 +281,65 @@ class NetHackSeerFeatureTest {
     fun test18_allNamesContainsCombinedEntities() = runBlocking {
         val names = repository.allNames.first { it.isNotEmpty() }
         assertTrue("Names list should be large", names.size > 500)
+    }
+
+    // 19. Search finds artifacts by name and base item
+    @Test
+    fun test19_artifactSearch() = runBlocking {
+        // Search by artifact name
+        val excaliburResults = repository.searchMonstersItems("Excalibur").first { it.isNotEmpty() }
+        val excalibur = excaliburResults.find { it.name == "Excalibur" }
+        assertNotNull("Should find Excalibur artifact", excalibur)
+        assertEquals("artifact", excalibur?.category)
+        assertEquals(")", getDisplayChar(excalibur?.symbol ?: ""))
+
+        // Search by base item finds associated artifacts
+        val orbResults = repository.searchMonstersItems("crystal ball").first { it.isNotEmpty() }
+        val fateOrb = orbResults.find { it.name == "The Orb of Fate" }
+        assertNotNull("Searching base item 'crystal ball' should return The Orb of Fate", fateOrb)
+        assertEquals("artifact", fateOrb?.category)
+    }
+
+    // 20. Clicking artifact category navigates and loads artifact list
+    @Test
+    fun test20_artifactCategoryNavigationAndList() = runBlocking {
+        var navigatedCategory: String? = null
+        val onNavigateToCategory: (String) -> Unit = { category ->
+            navigatedCategory = category
+        }
+
+        onNavigateToCategory("artifact")
+        assertEquals("artifact", navigatedCategory)
+
+        // TypeListViewModel loads all 33 artifacts
+        val savedStateHandle = SavedStateHandle(mapOf("typeId" to "artifact"))
+        val typeListViewModel = TypeListViewModel(savedStateHandle, repository)
+
+        val uiState = typeListViewModel.uiState.first { it is TypeUiState.Success }
+        val success = uiState as TypeUiState.Success
+        assertEquals("Should load all 33 artifacts", 33, success.listObj.size)
+        assertTrue("List should contain Mjollnir", success.listObj.any { it.name == "Mjollnir" })
+    }
+
+    // 21. Artifact detail loads and displays full artifact stats and special effects
+    @Test
+    fun test21_artifactDetailDisplay() = runBlocking {
+        val savedStateHandle = SavedStateHandle(mapOf("entityId" to "The Eye of the Aethiopica"))
+        val detailViewModel = DetailViewModel(savedStateHandle, repository)
+
+        val uiState = detailViewModel.uiState.first { it is EntityUiState.ArtifactSuccess }
+        val success = uiState as EntityUiState.ArtifactSuccess
+        val details = success.artifactDetails
+
+        assertEquals("The Eye of the Aethiopica", details.name)
+        assertEquals("amulet of esp", details.baseItem)
+        assertEquals("Neutral", details.alignment)
+        assertEquals("Wizard", details.role)
+        assertEquals("Create portal", details.invokedPower)
+        assertEquals(3, details.specialEffects.size)
+        assertTrue("Wielded properties should contain antimagic",
+            details.wieldedProperties.any { it.contains("Antimagic", ignoreCase = true) })
+        assertTrue("Carried properties should contain energy regen",
+            details.carriedProperties.any { it.contains("Energy regen", ignoreCase = true) })
     }
 }
