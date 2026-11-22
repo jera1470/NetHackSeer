@@ -22,7 +22,7 @@ import java.io.IOException
 
 @Database(
     entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class, ArtifactEntity::class],
-    version = 9,
+    version = 10,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
