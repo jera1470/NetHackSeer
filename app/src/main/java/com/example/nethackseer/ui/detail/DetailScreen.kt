@@ -95,6 +95,18 @@ fun DetailScreenContent(
                                 )
                                 Text(text = ")", color = White)
                             }
+                            is EntityUiState.ArtifactSuccess -> {
+                                val details = uiState.artifactDetails
+                                Text(text = details.name, color = White)
+                                Text(text = " (", color = White)
+                                Text(
+                                    text = getDisplayChar(details.symbol),
+                                    color = getNetHackColor(details.color),
+                                    fontFamily = FontFamily.Monospace,
+                                    modifier = Modifier.background(Black)
+                                )
+                                Text(text = ")", color = White)
+                            }
                             is EntityUiState.Loading -> Text(text = "wait...", color = White)
                             is EntityUiState.Error -> Text(text = "error", color = White)
                             is EntityUiState.PropertySuccess -> TODO()
@@ -574,6 +586,176 @@ fun DetailScreenContent(
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+            }
+
+            is EntityUiState.ArtifactSuccess -> {
+                val details = uiState.artifactDetails
+                Column(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize()
+                        .padding(16.dp)
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = details.name,
+                            style = Typography.headlineLarge,
+                            color = DarkRed,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Text(
+                            text = getDisplayChar(details.symbol),
+                            style = Typography.headlineLarge.copy(fontFamily = FontFamily.Monospace),
+                            color = getNetHackColor(details.color),
+                            modifier = Modifier.background(Black)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = buildString {
+                            append("Base: ${details.baseItem.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}")
+                            append("  |  ${details.alignment}")
+                            if (details.role != null) {
+                                append("  |  Role: ${details.role}")
+                            }
+                        },
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            StatBox("Base Item", details.baseItem.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
+                            StatBox("Alignment", details.alignment)
+                            if (details.role != null) {
+                                StatBox("Role", details.role)
+                            }
+                            if (details.damageTarget != null) {
+                                StatBox("Target", details.damageTarget)
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        Column(modifier = Modifier.weight(1f)) {
+                            if (details.attackToHitBonus != null) {
+                                StatBox("To-Hit", "+${details.attackToHitBonus}")
+                            }
+                            if (details.attackModifier != null) {
+                                StatBox("Dmg Bonus", "+${details.attackModifier}")
+                            }
+                            if (details.attackTypeModifier != null) {
+                                StatBox("Dmg Type", details.attackTypeModifier)
+                            }
+                            if (details.invokedPower != null) {
+                                StatBox("Invoked", details.invokedPower)
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(vertical = 2.dp),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .padding(12.dp)
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = "Wielded Properties",
+                                    style = Typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
+
+                                if (details.wieldedProperties.isEmpty()) {
+                                    Text(
+                                        text = "None",
+                                        style = Typography.bodyMedium,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                } else {
+                                    details.wieldedProperties.forEach { prop ->
+                                        Text(
+                                            text = prop,
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            textAlign = TextAlign.Center,
+                                            modifier = Modifier.padding(vertical = 1.dp)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(vertical = 2.dp),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .padding(12.dp)
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = "Carried Properties",
+                                    style = Typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
+
+                                if (details.carriedProperties.isEmpty()) {
+                                    Text(
+                                        text = "None",
+                                        style = Typography.bodyMedium,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                } else {
+                                    details.carriedProperties.forEach { prop ->
+                                        Text(
+                                            text = prop,
+                                            style = Typography.bodyMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            textAlign = TextAlign.Center,
+                                            modifier = Modifier.padding(vertical = 1.dp)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (details.specialEffects.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            text = "Special Effects",
+                            style = Typography.titleMedium,
+                            color = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                        details.specialEffects.forEach { effect ->
+                            PropertyBullet(text = effect)
                         }
                     }
                 }

@@ -1,8 +1,10 @@
 package com.example.nethackseer.data
 
+import com.example.nethackseer.data.local.dao.ArtifactDao
 import com.example.nethackseer.data.local.dao.ItemDao
 import com.example.nethackseer.data.local.dao.MonsterDao
 import com.example.nethackseer.data.local.dao.PropertyDao
+import com.example.nethackseer.data.local.entity.ArtifactEntity
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
 import com.example.nethackseer.data.local.entity.PropertyEntity
@@ -15,24 +17,27 @@ import kotlinx.coroutines.flow.combine
 class NetHackRepository(
     private val monsterDao: MonsterDao,
     private val itemDao: ItemDao,
-    private val propertyDao: PropertyDao
+    private val propertyDao: PropertyDao,
+    private val artifactDao: ArtifactDao
 ) {
     val allMonsters: Flow<List<MonsterEntity>> = monsterDao.getAll()
     val allItems: Flow<List<ItemEntity>> = itemDao.getAll()
+    val allArtifacts: Flow<List<ArtifactEntity>> = artifactDao.getAll()
 
     /**
-     * Get all names from monsters, items, and properties, combined and sorted.
+     * Get all names from monsters, items, properties, and artifacts, combined and sorted.
      */
     val allNames: Flow<List<String>> = combine(
         monsterDao.getAllNames(),
         itemDao.getAllNames(),
-        propertyDao.getAllNames()
-    ) { monsters, items, properties ->
-        (monsters + items + properties).sorted()
+        propertyDao.getAllNames(),
+        artifactDao.getAllNames()
+    ) { monsters, items, properties, artifacts ->
+        (monsters + items + properties + artifacts).sorted()
     }
 
     /**
-     * Search for monsters and items matching a text query (name, gendered name, or glyph display character).
+     * Search for monsters, items, and artifacts matching a text query (name, gendered name, or glyph display character).
      *
      * @param query The text query to search with
      *
@@ -40,12 +45,15 @@ class NetHackRepository(
      */
     fun searchMonstersItems(query: String): Flow<List<SearchResultItem>> = combine(
         allMonsters,
-        allItems
-    ) { monsters, items ->
+        allItems,
+        allArtifacts
+    ) { monsters, items, artifacts ->
         val trimmedQuery = query.trim().lowercase()
         if (trimmedQuery.isEmpty()) {
             emptyList()
         } else {
+            val itemMap = items.associateBy { it.name.lowercase() }
+
             val monsterResults = monsters.filter { monster ->
                 monster.name.contains(trimmedQuery, ignoreCase = true) ||
                         monster.maleName?.contains(trimmedQuery, ignoreCase = true) == true ||
@@ -73,7 +81,20 @@ class NetHackRepository(
                 )
             }
 
-            (monsterResults + itemResults).sortedBy { it.name }
+            val artifactResults = artifacts.filter { artifact ->
+                artifact.name.contains(trimmedQuery, ignoreCase = true) ||
+                        artifact.baseItem.contains(trimmedQuery, ignoreCase = true)
+            }.map { artifact ->
+                val baseItem = itemMap[artifact.baseItem.lowercase()]
+                SearchResultItem(
+                    name = artifact.name,
+                    category = "artifact",
+                    symbol = baseItem?.symbol ?: "WEAPON_CLASS",
+                    color = baseItem?.color ?: "HI_METAL"
+                )
+            }
+
+            (monsterResults + itemResults + artifactResults).sortedBy { it.name }
         }
     }
 
@@ -91,6 +112,11 @@ class NetHackRepository(
      * Get a property by name.
      */
     fun getPropertyByName(name: String): Flow<PropertyEntity?> = propertyDao.getPropertyByName(name)
+
+    /**
+     * Get an artifact by name.
+     */
+    fun getArtifactByName(name: String): Flow<ArtifactEntity?> = artifactDao.getArtifactByName(name)
 
     /**
      * Resolves a list of property IDs (e.g., ["M1_ANIMAL", "M1_NOHANDS"]) into full PropertyEntity objects.

@@ -153,14 +153,23 @@ fun HomeScreen(
                         .weight(1f)
                 )
             }
-            ActionButton(
-                "Dungeon Features",
-                onClick = { /*TODO*/ },
-                modifier = Modifier
-                    .padding(8.dp)
-                    .fillMaxWidth()
-            )
-            Row {
+            Row(Modifier.fillMaxWidth()) {
+                ActionButton(
+                    "Artifacts",
+                    onClick = { onNavigateToType("artifact") },
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f)
+                )
+                ActionButton(
+                    "Dungeon Features",
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f)
+                )
+            }
+            Row(Modifier.fillMaxWidth()) {
                 ActionButton(
                     "Roles",
                     onClick = { /*TODO*/ },

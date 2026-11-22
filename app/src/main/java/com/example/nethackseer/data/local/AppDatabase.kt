@@ -6,9 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.nethackseer.data.local.dao.MonsterDao
+import com.example.nethackseer.data.local.dao.ArtifactDao
 import com.example.nethackseer.data.local.dao.ItemDao
+import com.example.nethackseer.data.local.dao.MonsterDao
 import com.example.nethackseer.data.local.dao.PropertyDao
+import com.example.nethackseer.data.local.entity.ArtifactEntity
 import com.example.nethackseer.data.local.entity.Attack
 import com.example.nethackseer.data.local.entity.ItemEntity
 import com.example.nethackseer.data.local.entity.MonsterEntity
@@ -19,8 +21,8 @@ import org.json.JSONArray
 import java.io.IOException
 
 @Database(
-    entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class],
-    version = 8,
+    entities = [MonsterEntity::class, ItemEntity::class, PropertyEntity::class, ArtifactEntity::class],
+    version = 10,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -28,6 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
     abstract fun itemDao(): ItemDao
     abstract fun propertyDao(): PropertyDao
+    abstract fun artifactDao(): ArtifactDao
 
     companion object {
         @Volatile
@@ -62,6 +65,7 @@ abstract class AppDatabase : RoomDatabase() {
                     db.execSQL("DELETE FROM monsters")
                     db.execSQL("DELETE FROM items")
                     db.execSQL("DELETE FROM properties")
+                    db.execSQL("DELETE FROM artifacts")
 
                     val monsterDao = database.monsterDao()
                     prePopulateMonsters(context, monsterDao)
@@ -69,6 +73,8 @@ abstract class AppDatabase : RoomDatabase() {
                     prePopulateItem(context, itemDao)
                     val propertyDao = database.propertyDao()
                     prePopulateProperties(context, propertyDao)
+                    val artifactDao = database.artifactDao()
+                    prePopulateArtifacts(context, artifactDao)
                 }
             }
         }
@@ -226,6 +232,64 @@ abstract class AppDatabase : RoomDatabase() {
                 )
             }
             dao.insertProperties(propertyList)
+        }
+
+        private suspend fun prePopulateArtifacts(context: Context, dao: ArtifactDao) {
+            val jsonString: String
+            try {
+                jsonString = context.assets.open("nethack_data/nethack500/artifact500.json").bufferedReader()
+                    .use { it.readText() }
+            } catch (ioException: IOException) {
+                ioException.printStackTrace()
+                return
+            }
+
+            val jsonArray = JSONArray(jsonString)
+            val artifactList = mutableListOf<ArtifactEntity>()
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+
+                val wieldedArray = jsonObject.optJSONArray("wieldedProperties")
+                val wieldedList = mutableListOf<String>()
+                if (wieldedArray != null) {
+                    for (j in 0 until wieldedArray.length()) {
+                        wieldedList.add(wieldedArray.getString(j))
+                    }
+                }
+
+                val carriedArray = jsonObject.optJSONArray("carriedProperties")
+                val carriedList = mutableListOf<String>()
+                if (carriedArray != null) {
+                    for (j in 0 until carriedArray.length()) {
+                        carriedList.add(carriedArray.getString(j))
+                    }
+                }
+
+                val specialEffectsArray = jsonObject.optJSONArray("specialEffects")
+                val specialEffectsList = mutableListOf<String>()
+                if (specialEffectsArray != null) {
+                    for (j in 0 until specialEffectsArray.length()) {
+                        specialEffectsList.add(specialEffectsArray.getString(j))
+                    }
+                }
+
+                val artifactEntity = ArtifactEntity(
+                    name = jsonObject.getString("name"),
+                    baseItem = jsonObject.getString("baseItem"),
+                    alignment = jsonObject.getString("alignment"),
+                    role = if (jsonObject.isNull("role")) null else jsonObject.optString("role"),
+                    wieldedProperties = wieldedList.joinToString("|"),
+                    carriedProperties = carriedList.joinToString("|"),
+                    attackToHitBonus = if (jsonObject.isNull("attackToHitBonus")) null else jsonObject.optString("attackToHitBonus"),
+                    attackModifier = if (jsonObject.isNull("attackModifier")) null else jsonObject.optString("attackModifier"),
+                    attackTypeModifier = if (jsonObject.isNull("attackTypeModifier")) null else jsonObject.optString("attackTypeModifier"),
+                    damageTarget = if (jsonObject.isNull("damageTarget")) null else jsonObject.optString("damageTarget"),
+                    invokedPower = if (jsonObject.isNull("invokedPower")) null else jsonObject.optString("invokedPower"),
+                    specialEffects = specialEffectsList.joinToString("|")
+                )
+                artifactList.add(artifactEntity)
+            }
+            dao.insertAll(artifactList)
         }
     }
 }

@@ -6,7 +6,6 @@
     "role": "Knight",
     "wieldedProperties": [
       "MR2_SEARCHING",
-      "MR2_STEALTH",
       "MR_DRAIN"
     ],
     "carriedProperties": [],
@@ -14,7 +13,14 @@
     "attackModifier": "1d10",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Can be gifted to the hero by dipping a long sword in a fountain at XL 5+ as lawful (1/6 chance for Knight, 1/30 for other lawfuls).",
+      "Can be wielded by any lawful character without blast damage as long as their alignment record is above 0.",
+      "Sword enchantment (up to +5) affects manual search chance.",
+      "Lawful demon princes cannot be bribed while wielding Excalibur and become immediately hostile.",
+      "Monsters can always track the hero while wielded (not a huge effect)."
+    ]
   },
   {
     "name": "Stormbringer",
@@ -29,22 +35,33 @@
     "attackModifier": "1d2",
     "attackTypeModifier": "AD_DRLI",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Drains 1 level and target max HP from non-drain-resistant enemies on hit.",
+      "Instantly kills level 1 or level 0 enemies when drained.",
+      "Heals the wielder for half of the drained HP.",
+      "Bloodthirsty: attacks pets/peacefuls instead of displacing them."
+    ]
   },
   {
     "name": "Mjollnir",
     "baseItem": "war hammer",
     "alignment": "Neutral",
     "role": "Valkyrie",
-    "wieldedProperties": [
-      "MR_ELEC"
-    ],
+    "wieldedProperties": [],
     "carriedProperties": [],
     "attackToHitBonus": "1d5",
     "attackModifier": "1d24",
     "attackTypeModifier": "AD_ELEC",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Can be thrown while wielded if wielder has 25 Strength.",
+      "Only returns to the thrower if thrown by a Valkyrie (~99% return, ~99% catch).",
+      "Failing to catch a returning throw deals damage and can destroy inventory rings and wands.",
+      "Does NOT confer shock resistance to the wielder.",
+      "Magically too heavy to kick more than 1 space."
+    ]
   },
   {
     "name": "Cleaver",
@@ -57,7 +74,13 @@
     "attackModifier": "1d6",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Cleave attack: strikes up to three adjacent monsters simultaneously (target plus both flanking tiles).",
+      "Alternates swing direction (clockwise and counter-clockwise) on consecutive attacks.",
+      "First sacrifice gift for Barbarians.",
+      "Cannot cleave while engulfed/swallowed or in two-weapon combat (two-handed)."
+    ]
   },
   {
     "name": "Grimtooth",
@@ -73,7 +96,14 @@
     "attackModifier": "1d6",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": "FLING_POISON"
+    "invokedPower": "FLING_POISON",
+    "specialEffects": [
+      "Glows red in warning when elves are nearby.",
+      "Blade is permanently poisoned (poison never wears off).",
+      "On top of doing blast damage to non-chaotics, Elves will also be blasted.",
+      "Invoking flings blinding venom or acid venom (50/50 chance); bypasses cooldown for 25 Pw.",
+      "Cannot be gifted at altars to characters whose race is hostile to orcs (e.g. Elves)."
+    ]
   },
   {
     "name": "Orcrist",
@@ -88,7 +118,13 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "orc",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Glows light blue in warning when orcs are nearby.",
+      "Safe for any alignment to touch and wield without blast damage UNLESS they're an orc.",
+      "Naturally rustproof and acidproof (crafted from elven wood).",
+      "Generates with base enchantment of +3; will not be gifted at altars to races hostile to elves (e.g. Orcs)."
+    ]
   },
   {
     "name": "Sting",
@@ -103,7 +139,14 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "orc",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Instantly cuts through webs when trapped in a web or untrapping adjacent web tiles.",
+      "Glows light blue in warning when orcs are nearby.",
+      "Safe for any alignment to touch and wield without blast damage.",
+      "Naturally rustproof and acidproof (crafted from elven wood).",
+      "Generates with base enchantment of +2; will not be gifted at altars to races hostile to elves (e.g. Orcs)."
+    ]
   },
   {
     "name": "Magicbane",
@@ -116,9 +159,20 @@
     "carriedProperties": [],
     "attackToHitBonus": "1d3",
     "attackModifier": "1d4",
-    "attackTypeModifier": "AD_PHYS",
+    "attackTypeModifier": "AD_STUN",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Has a 40% chance on any hit to trigger one of four escalating magical tiers with bonus physical damage: Probe (+1d4 dmg), Stun (+2d4 dmg), Scare (+3d4 dmg, flees 3 turns), or Cancel (+4d4 dmg).",
+      "If initial MR check succeeds, special chances drop by 5% and stun odds decrease. Cancel and Scare allow a secondary MR check to prevent the status effect.",
+      "Bonus physical damage ALWAYS applies in full even if the monster resists magic.",
+      "Probing occurs if all other magical tiers don't trigger and passes a check (100% at +0, 1 in 3*spe if enchanted).",
+      "8.3% (or a 1/12) chance for confusion on any hit.",
+      "Canceling a spellcaster permanently grants +1 max Pw and restores 1 Pw.",
+      "Enchantment reduces magical attack rates (Cancel: 10% at <= +2, 5% at +3 to +5, 0% at +6+; Scare: 10% at <=+2, 5% at +3+).",
+      "Absorbs curses 95% of the time from any source (thrones, curse items monster spell, etc.) if wielded.",
+      "Suffers extra d4 damage from anti-magic traps if wielded."
+    ]
   },
   {
     "name": "Frost Brand",
@@ -133,7 +187,12 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_COLD",
     "damageTarget": "non-cold resistant monsters",
-    "invokedPower": "SNOWSTORM"
+    "invokedPower": "SNOWSTORM",
+    "specialEffects": [
+      "25% chance on hit to freeze and shatter potions in target inventory, dealing extra blast damage.",
+      "Invoking cone of cold at Expert level.",
+      "Safe for any alignment to touch and wield without blast damage."
+    ]
   },
   {
     "name": "Fire Brand",
@@ -148,7 +207,14 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_FIRE",
     "damageTarget": "non-fire resistant monsters",
-    "invokedPower": "FIRESTORM"
+    "invokedPower": "FIRESTORM",
+    "specialEffects": [
+      "25% chance on hit to burn scrolls/books and explode potions in target inventory, dealing extra blast damage and igniting items.",
+      "Invoking casts fireball at Expert level.",
+      "Burns through webs instantly with 100% success rate when trapped or clearing adjacent webs.",
+      "Safe for any alignment to touch and wield without blast damage.",
+      "Burns away Slimed status if hit by it."
+    ]
   },
   {
     "name": "Dragonbane",
@@ -163,7 +229,11 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "dragon",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Safe for any alignment to touch and wield without blast damage.",
+      "Generates with base +2 enchantment."
+    ]
   },
   {
     "name": "Demonbane",
@@ -176,7 +246,13 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "demon",
-    "invokedPower": "BANISH"
+    "invokedPower": "BANISH",
+    "specialEffects": [
+      "Invoking banishes all visible demons and imps in line-of-sight to Gehennom (or teleports them away if already in Gehennom).",
+      "Banishment success: 100% for standard demons/imps, 50% for Demon Lords, 33% for Demon Princes; wakes targets and cancels peacefulness.",
+      "Blocks demon gating while wielded.",
+      "First sacrifice gift for Priests."
+    ]
   },
   {
     "name": "Werebane",
@@ -189,7 +265,11 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "were",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Confers complete immunity to contracting lycanthropy while wielded.",
+      "Safe for any alignment to touch and wield without blast damage UNLESS they're a lycanthrope."
+    ]
   },
   {
     "name": "Grayswandir",
@@ -204,7 +284,8 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": []
   },
   {
     "name": "Giantslayer",
@@ -217,7 +298,11 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "giant",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Confers steadfast while wielded on the ground, preventing the hero from being pushed back by monster blows.",
+      "Generates with base +2 enchantment."
+    ]
   },
   {
     "name": "Ogresmasher",
@@ -230,7 +315,13 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "ogre",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Sets Constitution to 25 while wielded.",
+      "50% chance on any hit to knock the target back 1 or 2 squares (instead of 16.7%).",
+      "Safe for any alignment to touch and wield without blast damage.",
+      "Generates with base +2 enchantment."
+    ]
   },
   {
     "name": "Trollsbane",
@@ -245,7 +336,14 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "troll",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Permanently prevents slain trolls from reviving: corpses created by Trollsbane will never resurrect.",
+      "When wielded in the primary hand, off-hand weapon kills also prevent troll revival.",
+      "Confers regeneration while wielded (still subject to increased hunger while healing).",
+      "Safe for any alignment to touch and wield without blast damage.",
+      "Generates with base +2 enchantment."
+    ]
   },
   {
     "name": "Vorpal Blade",
@@ -258,7 +356,13 @@
     "attackModifier": "+1",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "creatures with heads",
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "5% Chance instantly decapitates and kills any corporeal creature with a head.",
+      "Has a guaranteed 100% chance on every hit to instantly decapitate and kill jabberwocks.",
+      "On a decapitation 'hit' against headless targets, misses wildly for 0 damage, while noncorporeal targets take normal damage.",
+      "Generates with base +1 enchantment."
+    ]
   },
   {
     "name": "Snickersnee",
@@ -271,7 +375,12 @@
     "attackModifier": "1d8",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Applying Snickersnee allows one free polearm-style reach strike per turn up to 2 tiles away.",
+      "Unlike actual polearms, suffers no awkward close-range bashing penalty when unmounted in melee.",
+      "First sacrifice gift for lawful Samurai."
+    ]
   },
   {
     "name": "Sunsword",
@@ -286,7 +395,12 @@
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": "undead",
-    "invokedPower": "BLINDING_RAY"
+    "invokedPower": "BLINDING_RAY",
+    "specialEffects": [
+      "Emits permanent light (radius 3) while wielded without consuming fuel or oil.",
+      "Invoking shoots a beam of blinding light (blinds targets; bypasses cooldown for 25 Pw), or directed up/down permanently lights the floor tile.",
+      "Fully damages ethereal shades despite being non-silver."
+    ]
   },
   {
     "name": "The Orb of Detection",
@@ -303,7 +417,11 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "INVIS"
+    "invokedPower": "INVIS",
+    "specialEffects": [
+      "Invoking toggles Invisibility on and off at will.",
+      "For Archeologists only, failure check for applying the crystal ball drops to rnd(8) > Int (guaranteed if Int >= 8); never explodes for any hero."
+    ]
   },
   {
     "name": "The Heart of Ahriman",
@@ -318,7 +436,11 @@
     "attackModifier": "double damage (thrown)",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": "LEVITATION"
+    "invokedPower": "LEVITATION",
+    "specialEffects": [
+      "Invoking toggles levitation on and off; pressing > or dropping it while levitating descends the hero back to the ground.",
+      "Never breaks on impact when thrown as ammo."
+    ]
   },
   {
     "name": "The Sceptre of Might",
@@ -332,8 +454,11 @@
     "attackToHitBonus": "1d5",
     "attackModifier": "double damage",
     "attackTypeModifier": "AD_PHYS",
-    "damageTarget": "non-lawful monsters",
-    "invokedPower": "CONFLICT"
+    "damageTarget": "cross-aligned monsters",
+    "invokedPower": "CONFLICT",
+    "specialEffects": [
+      "Invoking toggles hungerless conflict on and off, and ends if it leaves the hero's inventory."
+    ]
   },
   {
     "name": "The Staff of Aesculapius",
@@ -346,10 +471,15 @@
     ],
     "carriedProperties": [],
     "attackToHitBonus": "0",
-    "attackModifier": "level drain",
+    "attackModifier": "double damage",
     "attackTypeModifier": "AD_DRLI",
-    "damageTarget": null,
-    "invokedPower": "HEALING"
+    "damageTarget": "non-drain resistant monsters",
+    "invokedPower": "HEALING",
+    "specialEffects": [
+      "Every hit against non-drain-resistant monsters drains 1 monster level and reduces their maximum HP by 1d8.",
+      "The wielder is healed for half of the drained damage rounded up on every successful drain hit.",
+      "Invoking restores half of the hero's max HP, and completely purges and cures sickness, slime, and blindness."
+    ]
   },
   {
     "name": "The Magic Mirror of Merlin",
@@ -365,7 +495,12 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "While carried by a Knight, doubles damage dealt by offensive spells (force bolt, magic missile, drain life, chain lightning, Turn Undead, and basic fireball/cone of cold) as well as wands of striking and undead turning.",
+      "Unlike ordinary mirrors, it is indestructible and will never break or shatter when dropped, kicked, or thrown.",
+      "Whispers rumors when wielded or applied: guaranteed true if blessed, random if uncursed, and guaranteed false if cursed."
+    ]
   },
   {
     "name": "The Eyes of the Overworld",
@@ -380,7 +515,12 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "ENLIGHTENING"
+    "invokedPower": "ENLIGHTENING",
+    "specialEffects": [
+      "Grants x-ray vision with a radius of 3 squares while worn.",
+      "Completely suppresses blindness while worn.",
+      "Invoking grants enlightenment."
+    ]
   },
   {
     "name": "The Mitre of Holiness",
@@ -397,7 +537,12 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "ENERGY_BOOST"
+    "invokedPower": "ENERGY_BOOST",
+    "specialEffects": [
+      "While worn by a Priest, halves all incoming physical attack damage from undead, demons, and vampire shifters.",
+      "Can damage shades in combat due to its anti-undead property.",
+      "Invoking restores half of missing magical energy (up to +120 Pw), or all missing energy if less than 12 Pw is missing."
+    ]
   },
   {
     "name": "The Longbow of Diana",
@@ -411,10 +556,15 @@
       "MR2_TELEPAT"
     ],
     "attackToHitBonus": "1d5",
-    "attackModifier": "double damage (arrows)",
+    "attackModifier": null,
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": "CREATE_AMMO"
+    "invokedPower": "CREATE_AMMO",
+    "specialEffects": [
+      "When wielded by a Ranger, grants +1 to the maximum multishot volley with any appropriate ammo.",
+      "Arrows shot from the bow do not deal double damage; the double damage modifier only applies when the bow itself is used as a melee bashing club.",
+      "Invoking spawns an uneroded stack of 6-11 arrows (matching the bow's beatitude, 1% chance poisoned), plus 1-10 extra arrows if blessed (7-21 total) or 1-5 extra arrows if uncursed (7-16 total)."
+    ]
   },
   {
     "name": "The Master Key of Thievery",
@@ -431,7 +581,14 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "UNTRAP"
+    "invokedPower": "UNTRAP",
+    "specialEffects": [
+      "When carried (uncursed for Rogues, blessed for non-Rogues), #untrap on doors and containers has a 100% chance to detect traps and disarming them always succeeds with zero chance of triggering.",
+      "When wielded without gloves, senses adjacent traps in the 8 surrounding tiles by temperature (cool, warm, hot, or like fire!).",
+      "Whispers rumors when wielded or applied: guaranteed true if blessed, random if uncursed, and guaranteed false if cursed.",
+      "When used to pick a locked door or container that is trapped, immediately prompts to disarm the trap with a 100% success rate before unlocking.",
+      "Invoking triggers the untrap command in a targeted direction with guaranteed success."
+    ]
   },
   {
     "name": "The Tsurugi of Muramasa",
@@ -446,7 +603,14 @@
     "attackModifier": "1d8",
     "attackTypeModifier": "AD_PHYS",
     "damageTarget": null,
-    "invokedPower": null
+    "invokedPower": null,
+    "specialEffects": [
+      "Has a 5% chance on any hit to bisect small and medium monsters, killing them instantly.",
+      "Against large and giant monsters, a bisection roll deals double damage instead of instantly killing.",
+      "While engulfed, 5% chance of bisecting the insides of the engulfing monster for an instant kill.",
+      "Against long worms, a bisection roll to the head kills it instantly, while hits to the body trigger normal segment cutting.",
+      "Functions as a luckstone while carried."
+    ]
   },
   {
     "name": "The Platinum Yendorian Express Card",
@@ -463,7 +627,10 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "CHARGE_OBJ"
+    "invokedPower": "CHARGE_OBJ",
+    "specialEffects": [
+      "Invoking recharges a targeted wand, magic marker, ring, or tool in inventory: acts as a blessed recharge if blessed and used by a Tourist (granting a chance at maximum charges), an uncursed recharge if uncursed (or used by non-Tourists), and a cursed recharge if cursed."
+    ]
   },
   {
     "name": "The Orb of Fate",
@@ -480,7 +647,12 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "LEV_TELE"
+    "invokedPower": "LEV_TELE",
+    "specialEffects": [
+      "Invoking grants level teleportation, but still warrants the need for teleport control.",
+      "For Valkyries only, failure check for applying the crystal ball drops to rnd(8) > Int (guaranteed if Int >= 8); never explodes for any hero.",
+      "Functions as a luckstone while carried."
+    ]
   },
   {
     "name": "The Eye of the Aethiopica",
@@ -498,6 +670,11 @@
     "attackModifier": null,
     "attackTypeModifier": null,
     "damageTarget": null,
-    "invokedPower": "CREATE_PORTAL"
+    "invokedPower": "CREATE_PORTAL",
+    "specialEffects": [
+      "Invoking opens a portal to any previously visited dungeon branch and teleports the hero directly there.",
+      "Teleports to the entrance of the branch if current depth is shallower than or equal to the branch start, or to the deepest reached level of that branch otherwise.",
+      "Cannot open a portal while carrying the Amulet of Yendor, while in or targeting the Endgame, within the same branch, or if adjacent spaces are blocked."
+    ]
   }
 ]
