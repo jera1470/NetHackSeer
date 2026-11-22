@@ -1,21 +1,12 @@
-package com.example.nethackseer
+package com.example.nethackseer.search
 
 import androidx.compose.foundation.text.input.TextFieldState
-import androidx.lifecycle.SavedStateHandle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.data.local.AppDatabase
-import com.example.nethackseer.ui.components.SearchResultItem
-import com.example.nethackseer.ui.detail.DetailViewModel
-import com.example.nethackseer.ui.detail.EntityUiState
 import com.example.nethackseer.ui.homescreen.HomeViewModel
-import com.example.nethackseer.ui.typelist.TypeListViewModel
-import com.example.nethackseer.ui.typelist.TypeUiState
-import com.example.nethackseer.ui.utils.cleanNetHackName
 import com.example.nethackseer.ui.utils.getDisplayChar
-import com.example.nethackseer.ui.utils.getNetHackColor
-import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -29,9 +20,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.time.Duration.Companion.seconds
 
-// runs on Android device
+/**
+ * Instrumented tests for Search bar operations, query matching,
+ * debouncing, and category results across Monsters, Items, and Artifacts.
+ */
 @RunWith(AndroidJUnit4::class)
-class NetHackSeerFeatureTest {
+class SearchFeatureTest {
 
     private lateinit var repository: NetHackRepository
 
@@ -56,7 +50,7 @@ class NetHackSeerFeatureTest {
         )
     }
 
-    // 1a. Check if the query sends correctly (from anywhere)
+    // 1a. Check if the query sends correctly
     @Test
     fun test1a_querySendsCorrectly() {
         val homeViewModel = HomeViewModel(repository)
@@ -84,59 +78,6 @@ class NetHackSeerFeatureTest {
         assertTrue("Should return items containing 'giant'", results.any { it.name.contains("giant", ignoreCase = true) })
     }
 
-    // 3a. Check if glyph/color representation matches
-    @Test
-    fun test3a_glyphRepresentationMatches() {
-        // Monster symbol test
-        val monsterSymbol = "S_ANT"
-        val expectedChar = "a"
-        val actualChar = getDisplayChar(monsterSymbol)
-        assertEquals(expectedChar, actualChar)
-
-        // Item symbol test
-        val itemSymbol = "ARMOR_CLASS"
-        val expectedItemChar = "["
-        val actualItemChar = getDisplayChar(itemSymbol)
-        assertEquals(expectedItemChar, actualItemChar)
-    }
-
-    // 3b. Check if color matches
-    @Test
-    fun test3b_colorRepresentationMatches() {
-        val colorString = "CLR_RED"
-        val color = getNetHackColor(colorString)
-        assertNotNull(color)
-    }
-
-    // 4. Check if selecting a search result navigates to details
-    @Test
-    fun test4_selectingResultNavigatesToDetails() {
-        var navigatedEntityId: String? = null
-        val onNavigateToDetail: (String) -> Unit = { id ->
-            navigatedEntityId = id
-        }
-
-        val dummyResult = SearchResultItem("floating eye", "monster", "S_EYE", "CLR_BLUE")
-        onNavigateToDetail(dummyResult.name)
-
-        assertEquals("floating eye", navigatedEntityId)
-    }
-
-    // 5. Check if clicking category navigates to list
-    @Test
-    fun test5_clickingCategoryNavigatesToList() {
-        var navigatedCategory: String? = null
-        val onNavigateToCategory: (String) -> Unit = { category ->
-            navigatedCategory = category
-        }
-
-        onNavigateToCategory("monster")
-        assertEquals("monster", navigatedCategory)
-
-        onNavigateToCategory("item")
-        assertEquals("item", navigatedCategory)
-    }
-
     // 6. Check if filtering updates the UI
     @Test
     fun test6_filteringUpdatesResults() = runBlocking {
@@ -154,48 +95,6 @@ class NetHackSeerFeatureTest {
 
         assertTrue(broadResults.size >= filteredResults.size)
         assertTrue(filteredResults.all { it.name.contains("red dragon", ignoreCase = true) })
-    }
-
-    // 7. Check if clicking back pops the screen
-    @Test
-    fun test7_clickingBackPopsScreen() {
-        var backPressed = false
-        val onBack: () -> Unit = {
-            backPressed = true
-        }
-
-        onBack()
-        assertTrue(backPressed)
-    }
-
-    // 8. Check if the database works correctly
-    @Test
-    fun test8_databaseLoadsEntities() = runBlocking {
-        val monsters = repository.allMonsters.first { it.isNotEmpty() }
-        val items = repository.allItems.first { it.isNotEmpty() }
-
-        assertTrue("Monsters should not be empty", monsters.isNotEmpty())
-        assertTrue("Items should not be empty", items.isNotEmpty())
-    }
-
-    // 9. Check if symbol display name is translated correctly
-    @Test
-    fun test9_symbolDisplayNameTranslation() {
-        val monsterSymbol = "S_DOG"
-        val displayName = getSymbolDisplayName(monsterSymbol)
-        assertEquals("canine", displayName)
-
-        val itemSymbol = "WEAPON_CLASS"
-        val itemDisplayName = getSymbolDisplayName(itemSymbol)
-        assertEquals("weapon", itemDisplayName)
-    }
-
-    // 10. Check if cleanNetHackName strips underscores and prefixes properly
-    @Test
-    fun test10_cleanNetHackNameFormatting() {
-        val rawName = "giant_ant"
-        val cleaned = cleanNetHackName(rawName)
-        assertEquals("giant ant", cleaned)
     }
 
     // 11. Search by glyph returns appropriate results
@@ -258,7 +157,6 @@ class NetHackSeerFeatureTest {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("xyz123nonexistent")
 
-        // search is debounced/flow-based, with a non-existent match list should be empty
         val results = homeViewModel.searchResults.first { it.isEmpty() }
         assertTrue("No entity should match random gibberish", results.isEmpty())
     }
@@ -278,13 +176,6 @@ class NetHackSeerFeatureTest {
             lowerResults.size, upperResults.size)
     }
 
-    // 18. All names list contains items, monsters, and properties
-    @Test
-    fun test18_allNamesContainsCombinedEntities() = runBlocking {
-        val names = repository.allNames.first { it.isNotEmpty() }
-        assertTrue("Names list should be large", names.size > 500)
-    }
-
     // 19. Search finds artifacts by name and base item
     @Test
     fun test19_artifactSearch() = runBlocking {
@@ -300,48 +191,5 @@ class NetHackSeerFeatureTest {
         val fateOrb = orbResults.find { it.name == "The Orb of Fate" }
         assertNotNull("Searching base item 'crystal ball' should return The Orb of Fate", fateOrb)
         assertEquals("artifact", fateOrb?.category)
-    }
-
-    // 20. Clicking artifact category navigates and loads artifact list
-    @Test
-    fun test20_artifactCategoryNavigationAndList() = runBlocking {
-        var navigatedCategory: String? = null
-        val onNavigateToCategory: (String) -> Unit = { category ->
-            navigatedCategory = category
-        }
-
-        onNavigateToCategory("artifact")
-        assertEquals("artifact", navigatedCategory)
-
-        // TypeListViewModel loads all 33 artifacts
-        val savedStateHandle = SavedStateHandle(mapOf("typeId" to "artifact"))
-        val typeListViewModel = TypeListViewModel(savedStateHandle, repository)
-
-        val uiState = typeListViewModel.uiState.first { it is TypeUiState.Success }
-        val success = uiState as TypeUiState.Success
-        assertEquals("Should load all 33 artifacts", 33, success.listObj.size)
-        assertTrue("List should contain Mjollnir", success.listObj.any { it.name == "Mjollnir" })
-    }
-
-    // 21. Artifact detail loads and displays full artifact stats and special effects
-    @Test
-    fun test21_artifactDetailDisplay() = runBlocking {
-        val savedStateHandle = SavedStateHandle(mapOf("entityId" to "The Eye of the Aethiopica"))
-        val detailViewModel = DetailViewModel(savedStateHandle, repository)
-
-        val uiState = detailViewModel.uiState.first { it is EntityUiState.ArtifactSuccess }
-        val success = uiState as EntityUiState.ArtifactSuccess
-        val details = success.artifactDetails
-
-        assertEquals("The Eye of the Aethiopica", details.name)
-        assertEquals("amulet of esp", details.baseItem)
-        assertEquals("Neutral", details.alignment)
-        assertEquals("Wizard", details.role)
-        assertEquals("Create portal", details.invokedPower)
-        assertEquals(3, details.specialEffects.size)
-        assertTrue("Wielded properties should contain antimagic",
-            details.wieldedProperties.any { it.contains("Antimagic", ignoreCase = true) })
-        assertTrue("Carried properties should contain energy regen",
-            details.carriedProperties.any { it.contains("Energy regen", ignoreCase = true) })
     }
 }

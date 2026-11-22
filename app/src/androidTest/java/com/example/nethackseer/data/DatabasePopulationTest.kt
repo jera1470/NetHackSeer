@@ -1,4 +1,4 @@
-package com.example.nethackseer
+package com.example.nethackseer.data
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

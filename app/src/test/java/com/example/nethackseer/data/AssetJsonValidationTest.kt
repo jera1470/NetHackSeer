@@ -1,4 +1,4 @@
-package com.example.nethackseer
+package com.example.nethackseer.data
 
 import com.google.gson.JsonParser
 import org.junit.Assert.assertEquals
@@ -94,6 +94,30 @@ class AssetJsonValidationTest {
             val obj = element.asJsonObject
             assertTrue("Property entry should have id", obj.has("id") && !obj["id"].asString.isNullOrBlank())
             assertTrue("Property entry should have name", obj.has("name"))
+        }
+    }
+
+    // Check if artifact500.json exists, is a valid array of 33 artifacts, and has valid fields
+    @Test
+    fun testArtifact500Json_isValid() {
+        val file = getAssetFile("nethack_data/nethack500/artifact500.json")
+        assertTrue("artifact500.json should exist", file.exists())
+
+        val jsonText = file.readText()
+        val jsonElement = JsonParser.parseString(jsonText)
+        assertTrue("artifact500.json root should be a JSON array", jsonElement.isJsonArray)
+
+        val jsonArray = jsonElement.asJsonArray
+        assertEquals("artifact500.json must contain exactly 33 artifacts", 33, jsonArray.size())
+
+        for (element in jsonArray) {
+            val obj = element.asJsonObject
+            assertTrue("Artifact should have name", obj.has("name") && !obj["name"].asString.isNullOrBlank())
+            assertTrue("Artifact should have baseItem", obj.has("baseItem") && !obj["baseItem"].asString.isNullOrBlank())
+            assertTrue("Artifact should have alignment", obj.has("alignment"))
+            assertTrue("Artifact should have wieldedProperties array", obj.has("wieldedProperties") && obj["wieldedProperties"].isJsonArray)
+            assertTrue("Artifact should have carriedProperties array", obj.has("carriedProperties") && obj["carriedProperties"].isJsonArray)
+            assertTrue("Artifact should have specialEffects array", obj.has("specialEffects") && obj["specialEffects"].isJsonArray)
         }
     }
 }
