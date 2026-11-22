@@ -146,6 +146,7 @@ fun cleanNetHackName(name: String): String {
         .replace("HI_COPPER", "copper")
         .replace("HI_SILVER", "silver")
         .replace("HI_GOLD", "gold")
+        .replace("_", " ")
 }
 
 fun getSymbolDisplayName(symbol: String): String {
@@ -284,8 +285,7 @@ fun formatItemProperty(id: String): String {
 
 // artifacts have their own flags in the code (at least for now in NetHack 5.0)
 fun formatArtifactProperty(id: String): String {
-    val clean = id.removePrefix("MR2_").removePrefix("MR_").trim()
-    return when (clean) {
+    return when (val clean = id.removePrefix("MR2_").removePrefix("MR_").trim()) {
         "DRAIN" -> "Drain resistance"
         "ELEC" -> "Shock resistance"
         "FIRE" -> "Fire resistance"

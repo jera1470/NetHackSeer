@@ -148,7 +148,9 @@ class NetHackSeerFeatureTest {
 
         // Specific filter
         homeViewModel.onSearchQueryChange("red dragon")
-        val filteredResults = homeViewModel.searchResults.first { it.isNotEmpty() }
+        val filteredResults = homeViewModel.searchResults.first { results ->
+            results.isNotEmpty() && results.all { it.name.contains("red dragon", ignoreCase = true) }
+        }
 
         assertTrue(broadResults.size >= filteredResults.size)
         assertTrue(filteredResults.all { it.name.contains("red dragon", ignoreCase = true) })
@@ -211,11 +213,11 @@ class NetHackSeerFeatureTest {
     @Test
     fun test12_searchByGenderedName() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
-        homeViewModel.onSearchQueryChange("queen bee")
+        homeViewModel.onSearchQueryChange("succubus")
 
         val results = homeViewModel.searchResults.first { it.isNotEmpty() }
-        assertTrue("Searching 'queen bee' should find 'killer bee'",
-            results.any { it.name.equals("killer bee", ignoreCase = true) })
+        assertTrue("Searching 'succubus' should find 'amorous demon'",
+            results.any { it.name.equals("amorous demon", ignoreCase = true) })
     }
 
     // 13. Search by item glyph returns items of that class
