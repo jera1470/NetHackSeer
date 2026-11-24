@@ -8,9 +8,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.nethackseer.data.NetHackRepository
 import com.example.nethackseer.ui.utils.cleanNetHackName
-import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import com.example.nethackseer.ui.utils.getDisplayChar
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import com.example.nethackseer.ui.utils.getSymbolDisplayName
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -43,7 +42,6 @@ class TypeListViewModel(
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     private val _rawEntities = when (typeId.lowercase()) {
         "monster" -> repository.allMonsters.map { monsters ->
             monsters.map { EntitySummary(it.name, it.symbol, it.color) }

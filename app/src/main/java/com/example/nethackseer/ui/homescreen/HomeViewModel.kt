@@ -50,7 +50,7 @@ class HomeViewModel(private val repository: NetHackRepository) : ViewModel() {
                 val randomName = allNames.random()
 
                 val isMonster = repository.getMonsterByName(randomName).first() != null
-                val isItem = if (!isMonster) repository.getItemByName(randomName).first() != null else false
+                val isItem = !isMonster && repository.getItemByName(randomName).first() != null
                 val type = when {
                     isMonster -> "monster"
                     isItem -> "item"
