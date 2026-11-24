@@ -50,17 +50,17 @@ class SearchFeatureTest {
         )
     }
 
-    // 1a. Check if the query sends correctly
+    // Query updates and sends correctly
     @Test
-    fun test1a_querySendsCorrectly() {
+    fun querySendsCorrectly() {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("plate mail")
         assertEquals("plate mail", homeViewModel.searchQuery.value)
     }
 
-    // 1b. Check if the text changes based on text field state
+    // Text field state synchronizes correctly with view model
     @Test
-    fun test1b_textFieldStateSyncsCorrectly() {
+    fun textFieldStateSyncsCorrectly() {
         val textFieldState = TextFieldState()
         textFieldState.edit {
             replace(0, length, "long sword")
@@ -68,9 +68,9 @@ class SearchFeatureTest {
         assertEquals("long sword", textFieldState.text.toString())
     }
 
-    // 2. Check if a query finds relevant results
+    // Search query finds relevant results across categories
     @Test
-    fun test2_queryFindsRelevantResults() = runBlocking {
+    fun queryFindsRelevantResults() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("giant")
 
@@ -78,9 +78,9 @@ class SearchFeatureTest {
         assertTrue("Should return items containing 'giant'", results.any { it.name.contains("giant", ignoreCase = true) })
     }
 
-    // 6. Check if filtering updates the UI
+    // Filtering updates search results when query changes
     @Test
-    fun test6_filteringUpdatesResults() = runBlocking {
+    fun filteringUpdatesResults() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
 
         // Initial broad search
@@ -97,9 +97,9 @@ class SearchFeatureTest {
         assertTrue(filteredResults.all { it.name.contains("red dragon", ignoreCase = true) })
     }
 
-    // 11. Search by glyph returns appropriate results
+    // Search by glyph returns appropriate results
     @Test
-    fun test11_searchByGlyph() = runBlocking {
+    fun searchByGlyph() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("d") // 'd' is S_DOG
 
@@ -108,9 +108,9 @@ class SearchFeatureTest {
             results.any { it.symbol == "S_DOG" })
     }
 
-    // 12. Search by gendered name returns the root monster
+    // Search by gendered name returns the root monster
     @Test
-    fun test12_searchByGenderedName() = runBlocking {
+    fun searchByGenderedName() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("succubus")
 
@@ -119,9 +119,9 @@ class SearchFeatureTest {
             results.any { it.name.equals("amorous demon", ignoreCase = true) })
     }
 
-    // 13. Search by item glyph returns items of that class
+    // Search by item glyph returns items of that class
     @Test
-    fun test13_searchByItemGlyph() = runBlocking {
+    fun searchByItemGlyph() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange(")") // ')' is WEAPON_CLASS
 
@@ -130,9 +130,9 @@ class SearchFeatureTest {
             results.any { it.category == "item" && it.symbol == "WEAPON_CLASS" })
     }
 
-    // 14. Search by monster class name returns that monster group
+    // Search by monster class name returns that monster group
     @Test
-    fun test14_searchByMonsterClassName() = runBlocking {
+    fun searchByMonsterClassName() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("ant")
 
@@ -141,9 +141,9 @@ class SearchFeatureTest {
             results.any { it.symbol == "S_ANT" })
     }
 
-    // 15. Empty query emits empty results
+    // Empty query emits empty results
     @Test
-    fun test15_emptyQueryEmitsEmptyList() = runBlocking {
+    fun emptyQueryEmitsEmptyList() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("")
 
@@ -151,9 +151,9 @@ class SearchFeatureTest {
         assertTrue("Empty query should yield empty results", results.isEmpty())
     }
 
-    // 16. Searching non-existent query yields empty results
+    // Searching non-existent query yields empty results
     @Test
-    fun test16_nonExistentQueryYieldsEmptyList() = runBlocking {
+    fun nonExistentQueryYieldsEmptyList() = runBlocking {
         val homeViewModel = HomeViewModel(repository)
         homeViewModel.onSearchQueryChange("xyz123nonexistent")
 
@@ -161,9 +161,9 @@ class SearchFeatureTest {
         assertTrue("No entity should match random gibberish", results.isEmpty())
     }
 
-    // 17. Case insensitivity in search
+    // Case insensitivity in search
     @Test
-    fun test17_searchIsCaseInsensitive() = runBlocking {
+    fun searchIsCaseInsensitive() = runBlocking {
         val homeViewModelLower = HomeViewModel(repository)
         homeViewModelLower.onSearchQueryChange("orc")
         val lowerResults = homeViewModelLower.searchResults.first { it.isNotEmpty() }
@@ -176,9 +176,9 @@ class SearchFeatureTest {
             lowerResults.size, upperResults.size)
     }
 
-    // 19. Search finds artifacts by name and base item
+    // Search finds artifacts by name and base item
     @Test
-    fun test19_artifactSearch() = runBlocking {
+    fun artifactSearch() = runBlocking {
         // Search by artifact name
         val excaliburResults = repository.searchMonstersItems("Excalibur").first { it.isNotEmpty() }
         val excalibur = excaliburResults.find { it.name == "Excalibur" }

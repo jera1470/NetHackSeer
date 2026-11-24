@@ -183,7 +183,7 @@ class NetHackRepositoryTest {
         repository = NetHackRepository(monsterDao, itemDao, propertyDao, artifactDao)
     }
 
-    // 1. Empty or whitespace query returns empty list
+    // Empty or whitespace query returns empty list
     @Test
     fun search_emptyOrWhitespaceQuery_returnsEmptyList() = runBlocking {
         val emptyResults = repository.searchMonstersItems("").first()
@@ -193,7 +193,7 @@ class NetHackRepositoryTest {
         assertTrue("Whitespace query should return empty list", whitespaceResults.isEmpty())
     }
 
-    // 2. Search matches monster name
+    // Search matches monster name
     @Test
     fun search_byMonsterName_returnsMatchingMonster() = runBlocking {
         val results = repository.searchMonstersItems("giant ant").first()
@@ -205,7 +205,7 @@ class NetHackRepositoryTest {
         assertEquals("CLR_BROWN", result.color)
     }
 
-    // 3. Search matches gendered names (maleName and femaleName)
+    // Search matches gendered names (maleName and femaleName)
     @Test
     fun search_byGenderedName_returnsParentMonster() = runBlocking {
         val femaleResults = repository.searchMonstersItems("gnome queen").first()
@@ -218,7 +218,7 @@ class NetHackRepositoryTest {
         assertEquals("gnome ruler", maleResults[0].name)
     }
 
-    // 4. Search matches glyph display character
+    // Search matches glyph display character
     @Test
     fun search_byMonsterGlyph_returnsMonstersWithSymbol() = runBlocking {
         // 'a' corresponds to S_ANT
@@ -226,7 +226,7 @@ class NetHackRepositoryTest {
         assertTrue("Should return giant ant for glyph 'a'", results.any { it.name == "giant ant" })
     }
 
-    // 5. Search matches monster class display name
+    // Search matches monster class display name
     @Test
     fun search_byMonsterClassDisplayName_returnsMatchingMonsters() = runBlocking {
         // S_ANT display name is "ant / insect"
@@ -234,7 +234,7 @@ class NetHackRepositoryTest {
         assertTrue("Should return giant ant when searching 'insect'", results.any { it.name == "giant ant" })
     }
 
-    // 6. Search matches item name
+    // Search matches item name
     @Test
     fun search_byItemName_returnsMatchingItem() = runBlocking {
         val results = repository.searchMonstersItems("long sword").first()
@@ -244,7 +244,7 @@ class NetHackRepositoryTest {
         assertEquals("WEAPON_CLASS", item?.symbol)
     }
 
-    // 7. Search matches item glyph
+    // Search matches item glyph
     @Test
     fun search_byItemGlyph_returnsItemsWithClass() = runBlocking {
         // ')' corresponds to WEAPON_CLASS
@@ -253,7 +253,7 @@ class NetHackRepositoryTest {
             results.any { it.name == "long sword" && it.category == "item" })
     }
 
-    // 8. Search matches artifact name and resolves base item symbol and color
+    // Search matches artifact name and resolves base item symbol and color
     @Test
     fun search_byArtifactName_resolvesBaseItemMetadata() = runBlocking {
         val results = repository.searchMonstersItems("Excalibur").first()
@@ -265,7 +265,7 @@ class NetHackRepositoryTest {
         assertEquals("HI_METAL", artifact.color)
     }
 
-    // 9. Search matches artifact by its base item name
+    // Search matches artifact by its base item name
     @Test
     fun search_byArtifactBaseItem_returnsAssociatedArtifact() = runBlocking {
         val results = repository.searchMonstersItems("crystal ball").first()
@@ -276,7 +276,7 @@ class NetHackRepositoryTest {
         assertEquals("CLR_WHITE", artifact?.color)
     }
 
-    // 10. Search is case-insensitive
+    // Search is case-insensitive
     @Test
     fun search_isCaseInsensitive() = runBlocking {
         val upperResults = repository.searchMonstersItems("EXCALIBUR").first()
@@ -288,7 +288,7 @@ class NetHackRepositoryTest {
         assertEquals("Excalibur", upperResults[0].name)
     }
 
-    // 11. Combined results are sorted alphabetically by name
+    // Combined results are sorted alphabetically by name
     @Test
     fun search_combinedResults_sortedAlphabetically() = runBlocking {
         // Broad query that matches multiple categories
@@ -302,7 +302,7 @@ class NetHackRepositoryTest {
         }
     }
 
-    // 12. allNames combines names from all 4 DAOs in sorted order
+    // allNames combines names from all 4 DAOs in sorted order
     @Test
     fun allNames_combinesAllFourDaosAlphabetically() = runBlocking {
         val allNames = repository.allNames.first()
@@ -321,7 +321,7 @@ class NetHackRepositoryTest {
         }
     }
 
-    // 13. Direct entity getters return expected entity
+    // Direct entity getters return expected entity
     @Test
     fun directGetters_returnCorrectEntities() = runBlocking {
         val monster = repository.getMonsterByName("giant ant").first()
@@ -339,92 +339,5 @@ class NetHackRepositoryTest {
         val property = repository.getPropertyByName("Fire resistance").first()
         assertNotNull(property)
         assertEquals("Fire resistance", property?.name)
-    }
-}
-
-// in memory fakes
-class FakeMonsterDao(initial: List<MonsterEntity> = emptyList()) : MonsterDao {
-    private val _entities = MutableStateFlow(initial)
-
-    override suspend fun insertAll(entities: List<MonsterEntity>) {
-        _entities.value = entities
-    }
-
-    override fun getAll(): Flow<List<MonsterEntity>> = _entities
-
-    override fun getAllNames(): Flow<List<String>> = _entities.map { it.map { m -> m.name }.sorted() }
-
-    override fun search(query: String): Flow<List<MonsterEntity>> = _entities.map { list ->
-        val clean = query.replace("%", "").trim().lowercase()
-        list.filter { it.name.contains(clean, ignoreCase = true) }
-    }
-
-    override fun getMonsterByName(name: String): Flow<MonsterEntity?> = _entities.map { list ->
-        list.find { it.name.equals(name, ignoreCase = true) }
-    }
-}
-
-class FakeItemDao(initial: List<ItemEntity> = emptyList()) : ItemDao {
-    private val _entities = MutableStateFlow(initial)
-
-    override suspend fun insertAll(entities: List<ItemEntity>) {
-        _entities.value = entities
-    }
-
-    override fun getAll(): Flow<List<ItemEntity>> = _entities
-
-    override fun getAllNames(): Flow<List<String>> = _entities.map { it.map { i -> i.name }.sorted() }
-
-    override fun search(query: String): Flow<List<ItemEntity>> = _entities.map { list ->
-        val clean = query.replace("%", "").trim().lowercase()
-        list.filter { it.name.contains(clean, ignoreCase = true) }
-    }
-
-    override fun getItemByName(name: String): Flow<ItemEntity?> = _entities.map { list ->
-        list.find { it.name.equals(name, ignoreCase = true) }
-    }
-}
-
-class FakePropertyDao(initial: List<PropertyEntity> = emptyList()) : PropertyDao {
-    private val _entities = MutableStateFlow(initial)
-
-    override suspend fun getPropertyById(id: String): PropertyEntity? =
-        _entities.value.find { it.id == id }
-
-    override fun getPropertiesByIds(ids: List<String>): Flow<List<PropertyEntity>> = _entities.map { list ->
-        list.filter { it.id in ids }
-    }
-
-    override suspend fun insertProperties(properties: List<PropertyEntity>) {
-        _entities.value = properties
-    }
-
-    override fun getAllProperties(): Flow<List<PropertyEntity>> = _entities
-
-    override fun getPropertyByName(name: String): Flow<PropertyEntity?> = _entities.map { list ->
-        list.find { it.name.equals(name, ignoreCase = true) }
-    }
-
-    override fun getAllNames(): Flow<List<String>> = _entities.map { it.map { p -> p.name }.sorted() }
-}
-
-class FakeArtifactDao(initial: List<ArtifactEntity> = emptyList()) : ArtifactDao {
-    private val _entities = MutableStateFlow(initial)
-
-    override suspend fun insertAll(entities: List<ArtifactEntity>) {
-        _entities.value = entities
-    }
-
-    override fun getAll(): Flow<List<ArtifactEntity>> = _entities
-
-    override fun getAllNames(): Flow<List<String>> = _entities.map { it.map { a -> a.name }.sorted() }
-
-    override fun search(query: String): Flow<List<ArtifactEntity>> = _entities.map { list ->
-        val clean = query.replace("%", "").trim().lowercase()
-        list.filter { it.name.contains(clean, ignoreCase = true) }
-    }
-
-    override fun getArtifactByName(name: String): Flow<ArtifactEntity?> = _entities.map { list ->
-        list.find { it.name.equals(name, ignoreCase = true) }
     }
 }

@@ -20,10 +20,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.time.Duration.Companion.seconds
 
-/**
- * Instrumented tests for category navigation, screen popping,
- * and TypeList loading across monsters, items, and artifacts.
- */
 @RunWith(AndroidJUnit4::class)
 class NavigationFlowTest {
 
@@ -49,9 +45,9 @@ class NavigationFlowTest {
         )
     }
 
-    // 4. Check if selecting a search result navigates to details
+    // Selecting a search result navigates to details
     @Test
-    fun test4_selectingResultNavigatesToDetails() {
+    fun selectingResultNavigatesToDetails() {
         var navigatedEntityId: String? = null
         val onNavigateToDetail: (String) -> Unit = { id ->
             navigatedEntityId = id
@@ -63,9 +59,9 @@ class NavigationFlowTest {
         assertEquals("floating eye", navigatedEntityId)
     }
 
-    // 5. Check if clicking category navigates to list
+    // Clicking category pill navigates to category type list
     @Test
-    fun test5_clickingCategoryNavigatesToList() {
+    fun clickingCategoryNavigatesToList() {
         var navigatedCategory: String? = null
         val onNavigateToCategory: (String) -> Unit = { category ->
             navigatedCategory = category
@@ -78,9 +74,9 @@ class NavigationFlowTest {
         assertEquals("item", navigatedCategory)
     }
 
-    // 7. Check if clicking back pops the screen
+    // Clicking back pops the screen from backstack
     @Test
-    fun test7_clickingBackPopsScreen() {
+    fun clickingBackPopsScreen() {
         var backPressed = false
         val onBack: () -> Unit = {
             backPressed = true
@@ -90,9 +86,9 @@ class NavigationFlowTest {
         assertTrue(backPressed)
     }
 
-    // 20. Clicking artifact category navigates and loads artifact list
+    // Clicking artifact category navigates and loads artifact list
     @Test
-    fun test20_artifactCategoryNavigationAndList() = runBlocking {
+    fun artifactCategoryNavigationAndList() = runBlocking {
         var navigatedCategory: String? = null
         val onNavigateToCategory: (String) -> Unit = { category ->
             navigatedCategory = category

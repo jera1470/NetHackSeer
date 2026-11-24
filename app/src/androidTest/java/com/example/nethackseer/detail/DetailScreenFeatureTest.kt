@@ -19,10 +19,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.time.Duration.Companion.seconds
 
-/**
- * Instrumented tests for Detail screen data mapping across
- * monsters, items, properties, and artifacts.
- */
 @RunWith(AndroidJUnit4::class)
 class DetailScreenFeatureTest {
 
@@ -48,9 +44,9 @@ class DetailScreenFeatureTest {
         )
     }
 
-    // 21. Artifact detail loads and displays full artifact stats and special effects
+    // Artifact detail loads and displays full artifact stats and special effects
     @Test
-    fun test21_artifactDetailDisplay() = runBlocking {
+    fun artifactDetailDisplay() = runBlocking {
         val savedStateHandle = SavedStateHandle(mapOf("entityId" to "The Eye of the Aethiopica"))
         val detailViewModel = DetailViewModel(savedStateHandle, repository)
 

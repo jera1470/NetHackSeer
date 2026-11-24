@@ -8,7 +8,7 @@ import org.junit.Test
 
 class NetHackUtilsTest {
 
-    // 1. cleanNetHackName replaces color and material prefixes with lowercase words and replaces underscores
+    // cleanNetHackName replaces color and material prefixes with lowercase words and replaces underscores
     @Test
     fun cleanNetHackName_replacesPrefixesAndUnderscores() {
         assertEquals("giant ant", cleanNetHackName("giant_ant"))
@@ -18,7 +18,7 @@ class NetHackUtilsTest {
         assertEquals("killer bee", cleanNetHackName("killer_bee"))
     }
 
-    // 2. getDisplayChar maps monster and item symbol constants to NetHack ASCII glyphs
+    // getDisplayChar maps monster and item symbol constants to NetHack ASCII glyphs
     @Test
     fun getDisplayChar_mapsSymbolsToGlyphs() {
         // Monster symbols
@@ -47,7 +47,7 @@ class NetHackUtilsTest {
         assertEquals("?", getDisplayChar("UNKNOWN_CLASS"))
     }
 
-    // 3. getSymbolDisplayName returns human-readable group names
+    // getSymbolDisplayName returns human-readable group names
     @Test
     fun getSymbolDisplayName_returnsHumanReadableNames() {
         assertEquals("weapon", getSymbolDisplayName("WEAPON_CLASS"))
@@ -58,7 +58,7 @@ class NetHackUtilsTest {
         assertEquals("dragon", getSymbolDisplayName("S_DRAGON"))
     }
 
-    // 4. getNetHackColor returns valid Compose Color instances
+    // getNetHackColor returns valid Compose Color instances
     @Test
     fun getNetHackColor_returnsValidColors() {
         val red = getNetHackColor("CLR_RED")
@@ -75,7 +75,7 @@ class NetHackUtilsTest {
         assertEquals(Color.Gray, defaultGray)
     }
 
-    // 5. formatItemProperty converts property constants to readable text
+    // formatItemProperty converts property constants to readable text
     @Test
     fun formatItemProperty_formatsStandardProperties() {
         assertEquals("Fire resistance", formatItemProperty("FIRE_RES"))
@@ -86,7 +86,7 @@ class NetHackUtilsTest {
         assertEquals("Magic cancellation", formatItemProperty("MAGIC_CANCELLATION"))
     }
 
-    // 6. formatArtifactProperty strips MR_/MR2_ prefixes and maps artifact-specific flags
+    // formatArtifactProperty strips MR_/MR2_ prefixes and maps artifact-specific flags
     @Test
     fun formatArtifactProperty_stripsPrefixesAndFormats() {
         assertEquals("Shock resistance", formatArtifactProperty("MR_ELEC"))
