@@ -279,7 +279,11 @@ fun formatItemProperty(id: String): String {
         "SLOW_DIGESTION" -> "Slow digestion"
         "INFRAVISION" -> "Infravision"
         "ADORNED" -> "Adornment"
-        else -> id.lowercase().replace("_", " ").replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+        else -> id.lowercase().replace("_", " ").replaceFirstChar {
+            if (it.isLowerCase())
+                it.titlecase()
+            else
+                it.toString() }
     }
 }
 
@@ -295,6 +299,10 @@ fun formatArtifactProperty(id: String): String {
         "POISON" -> "Poison resistance"
         "ACID" -> "Acid resistance"
         "STONE" -> "Stone resistance"
+        "HALLUC_RES" -> "Hallucination resistance"
+        "ENERGY_REGEN" -> "Energy regeneration"
+        "HALF_SPDAM" -> "Half spell damage"
+        "HALF_PHDAM" -> "Half physical damage"
         else -> formatItemProperty(clean)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.nethackseer
+package com.example.nethackseer.data
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -39,18 +39,21 @@ class DatabasePopulationTest {
         }
     }
 
+    // Verifies monsters and items tables are populated from asset JSON files
     @Test
     fun testDatabasePopulation_tablesNotEmpty() {
         assertTrue("Monsters table should not be empty", monsters.isNotEmpty())
         assertTrue("Items table should not be empty", items.isNotEmpty())
     }
 
+    // Verifies pre-seeded database contains sample unique monster Croesus
     @Test
     fun testDatabasePopulation_containsSampleMonsterCroesus() {
         val croesus = monsters.find { it.name.equals("Croesus", ignoreCase = true) }
         assertNotNull("Croesus monster should exist in database", croesus)
     }
 
+    // Verifies pre-seeded database contains gendered monster names for gnome ruler
     @Test
     fun testDatabasePopulation_containsGenderedGnomeRuler() {
         val gnomeRuler = monsters.find { it.name.equals("gnome ruler", ignoreCase = true) }
@@ -59,6 +62,7 @@ class DatabasePopulationTest {
         assertEquals("gnome queen", gnomeRuler?.femaleName)
     }
 
+    // Verifies pre-seeded database contains sample iconic item Amulet of Yendor
     @Test
     fun testDatabasePopulation_containsSampleItemAmuletOfYendor() {
         val amulet = items.find { it.name.contains("Amulet of Yendor", ignoreCase = true) }
